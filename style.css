@@ -55,7 +55,7 @@ header {
 
 header .container {
   display: flex;
-  /* gap: 2rem; */
+  gap: 12px;
   justify-content: space-between;
   align-items: center;
 }
