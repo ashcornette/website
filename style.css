@@ -77,11 +77,27 @@ nav a {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   font-weight: 400;
-  transition: opacity 0.25s ease;
+  position: relative;
+  transition: opacity 0.2s ease;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.22s ease;
 }
 
 nav a:hover {
-  opacity: 0.4;
+  opacity: 0.65;
+}
+
+nav a:hover::after {
+  width: 100%;
 }
 
 /* ——— HERO ——— */
@@ -129,6 +145,14 @@ nav a:hover {
   border-radius: 100px;
   font-weight: 400;
   color: var(--grey);
+  cursor: default;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.tag:hover {
+  background: var(--black);
+  color: var(--white);
+  border-color: var(--black);
 }
 
 /* ——— SECTIONS ——— */
@@ -185,8 +209,32 @@ section {
   transition: transform 0.5s ease;
 }
 
+.bento-grid .work-item:last-child .work-img-wrap,
+.bento-grid .work-item:last-child .work-img-wrap .work-img-placeholder {
+  background: #ffffff;
+}
+
+.bento-grid .work-item:last-child .work-img-wrap img {
+  object-fit: contain;
+}
+
+.work-img-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
 .work-item:hover .work-img-wrap img {
   transform: scale(1.03);
+}
+
+.work-item:hover .work-img-wrap::after {
+  border-color: var(--black);
 }
 
 .work-img-placeholder {
@@ -246,6 +294,11 @@ section {
 
 .service-item {
   padding: 24px 0;
+  transition: transform 0.3s ease;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
 }
 
 .service-title {
@@ -287,6 +340,7 @@ section {
   padding: 18px 0;
   border-bottom: 1px solid var(--grey-light);
   align-items: baseline;
+  cursor: default;
 }
 
 .exp-row:first-of-type {
@@ -302,6 +356,12 @@ section {
 .exp-title {
   font-size: 16px;
   font-weight: 400;
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.exp-row:hover .exp-title {
+  transform: translateX(6px);
 }
 
 .exp-org {
@@ -344,11 +404,13 @@ section {
   text-transform: uppercase;
   border-bottom: 1px solid var(--black);
   padding-bottom: 4px;
-  transition: opacity 0.25s ease;
+  display: inline-block;
+  transition: transform 0.25s ease, letter-spacing 0.25s ease;
 }
 
 .cta-link:hover {
-  opacity: 0.4;
+  transform: translateX(6px);
+  letter-spacing: 0.12em;
 }
 
 /* ——— FOOTER ——— */
