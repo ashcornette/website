@@ -84,7 +84,7 @@ body {
 /* ── STACK WRAPPER ── */
 .stack {
   position: relative;
-  width: 100%;
+  width: 90%;
   max-width: 480px;
 }
 
