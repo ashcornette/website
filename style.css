@@ -8,7 +8,7 @@
   padding: 0;
 }
 
-/* ── LOAD ANIMATIONS ── */
+/* ── ANIMATIONS ── */
 @keyframes fadein {
   from {
     opacity: 0;
@@ -30,6 +30,42 @@
   }
 }
 
+@keyframes shuffle-to-front {
+  0% {
+    transform: translate(22px, 22px);
+    z-index: 1;
+    box-shadow: 6px 6px 0px #000;
+  }
+  40% {
+    transform: translate(40px, -20px);
+    z-index: 3;
+    box-shadow: 12px 12px 0px #000;
+  }
+  100% {
+    transform: translate(0, 0);
+    z-index: 3;
+    box-shadow: 3px 3px 0px #000;
+  }
+}
+
+@keyframes shuffle-to-back-peek {
+  0% {
+    transform: translate(0, 0);
+    z-index: 3;
+    box-shadow: 3px 3px 0px #000;
+  }
+  40% {
+    transform: translate(-20px, 10px);
+    z-index: 1;
+    box-shadow: 8px 8px 0px #000;
+  }
+  100% {
+    transform: translate(18px, 18px);
+    z-index: 1;
+    box-shadow: 3px 3px 0px #000;
+  }
+}
+
 body {
   font-family: "IBM Plex Mono", monospace;
   font-weight: 400;
@@ -45,9 +81,16 @@ body {
   padding: 40px 24px;
 }
 
-main {
+/* ── STACK WRAPPER ── */
+.stack {
+  position: relative;
   width: 100%;
   max-width: 480px;
+}
+
+/* ── CARD BASE ── */
+.card {
+  width: 100%;
   background: #e7ecef;
   border: 1px solid #000;
   padding: 1.75rem;
@@ -57,31 +100,124 @@ main {
     transform 0.3s ease;
 }
 
-main:hover {
+/* ── FRONT CARD ── */
+.card.front {
+  position: relative;
+  z-index: 3;
+  animation: shuffle-to-front 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.stack:hover .card.front {
   box-shadow: 15px 15px 0px #000;
 }
+
+/* ── BACK CARD ── */
+.card.back {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: #d9dee1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  text-decoration: none;
+  color: #363636;
+  cursor: pointer;
+  transform: translate(8px, 8px);
+  animation: shuffle-to-back-peek 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    forwards;
+}
+
+.card.back .card-label,
+.card.back .arrow {
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+}
+
+.card.back .card-label {
+  font-size: 14px;
+  letter-spacing: 0.01em;
+}
+
+.card.back .arrow {
+  font-size: 16px;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.stack:hover .card.back {
+  transform: translate(22px, 22px);
+  box-shadow: 6px 6px 0px #000;
+}
+
+.stack:hover .card.back .card-label,
+.stack:hover .card.back .arrow {
+  opacity: 1;
+}
+
+.stack:hover .card.back .arrow {
+  transform: translateX(4px);
+}
+
+/* ── NAVIGATION HINT ── */
+.card.back .hint {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  color: #363636;
+  opacity: 0;
+  animation:
+    hint-appear 0.5s ease 1.6s forwards,
+    hint-nudge 2.4s ease-in-out 3s infinite;
+  pointer-events: none;
+}
+
+@keyframes hint-appear {
+  to {
+    opacity: 0.7;
+  }
+}
+
+@keyframes hint-nudge {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  30%,
+  70% {
+    transform: translateX(3px);
+  }
+}
+
 /* ── STAGGERED FADE IN ── */
-h1,
-p,
+.card.front h1,
+.card.front p,
+.card.front .project-list,
 footer {
   opacity: 0;
   animation: fadein 0.6s ease forwards;
 }
 
-h1 {
-  animation-delay: 0.1s;
+.card.front h1 {
+  animation-delay: 0.3s;
 }
-p:nth-of-type(1) {
-  animation-delay: 0.25s;
+.card.front p:nth-of-type(1) {
+  animation-delay: 0.45s;
 }
-p:nth-of-type(2) {
-  animation-delay: 0.4s;
+.card.front p:nth-of-type(2) {
+  animation-delay: 0.6s;
+}
+.card.front .project-list {
+  animation-delay: 0.5s;
 }
 footer {
-  animation-delay: 0.55s;
+  animation-delay: 0.7s;
 }
 
-/* ── NAME ── */
+/* ── NAME / PAGE TITLE ── */
 h1 {
   font-size: 16px;
   font-weight: 400;
@@ -102,7 +238,8 @@ p {
   margin-bottom: 20px;
 }
 
-p a {
+p a,
+.project-list a {
   color: hsl(27, 97%, 45%);
   text-decoration: underline;
   text-underline-offset: 5px;
@@ -110,10 +247,42 @@ p a {
   transition: text-decoration-color 0.2s ease;
 }
 
-p a:hover {
+p a:hover,
+.project-list a:hover {
   text-decoration-color: #fc9e4f;
 }
 
+/* ── PROJECT LIST ── */
+.project-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.project-list li {
+  padding-bottom: 16px;
+  border-bottom: 1px solid #00000014;
+}
+
+.project-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.project-list .project-title {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  margin-bottom: 4px;
+}
+
+.project-list .project-desc {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 0;
+  line-height: 1.7;
+}
 /* ── FOOTER ── */
 footer {
   width: 100%;
@@ -154,4 +323,76 @@ footer ul a {
 
 footer ul a:hover {
   color: #fc9e4f;
+}
+
+/* ── RESPONSIVE — MOBILE ── */
+@media screen and (max-width: 600px) {
+  body {
+    padding: 60px 28px 48px;
+    justify-content: flex-start;
+    min-height: 100dvh;
+  }
+
+  .stack {
+    max-width: 100%;
+    margin-top: 24px;
+  }
+
+  .card {
+    padding: 2rem 1.5rem;
+  }
+
+  /* Larger touch target for back card on mobile */
+  .card.back {
+    min-height: 80px;
+  }
+
+  /* Always show hint on mobile since there's no hover */
+  .card.back .hint {
+    animation: hint-pulse 4s ease-in-out 1.2s 5;
+  }
+
+  .stack:hover .card.back {
+    transform: translate(18px, 18px);
+  }
+
+  footer {
+    margin-top: 48px;
+  }
+
+  footer ul {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  footer ul a {
+    font-size: 13px;
+    padding: 4px 0;
+  }
+}
+
+/* ── RESPONSIVE — SMALL MOBILE ── */
+@media screen and (max-width: 380px) {
+  body {
+    padding: 48px 20px 40px;
+  }
+
+  .card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  h1 {
+    margin-bottom: 24px;
+  }
+}
+
+/* ── RESPONSIVE — LARGE SCREENS ── */
+@media screen and (min-width: 1200px) {
+  .stack {
+    max-width: 520px;
+  }
+
+  footer {
+    max-width: 520px;
+  }
 }
