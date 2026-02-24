@@ -328,7 +328,9 @@ footer ul a:hover {
 /* ── RESPONSIVE — MOBILE ── */
 @media screen and (max-width: 600px) {
   body {
-    padding: 60px 28px 48px;
+    font-size: 16px;
+    line-height: 1.8;
+    padding: 48px 24px 48px;
     justify-content: flex-start;
     min-height: 100dvh;
   }
@@ -342,18 +344,47 @@ footer ul a:hover {
     padding: 2rem 1.5rem;
   }
 
+  h1 {
+    font-size: 18px;
+    margin-bottom: 28px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 18px;
+  }
+
   /* Larger touch target for back card on mobile */
   .card.back {
     min-height: 80px;
   }
 
+  .card.back .card-label {
+    font-size: 16px;
+  }
+
+  .card.back .arrow {
+    font-size: 18px;
+  }
+
   /* Always show hint on mobile since there's no hover */
   .card.back .hint {
+    font-size: 13px;
     animation: hint-pulse 4s ease-in-out 1.2s 5;
   }
 
   .stack:hover .card.back {
     transform: translate(18px, 18px);
+  }
+
+  .project-list .project-title {
+    font-size: 16px;
+  }
+
+  .project-list .project-desc {
+    font-size: 15px;
+    line-height: 1.7;
   }
 
   footer {
@@ -362,27 +393,36 @@ footer ul a:hover {
 
   footer ul {
     flex-direction: column;
-    gap: 14px;
+    gap: 16px;
   }
 
   footer ul a {
-    font-size: 13px;
-    padding: 4px 0;
+    font-size: 15px;
+    padding: 6px 0;
   }
 }
 
 /* ── RESPONSIVE — SMALL MOBILE ── */
 @media screen and (max-width: 380px) {
   body {
-    padding: 48px 20px 40px;
+    padding: 40px 20px 40px;
   }
 
   .card {
-    padding: 1.5rem 1.25rem;
+    padding: 1.75rem 1.25rem;
   }
 
   h1 {
+    font-size: 17px;
     margin-bottom: 24px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  footer ul a {
+    font-size: 14px;
   }
 }
 
