@@ -86,7 +86,7 @@ h1::after {
 
 /* ── ROLE ── */
 .role {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--muted);
   margin-bottom: 48px;
   font-style: italic;
