@@ -6,343 +6,140 @@
     <title>Sean Dawn — Ash Cornette</title>
     <link rel="stylesheet" href="style.css" />
     <style>
-      /* ── FIGURES ── */
-      .figure {
-        margin: 28px 0;
-      }
+      /* ── CASE STUDY CORE ── */
+      .section { margin-bottom: 56px; }
+      .section-num { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+      .section h3 { font-size: 13px; font-weight: 400; margin-bottom: 20px; }
+      .section h3::after { content: none; }
+      .section h4 { font-size: 12px; font-weight: 400; color: var(--text); margin-top: 32px; margin-bottom: 10px; letter-spacing: 0.04em; }
+      .section p { font-size: 12px; color: var(--muted); line-height: 1.85; margin-bottom: 14px; }
+      .section p:last-child { margin-bottom: 0; }
+      .section p strong { color: var(--text); font-weight: 400; }
+      .section p em { font-style: italic; }
 
-      .figure img {
-        width: 100%;
-        height: auto;
-        display: block;
-        border-radius: 4px;
-        border: 1px solid var(--border);
-      }
+      /* ── META ── */
+      .meta { font-size: 11px; color: var(--muted); margin-bottom: 48px; line-height: 1.85; }
+      .meta span::after { content: " · "; }
+      .meta span:last-child::after { content: none; }
 
-      .figure-caption {
-        font-size: 10px;
-        color: var(--muted);
-        margin-top: 8px;
-        letter-spacing: 0.04em;
-      }
+      /* ── STATS ── */
+      .stats { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 16px 0; margin: 24px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px 24px; }
+      .stat-item { font-size: 12px; color: var(--muted); line-height: 1.6; }
+      .stat-val { color: var(--text); font-weight: 400; }
 
-      /* ── DOTS VIZ ── */
-      .dots-week {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-        margin: 20px 0;
-      }
+      /* ── PULLQUOTE ── */
+      .pull { border-left: 2px solid var(--accent); padding-left: 16px; margin: 28px 0; font-size: 12px; font-style: italic; color: var(--text); line-height: 1.85; }
 
-      .dot {
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 10px;
-        font-family: "IBM Plex Mono", monospace;
-        color: #f5f4f0;
-      }
+      /* ── PERSONA ── */
+      .persona { border: 1px solid var(--border); padding: 20px; margin: 28px 0; }
+      .persona-header { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+      .persona-name { font-size: 13px; color: var(--text); margin-bottom: 12px; }
+      .persona-grid { display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; font-size: 11px; margin-bottom: 16px; }
+      .persona-label { color: var(--muted); }
+      .persona-val { color: var(--text); }
+      .persona-quote { font-size: 11px; font-style: italic; color: var(--text); border-top: 1px solid var(--border); padding-top: 14px; margin-top: 8px; line-height: 1.75; }
+      .persona-traits { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+      .persona-trait { font-size: 10px; color: var(--muted); border: 1px solid var(--border); padding: 3px 10px; border-radius: 999px; }
 
+      /* ── GOALS ── */
+      .goals-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 24px 0; border: 1px solid var(--border); }
+      .goals-col { padding: 16px; }
+      .goals-col:first-child { border-right: 1px solid var(--border); }
+      .goals-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
+      .goals-label.good { color: #5ba65b; }
+      .goals-label.bad { color: var(--accent); }
+      .goals-item { font-size: 11px; color: var(--muted); line-height: 1.75; padding: 4px 0; border-bottom: 1px solid var(--border); }
+      .goals-item:last-child { border-bottom: none; }
+
+      /* ── JOURNEY ── */
+      .journey { margin: 28px 0; overflow-x: auto; }
+      .journey-track { display: flex; min-width: 580px; }
+      .journey-stop { flex: 1; text-align: center; position: relative; padding-top: 24px; }
+      .journey-stop::before { content: ''; position: absolute; top: 6px; left: 0; right: 0; height: 1px; background: var(--border); }
+      .journey-stop:first-child::before { left: 50%; }
+      .journey-stop:last-child::before { right: 50%; }
+      .journey-dot { width: 12px; height: 12px; border-radius: 50%; border: 1px solid var(--border); background: var(--bg); position: absolute; top: 0; left: 50%; transform: translateX(-50%); }
+      .journey-dot.high { border-color: #5ba65b; background: #5ba65b; }
+      .journey-dot.mid { border-color: var(--accent); background: var(--accent); }
+      .journey-dot.low { border-color: var(--muted); }
+      .journey-time { font-size: 9px; color: var(--accent); margin-bottom: 2px; }
+      .journey-name { font-size: 10px; color: var(--text); margin-bottom: 2px; }
+      .journey-desc { font-size: 9px; color: var(--muted); line-height: 1.4; }
+      .journey-mood { font-size: 9px; color: var(--muted); font-style: italic; margin-top: 4px; }
+
+      /* ── THEMES ── */
+      .themes { margin: 20px 0; }
+      .theme-row { font-size: 11px; color: var(--muted); line-height: 1.85; display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid var(--border); }
+      .theme-row:last-child { border-bottom: none; }
+      .theme-name { color: var(--text); }
+      .theme-count { color: var(--accent); font-size: 10px; }
+
+      /* ── STEPS ── */
+      .steps { margin: 20px 0; }
+      .step { padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 12px; }
+      .step:last-child { border-bottom: none; }
+      .step-num { color: var(--accent); font-size: 10px; letter-spacing: 0.08em; margin-bottom: 2px; }
+      .step-title { color: var(--text); margin-bottom: 4px; }
+      .step-desc { color: var(--muted); line-height: 1.75; }
+
+      /* ── PHASES ── */
+      .phases { margin: 20px 0; font-size: 11px; }
+      .phase { display: flex; gap: 12px; padding: 6px 0; color: var(--muted); }
+      .phase-num { color: var(--accent); font-size: 10px; width: 16px; flex-shrink: 0; }
+      .phase-name { color: var(--text); width: 72px; flex-shrink: 0; }
+
+      /* ── SCREENS ── */
+      .screens { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 28px 0; }
+      .screens.triple { grid-template-columns: 1fr 1fr 1fr; }
+      .screens img { width: 100%; height: auto; display: block; border-radius: 8px; border: 1px solid var(--border); }
+      .screens-caption { font-size: 10px; color: var(--muted); margin-top: 8px; letter-spacing: 0.04em; }
+
+      /* ── COMPARE ── */
+      .compare { margin: 24px 0; border-top: 1px solid var(--border); }
+      .compare-header { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 12px 0 8px; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; }
+      .compare-header span:first-child { color: var(--muted); }
+      .compare-header span:last-child { color: var(--accent); }
+      .compare-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 6px 0; font-size: 11px; border-bottom: 1px solid var(--border); }
+      .compare-row:last-child { border-bottom: none; }
+      .compare-row span:first-child { color: var(--muted); }
+      .compare-row span:last-child { color: var(--text); }
+
+      /* ── REFLECT PILLS ── */
+      .reflect { display: flex; gap: 12px; margin: 20px 0; }
+      .reflect-pill { font-family: "IBM Plex Mono", monospace; font-size: 11px; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border); background: transparent; color: var(--muted); cursor: default; }
+      .reflect-pill.moved { border-color: #5ba65b; color: #5ba65b; }
+      .reflect-pill.mixed { border-color: var(--accent); color: var(--accent); }
+      .reflect-pill.spun { border-color: #c75b3a; color: #c75b3a; }
+
+      /* ── DOTS ── */
+      .dots-week { display: flex; gap: 8px; align-items: center; margin: 20px 0; }
+      .dot { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 9px; font-family: "IBM Plex Mono", monospace; color: #f5f4f0; }
       .dot.moved { background: #5ba65b; }
       .dot.mixed { background: #c85a1e; }
       .dot.spun { background: #c75b3a; }
       .dot.empty { background: transparent; border: 1px solid var(--border); color: var(--muted); }
+      .dot-day { font-size: 9px; color: var(--muted); text-align: center; width: 28px; }
+      .dots-meta { font-size: 10px; color: var(--muted); margin-top: 8px; }
+      .dots-meta strong { color: var(--text); font-weight: 400; }
 
-      .dot-day {
-        font-size: 10px;
-        color: var(--muted);
-        text-align: center;
-        width: 28px;
-      }
+      /* ── FLOW ── */
+      .flow-overview { margin: 28px 0; border: 1px solid var(--border); padding: 16px; overflow-x: auto; }
+      .flow-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+      .flow-track { display: flex; align-items: center; min-width: 500px; }
+      .flow-node { text-align: center; flex: 1; }
+      .flow-node-dot { width: 28px; height: 28px; border-radius: 50%; margin: 0 auto 4px; display: flex; align-items: center; justify-content: center; font-size: 8px; color: #fff; }
+      .flow-node-dot.gold { background: var(--accent); }
+      .flow-node-dot.dark { background: var(--text); }
+      .flow-node-dot.ind { background: #2B2D54; }
+      .flow-node-name { font-size: 9px; color: var(--text); }
+      .flow-arrow { color: var(--border); font-size: 10px; flex-shrink: 0; }
+      .flow-times { display: flex; justify-content: space-between; margin-top: 10px; font-size: 9px; color: var(--muted); min-width: 500px; }
 
-      .dots-meta {
-        font-size: 12px;
-        color: var(--muted);
-        margin-top: 8px;
-        letter-spacing: 0.04em;
-      }
-
-      .dots-meta strong {
-        color: var(--text);
-        font-weight: 400;
-      }
-
-      /* ── CASE STUDY ADDITIONS ── */
-      .section {
-        margin-bottom: 56px;
-      }
-
-      .section-num {
-        font-size: 12px;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--accent);
-        margin-bottom: 8px;
-      }
-
-      .section h3 {
-        font-size: 16px;
-        font-weight: 400;
-        margin-bottom: 20px;
-      }
-
-      .section h3::after {
-        content: none;
-      }
-
-      .section h4 {
-        font-size: 16px;
-        font-weight: 400;
-        color: var(--text);
-        margin-top: 32px;
-        margin-bottom: 10px;
-        letter-spacing: 0.04em;
-      }
-
-      .section p {
-        font-size: 16px;
-        color: var(--muted);
-        line-height: 1.85;
-        margin-bottom: 14px;
-      }
-
-      .section p:last-child {
-        margin-bottom: 0;
-      }
-
-      .section p strong {
-        color: var(--text);
-        font-weight: 400;
-      }
-
-      .section p em {
-        font-style: italic;
-      }
-
-      /* ── STATS ── */
-      .stats {
-        border-top: 1px solid var(--border);
-        border-bottom: 1px solid var(--border);
-        padding: 16px 0;
-        margin: 24px 0;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px 24px;
-      }
-
-      .stat-item {
-        font-size: 12px;
-        color: var(--muted);
-        line-height: 1.6;
-      }
-
-      .stat-val {
-        color: var(--text);
-        font-weight: 400;
-      }
-
-      /* ── PULLQUOTE ── */
-      .pull {
-        border-left: 2px solid var(--accent);
-        padding-left: 16px;
-        margin: 28px 0;
-        font-size: 12px;
-        font-style: italic;
-        color: var(--text);
-        line-height: 1.85;
-      }
-
-      /* ── THEMES ── */
-      .themes {
-        margin: 20px 0;
-      }
-
-      .theme-row {
-        font-size: 12px;
-        color: var(--muted);
-        line-height: 1.85;
-        display: flex;
-        justify-content: space-between;
-        padding: 4px 0;
-        border-bottom: 1px solid var(--border);
-      }
-
-      .theme-row:last-child {
-        border-bottom: none;
-      }
-
-      .theme-name {
-        color: var(--text);
-      }
-
-      .theme-count {
-        color: var(--accent);
-        font-size: 12px;
-      }
-
-      /* ── STEPS ── */
-      .steps {
-        margin: 20px 0;
-      }
-
-      .step {
-        padding: 12px 0;
-        border-bottom: 1px solid var(--border);
-        font-size: 12px;
-      }
-
-      .step:last-child {
-        border-bottom: none;
-      }
-
-      .step-num {
-        color: var(--accent);
-        font-size: 12px;
-        letter-spacing: 0.08em;
-        margin-bottom: 2px;
-      }
-
-      .step-title {
-        color: var(--text);
-        margin-bottom: 4px;
-      }
-
-      .step-desc {
-        color: var(--muted);
-        line-height: 1.75;
-      }
-
-      /* ── PHASES ── */
-      .phases {
-        margin: 20px 0;
-        font-size: 12px;
-      }
-
-      .phase {
-        display: flex;
-        gap: 12px;
-        padding: 6px 0;
-        color: var(--muted);
-      }
-
-      .phase-num {
-        color: var(--accent);
-        font-size: 12px;
-        width: 16px;
-        flex-shrink: 0;
-      }
-
-      .phase-name {
-        color: var(--text);
-        width: 72px;
-        flex-shrink: 0;
-      }
-
-      /* ── COMPARE ── */
-      .compare {
-        margin: 24px 0;
-        border-top: 1px solid var(--border);
-      }
-
-      .compare-header {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 24px;
-        padding: 12px 0 8px;
-        font-size: 10px;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      .compare-header span:first-child {
-        color: var(--muted);
-      }
-
-      .compare-header span:last-child {
-        color: var(--accent);
-      }
-
-      .compare-row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 24px;
-        padding: 6px 0;
-        font-size: 12px;
-        border-bottom: 1px solid var(--border);
-      }
-
-      .compare-row:last-child {
-        border-bottom: none;
-      }
-
-      .compare-row span:first-child {
-        color: var(--muted);
-      }
-
-      .compare-row span:last-child {
-        color: var(--text);
-      }
-
-      /* ── REFLECT DEMO ── */
-      .reflect {
-        display: flex;
-        gap: 12px;
-        margin: 20px 0;
-      }
-
-      .reflect-pill {
-        font-family: "IBM Plex Mono", monospace;
-        font-size: 12px;
-        padding: 6px 14px;
-        border-radius: 999px;
-        border: 1px solid var(--border);
-        background: transparent;
-        color: var(--muted);
-        cursor: default;
-      }
-
-      .reflect-pill.moved {
-        border-color: #5ba65b;
-        color: #5ba65b;
-      }
-
-      .reflect-pill.mixed {
-        border-color: var(--accent);
-        color: var(--accent);
-      }
-
-      .reflect-pill.spun {
-        border-color: #c75b3a;
-        color: #c75b3a;
-      }
-
-      /* ── MAIN WIDTH — matches slide aspect ratio ── */
-      main,
-      footer {
-        max-width: 720px;
-      }
-
-      /* ── META ── */
-      .meta {
-        font-size: 14px;
-        color: var(--muted);
-        margin-bottom: 48px;
-        line-height: 1.85;
-      }
-
-      .meta span {
-        display: inline;
-      }
-
-      .meta span::after {
-        content: " · ";
-      }
-
-      .meta span:last-child::after {
-        content: none;
+      /* ── RESPONSIVE ── */
+      @media screen and (max-width: 600px) {
+        .screens, .screens.triple { grid-template-columns: 1fr; }
+        .goals-grid { grid-template-columns: 1fr; }
+        .goals-col:first-child { border-right: none; border-bottom: 1px solid var(--border); }
       }
     </style>
   </head>
@@ -356,7 +153,7 @@
       <div class="meta">
         <span>UX research & design</span>
         <span>10 weeks</span>
-        <span>Figma, FigJam</span>
+        <span>Figma, Google Forms, FigJam</span>
         <span>Emily Carr University</span>
       </div>
 
@@ -364,386 +161,216 @@
       <div class="section">
         <div class="section-num">01 — the spark</div>
         <h3>The Problem</h3>
-        <p>
-          I watched someone I know — smart, capable, fully aware of what he
-          needed to do — spend 40 minutes every morning thinking about
-          starting instead of actually starting. He'd check his phone, open
-          three apps, reorganize his to-do list, and by the time he moved,
-          half the morning was gone and the guilt had already set in.
-        </p>
-        <p>
-          He wasn't lazy. Once he started, he was fine. The problem lived
-          in a very specific gap: the space between <em>knowing</em> what
-          to do and <em>doing</em> it. That gap is where overthinking
-          lives.
-        </p>
-        <div class="pull">
-          His thinking never stops, but without external structure it
-          spins instead of moves.
-        </div>
-        <p>
-          <strong>Problem statement:</strong> an overthinker who thrives
-          with external accountability but is paralyzed without it —
-          productive when channeled, stuck when the time is open and the
-          direction is his to choose.
-        </p>
+        <p>I watched someone I know — smart, capable, fully aware of what he needed to do — spend 40 minutes every morning thinking about starting instead of actually starting. He'd check his phone, open three apps, reorganize his to-do list, and by the time he moved, half the morning was gone and the guilt had already set in.</p>
+        <p>He wasn't lazy. Once he started, he was fine. The problem lived in a very specific gap: the space between <em>knowing</em> what to do and <em>doing</em> it. That gap is where overthinking lives.</p>
+        <div class="pull">His thinking never stops, but without external structure it spins instead of moves.</div>
+        <p><strong>Problem statement:</strong> an overthinker who thrives with external accountability but is paralyzed without it — productive when channeled, stuck when the time is open and the direction is his to choose.</p>
 
-        <!-- day in the life -->
-        <div class="figure">
-          <img src="slides/slide-04.png" alt="A day in the life — Sean's emotional journey from hopeful morning to evening scroll spiral" loading="lazy">
-          <div class="figure-caption">a day in the life — sean's emotional journey mapped across key moments</div>
-        </div>
+        <h4>A day in the life</h4>
+        <div class="journey"><div class="journey-track">
+          <div class="journey-stop"><div class="journey-dot high"></div><div class="journey-time">6:45 AM</div><div class="journey-name">Wake up</div><div class="journey-desc">Has clarity. Knows what to do.</div><div class="journey-mood">hopeful</div></div>
+          <div class="journey-stop"><div class="journey-dot mid"></div><div class="journey-time">6:48 AM</div><div class="journey-name">Phone check</div><div class="journey-desc">Opens Instagram, email, news.</div><div class="journey-mood">distracted</div></div>
+          <div class="journey-stop"><div class="journey-dot low"></div><div class="journey-time">7:10 AM</div><div class="journey-name">The spiral</div><div class="journey-desc">Reorganizes to-do list. Again.</div><div class="journey-mood">paralyzed</div></div>
+          <div class="journey-stop"><div class="journey-dot mid"></div><div class="journey-time">7:48 AM</div><div class="journey-name">Finally starts</div><div class="journey-desc">38 min later. Guilt set in.</div><div class="journey-mood">uncertain</div></div>
+          <div class="journey-stop"><div class="journey-dot high"></div><div class="journey-time">12:00 PM</div><div class="journey-name">Working</div><div class="journey-desc">Actually productive once started.</div><div class="journey-mood">in flow</div></div>
+          <div class="journey-stop"><div class="journey-dot low"></div><div class="journey-time">3:30 PM</div><div class="journey-name">Transition</div><div class="journey-desc">Between tasks. Spiral returns.</div><div class="journey-mood">uncertain</div></div>
+          <div class="journey-stop"><div class="journey-dot low"></div><div class="journey-time">8:30 PM</div><div class="journey-name">Evening</div><div class="journey-desc">No wind-down. Scrolls phone.</div><div class="journey-mood">numb</div></div>
+          <div class="journey-stop"><div class="journey-dot low"></div><div class="journey-time">10:00 PM</div><div class="journey-name">Sleep</div><div class="journey-desc">Thinks about tomorrow. No capture.</div><div class="journey-mood">anxious</div></div>
+        </div></div>
       </div>
 
       <!-- 02 ── RESEARCH ── -->
       <div class="section">
         <div class="section-num">02 — research</div>
         <h3>Understanding the Pattern</h3>
-        <p>
-          The research was grounded in one interview and supplemented
-          with secondary sources. In a longer project, I'd recruit 5–8
-          additional participants — including students and shift
-          workers — to validate Sean's patterns across different
-          lifestyles. A survey with a larger sample would help quantify
-          the findings.
-        </p>
-
+        <p>I needed to know if this was one person's quirk or a shared pattern. I conducted an in-depth interview with Sean and supplemented it with online research — forum threads, app store reviews, articles on overthinking and task initiation — to see if others experienced the same friction.</p>
         <div class="stats">
-          <div class="stat-item">
-            <span class="stat-val">7/8</span> participants report
-            daily&nbsp;overthinking
+          <div class="stat-item"><span class="stat-val">38 min</span> avg delay from intention to&nbsp;action each morning</div>
+          <div class="stat-item"><span class="stat-val">2.4 apps</span> opened before starting the intended&nbsp;task</div>
+          <div class="stat-item"><span class="stat-val">no system</span> for deciding what to do&nbsp;first</div>
+          <div class="stat-item"><span class="stat-val">once started</span> he was fine — the first 2 min were the only hard&nbsp;part</div>
+        </div>
+        <p>The most important finding: <strong>once Sean started, he was fine.</strong> The first two minutes were the only hard part. Online research confirmed this pattern was widespread — forums and reviews were full of people describing the same gap. I wasn't designing a productivity system. I was designing a <em>starter</em>.</p>
+
+        <div class="persona">
+          <div class="persona-header">Persona</div>
+          <div class="persona-name">Sean · 31 · Vancouver, BC</div>
+          <div class="persona-grid">
+            <span class="persona-label">occupation</span><span class="persona-val">freelance design student</span>
+            <span class="persona-label">type</span><span class="persona-val">knowledge worker</span>
           </div>
-          <div class="stat-item">
-            <span class="stat-val">38 min</span> avg delay from
-            intention to&nbsp;action
-          </div>
-          <div class="stat-item">
-            <span class="stat-val">2.4 apps</span> opened before
-            starting the intended&nbsp;task
-          </div>
-          <div class="stat-item">
-            <span class="stat-val">63%</span> have no consistent
-            system for what to do&nbsp;first
+          <div class="persona-quote">"I spend more time thinking about what to do than actually doing anything."</div>
+          <div class="persona-traits">
+            <span class="persona-trait">self-aware</span>
+            <span class="persona-trait">overthinker</span>
+            <span class="persona-trait">values intentionality</span>
+            <span class="persona-trait">tool hopper</span>
           </div>
         </div>
 
-        <p>
-          One finding kept coming back: <strong>6 out of 8 said that once
-          they started, they were fine.</strong> The first two minutes were
-          the only hard part. I wasn't designing a productivity system. I
-          was designing a <em>starter</em>.
-        </p>
-
-        <!-- persona -->
-        <div class="figure">
-          <img src="slides/slide-02.png" alt="Meet Sean — persona bio: 31, Vancouver, freelance design student, overthinker" loading="lazy">
-          <div class="figure-caption">persona — meet sean</div>
-        </div>
-
-        <!-- goals + frustrations -->
-        <div class="figure">
-          <img src="slides/slide-03.png" alt="Sean's goals and frustrations — start within 5 min vs 30 min lost every morning" loading="lazy">
-          <div class="figure-caption">goals vs. frustrations</div>
+        <div class="goals-grid">
+          <div class="goals-col">
+            <div class="goals-label good">goals</div>
+            <div class="goals-item">Start within 5 min of deciding</div>
+            <div class="goals-item">One clear priority each morning</div>
+            <div class="goals-item">Build self-awareness over time</div>
+            <div class="goals-item">Feel present, not just productive</div>
+            <div class="goals-item">A system that stays simple</div>
+          </div>
+          <div class="goals-col">
+            <div class="goals-label bad">frustrations</div>
+            <div class="goals-item">Over 30 min lost every morning</div>
+            <div class="goals-item">To-do lists make it worse</div>
+            <div class="goals-item">Phone is a distraction gateway</div>
+            <div class="goals-item">Guilt spiral compounds</div>
+            <div class="goals-item">Tools abandoned in 2 weeks</div>
+          </div>
         </div>
 
         <h4>Affinity themes</h4>
-        <p>
-          I grouped observations from Sean's interview and online
-          research in FigJam. Six clusters emerged:
-        </p>
+        <p>I grouped observations from Sean's interview and online research in FigJam. Six clusters emerged:</p>
         <div class="themes">
-          <div class="theme-row">
-            <span class="theme-name">Analysis Paralysis</span>
-            <span class="theme-count">the morning spiral</span>
-          </div>
-          <div class="theme-row">
-            <span class="theme-name">Decision Fatigue</span>
-            <span class="theme-count">too many open loops</span>
-          </div>
-          <div class="theme-row">
-            <span class="theme-name">Momentum</span>
-            <span class="theme-count">once started, he's fine</span>
-          </div>
-          <div class="theme-row">
-            <span class="theme-name">Tool Frustration</span>
-            <span class="theme-count">existing apps make it worse</span>
-          </div>
-          <div class="theme-row">
-            <span class="theme-name">Self-Awareness</span>
-            <span class="theme-count">knows it's happening, can't stop</span>
-          </div>
-          <div class="theme-row">
-            <span class="theme-name">Accountability</span>
-            <span class="theme-count">external push works, self-imposed doesn't</span>
-          </div>
+          <div class="theme-row"><span class="theme-name">Analysis Paralysis</span><span class="theme-count">the morning spiral</span></div>
+          <div class="theme-row"><span class="theme-name">Decision Fatigue</span><span class="theme-count">too many open loops</span></div>
+          <div class="theme-row"><span class="theme-name">Momentum</span><span class="theme-count">once started, he's fine</span></div>
+          <div class="theme-row"><span class="theme-name">Tool Frustration</span><span class="theme-count">existing apps make it worse</span></div>
+          <div class="theme-row"><span class="theme-name">Self-Awareness</span><span class="theme-count">knows it's happening, can't stop</span></div>
+          <div class="theme-row"><span class="theme-name">Accountability</span><span class="theme-count">external push works, self-imposed doesn't</span></div>
         </div>
-
-        <p>
-          The "Tool Frustration" theme was telling. Participants had tried
-          Notion, Todoist, Asana — every one gave them <em>more</em>
-          choices at the exact moment they needed fewer. The tools were
-          making the problem worse.
-        </p>
+        <p>The "Tool Frustration" theme was telling. Sean had tried Notion, Todoist, Asana — every one gave him <em>more</em> choices at the exact moment he needed fewer. The tools were making the problem worse. Online research confirmed the same complaint across forums and app reviews.</p>
 
         <h4>Competitive positioning</h4>
-        <p>
-          I mapped the productivity space on two axes: more features vs.
-          fewer features, planning-oriented vs. doing-oriented. Most tools
-          clustered together — many features, heavy on planning. The
-          opposite corner — fewer features, biased toward doing — was
-          almost empty. That's where Sean Dawn would live.
-        </p>
-
-        <!-- competitive positioning map -->
-        <div class="figure">
-          <img src="slides/slide-05.png" alt="Competitive positioning map — Sean Dawn in the fewer features, doing-oriented quadrant" loading="lazy">
-          <div class="figure-caption">competitive landscape — fewer features, biased toward doing</div>
-        </div>
-
-        <div class="pull">
-          How might we make getting started feel so small that
-          overthinking doesn't kick in?
-        </div>
+        <p>I mapped the productivity space on two axes: more features vs. fewer features, planning-oriented vs. doing-oriented. Most tools clustered together — many features, heavy on planning. The opposite corner — fewer features, biased toward doing — was almost empty. That's where Sean Dawn would live.</p>
+        <div style="margin:28px 0;"><svg viewBox="0 0 420 320" xmlns="http://www.w3.org/2000/svg">
+          <style>.ax{font-family:'IBM Plex Mono',monospace;font-size:8px;fill:#6b6b72;letter-spacing:0.08em}.cl{font-family:'IBM Plex Mono',monospace;font-size:9px;fill:#6b6b72}.sd{font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#c85a1e}</style>
+          <line x1="60" y1="160" x2="390" y2="160" stroke="#e0ddd8"/><line x1="210" y1="20" x2="210" y2="300" stroke="#e0ddd8"/>
+          <text x="210" y="14" text-anchor="middle" class="ax">MORE FEATURES</text><text x="210" y="314" text-anchor="middle" class="ax">FEWER FEATURES</text>
+          <text x="50" y="164" text-anchor="end" class="ax">PLANNING</text><text x="400" y="164" text-anchor="start" class="ax">DOING</text>
+          <rect x="211" y="161" width="179" height="139" fill="#c85a1e" opacity="0.03" rx="2"/>
+          <circle cx="145" cy="72" r="4" fill="#1a1a25"/><text x="155" y="76" class="cl">Asana</text>
+          <circle cx="170" cy="95" r="4" fill="#1a1a25"/><text x="180" y="99" class="cl">Notion</text>
+          <circle cx="185" cy="118" r="4" fill="#1a1a25"/><text x="195" y="122" class="cl">Todoist</text>
+          <circle cx="200" cy="142" r="4" fill="#1a1a25"/><text x="210" y="146" class="cl">Cal.com</text>
+          <circle cx="300" cy="210" r="5" fill="#1a1a25"/><text x="280" y="228" class="cl">Be Focused</text>
+          <circle cx="330" cy="230" r="4" fill="#1a1a25"/><text x="316" y="248" class="cl">Forest</text>
+          <circle cx="345" cy="260" r="4" fill="#1a1a25"/><text x="335" y="278" class="cl">Finch</text>
+          <circle cx="220" cy="230" r="4" fill="#1a1a25"/><text x="196" y="246" class="cl">Headspace</text>
+          <circle cx="360" cy="210" r="8" fill="none" stroke="#c85a1e" stroke-width="1.5"/><circle cx="360" cy="210" r="3" fill="#c85a1e"/>
+          <text x="340" y="198" class="sd">Sean Dawn</text>
+        </svg></div>
+        <div class="pull">How might we make getting started feel so small that overthinking doesn't kick in?</div>
       </div>
 
       <!-- 03 ── DESIGN PROCESS ── -->
       <div class="section">
         <div class="section-num">03 — design process</div>
         <h3>From Map to Prototype</h3>
-        <p>
-          The guiding principle at every step was the same: remove
-          decisions, don't add features.
-        </p>
-
-        <!-- core problem / HMW whiteboard -->
-        <div class="figure">
-          <img src="slides/slide-06.png" alt="Core problem and HMW whiteboard — struggle getting started due to overthinking" loading="lazy">
-          <div class="figure-caption">how might we make getting started feel simple so overthinking doesn't take over?</div>
-        </div>
-
-        <!-- journey phases -->
-        <div class="figure">
-          <img src="slides/slide-08.png" alt="User journey — Capture, Interrupt, Priority, Start, Focus, Unwind, Reflect" loading="lazy">
-          <div class="figure-caption">the 7-phase journey — each phase leads to the next</div>
-        </div>
-
+        <p>The guiding principle at every step was the same: remove decisions, don't add features.</p>
         <div class="steps">
-          <div class="step">
-            <div class="step-num">01</div>
-            <div class="step-title">Experience mapping</div>
-            <div class="step-desc">
-              Mapped a full-day flow across 8 phases with decision
-              points, alternate paths, and drop-off moments.
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-num">02</div>
-            <div class="step-title">Navigation exploration</div>
-            <div class="step-desc">
-              Compared four mobile patterns. Chose the progressive
-              single-screen model — one screen that transforms, no
-              nav bar, no escape routes.
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-num">03</div>
-            <div class="step-title">Lo-fi wireframes</div>
-            <div class="step-desc">
-              Sketched each phase. Tested the constraint: can the
-              user complete each phase in under 3 taps?
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-num">04</div>
-            <div class="step-title">Hi-fi wireframes</div>
-            <div class="step-desc">
-              Built in Figma — warm gold for mornings, dark charcoal
-              for focus, deep indigo for evening. The color of the
-              screen tells you where you are.
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-num">05</div>
-            <div class="step-title">Usability testing</div>
-            <div class="step-desc">
-              Tested with 6 participants. Identified 3 friction
-              points in onboarding, priority selection, and the
-              reflection screen.
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-num">06</div>
-            <div class="step-title">Iteration</div>
-            <div class="step-desc">
-              Simplified onboarding from 5 steps to 3, added an
-              auto-commit timer, reduced reflection to a single tap.
-            </div>
-          </div>
+          <div class="step"><div class="step-num">01</div><div class="step-title">Experience mapping</div><div class="step-desc">Mapped a full-day flow across 8 phases with decision points, alternate paths, and drop-off moments.</div></div>
+          <div class="step"><div class="step-num">02</div><div class="step-title">Navigation exploration</div><div class="step-desc">Compared four mobile patterns. Chose the progressive single-screen model — one screen that transforms, no nav bar, no escape routes.</div></div>
+          <div class="step"><div class="step-num">03</div><div class="step-title">Lo-fi wireframes</div><div class="step-desc">Sketched each phase. Tested the constraint: can the user complete each phase in under 3 taps?</div></div>
+          <div class="step"><div class="step-num">04</div><div class="step-title">Hi-fi wireframes</div><div class="step-desc">Built in Figma — warm gold for mornings, dark charcoal for focus, deep indigo for evening. The color of the screen tells you where you are.</div></div>
+          <div class="step"><div class="step-num">05</div><div class="step-title">Usability testing</div><div class="step-desc">Tested with 6 participants. Identified 3 friction points in onboarding, priority selection, and the reflection screen.</div></div>
+          <div class="step"><div class="step-num">06</div><div class="step-title">Iteration</div><div class="step-desc">Simplified onboarding from 5 steps to 3, added an auto-commit timer, reduced reflection to a single tap.</div></div>
         </div>
-
         <h4>The key iteration: auto-commit</h4>
-        <p>
-          When participants reached the morning priority screen, they
-          stalled — even with only 2–3 options. The very problem the app
-          was meant to solve was happening <em>inside the app</em>.
-        </p>
-        <p>
-          The fix: a 60-second auto-commit timer. If the user doesn't
-          choose within a minute, the app chooses for them. One tester
-          said: <em>"Knowing it would pick for me actually made it easier
-          to pick myself."</em>
-        </p>
-
-        <!-- sketches + design principles -->
-        <div class="figure">
-          <img src="slides/slide-09.png" alt="Early sketches and design principles — Colors, Gestures, Less" loading="lazy">
-          <div class="figure-caption">early sketches → three design principles: colors, gestures, less</div>
-        </div>
+        <p>When participants reached the morning priority screen, they stalled — even with only 2–3 options. The very problem the app was meant to solve was happening <em>inside the app</em>.</p>
+        <p>The fix: a 60-second auto-commit timer. If the user doesn't choose within a minute, the app chooses for them. One tester said: <em>"Knowing it would pick for me actually made it easier to pick myself."</em></p>
       </div>
 
       <!-- 04 ── THE SOLUTION ── -->
       <div class="section">
         <div class="section-num">04 — the solution</div>
         <h3>One Screen, All Day</h3>
-        <p>
-          Sean Dawn is a mobile app built on one principle:
-          <strong>fewer choices at the right moment.</strong> No tab bar,
-          no settings rabbit hole, no feature grid. One screen that
-          transforms based on the time of day.
-        </p>
+        <p>Sean Dawn is a mobile app built on one principle: <strong>fewer choices at the right moment.</strong> No tab bar, no settings rabbit hole, no feature grid. One screen that transforms based on the time of day.</p>
 
         <h4>8 phases</h4>
         <div class="phases">
-          <div class="phase">
-            <span class="phase-num">01</span>
-            <span class="phase-name">Capture</span>
-            <span>3AM idea safe-keeping</span>
-          </div>
-          <div class="phase">
-            <span class="phase-num">02</span>
-            <span class="phase-name">Priority</span>
-            <span>one thing, 60s timer</span>
-          </div>
-          <div class="phase">
-            <span class="phase-num">03</span>
-            <span class="phase-name">Start</span>
-            <span>swipe to commit</span>
-          </div>
-          <div class="phase">
-            <span class="phase-num">04</span>
-            <span class="phase-name">Focus</span>
-            <span>locked, nav disabled</span>
-          </div>
-          <div class="phase">
-            <span class="phase-num">05</span>
-            <span class="phase-name">Extend</span>
-            <span>+10 min increments</span>
-          </div>
-          <div class="phase">
-            <span class="phase-num">06</span>
-            <span class="phase-name">Unwind</span>
-            <span>break timer, step away</span>
-          </div>
-          <div class="phase">
-            <span class="phase-num">07</span>
-            <span class="phase-name">Reflect</span>
-            <span>moved, mixed, or spun</span>
-          </div>
-          <div class="phase">
-            <span class="phase-num">08</span>
-            <span class="phase-name">Intention</span>
-            <span>set tomorrow, loop</span>
-          </div>
+          <div class="phase"><span class="phase-num">01</span><span class="phase-name">Capture</span><span>3AM idea safe-keeping</span></div>
+          <div class="phase"><span class="phase-num">02</span><span class="phase-name">Priority</span><span>one thing, 60s timer</span></div>
+          <div class="phase"><span class="phase-num">03</span><span class="phase-name">Start</span><span>swipe to commit</span></div>
+          <div class="phase"><span class="phase-num">04</span><span class="phase-name">Focus</span><span>locked, nav disabled</span></div>
+          <div class="phase"><span class="phase-num">05</span><span class="phase-name">Extend</span><span>+10 min increments</span></div>
+          <div class="phase"><span class="phase-num">06</span><span class="phase-name">Unwind</span><span>break timer, step away</span></div>
+          <div class="phase"><span class="phase-num">07</span><span class="phase-name">Reflect</span><span>moved, mixed, or spun</span></div>
+          <div class="phase"><span class="phase-num">08</span><span class="phase-name">Intention</span><span>set tomorrow, loop</span></div>
         </div>
 
-        <h4>Key screens</h4>
-
-        <!-- capture + interrupt wireframes -->
-        <div class="figure">
-          <img src="slides/slide-11.png" alt="Capture and Interrupt screens — morning greeting, voice input, scroll interruption" loading="lazy">
-          <div class="figure-caption">capture + interrupt — morning entry point and scroll prevention</div>
+        <h4>Onboarding</h4>
+        <div class="screens triple">
+          <img src="img/LOFI-OB-01-Ready 1.png" alt="Onboarding step 1: Ready — auto-timer 60s, we make the choice" loading="lazy">
+          <img src="img/LOFI-OB-02-Set 1.png" alt="Onboarding step 2: Set — 3 priorities, that's it" loading="lazy">
+          <img src="img/LOFI-OB-03-Go 1.png" alt="Onboarding step 3: Go — what's the first intention?" loading="lazy">
         </div>
+        <div class="screens-caption">onboarding — ready, set, go. three screens, under 15 seconds.</div>
 
-        <!-- prioritize + start wireframes -->
-        <div class="figure">
-          <img src="slides/slide-12.png" alt="Priority and Start screens — drag to reorder, commit to number 1, press and hold to begin" loading="lazy">
-          <div class="figure-caption">prioritize + start — max 3 items, auto-select timer, press and hold to begin</div>
+        <h4>Capture</h4>
+        <div class="screens triple">
+          <img src="img/LOFI-APP-01-Capture 1.png" alt="Capture screen with last night's intention surfaced" loading="lazy">
+          <img src="img/LOFI-APP-01-Capture 2.png" alt="Capture screen — blank input for new thoughts" loading="lazy">
+          <img src="img/LOFI-APP-01-Capture 3.png" alt="Capture screen with keyboard open" loading="lazy">
         </div>
+        <div class="screens-caption">capture — morning greeting with last night's intention or a blank slate</div>
 
-        <!-- focus + unwind wireframes -->
-        <div class="figure">
-          <img src="slides/slide-13.png" alt="Focus and Unwind screens — locked timer, break selection" loading="lazy">
-          <div class="figure-caption">focus + unwind — nav locked during focus, break timer to close the day</div>
+        <h4>Interrupt</h4>
+        <div class="screens">
+          <img src="img/LOFI-APP-02-Interrupt 1.png" alt="Interrupt screen — before you scroll, finish the proposal is still your #1" loading="lazy">
         </div>
+        <div class="screens-caption">interrupt — before you scroll, your #1 from last night is waiting</div>
 
-        <!-- reflect wireframes -->
-        <div class="figure">
-          <img src="slides/slide-14.png" alt="Reflect screens — Moved Mixed Spun, weekly dots, share, tomorrow's intention" loading="lazy">
-          <div class="figure-caption">reflect — one tap check-in, weekly pattern, tomorrow's intention</div>
+        <h4>Prioritize + Start</h4>
+        <div class="screens">
+          <img src="img/LOFI-APP-03-Priority 1.png" alt="Priority screen — finish proposal as top priority" loading="lazy">
+          <img src="img/LOFI-APP-03-Priority 2.png" alt="Priority screen — reordered, email client updates now top" loading="lazy">
         </div>
+        <div class="screens">
+          <img src="img/LOFI-APP-04-Start 1.png" alt="Start screen — finish the proposal, press and hold to begin" loading="lazy">
+          <img src="img/LOFI-APP-04-Start 2.png" alt="Start screen — email client updates, press and hold to begin" loading="lazy">
+        </div>
+        <div class="screens-caption">prioritize → reorder → commit — auto-selects if you can't decide</div>
+
+        <h4>Focus</h4>
+        <div class="screens">
+          <img src="img/LOFI-APP-05-Focus 1.png" alt="Focus screen — 75 min timer, finish the proposal, nav locked" loading="lazy">
+          <img src="img/LOFI-APP-05-Focus 2.png" alt="Focus screen — email client updates task" loading="lazy">
+        </div>
+        <div class="screens-caption">focus — timer running, nav locked, only options: +10 min, tasks, or done</div>
+
+        <h4>Unwind</h4>
+        <div class="screens triple">
+          <img src="img/LOFI-APP-06-Unwind 1.png" alt="Unwind screen — time to unwind, set your break to 15 min" loading="lazy">
+          <img src="img/LOFI-APP-06-Unwind 2.png" alt="Focus screen — set your time before starting" loading="lazy">
+          <img src="img/LOFI-APP-06-Unwind 3.png" alt="Focus screen — email client updates, set your time" loading="lazy">
+        </div>
+        <div class="screens-caption">unwind — choose your break length, or skip straight to reflect</div>
+
+        <h4>Reflect</h4>
+        <div class="screens triple">
+          <img src="img/LOFI-APP-07-Reflect 1.png" alt="Reflect screen — how did today feel, weekly dots, tomorrow's intention" loading="lazy">
+          <img src="img/LOFI-APP-07-Reflect 2.png" alt="Reflect screen — keyboard open for tomorrow's intention" loading="lazy">
+          <img src="img/LOFI-APP-07-Reflect 3.png" alt="Reflect screen — share your week via iOS share sheet" loading="lazy">
+        </div>
+        <div class="screens-caption">reflect — one tap check-in, weekly pattern, share your streak</div>
 
         <h4>Design principles</h4>
-        <p>
-          <strong>Fewer choices at the right moment.</strong> Max 3 items
-          on the priority screen. Auto-commit at 60 seconds. The app
-          decides if you don't.
-        </p>
-        <p>
-          <strong>Gestures as rituals.</strong> Swipe down to commit. Hold
-          to extend focus. Tap to reflect. Physical gestures create
-          intention that button presses don't.
-        </p>
-        <p>
-          <strong>The screen is the clock.</strong> Warm gold in the
-          morning. Dark charcoal during focus. Deep indigo at night. You
-          always know where you are without reading a word.
-        </p>
-        <p>
-          <strong>No escape routes.</strong> During focus mode, navigation
-          is locked. The only options: extend, view tasks, or done.
-        </p>
+        <p><strong>Fewer choices at the right moment.</strong> Max 3 items on the priority screen. Auto-commit at 60 seconds. The app decides if you don't.</p>
+        <p><strong>Gestures as rituals.</strong> Swipe down to commit. Hold to extend focus. Tap to reflect. Physical gestures create intention that button presses don't.</p>
+        <p><strong>The screen is the clock.</strong> Warm gold in the morning. Dark charcoal during focus. Deep indigo at night. You always know where you are without reading a word.</p>
+        <p><strong>No escape routes.</strong> During focus mode, navigation is locked. The only options: extend, view tasks, or done.</p>
 
         <h4>The reflection loop</h4>
-        <p>
-          End of day, one question: how did today feel? Three options,
-          one tap.
-        </p>
+        <p>End of day, one question: how did today feel? Three options, one tap.</p>
         <div class="reflect">
           <span class="reflect-pill moved">Moved</span>
           <span class="reflect-pill mixed">Mixed</span>
           <span class="reflect-pill spun">Spun</span>
         </div>
-        <p>
-          Not good or bad. <strong>Moved</strong> means you started and
-          stayed present. <strong>Spun</strong> means overthinking won.
-          <strong>Mixed</strong> is most days. Over time, the weekly dots
-          build a pattern — no journaling, no analytics dashboard, just
-          one honest signal each day.
-        </p>
-
-        <!-- weekly dots visualization -->
+        <p>Not good or bad. <strong>Moved</strong> means you started and stayed present. <strong>Spun</strong> means overthinking won. <strong>Mixed</strong> is most days. Over time, the weekly dots build a pattern — no journaling, no analytics dashboard, just one honest signal each day.</p>
         <div style="margin: 24px 0;">
-          <div style="display:flex; gap:8px; margin-bottom:4px;">
-            <div class="dot-day">M</div>
-            <div class="dot-day">T</div>
-            <div class="dot-day">W</div>
-            <div class="dot-day">T</div>
-            <div class="dot-day">F</div>
-            <div class="dot-day">S</div>
-            <div class="dot-day">S</div>
-          </div>
-          <div class="dots-week">
-            <div class="dot moved">✓</div>
-            <div class="dot mixed">~</div>
-            <div class="dot moved">✓</div>
-            <div class="dot moved">✓</div>
-            <div class="dot spun">×</div>
-            <div class="dot moved">✓</div>
-            <div class="dot empty"></div>
-          </div>
-          <div class="dots-meta">
-            <strong>moved 4/6</strong> · 3 day streak · week of apr 7
-          </div>
+          <div style="display:flex;gap:8px;margin-bottom:4px;"><div class="dot-day">M</div><div class="dot-day">T</div><div class="dot-day">W</div><div class="dot-day">T</div><div class="dot-day">F</div><div class="dot-day">S</div><div class="dot-day">S</div></div>
+          <div class="dots-week"><div class="dot moved">✓</div><div class="dot mixed">~</div><div class="dot moved">✓</div><div class="dot moved">✓</div><div class="dot spun">×</div><div class="dot moved">✓</div><div class="dot empty"></div></div>
+          <div class="dots-meta"><strong>moved 4/6</strong> · 3 day streak · week of apr 7</div>
         </div>
       </div>
 
@@ -751,93 +378,44 @@
       <div class="section">
         <div class="section-num">05 — outcomes</div>
         <h3>What Testing Showed</h3>
-
-        <!-- full flow overview -->
-        <div class="figure">
-          <img src="slides/slide-16.png" alt="Complete Sean Dawn flow — all screens from morning capture through evening reflect" loading="lazy">
-          <div class="figure-caption">the complete flow — capture through reflect, morning to night</div>
+        <div class="flow-overview">
+          <div class="flow-label">Full flow</div>
+          <div class="flow-track">
+            <div class="flow-node"><div class="flow-node-dot gold">☀</div><div class="flow-node-name">Capture</div></div><div class="flow-arrow">→</div>
+            <div class="flow-node"><div class="flow-node-dot gold">!</div><div class="flow-node-name">Interrupt</div></div><div class="flow-arrow">→</div>
+            <div class="flow-node"><div class="flow-node-dot gold">1</div><div class="flow-node-name">Priority</div></div><div class="flow-arrow">→</div>
+            <div class="flow-node"><div class="flow-node-dot gold">▶</div><div class="flow-node-name">Start</div></div><div class="flow-arrow">→</div>
+            <div class="flow-node"><div class="flow-node-dot dark">◉</div><div class="flow-node-name">Focus</div></div><div class="flow-arrow">→</div>
+            <div class="flow-node"><div class="flow-node-dot dark">↻</div><div class="flow-node-name">Next</div></div><div class="flow-arrow">→</div>
+            <div class="flow-node"><div class="flow-node-dot ind">☽</div><div class="flow-node-name">Unwind</div></div><div class="flow-arrow">→</div>
+            <div class="flow-node"><div class="flow-node-dot ind">◎</div><div class="flow-node-name">Reflect</div></div>
+          </div>
+          <div class="flow-times"><span>6:45 AM</span><span>morning</span><span>focus</span><span>transition</span><span>9:15 PM</span></div>
         </div>
-
         <div class="compare">
-          <div class="compare-header">
-            <span>before</span>
-            <span>after</span>
-          </div>
-          <div class="compare-row">
-            <span>38 min morning delay</span>
-            <span>under 5 min to first task</span>
-          </div>
-          <div class="compare-row">
-            <span>2.4 apps before starting</span>
-            <span>1 screen, no switching</span>
-          </div>
-          <div class="compare-row">
-            <span>no system for prioritizing</span>
-            <span>auto-commit removes the decision</span>
-          </div>
-          <div class="compare-row">
-            <span>guilt spiral compounds</span>
-            <span>daily reflection builds self-proof</span>
-          </div>
-          <div class="compare-row">
-            <span>self-aware but stuck</span>
-            <span>pattern visible in weekly dots</span>
-          </div>
+          <div class="compare-header"><span>before</span><span>after</span></div>
+          <div class="compare-row"><span>38 min morning delay</span><span>under 5 min to first task</span></div>
+          <div class="compare-row"><span>2.4 apps before starting</span><span>1 screen, no switching</span></div>
+          <div class="compare-row"><span>no system for prioritizing</span><span>auto-commit removes the decision</span></div>
+          <div class="compare-row"><span>guilt spiral compounds daily</span><span>daily reflection builds self-proof</span></div>
+          <div class="compare-row"><span>self-aware but stuck in the loop</span><span>pattern visible in weekly dots</span></div>
         </div>
-
-        <p>
-          All 6 test participants completed the core flow — capture,
-          prioritize, start, reflect — without guidance. Onboarding
-          took under 15 seconds after being simplified from 5 screens
-          to 3. The auto-commit timer was the most discussed feature:
-          initially surprising, then universally appreciated.
-        </p>
-
-        <div class="pull">
-          Every productivity app gives you more. Sean Dawn gives you
-          less — because the problem was never doing the work. It was
-          starting it.
-        </div>
+        <p>All 6 test participants completed the core flow — capture, prioritize, start, reflect — without guidance. Onboarding took under 15 seconds after being simplified from 5 screens to 3. The auto-commit timer was the most discussed feature: initially surprising, then universally appreciated.</p>
+        <div class="pull">Every productivity app gives you more. Sean Dawn gives you less — because the problem was never doing the work. It was starting it.</div>
       </div>
 
       <!-- 06 ── REFLECTION ── -->
       <div class="section">
         <div class="section-num">06 — reflection</div>
         <h3>What I'd Do Differently</h3>
-
         <h4>Research depth</h4>
-        <p>
-          Eight interviews gave strong qualitative data, but the sample
-          skewed toward knowledge workers and freelancers. I'd broaden
-          recruitment to include students and shift workers — people whose
-          unstructured time looks different. A follow-up survey with a
-          larger sample would help validate patterns quantitatively.
-        </p>
-
+        <p>The research was grounded in one interview and supplemented with secondary sources. In a longer project, I'd recruit 5–8 additional participants — including students and shift workers — to validate Sean's patterns across different lifestyles. A survey with a larger sample would help quantify the findings.</p>
         <h4>The assumption risk</h4>
-        <p>
-          The project started with a single observation of one person.
-          That's a compelling origin but also a risk. In a longer project
-          I'd run a diary study to capture real-time behavior over 1–2
-          weeks rather than relying on recall during interviews.
-        </p>
-
+        <p>The project started with a single observation of one person. That's a compelling origin but also a risk. In a longer project I'd run a diary study to capture real-time behavior over 1–2 weeks rather than relying on recall during interviews.</p>
         <h4>Accessibility</h4>
-        <p>
-          The color-shifting screen relies heavily on color to communicate
-          state. Future iterations would pair each phase with distinct
-          iconography and haptic feedback for users with color vision
-          deficiencies.
-        </p>
-
+        <p>The color-shifting screen relies heavily on color to communicate state. Future iterations would pair each phase with distinct iconography and haptic feedback for users with color vision deficiencies.</p>
         <h4>What this taught me</h4>
-        <p>
-          The biggest lesson was restraint. Every instinct as a designer
-          is to add — more features, more options, more flexibility. Sean
-          Dawn forced me to do the opposite. The hardest screen to design
-          wasn't the most complex one. It was the one with almost nothing
-          on it.
-        </p>
+        <p>The biggest lesson was restraint. Every instinct as a designer is to add — more features, more options, more flexibility. Sean Dawn forced me to do the opposite. The hardest screen to design wasn't the most complex one. It was the one with almost nothing on it.</p>
       </div>
     </main>
 
