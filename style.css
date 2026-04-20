@@ -152,7 +152,7 @@ h1::after {
   appearance: none;
   font-family: "IBM Plex Mono", monospace;
   font-size: 14px;
-  line-height: 1;
+  line-height: 1.2;
   letter-spacing: 0.03em;
   padding: 8px 20px;
   border-radius: 999px;
