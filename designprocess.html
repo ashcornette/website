@@ -13,7 +13,9 @@ body { padding: 48px 24px 120px; display: block; }
 main { max-width: 720px; margin: 0 auto; }
 h1 { font-weight: 500; margin-bottom: 16px; }
 h1::after { content: none; }
-h2 { font-size: var(--fs); font-weight: 500; margin-bottom: 8px; }
+h2 { font-size: var(--fs); font-weight: 500; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: baseline; }
+.top-link { font-size: 11px; color: var(--muted); border-bottom: none; letter-spacing: .04em; }
+.top-link:hover { color: var(--accent); opacity: 1; }
 h3 { font-size: var(--fs); font-weight: 500; margin: 32px 0 12px; }
 h4 { font-size: var(--fs); font-weight: 500; margin: 20px 0 8px; color: var(--muted); }
 p  { margin-bottom: 12px; max-width: 62ch; }
@@ -93,7 +95,7 @@ footer p { max-width: 60ch; }
 </style>
 </head>
 <body>
-<main>
+<main id="top">
 
 <header class="masthead">
   <div class="eyebrow">a reference — 2026.04.20</div>
@@ -123,7 +125,7 @@ footer p { max-width: 60ch; }
 <!-- FOUNDATIONS -->
 <section id="foundations">
   <div class="phase-num">00</div>
-  <h2>foundations &amp; frameworks.</h2>
+  <h2>foundations &amp; frameworks.<a href="#top" class="top-link">↑ top</a></h2>
   <p class="phase-sub">the mental scaffolding the rest of the process hangs on. read these before anything else.</p>
 
   <h3>the gatekeepers of ux</h3>
@@ -180,7 +182,7 @@ footer p { max-width: 60ch; }
 <!-- DISCOVER -->
 <section id="discover">
   <div class="phase-num">01</div>
-  <h2>discover.</h2>
+  <h2>discover.<a href="#top" class="top-link">↑ top</a></h2>
   <p class="phase-sub">figure out who the user is, what they're trying to do, and what's actually in the way. the whole phase is one discipline: listen before you design.</p>
 
   <h3>the spectrum of empathy</h3>
@@ -262,7 +264,7 @@ footer p { max-width: 60ch; }
 <!-- DEFINE -->
 <section id="define">
   <div class="phase-num">02</div>
-  <h2>define.</h2>
+  <h2>define.<a href="#top" class="top-link">↑ top</a></h2>
   <p class="phase-sub">take the pile of research and shape it into a single, specific, defensible problem — and a user worth solving for.</p>
 
   <h3>from research to theme — synthesis</h3>
@@ -388,7 +390,7 @@ footer p { max-width: 60ch; }
 <!-- DESIGN -->
 <section id="design">
   <div class="phase-num">03</div>
-  <h2>design.</h2>
+  <h2>design.<a href="#top" class="top-link">↑ top</a></h2>
   <p class="phase-sub">turn the brief into structure, then into pixels. information first, interaction second, visual last.</p>
 
   <h3>the design odyssey</h3>
@@ -487,7 +489,7 @@ footer p { max-width: 60ch; }
 <!-- DELIVER -->
 <section id="deliver">
   <div class="phase-num">04</div>
-  <h2>deliver.</h2>
+  <h2>deliver.<a href="#top" class="top-link">↑ top</a></h2>
   <p class="phase-sub">test, iterate, hand off, present, launch, measure. a design isn't done at final-final.fig.</p>
 
   <h3>usability testing</h3>
@@ -583,7 +585,7 @@ footer p { max-width: 60ch; }
 <!-- GLOSSARY -->
 <section id="glossary">
   <div class="phase-num">05</div>
-  <h2>glossary.</h2>
+  <h2>glossary.<a href="#top" class="top-link">↑ top</a></h2>
   <p class="phase-sub">terms that keep showing up — defined once, in plain english.</p>
   <dl>
     <dt>affinity mapping</dt><dd>grouping qualitative notes into themes.</dd>
