@@ -11,7 +11,7 @@
 :root {
   --bg: #f5f4f0;
   --text: #1a1a25;
-  --muted: #6b6b72;
+  --muted: #525256;
   --border: #e0ddd8;
   --accent: #c85a1e;
 }
@@ -41,7 +41,7 @@
 /* ── BASE ── */
 body {
   font-family: "IBM Plex Mono", monospace;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.85;
   color: var(--text);
   background: var(--bg);
@@ -72,7 +72,7 @@ main {
 
 /* ── NAME ── */
 h1 {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.01em;
   margin-bottom: 3px;
@@ -86,7 +86,7 @@ h1::after {
 
 /* ── ROLE ── */
 .role {
-  font-size: 14px;
+  font-size: 12px;
   color: var(--muted);
   margin-bottom: 48px;
   font-style: italic;
@@ -98,7 +98,7 @@ h1::after {
 }
 
 .bio p {
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 .bio p:last-child {
@@ -107,7 +107,7 @@ h1::after {
 
 /* ── SECTION LABEL ── */
 .label {
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text);
@@ -121,7 +121,7 @@ h1::after {
 
 .nav-links a {
   display: block;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--muted);
   margin-bottom: 4px;
   transition: color 0.15s ease;
@@ -132,9 +132,17 @@ h1::after {
   text-decoration: none;
 }
 
+/* ── COMPONENT ROW ── */
+.component-row {
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+  margin-bottom: 48px;
+}
+
 /* ── BUTTON DEMO ── */
 .button-demo {
-  margin-bottom: 48px;
+  margin-bottom: 0;
 }
 
 .pill {
@@ -228,10 +236,79 @@ h1::after {
   padding-left: 20px;
 }
 
+/* ── TOGGLE DEMO ── */
+.toggle-demo {
+  margin-bottom: 0;
+  padding-top: 15px;
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.toggle-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-track {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  border-radius: 999px;
+  margin-bottom: 3px;
+  border: 1px solid var(--text);
+  background: transparent;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.toggle-knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--text);
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.toggle-input:checked + .toggle-track {
+  background: var(--text);
+  border-color: var(--text);
+}
+
+.toggle-input:checked + .toggle-track .toggle-knob {
+  transform: translateX(20px);
+  background: var(--bg);
+}
+
+.toggle-input:focus-visible + .toggle-track {
+  outline: 2px dashed var(--accent);
+  outline-offset: 3px;
+}
+
+.toggle-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  color: var(--text);
+}
 /* ── BACK LINK ── */
 .back {
   display: inline-block;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--muted);
   margin-bottom: 52px;
   transition: color 0.15s ease;
@@ -247,7 +324,7 @@ h1::after {
 
 /* ── PAGE TITLE (projects page) ── */
 h2 {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   margin-bottom: 32px;
 }
@@ -273,13 +350,13 @@ h2 {
 }
 
 .project-list .project-title {
-  font-size: 14px;
+  font-size: 16px;
   display: block;
   margin-bottom: 4px;
 }
 
 .project-list .project-desc {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--muted);
   line-height: 1.75;
 }
@@ -298,7 +375,7 @@ footer {
 }
 
 footer a {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--muted);
   transition: color 0.15s ease;
 }

@@ -22,10 +22,23 @@
         </p>
       </div>
 
-      <div class="button-demo">
-        <p class="label"></p>
-        <button class="pill" data-state="default">Button</button>
-        <p class="state-tag">Default</p>
+      <div class="component-row">
+        <div class="button-demo">
+          <p class="label"></p>
+          <button class="pill" data-state="default">Button</button>
+          <p class="state-tag">Default</p>
+        </div>
+
+        <div class="toggle-demo">
+          <label class="toggle">
+            <input type="checkbox" class="toggle-input" />
+            <span class="toggle-track">
+              <span class="toggle-knob"></span>
+            </span>
+            <span class="toggle-label">Toggle</span>
+          </label>
+          <p class="state-tag toggle-state-tag">Off</p>
+        </div>
       </div>
     </main>
 
@@ -39,6 +52,12 @@
         i = (i + 1) % states.length;
         btn.dataset.state = states[i];
         tag.textContent = labels[i];
+      });
+
+      const toggleInput = document.querySelector('.toggle-input');
+      const toggleTag = document.querySelector('.toggle-state-tag');
+      toggleInput.addEventListener('change', () => {
+        toggleTag.textContent = toggleInput.checked ? 'On' : 'Off';
       });
     </script>
 
