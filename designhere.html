@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DesignHere — Ash Cornette</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* ── CASE STUDY CORE ── */
+      .section { margin-bottom: 56px; }
+      .section-num { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+      .section h3 { font-size: 13px; font-weight: 400; margin-bottom: 20px; }
+      .section h3::after { content: none; }
+      .section h4 { font-size: 12px; font-weight: 400; color: var(--text); margin-top: 32px; margin-bottom: 10px; letter-spacing: 0.04em; }
+      .section p { font-size: 12px; color: var(--muted); line-height: 1.85; margin-bottom: 14px; }
+      .section p:last-child { margin-bottom: 0; }
+      .section p strong { color: var(--text); font-weight: 400; }
+      .section p em { font-style: italic; }
+
+      /* ── META ── */
+      .meta { font-size: 11px; color: var(--muted); margin-bottom: 48px; line-height: 1.85; }
+      .meta span::after { content: " · "; }
+      .meta span:last-child::after { content: none; }
+
+      /* ── STATS ── */
+      .stats { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 16px 0; margin: 24px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px 24px; }
+      .stat-item { font-size: 12px; color: var(--muted); line-height: 1.6; }
+      .stat-val { color: var(--text); font-weight: 400; }
+
+      /* ── PULLQUOTE ── */
+      .pull { border-left: 2px solid var(--accent); padding-left: 16px; margin: 28px 0; font-size: 12px; font-style: italic; color: var(--text); line-height: 1.85; }
+
+      /* ── PERSONA ── */
+      .persona { border: 1px solid var(--border); padding: 20px; margin: 28px 0; }
+      .persona-header { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+      .persona-name { font-size: 13px; color: var(--text); margin-bottom: 12px; }
+      .persona-grid { display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; font-size: 11px; margin-bottom: 16px; }
+      .persona-label { color: var(--muted); }
+      .persona-val { color: var(--text); }
+      .persona-quote { font-size: 11px; font-style: italic; color: var(--text); border-top: 1px solid var(--border); padding-top: 14px; margin-top: 8px; line-height: 1.75; }
+      .persona-traits { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+      .persona-trait { font-size: 10px; color: var(--muted); border: 1px solid var(--border); padding: 3px 10px; border-radius: 999px; }
+
+      /* ── PERSONA MINI (summary row for the other two) ── */
+      .persona-mini { border: 1px solid var(--border); padding: 14px 16px; margin: 10px 0; }
+      .persona-mini .persona-header { margin-bottom: 6px; }
+      .persona-mini-name { font-size: 12px; color: var(--text); margin-bottom: 6px; }
+      .persona-mini-quote { font-size: 11px; font-style: italic; color: var(--muted); line-height: 1.7; }
+
+      /* ── USER TYPES ── */
+      .user-types { margin: 20px 0; font-size: 11px; }
+      .user-type { display: flex; gap: 12px; padding: 8px 0; color: var(--muted); border-bottom: 1px solid var(--border); }
+      .user-type:last-child { border-bottom: none; }
+      .user-type-num { color: var(--accent); font-size: 10px; width: 16px; flex-shrink: 0; }
+      .user-type-name { color: var(--text); width: 112px; flex-shrink: 0; }
+
+      /* ── GOALS ── */
+      .goals-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 24px 0; border: 1px solid var(--border); }
+      .goals-col { padding: 16px; }
+      .goals-col:first-child { border-right: 1px solid var(--border); }
+      .goals-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
+      .goals-label.good { color: #5ba65b; }
+      .goals-label.bad { color: var(--accent); }
+      .goals-item { font-size: 11px; color: var(--muted); line-height: 1.75; padding: 4px 0; border-bottom: 1px solid var(--border); }
+      .goals-item:last-child { border-bottom: none; }
+
+      /* ── THEMES ── */
+      .themes { margin: 20px 0; }
+      .theme-row { font-size: 11px; color: var(--muted); line-height: 1.85; display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid var(--border); }
+      .theme-row:last-child { border-bottom: none; }
+      .theme-name { color: var(--text); }
+      .theme-count { color: var(--accent); font-size: 10px; }
+
+      /* ── STEPS ── */
+      .steps { margin: 20px 0; }
+      .step { padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 12px; }
+      .step:last-child { border-bottom: none; }
+      .step-num { color: var(--accent); font-size: 10px; letter-spacing: 0.08em; margin-bottom: 2px; }
+      .step-title { color: var(--text); margin-bottom: 4px; }
+      .step-desc { color: var(--muted); line-height: 1.75; }
+
+      /* ── CONCEPTS ── */
+      .concepts { margin: 24px 0; }
+      .concept { border: 1px solid var(--border); padding: 14px 16px; margin-bottom: 10px; }
+      .concept-num { font-size: 10px; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 4px; }
+      .concept-name { font-size: 12px; color: var(--text); margin-bottom: 4px; }
+      .concept-desc { font-size: 11px; color: var(--muted); line-height: 1.75; }
+      .concept-barriers { font-size: 10px; color: var(--muted); margin-top: 6px; letter-spacing: 0.04em; }
+      .concept-barriers strong { color: var(--accent); font-weight: 400; }
+
+      /* ── COMPARE ── */
+      .compare { margin: 24px 0; border-top: 1px solid var(--border); }
+      .compare-header { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 12px 0 8px; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; }
+      .compare-header span:first-child { color: var(--muted); }
+      .compare-header span:last-child { color: var(--accent); }
+      .compare-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 6px 0; font-size: 11px; border-bottom: 1px solid var(--border); }
+      .compare-row:last-child { border-bottom: none; }
+      .compare-row span:first-child { color: var(--muted); }
+      .compare-row span:last-child { color: var(--text); }
+
+      /* ── FIGURE / SVG EMBED ── */
+      figure { margin: 28px 0; }
+      figure img { width: 100%; height: auto; display: block; border: 1px solid var(--border); border-radius: 4px; }
+      figcaption { font-size: 10px; color: var(--muted); margin-top: 8px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+      /* ── MATRIX (prioritization — 3 columns) ── */
+      .matrix-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin: 24px 0; }
+      .matrix-cell { border: 1px solid var(--border); padding: 14px; }
+      .matrix-cell.pri { border-color: var(--accent); }
+      .matrix-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+      .matrix-cell.pri .matrix-label { color: var(--accent); }
+      .matrix-item { font-size: 11px; color: var(--muted); line-height: 1.7; padding: 4px 0; border-bottom: 1px solid var(--border); }
+      .matrix-item:last-child { border-bottom: none; }
+
+      /* ── NEXT STEPS ── */
+      .next { margin: 20px 0; }
+      .next-item { padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 12px; display: flex; gap: 14px; align-items: baseline; }
+      .next-item:last-child { border-bottom: none; }
+      .next-num { color: var(--accent); font-size: 10px; letter-spacing: 0.08em; width: 22px; flex-shrink: 0; }
+      .next-title { color: var(--text); width: 200px; flex-shrink: 0; }
+      .next-desc { color: var(--muted); line-height: 1.7; font-size: 11px; }
+
+      /* ── RESPONSIVE ── */
+      @media screen and (max-width: 600px) {
+        .goals-grid { grid-template-columns: 1fr; }
+        .goals-col:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+        .stats { grid-template-columns: 1fr; }
+        .matrix-grid { grid-template-columns: 1fr; }
+        .next-item { flex-wrap: wrap; gap: 4px 14px; }
+        .next-title { width: auto; }
+      }
+    </style>
+  </head>
+  <body>
+    <a href="projects.html" class="back">← projects</a>
+
+    <main>
+      <h2>DesignHere</h2>
+      <p class="role">connecting Vancouver's design community</p>
+
+      <div class="meta">
+        <span>UX research &amp; design</span>
+        <span>6 weeks · with Yuki Shi</span>
+        <span>Figma, Google Forms, FigJam</span>
+        <span>Emily Carr University · Apr 2026</span>
+      </div>
+
+      <!-- 01 ── THE SPARK ── -->
+      <div class="section">
+        <div class="section-num">01 — the spark</div>
+        <h3>The Problem</h3>
+        <p>Vancouver has a real design community — it shows up at studio crits, small meetups, and the back rooms of East Van cafés. But there's no single place to find any of it. Events live on Eventbrite, Luma, Instagram stories, Discord servers, and whatever your professor forwarded last week. You find out about half of them the day after they happen.</p>
+        <p>And when you do show up, the connection usually ends in the parking lot. No tool for follow-up, no shared thread, no way to remember who was interesting. Most people fall back to LinkedIn — which is global, performative, and built for getting hired, not for being present in the city you already live in.</p>
+        <div class="pull">Having to look in 10 different places to find one small thing. There's no one cohesive platform.</div>
+        <p><strong>Problem statement:</strong> New designers have difficulty connecting with the design community because there is no way to search or find the community in Vancouver.</p>
+
+        <h4>How might we…</h4>
+        <p>…help new designers find a meaningful network with others in the industry.</p>
+      </div>
+
+      <!-- 02 ── RESEARCH ── -->
+      <div class="section">
+        <div class="section-num">02 — research</div>
+        <h3>Mapping the Pattern</h3>
+        <p>Yuki and I ran a mixed-methods study across six weeks — survey, interviews, competitive analysis, and proto personas — targeting designers at different career stages, all based in Vancouver. I led UX flow design, lo-fi prototyping, and data collection; Yuki led competitor research, survey design, and data analysis. We stayed tight on scope so fourteen responses could still tell us something real.</p>
+
+        <div class="stats">
+          <div class="stat-item"><span class="stat-val">14 responses</span> to the survey, spanning students to senior designers</div>
+          <div class="stat-item"><span class="stat-val">2 interviews</span> for depth on discovery, follow-up, and trust</div>
+          <div class="stat-item"><span class="stat-val">6 competitors</span> analysed — LinkedIn, Eventbrite, Luma, Meetup, Dribbble, Discord</div>
+          <div class="stat-item"><span class="stat-val">3 proto personas</span> covering designer, organizer, and moderator</div>
+        </div>
+
+        <figure>
+          <img src="img/survey-1-demographics-editable.svg" alt="Demographics survey results: career stages, most-used platforms, and event attendance frequency. 71% use LinkedIn, 86% attend events monthly or less." loading="lazy">
+          <figcaption>fig 01 — who responded</figcaption>
+        </figure>
+
+        <h4>Three user types</h4>
+        <p>Early in the process we realized DesignHere wouldn't work if we only designed for one side of the room. The platform needed three audiences to hold together — the designer looking for a community, the organizer trying to reach them, and the moderator keeping the signal high.</p>
+        <div class="user-types">
+          <div class="user-type"><span class="user-type-num">01</span><span class="user-type-name">Designer</span><span>discovering events, making connections, following up after</span></div>
+          <div class="user-type"><span class="user-type-num">02</span><span class="user-type-name">Organizer</span><span>posting events, reaching the right audience, managing RSVPs</span></div>
+          <div class="user-type"><span class="user-type-num">03</span><span class="user-type-name">Moderator</span><span>reviewing submissions, keeping the platform trustworthy</span></div>
+        </div>
+
+        <h4>Proto personas</h4>
+        <p>One proto persona per user type — each shaped around a distinct job to be done, same underlying gap in the ecosystem.</p>
+
+        <div class="persona">
+          <div class="persona-header">Persona 01 · featured</div>
+          <div class="persona-name">The Designer</div>
+          <div class="persona-grid">
+            <span class="persona-label">stage</span><span class="persona-val">early-career or newly relocated</span>
+            <span class="persona-label">looking for</span><span class="persona-val">local community, events, meaningful connections</span>
+          </div>
+          <div class="persona-quote">"Your classmates are your first network."</div>
+          <div class="persona-traits">
+            <span class="persona-trait">relationship-first</span>
+            <span class="persona-trait">platform-fatigued</span>
+            <span class="persona-trait">event-curious</span>
+            <span class="persona-trait">Vancouver-rooted</span>
+          </div>
+        </div>
+
+        <div class="persona-mini">
+          <div class="persona-header">Persona 02</div>
+          <div class="persona-mini-name">The Organizer</div>
+          <div class="persona-mini-quote">"I'm posting everywhere, but I'm not sure if new designers will actually see this." — plans and promotes local meetups; struggles to reach people outside existing networks. Pain: RSVPs rarely match real attendance; no central hub for post-event engagement.</div>
+        </div>
+
+        <div class="persona-mini">
+          <div class="persona-header">Persona 03</div>
+          <div class="persona-mini-name">The Moderator</div>
+          <div class="persona-mini-quote">Reviews submissions to keep content quality high without becoming a gatekeeper. Needs: structured forms, rule-based scoring, and fast card-based triage — so the platform can scale without scaling the moderation team.</div>
+        </div>
+
+        <h4>Survey findings</h4>
+        <p>Two charts did most of the work. The first mapped current discovery behaviour and the challenges people named unprompted. The second mapped what they'd actually want from a platform that understood them.</p>
+
+        <figure>
+          <img src="img/survey-2-discovery-challenges-editable.svg" alt="Survey results on discovery and challenges: how designers currently find connections, biggest networking challenges — 9 of 14 say maintaining relationships is the hardest part." loading="lazy">
+          <figcaption>fig 02 — discovery &amp; challenges</figcaption>
+        </figure>
+
+        <figure>
+          <img src="img/survey-3-what-designers-want-editable.svg" alt="Survey results on feature priorities: 71% want relationship tracking as #1 ask, 50% want local event curation, transparent moderation over verified profiles." loading="lazy">
+          <figcaption>fig 03 — what designers want</figcaption>
+        </figure>
+
+        <p>The headline: <strong>9 of 14 (64%)</strong> said maintaining relationships is harder than finding them. <strong>71%</strong> said a tool that helped them track connections would be the most valuable feature. And <strong>50%</strong> said transparent moderation mattered more than verified profiles — people don't want gatekeepers, they want accountability.</p>
+        <div class="pull">The problem isn't connection. It's continuity.</div>
+
+        <h4>Affinity themes</h4>
+        <p>Yuki and I pulled every survey quote, interview fragment, and competitive observation onto a shared FigJam board and clustered until the patterns held. Four themes emerged — each pointing at a distinct pain, each eventually becoming an insight.</p>
+        <div class="themes">
+          <div class="theme-row"><span class="theme-name">Fragmented Discovery</span><span class="theme-count">8/14 check 3+ platforms</span></div>
+          <div class="theme-row"><span class="theme-name">Relationship Continuity</span><span class="theme-count">9/14 — biggest challenge</span></div>
+          <div class="theme-row"><span class="theme-name">Platform Mismatch</span><span class="theme-count">10/14 — LinkedIn feels wrong</span></div>
+          <div class="theme-row"><span class="theme-name">Trust &amp; Local Curation</span><span class="theme-count">7/14 want Vancouver-specific</span></div>
+        </div>
+
+        <figure>
+          <img src="img/affinity-map-editable.svg" alt="Affinity map with four themes — Fragmented Discovery, Relationship Continuity, Platform Mismatch, Trust & Local Curation — and three synthesized insights." loading="lazy">
+          <figcaption>fig 04 — affinity map</figcaption>
+        </figure>
+
+        <h4>Three key insights</h4>
+        <p><strong>01. Centralized Event Discovery.</strong> Users struggle with discovering events because information is fragmented, leading to missed opportunities.</p>
+        <p><strong>02. Clear Event Context &amp; Evaluation.</strong> Users struggle with evaluating events because of limited context, leading to hesitation.</p>
+        <p><strong>03. Support Post-Event Engagement.</strong> Users struggle with maintaining connections because of lack of follow-up support, leading to shallow engagement.</p>
+
+        <h4>Competitive positioning</h4>
+        <p>I mapped the landscape on two axes: global vs. local, and professional/formal vs. community/casual. The top half was full — LinkedIn, Dribbble, Behance, Eventbrite. The bottom-right corner — local and community-feeling — was almost empty. That's where DesignHere would sit.</p>
+        <div style="margin:28px 0;"><svg viewBox="0 0 450 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Competitive positioning map. DesignHere occupies the local and community-oriented quadrant, distinct from LinkedIn, Dribbble, Behance, Eventbrite, Luma, Meetup.">
+          <style>.ax{font-family:'IBM Plex Mono',monospace;font-size:8px;fill:#6b6b72;letter-spacing:0.08em}.cl{font-family:'IBM Plex Mono',monospace;font-size:9px;fill:#6b6b72}.dh{font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#c85a1e}</style>
+          <line x1="60" y1="160" x2="390" y2="160" stroke="#e0ddd8"/><line x1="210" y1="20" x2="210" y2="300" stroke="#e0ddd8"/>
+          <text x="210" y="14" text-anchor="middle" class="ax">PROFESSIONAL</text><text x="210" y="314" text-anchor="middle" class="ax">COMMUNITY</text>
+          <text x="50" y="164" text-anchor="end" class="ax">GLOBAL</text><text x="400" y="164" text-anchor="start" class="ax">LOCAL</text>
+          <rect x="211" y="161" width="179" height="139" fill="#c85a1e" opacity="0.03" rx="2"/>
+          <circle cx="130" cy="70" r="4" fill="#1a1a25"/><text x="140" y="74" class="cl">LinkedIn</text>
+          <circle cx="155" cy="100" r="4" fill="#1a1a25"/><text x="165" y="104" class="cl">Dribbble</text>
+          <circle cx="175" cy="125" r="4" fill="#1a1a25"/><text x="185" y="129" class="cl">Behance</text>
+          <circle cx="200" cy="145" r="4" fill="#1a1a25"/><text x="210" y="149" class="cl">Eventbrite</text>
+          <circle cx="215" cy="218" r="4" fill="#1a1a25"/><text x="225" y="222" class="cl">Luma</text>
+          <circle cx="245" cy="240" r="4" fill="#1a1a25"/><text x="255" y="244" class="cl">Meetup</text>
+          <circle cx="190" cy="260" r="4" fill="#1a1a25"/><text x="130" y="264" class="cl">Discord</text>
+          <circle cx="340" cy="245" r="8" fill="none" stroke="#c85a1e" stroke-width="1.5"/><circle cx="340" cy="245" r="3" fill="#c85a1e"/>
+          <text x="288" y="232" class="dh">DesignHere</text>
+        </svg></div>
+      </div>
+
+      <!-- 03 ── DESIGN PROCESS ── -->
+      <div class="section">
+        <div class="section-num">03 — design process</div>
+        <h3>From Insight to Direction</h3>
+        <p>The guiding principle at every step was the same: design for the early-career designer first. If the platform worked for someone two years in and newly relocated, it would work for everyone else.</p>
+        <div class="steps">
+          <div class="step"><div class="step-num">01</div><div class="step-title">Survey design</div><div class="step-desc">Drafted and piloted a 12-question survey covering discovery, freelance &amp; community, building relationships, challenges &amp; barriers, and looking forward. Ran it for two weeks through school channels and local design Discords.</div></div>
+          <div class="step"><div class="step-num">02</div><div class="step-title">Semi-structured interviews</div><div class="step-desc">Two 45-minute interviews — one with a creative director (Adrian Ho), one with a freelance illustrator (Dodo). Open questions first, then probing into specific moments — last event attended, last person followed up with, last tool abandoned.</div></div>
+          <div class="step"><div class="step-num">03</div><div class="step-title">Competitive audit</div><div class="step-desc">Yuki reviewed six platforms against a shared rubric — discovery, follow-up, trust, moderation, tone, and local relevance. Each mapped on a 2×2 to find the empty corner.</div></div>
+          <div class="step"><div class="step-num">04</div><div class="step-title">Proto personas &amp; journey maps</div><div class="step-desc">Built three proto personas covering distinct career stages, and journey-mapped both the Designer and Organizer experiences to surface where the current ecosystem fails each.</div></div>
+          <div class="step"><div class="step-num">05</div><div class="step-title">Affinity mapping</div><div class="step-desc">Clustered observations in FigJam until four themes held. Three insights carried forward to inform feature priority.</div></div>
+          <div class="step"><div class="step-num">06</div><div class="step-title">Reverse thinking &amp; wireframes</div><div class="step-desc">Flipped the prompt to surface barriers, then inverted each into a concept direction. Prioritized with an impact/effort matrix and built mid-fi wireframes for all three user types.</div></div>
+        </div>
+
+        <h4>The key move: reverse thinking</h4>
+        <p>Before brainstorming solutions, we flipped the prompt. Instead of <em>"how do we help Vancouver designers connect?"</em> we asked <em>"how would we make it impossible?"</em> — and listed every barrier we could think of.</p>
+
+        <figure>
+          <img src="img/ideation-reverse-thinking-editable.svg" alt="Reverse thinking exercise listing barriers — scattered info, hidden events, no follow-up tools, unwelcoming environments, polished-work-only — each later inverted into a design direction." loading="lazy">
+          <figcaption>fig 05 — reverse thinking</figcaption>
+        </figure>
+
+        <p>Six barriers surfaced. Grouped, they pointed at three distinct concept directions — not a single product, but three shapes the product could take.</p>
+
+        <div class="concepts">
+          <div class="concept">
+            <div class="concept-num">CONCEPT 01</div>
+            <div class="concept-name">Centralized Discovery Feed</div>
+            <div class="concept-desc">Fragmented discovery → one place to find everything happening in Vancouver's design community.</div>
+            <div class="concept-barriers">addresses <strong>barriers 1 + 2</strong></div>
+          </div>
+          <div class="concept">
+            <div class="concept-num">CONCEPT 02</div>
+            <div class="concept-name">Connection Tracker</div>
+            <div class="concept-desc">No follow-up tools → a lightweight CRM for design connections, with reminders and shared context.</div>
+            <div class="concept-barriers">addresses <strong>barrier 3</strong></div>
+          </div>
+          <div class="concept">
+            <div class="concept-num">CONCEPT 03</div>
+            <div class="concept-name">Safe Studio</div>
+            <div class="concept-desc">Intimidating, high-stakes spaces → a low-stakes local community where WIPs are welcome and the pressure is off.</div>
+            <div class="concept-barriers">addresses <strong>barriers 4 + 5 + 6</strong></div>
+          </div>
+        </div>
+
+        <p>Taken together, the three concepts became DesignHere — not either/or, but layered, because the pain points are layered too.</p>
+      </div>
+
+      <!-- 04 ── THE SOLUTION ── -->
+      <div class="section">
+        <div class="section-num">04 — the solution</div>
+        <h3>A Home for Design, Here</h3>
+        <p>DesignHere is a responsive web app (PWA) that serves as a focused discovery tool for Vancouver's design scene — centralized discovery, connection tracking, and a low-stakes community space, built for three audiences at once.</p>
+
+        <h4>Three user flows, one platform</h4>
+        <div class="user-types">
+          <div class="user-type"><span class="user-type-num">01</span><span class="user-type-name">Designer User</span><span>discover events, save attendees, follow up, share WIPs</span></div>
+          <div class="user-type"><span class="user-type-num">02</span><span class="user-type-name">Event Organizer</span><span>post events, reach designers by stage and discipline, manage RSVPs</span></div>
+          <div class="user-type"><span class="user-type-num">03</span><span class="user-type-name">Moderator</span><span>review submissions via one-tap card triage, keep content quality high</span></div>
+        </div>
+
+        <h4>Key design decisions</h4>
+        <p><strong>Structured submission form.</strong> Keeps event listings consistent and dramatically reduces the moderation burden before content is ever reviewed.</p>
+        <p><strong>Tiered trust system.</strong> New organizers get reviewed initially, then earn auto-publish privileges over time. Accountability without gatekeeping.</p>
+        <p><strong>Automated moderation.</strong> Rule-based scoring handles the easy calls and scales the platform without scaling the moderation team.</p>
+        <p><strong>One-tap card-based triage.</strong> When human moderation is needed, the work is fast — swipe-style cards, clear decisions, no long forms.</p>
+        <p><strong>Auto-generated shareable event cards.</strong> Every listing produces a social-ready graphic, creating a flywheel where organic shares become the platform's organic growth.</p>
+
+        <h4>What to build first</h4>
+        <p>We sorted every idea onto an impact/effort matrix so the first build could be small but meaningful — and so the roadmap past it was legible to anyone reading this later.</p>
+
+        <figure>
+          <img src="img/recommendations-prioritization-editable.svg" alt="Prioritization matrix: High Impact / Low Effort features to start with, High Impact / High Effort for phase 2, lower-priority items for future." loading="lazy">
+          <figcaption>fig 06 — recommendations &amp; next steps</figcaption>
+        </figure>
+
+        <div class="matrix-grid">
+          <div class="matrix-cell pri">
+            <div class="matrix-label">start here</div>
+            <div class="matrix-item">Central event feed for Vancouver design events</div>
+            <div class="matrix-item">Post-event attendee list with save and note</div>
+            <div class="matrix-item">Beginner-friendly filters for approachable events</div>
+          </div>
+          <div class="matrix-cell">
+            <div class="matrix-label">phase two</div>
+            <div class="matrix-item">Connection tracker with follow-up reminders</div>
+            <div class="matrix-item">Moderated, low-stakes community space</div>
+            <div class="matrix-item">Organizer tools for targeted reach</div>
+          </div>
+          <div class="matrix-cell">
+            <div class="matrix-label">future</div>
+            <div class="matrix-item">Verified profile system — only 21% cited it as a trust driver</div>
+            <div class="matrix-item">Job board — valuable but secondary to core community need</div>
+          </div>
+        </div>
+
+        <h4>Next steps</h4>
+        <div class="next">
+          <div class="next-item"><span class="next-num">01</span><span class="next-title">Validate proto personas</span><span class="next-desc">5–8 user interviews with designers matching each persona type.</span></div>
+          <div class="next-item"><span class="next-num">02</span><span class="next-title">Build low-fidelity prototypes</span><span class="next-desc">Three concepts ready for usability testing.</span></div>
+          <div class="next-item"><span class="next-num">03</span><span class="next-title">Preference testing</span><span class="next-desc">Determine which concept resonates most strongly with users.</span></div>
+          <div class="next-item"><span class="next-num">04</span><span class="next-title">Partner with organizers</span><span class="next-desc">2–3 Vancouver design event organizers for pilot launch.</span></div>
+          <div class="next-item"><span class="next-num">05</span><span class="next-title">Expand the survey</span><span class="next-desc">50+ respondents for statistical significance.</span></div>
+        </div>
+      </div>
+
+      <!-- 05 ── OUTCOMES ── -->
+      <div class="section">
+        <div class="section-num">05 — outcomes</div>
+        <h3>What the Research Showed</h3>
+        <p>The sharpest finding of the project wasn't about features — it was a reframe. Vancouver's design community faces a <strong>continuity problem</strong> more than a discovery problem. Finding events is fragmented, yes — but the deeper pain is what happens after. Designers have no tools to maintain the connections they make, and that's where the community breaks down.</p>
+
+        <div class="compare">
+          <div class="compare-header"><span>today</span><span>with DesignHere</span></div>
+          <div class="compare-row"><span>3–5 platforms checked for each event</span><span>one local feed, filtered by stage and format</span></div>
+          <div class="compare-row"><span>71% use LinkedIn — but it feels performative</span><span>low-stakes, local, drafts welcome</span></div>
+          <div class="compare-row"><span>9/14 lose connections after events</span><span>attendee lists with save + note, built in</span></div>
+          <div class="compare-row"><span>Trust defaults to verified profiles</span><span>trust defaults to transparent moderation</span></div>
+          <div class="compare-row"><span>Organizers follow up one by one</span><span>tools for targeted reach by stage and discipline</span></div>
+        </div>
+
+        <p>DesignHere is positioned in a space no competitor currently occupies — a Vancouver-specific, relationship-first design community platform. The strongest opportunity combines all three: <strong>local event discovery, relationship maintenance tools, and a safe community space for all levels.</strong></p>
+
+        <div class="pull">71% want relationship tracking. 64% say it's their #1 challenge. The platform that solves continuity wins.</div>
+      </div>
+
+      <!-- 06 ── REFLECTION ── -->
+      <div class="section">
+        <div class="section-num">06 — reflection</div>
+        <h3>What Worked, What We'd Change</h3>
+        <h4>What worked</h4>
+        <p>Pairing a competitive analysis with the survey gave us both landscape context and direct user input — neither alone would have surfaced the continuity insight. The proto personas did real work too: they focused the survey questions around three distinct user types, which is what let the data actually say something specific when it came back.</p>
+        <p>And the survey itself surprised us. Going in, we assumed discovery was the core problem. The data quietly pushed back — <em>continuity</em> was the real pain — and that reframe changed the direction of the whole design.</p>
+        <h4>What I'd do differently</h4>
+        <p><strong>Expand the sample.</strong> Fourteen responses is directional, not definitive. Given another two weeks I'd push for 50+ respondents and add 3–5 more qualitative interviews, weighted toward mid- and senior-career designers to stress-test whether the early-career pain still holds up the ladder.</p>
+        <p><strong>Test personas against real users earlier.</strong> We built proto personas from research, but validating them against real designers mid-project — not just at the end — would have sharpened the brief faster.</p>
+        <p><strong>Affinity map together, not in shifts.</strong> Yuki and I split the clustering work for efficiency and re-synced after. Next time I'd want more team members mapping live at the same time — the pattern recognition gets better when the observations overlap.</p>
+        <h4>What this taught me</h4>
+        <p>Designers talk about community a lot, but community is mostly <em>context</em> — the small, specific things about a place that make showing up feel worth it. The hardest part of this brief wasn't inventing features. It was listening closely enough to hear the reframe that was sitting in the data all along: the problem isn't connection, it's continuity.</p>
+      </div>
+    </main>
+
+    <footer>
+      <a href="projects.html">projects</a>
+      <a href="index.html">home</a>
+      <a href="mailto:hello@ashcornette.com">hello@ashcornette.com</a>
+      <a href="https://linkedin.com/in/ashcornette" target="_blank" rel="noopener noreferrer">linkedin</a>
+    </footer>
+  </body>
+</html>
