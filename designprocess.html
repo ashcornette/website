@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>the design process — a reference</title>
+<link rel="stylesheet" href="style.css" />
+<style>
+/* ── PAGE-LEVEL OVERRIDES ── */
+:root { --fs: 14px; --lh: 1.55; }
+html, body { font-size: var(--fs); line-height: var(--lh); }
+body { padding: 48px 24px 120px; display: block; }
+main { max-width: 720px; margin: 0 auto; }
+h1 { font-weight: 500; margin-bottom: 16px; }
+h1::after { content: none; }
+h2 { font-size: var(--fs); font-weight: 500; margin-bottom: 8px; }
+h3 { font-size: var(--fs); font-weight: 500; margin: 32px 0 12px; }
+h4 { font-size: var(--fs); font-weight: 500; margin: 20px 0 8px; color: var(--muted); }
+p  { margin-bottom: 12px; max-width: 62ch; }
+p + p { margin-top: 0; }
+a  { color: var(--accent); border-bottom: 1px solid var(--accent); }
+a:hover { opacity: .7; text-decoration: none; }
+
+/* header */
+.masthead { border-bottom: 1px solid var(--border); padding-bottom: 24px; margin-bottom: 40px; }
+.eyebrow  { color: var(--muted); letter-spacing: .04em; margin-bottom: 8px; }
+.lede     { color: var(--muted); max-width: 60ch; }
+
+/* toc */
+.toc          { border: 1px solid var(--border); padding: 20px; margin: 32px 0 48px; }
+.toc-title    { color: var(--muted); margin-bottom: 12px; }
+.toc ol       { list-style: none; counter-reset: tocc; }
+.toc li       { counter-increment: tocc; padding: 4px 0; display: flex; gap: 12px; }
+.toc li::before { content: "0" counter(tocc); color: var(--muted); }
+.toc a        { border: none; color: var(--text); }
+.toc a:hover  { color: var(--accent); opacity: 1; }
+
+/* sections */
+section              { margin: 64px 0; padding-top: 16px; border-top: 1px solid var(--border); }
+section:first-of-type { border-top: none; }
+.phase-num  { color: var(--muted); margin-bottom: 8px; }
+.phase-sub  { color: var(--muted); margin-bottom: 32px; max-width: 58ch; }
+
+/* cards */
+.card       { border: 1px solid var(--border); padding: 20px; margin: 16px 0; background: var(--bg); }
+.card-title { margin-bottom: 8px; }
+.card-meta  { color: var(--muted); margin-bottom: 12px; }
+
+/* two-col */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+@media (max-width: 640px) { .grid-2 { grid-template-columns: 1fr; } }
+
+/* definition list */
+dl { margin: 16px 0; }
+dt { color: var(--accent); margin-top: 12px; }
+dd { color: var(--text); margin: 4px 0 0; max-width: 60ch; }
+
+/* lists */
+ul.plain            { list-style: none; margin: 12px 0; }
+ul.plain li         { padding: 4px 0 4px 18px; text-indent: -18px; max-width: 62ch; }
+ul.plain li::before { content: "→ "; color: var(--muted); text-indent: 0; }
+ol.num              { list-style: none; counter-reset: n; margin: 12px 0; }
+ol.num li           { counter-increment: n; padding: 4px 0 4px 28px; text-indent: -28px; max-width: 62ch; }
+ol.num li::before   { content: counter(n, decimal-leading-zero) "  "; color: var(--muted); }
+
+/* quadrant */
+.quad                         { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--border); margin: 16px 0; }
+.quad div                     { padding: 16px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.quad div:nth-child(2n)       { border-right: none; }
+.quad div:nth-last-child(-n+2) { border-bottom: none; }
+.q-label { color: var(--muted); margin-bottom: 6px; }
+
+/* pullquote */
+.pull      { border-left: 2px solid var(--accent); padding: 8px 0 8px 16px; margin: 20px 0; color: var(--text); max-width: 60ch; }
+.pull-cite { color: var(--muted); margin-top: 6px; }
+
+/* footer */
+footer   { margin-top: 96px; padding-top: 24px; border-top: 1px solid var(--border); color: var(--muted); display: block; gap: 0; flex-wrap: unset; }
+footer p { max-width: 60ch; }
+
+/* phase rail */
+.rail                   { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--border); margin: 24px 0 40px; }
+.rail a                 { padding: 16px; border-right: 1px solid var(--border); color: var(--text); border-bottom: none; display: block; }
+.rail a:last-child      { border-right: none; }
+.rail a:hover           { background: var(--text); color: var(--bg); opacity: 1; }
+.rail small             { display: block; color: var(--muted); margin-bottom: 4px; }
+.rail a:hover small     { color: var(--bg); }
+@media (max-width: 640px) {
+  .rail                                   { grid-template-columns: 1fr 1fr; }
+  .rail a:nth-child(2)                    { border-right: none; }
+  .rail a:nth-child(1), .rail a:nth-child(2) { border-bottom: 1px solid var(--border); }
+}
+</style>
+</head>
+<body>
+<main>
+
+<header class="masthead">
+  <div class="eyebrow">a reference — 2026.04.20</div>
+  <h1>the design process.</h1>
+  <p class="lede">everything the user-research decks taught me about moving from a fuzzy human problem to a shipped product. organized by phase. no fluff.</p>
+</header>
+
+<nav class="rail" aria-label="phases">
+  <a href="#discover"><small>01</small>discover</a>
+  <a href="#define"><small>02</small>define</a>
+  <a href="#design"><small>03</small>design</a>
+  <a href="#deliver"><small>04</small>deliver</a>
+</nav>
+
+<div class="toc">
+  <div class="toc-title">contents</div>
+  <ol>
+    <li><a href="#foundations">foundations &amp; frameworks</a></li>
+    <li><a href="#discover">01 — discover</a></li>
+    <li><a href="#define">02 — define</a></li>
+    <li><a href="#design">03 — design (ideate + prototype)</a></li>
+    <li><a href="#deliver">04 — deliver (test + present)</a></li>
+    <li><a href="#glossary">glossary</a></li>
+  </ol>
+</div>
+
+<!-- FOUNDATIONS -->
+<section id="foundations">
+  <div class="phase-num">00</div>
+  <h2>foundations &amp; frameworks.</h2>
+  <p class="phase-sub">the mental scaffolding the rest of the process hangs on. read these before anything else.</p>
+
+  <h3>the gatekeepers of ux</h3>
+  <p>every design decision has to satisfy three things at once. miss one and the product feels broken, even if you can't say why.</p>
+  <dl>
+    <dt>psychology</dt><dd>how it feels — emotion, satisfaction, engagement.</dd>
+    <dt>science</dt><dd>how it works — functionality, feasibility, performance.</dd>
+    <dt>art</dt><dd>how it looks — aesthetics, brand, visual order.</dd>
+  </dl>
+  <p>and all three still have to land inside three real constraints: user needs, business goals, technical reality.</p>
+
+  <h3>the design thinking process (six phases)</h3>
+  <ol class="num">
+    <li>discover — research, empathy, context.</li>
+    <li>define — frame the problem, name the user.</li>
+    <li>ideate — generate many options.</li>
+    <li>prototype — make the options tangible.</li>
+    <li>test — put them in front of real humans.</li>
+    <li>present — communicate thinking, align stakeholders.</li>
+  </ol>
+  <p>this page collapses those six into the 4d structure (discover → define → design → deliver) because that's how most briefs actually get written.</p>
+
+  <h3>the medicine wheel</h3>
+  <p>an indigenous education framework used throughout cuxd-111 to ground the practice. four directions, one whole.</p>
+  <div class="quad">
+    <div><div class="q-label">balance &amp; respect</div>give the work equal weight across user, business, craft.</div>
+    <div><div class="q-label">wholeness</div>treat the person, not just the task.</div>
+    <div><div class="q-label">interconnectedness</div>nothing in a product lives alone.</div>
+    <div><div class="q-label">inter-relationship</div>every decision touches other decisions.</div>
+  </div>
+
+  <h3>design inception</h3>
+  <p>concentric circles — the strategic center comes first, the visible surface comes last.</p>
+  <ul class="plain">
+    <li>why — the purpose. the strategic intent.</li>
+    <li>mood — the emotional tone. the brand voice.</li>
+    <li>visual language — space, shape, color, movement.</li>
+  </ul>
+
+  <h3>product design strategy — 9 elements</h3>
+  <ol class="num">
+    <li>user-centered focus.</li>
+    <li>market research.</li>
+    <li>clear objectives.</li>
+    <li>cross-functional collaboration.</li>
+    <li>prototyping &amp; testing.</li>
+    <li>brand alignment.</li>
+    <li>technical considerations.</li>
+    <li>launch &amp; marketing.</li>
+    <li>post-launch evaluation.</li>
+  </ol>
+</section>
+
+<!-- DISCOVER -->
+<section id="discover">
+  <div class="phase-num">01</div>
+  <h2>discover.</h2>
+  <p class="phase-sub">figure out who the user is, what they're trying to do, and what's actually in the way. the whole phase is one discipline: listen before you design.</p>
+
+  <h3>the spectrum of empathy</h3>
+  <p>a ladder, not a switch. the goal is to climb it.</p>
+  <ul class="plain">
+    <li>pity — i feel bad <em>for</em> you.</li>
+    <li>sympathy — i feel bad <em>with</em> you.</li>
+    <li>empathy — i feel <em>what you feel</em>.</li>
+    <li>compassion — i feel it and i act.</li>
+  </ul>
+  <p class="pull">design is solving real human problems — not imaginary ones.<br><span class="pull-cite">— cuxd-111, session 02</span></p>
+
+  <h3>mental models</h3>
+  <p>how a user <em>thinks</em> something works — their internal picture. a design succeeds when the product's behavior matches that picture.</p>
+  <div class="card">
+    <div class="card-title">the four components</div>
+    <ul class="plain">
+      <li>worldviews</li>
+      <li>beliefs</li>
+      <li>experiences</li>
+      <li>values</li>
+    </ul>
+    <p class="card-meta">example: users expect a trash icon to delete a file — because that's the mental model they carry in from the real world.</p>
+  </div>
+
+  <h3>research methods</h3>
+
+  <h4>user interviews</h4>
+  <ul class="plain">
+    <li>structured — fixed script, same questions in the same order.</li>
+    <li>semi-structured — a guide, but you follow threads. most useful for most projects.</li>
+    <li>unstructured — a conversation with a goal.</li>
+  </ul>
+  <p>principles: open-ended questions, active listening, no leading, build rapport, probe for the why. record (with consent). take timestamps. do a thematic pass right after.</p>
+
+  <h4>surveys</h4>
+  <p>good for breadth, bad for depth. use after qualitative work to validate, not before.</p>
+  <ul class="plain">
+    <li>question types — multiple choice, likert, open-ended.</li>
+    <li>watch for — sampling bias, leading wording, survey fatigue.</li>
+    <li>target — a sample size that your analysis method can actually support.</li>
+  </ul>
+
+  <h4>naturalistic / diary / analytics / a-b</h4>
+  <p>observation in the wild, longitudinal self-reports, log data, controlled comparisons. each one answers a different question; pick by the question, not by the method.</p>
+
+  <h4>competitive analysis</h4>
+  <p>it's a research method, not a sales exercise. the point is to see what users already expect.</p>
+  <ul class="plain">
+    <li>direct — solving the same problem the same way.</li>
+    <li>indirect — solving the same problem a different way.</li>
+    <li>replacement — the workaround that wins if you do nothing.</li>
+  </ul>
+  <p>method: set a goal, pick 2–4 competitors, build a feature matrix, test hands-on, read the reviews, finish with a swot summary.</p>
+  <p class="pull">netflix didn't out-blockbuster blockbuster. it replaced the whole category.<br><span class="pull-cite">— user-research, class 05</span></p>
+
+  <h3>empathy mapping</h3>
+  <p>what a user says, thinks, feels, does — plus what's around them. a single page that keeps the team honest.</p>
+  <div class="quad">
+    <div><div class="q-label">says</div>verbal quotes, direct language.</div>
+    <div><div class="q-label">thinks</div>internal belief, unspoken reasoning.</div>
+    <div><div class="q-label">feels</div>emotional state — labeled.</div>
+    <div><div class="q-label">does</div>observable action, behavior.</div>
+  </div>
+  <p class="card-meta">supporting layers: <em>hears</em> (influencers), <em>sees</em> (environment, market), <em>pains</em> (fears, frustrations), <em>gains</em> (wants, wins).</p>
+
+  <h3>deliverables out of discover</h3>
+  <ul class="plain">
+    <li>research plan.</li>
+    <li>interview guides + transcripts.</li>
+    <li>survey instrument + raw data.</li>
+    <li>competitive matrix + swot.</li>
+    <li>empathy maps per segment.</li>
+    <li>stakeholder map.</li>
+    <li>mental model documentation.</li>
+  </ul>
+</section>
+
+<!-- DEFINE -->
+<section id="define">
+  <div class="phase-num">02</div>
+  <h2>define.</h2>
+  <p class="phase-sub">take the pile of research and shape it into a single, specific, defensible problem — and a user worth solving for.</p>
+
+  <h3>from research to theme — synthesis</h3>
+
+  <h4>affinity mapping</h4>
+  <p>the workhorse synthesis method. two steps, done with the team, not alone.</p>
+  <ol class="num">
+    <li>generate — every quote, fact, observation on its own sticky.</li>
+    <li>organize — cluster by similarity, label the clusters, label the labels. themes fall out.</li>
+  </ol>
+
+  <h4>how-might-we (hmw)</h4>
+  <p>reframe a pain point as an open design prompt. "users get lost at checkout" → "how might we make the final step feel like progress, not a tax?"</p>
+
+  <h3>personas</h3>
+  <p>fictional-but-evidenced people. 3–5 is the right number — enough to cover ~80% of the audience, few enough to remember.</p>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">proto</div>
+      <div class="card-meta">assumption-based, 2–4 hrs</div>
+      <p>a team-alignment tool. good for week one. not a substitute for research.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">qualitative</div>
+      <div class="card-meta">5–30 interviews</div>
+      <p>the default. built from recurring themes in real conversations. what most teams should do most of the time.</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">statistical</div>
+    <div class="card-meta">100–500+ survey responses, clustering</div>
+    <p>mixed-method. powerful at scale. expensive. reserve for data-rich orgs.</p>
+  </div>
+
+  <h4>persona anatomy</h4>
+  <ul class="plain">
+    <li>identity — name, age, role, location.</li>
+    <li>narrative — a short day-in-the-life.</li>
+    <li>goals — what "done" looks like for them.</li>
+    <li>motivations — why they care.</li>
+    <li>behaviors — what they actually do.</li>
+    <li>pain points — what's currently in the way.</li>
+    <li>channels &amp; brand affinity — where they live online.</li>
+  </ul>
+
+  <h4>mistakes to avoid</h4>
+  <ul class="plain">
+    <li>built on assumptions — fix: validate with real interviews.</li>
+    <li>too many (10+) or only one — fix: 3–5 primaries.</li>
+    <li>demographic trivia over behavior — fix: lead with motivations.</li>
+    <li>ignoring anti-personas — fix: name who you're <em>not</em> designing for.</li>
+    <li>made once, never touched — fix: revisit every 6–12 months.</li>
+    <li>trapped in marketing — fix: put them in slack, onboarding, spec docs.</li>
+  </ul>
+
+  <h3>product opportunity statement</h3>
+  <p>a single paragraph that answers who / what / where / when / why. if you can't write it, you don't know the problem yet.</p>
+
+  <h3>customer journey mapping</h3>
+  <p>three zones, one artifact.</p>
+  <dl>
+    <dt>zone a — the lens</dt><dd>which actor, which scenario.</dd>
+    <dt>zone b — the experience</dt><dd>phases, actions, thoughts, emotions across the arc.</dd>
+    <dt>zone c — the insights</dt><dd>where the opportunities live.</dd>
+  </dl>
+  <p>typical phases: awareness → consideration → purchase → onboarding → usage → support → advocacy. plot an emotion curve across them. the valleys are your brief.</p>
+
+  <h3>value proposition</h3>
+  <p>one clear sentence explaining the benefit, the need it fills, and why it's different. not a mission statement. not a tagline.</p>
+
+  <h4>the value proposition canvas</h4>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">value map</div>
+      <p>product features → benefits → the value delivered.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">customer profile</div>
+      <p>jobs to be done → pains → gains.</p>
+    </div>
+  </div>
+
+  <h4>the twelve templates</h4>
+  <ol class="num">
+    <li>benefit-oriented.</li>
+    <li>pain point.</li>
+    <li>outcome-based.</li>
+    <li>emotional appeal.</li>
+    <li>convenience-driven.</li>
+    <li>exclusivity.</li>
+    <li>expert endorsement.</li>
+    <li>testimonial-based.</li>
+    <li>aspirational.</li>
+    <li>cost-efficiency.</li>
+    <li>innovation highlight.</li>
+    <li>risk reduction.</li>
+  </ol>
+
+  <h4>examples worth copying</h4>
+  <ul class="plain">
+    <li>airbnb — "belong anywhere." (aspirational)</li>
+    <li>duckduckgo — "a search engine that doesn't track you." (pain point)</li>
+    <li>shopify — "anyone, anywhere, can start a business." (outcome)</li>
+    <li>zapier — "the most connected ai orchestration platform." (innovation)</li>
+  </ul>
+
+  <h3>jobs to be done (jtbd)</h3>
+  <p>the format: "when [situation], i want [motivation], so i can [outcome]." forces you to frame the product as a hire, not a feature list.</p>
+
+  <h3>deliverables out of define</h3>
+  <ul class="plain">
+    <li>3–5 personas + 1–2 anti-personas.</li>
+    <li>affinity map + themed insight list.</li>
+    <li>customer journey map with emotion curve.</li>
+    <li>product opportunity statement.</li>
+    <li>value proposition canvas + one-sentence value prop.</li>
+    <li>jtbd statements.</li>
+    <li>prioritized design brief.</li>
+  </ul>
+</section>
+
+<!-- DESIGN -->
+<section id="design">
+  <div class="phase-num">03</div>
+  <h2>design.</h2>
+  <p class="phase-sub">turn the brief into structure, then into pixels. information first, interaction second, visual last.</p>
+
+  <h3>the design odyssey</h3>
+  <p>ryan ford's five-phase nest — the narrative arc of a single design project.</p>
+  <ol class="num">
+    <li>beginning — initiative, framing, context.</li>
+    <li>exploration — divergent thinking, many options.</li>
+    <li>bridge — convergence, decisions.</li>
+    <li>construction — detail, refinement.</li>
+    <li>conclusion — finalization, handoff.</li>
+  </ol>
+
+  <h3>flows — from coarse to fine</h3>
+  <ul class="plain">
+    <li>job flow — the user's goal, abstracted from the product.</li>
+    <li>user flow — the step-by-step sequence.</li>
+    <li>wire flow — sequence + rough structure.</li>
+    <li>page flow — page-to-page detail with states.</li>
+  </ul>
+  <p>always start at job flow. do not go to wireframes until the job flow makes sense without a screen attached.</p>
+
+  <h3>information architecture</h3>
+  <p>how content is organized so users can find it. the invisible skeleton.</p>
+  <ul class="plain">
+    <li>principles — group by user mental model, not company org chart.</li>
+    <li>label for recognition, not clever naming.</li>
+    <li>test the tree before you style the leaves.</li>
+  </ul>
+
+  <h4>card sorting</h4>
+  <p>the main research method for ia. three flavors.</p>
+  <dl>
+    <dt>open</dt><dd>users make their own categories. use to discover.</dd>
+    <dt>closed</dt><dd>users sort into your categories. use to validate.</dd>
+    <dt>hybrid</dt><dd>your categories + the option to add new ones.</dd>
+  </dl>
+  <p>running it well: clear goal, one idea per card, neutral facilitation, encourage debate, document with photos, debrief with the participant.</p>
+
+  <h3>task analysis</h3>
+  <ul class="plain">
+    <li>hierarchical task analysis (hta) — decompose a goal into subgoals into actions.</li>
+    <li>cognitive task analysis (cta) — capture the thinking, not just the steps.</li>
+  </ul>
+
+  <h3>visual language</h3>
+  <p>four levers. one mood.</p>
+  <div class="quad">
+    <div><div class="q-label">space</div>whitespace, layout, breathing room.</div>
+    <div><div class="q-label">shape</div>form language — geometric vs organic.</div>
+    <div><div class="q-label">color</div>psychology, contrast, accessibility.</div>
+    <div><div class="q-label">movement</div>transitions, feedback, pace.</div>
+  </div>
+
+  <h3>design challenges</h3>
+  <p>timed, constrained, rapid. ten minutes, sixty-second iterations, many artifacts, one chosen. the point is quantity forces range; range reveals the right direction.</p>
+
+  <h3>prototyping</h3>
+  <p>match the fidelity to the question.</p>
+  <dl>
+    <dt>low-fi</dt><dd>paper, rough sketch. testing: flow, hierarchy, concept.</dd>
+    <dt>mid-fi</dt><dd>grayscale, clickable. testing: layout, nav, labeling.</dd>
+    <dt>high-fi</dt><dd>final visuals, real copy, realistic interaction. testing: polish, emotion, conversion.</dd>
+  </dl>
+
+  <h3>dark patterns — what not to do</h3>
+  <p>ethics is part of the craft. know the names so you can refuse them.</p>
+  <ul class="plain">
+    <li>disguised ads &amp; misdirection.</li>
+    <li>confirm shaming — "no thanks, i hate saving money."</li>
+    <li>bait and switch.</li>
+    <li>hidden costs at the last step.</li>
+    <li>friend spam / forced continuity.</li>
+    <li>privacy zuckering.</li>
+    <li>fomo manipulation.</li>
+    <li>sneak into basket.</li>
+    <li>trick questions.</li>
+    <li>price comparison prevention.</li>
+    <li>roach motel — easy in, impossible out.</li>
+  </ul>
+
+  <h3>mvp scoping</h3>
+  <p>impact × feasibility. do the high-impact / easy work first. park the high-impact / hard work for v2. never build the low-impact / hard quadrant.</p>
+
+  <h3>deliverables out of design</h3>
+  <ul class="plain">
+    <li>job + user flows.</li>
+    <li>ia diagram / sitemap.</li>
+    <li>task analysis (hta).</li>
+    <li>wireframes → mid-fi → high-fi.</li>
+    <li>interactive prototype.</li>
+    <li>visual system (space, shape, color, motion).</li>
+    <li>mvp scope with priority matrix.</li>
+  </ul>
+</section>
+
+<!-- DELIVER -->
+<section id="deliver">
+  <div class="phase-num">04</div>
+  <h2>deliver.</h2>
+  <p class="phase-sub">test, iterate, hand off, present, launch, measure. a design isn't done at final-final.fig.</p>
+
+  <h3>usability testing</h3>
+  <p>pick the format by the question you're answering.</p>
+  <ul class="plain">
+    <li>moderated, in-person — rich, expensive, best for early concept tests.</li>
+    <li>moderated, remote — the default for most teams.</li>
+    <li>unmoderated — cheap, fast, good for later-stage tasks.</li>
+  </ul>
+
+  <h4>think-aloud protocol</h4>
+  <p>ask the user to narrate while they use it. resist the urge to help. silence is data. every "hm" is a clue.</p>
+
+  <h3>a-b testing</h3>
+  <p>two versions, one variable, enough traffic to reach significance. use to decide — not to explore. a test without a hypothesis is a horoscope.</p>
+
+  <h3>accessibility — wcag aa</h3>
+  <ul class="plain">
+    <li>contrast — 4.5:1 for body, 3:1 for large text.</li>
+    <li>keyboard — every action reachable without a mouse.</li>
+    <li>semantics — real headings, labels, landmarks.</li>
+    <li>focus state — visible, always.</li>
+    <li>touch target — 44×44 min.</li>
+    <li>screen reader — test it. don't guess.</li>
+  </ul>
+  <p>accessibility is not a phase-4 checklist. it's a phase-1 assumption.</p>
+
+  <h3>design handoff</h3>
+  <p>a handoff spec covers: layout + spacing tokens, design tokens (color, type, radius, motion), component props + variants, interaction states, responsive breakpoints, edge cases, animation timings. if a dev has to guess, the spec is incomplete.</p>
+
+  <h3>design system documentation</h3>
+  <p>for each component: name, purpose, variants, states, props, accessibility notes, do/don't examples, and the decision log for why it exists.</p>
+
+  <h3>presentation — the lighthouse framework</h3>
+  <ol class="num">
+    <li>foundation — the problem and the rationale.</li>
+    <li>structure — the narrative arc through the work.</li>
+    <li>illumination — clear visuals that carry the weight.</li>
+    <li>guidance — the "so what" for every decision.</li>
+    <li>endurance — the memorable takeaway.</li>
+  </ol>
+
+  <h4>presenting well</h4>
+  <ul class="plain">
+    <li>legibility first — hierarchy, readable type.</li>
+    <li>eye contact, not slide-reading.</li>
+    <li>paint the edges — context before content.</li>
+    <li>chunk the information.</li>
+    <li>fewer words, more visual — let the design speak.</li>
+  </ul>
+
+  <h3>narrative — the story arc</h3>
+  <p>a seven-point shape borrowed from the hero's journey. works for a case study, a launch email, a pitch, a readme.</p>
+  <ol class="num">
+    <li>exposition — set the scene.</li>
+    <li>inciting incident — the problem arrives.</li>
+    <li>rising action — the attempts and obstacles.</li>
+    <li>climax — the key decision / insight.</li>
+    <li>falling action — the consequences.</li>
+    <li>resolution — what shipped.</li>
+    <li>denouement — what we learned, what's next.</li>
+  </ol>
+
+  <h3>case study structure</h3>
+  <ol class="num">
+    <li>problem + context.</li>
+    <li>research + analysis.</li>
+    <li>process + iterations.</li>
+    <li>solution + rationale.</li>
+    <li>outcomes + metrics.</li>
+    <li>lessons + future directions.</li>
+  </ol>
+
+  <h3>launch + post-launch</h3>
+  <ul class="plain">
+    <li>launch plan — rollout, comms, success metrics named upfront.</li>
+    <li>kpis — tied to the jobs you said you'd solve, not vanity.</li>
+    <li>post-launch review — at 30/60/90. what worked, what shifted, what to kill.</li>
+    <li>keep the personas living — revisit every 6–12 months.</li>
+  </ul>
+
+  <h3>deliverables out of deliver</h3>
+  <ul class="plain">
+    <li>usability testing report.</li>
+    <li>iteration log — what changed, why.</li>
+    <li>accessibility audit.</li>
+    <li>handoff spec + design system docs.</li>
+    <li>case study deck.</li>
+    <li>launch plan + post-launch eval framework.</li>
+  </ul>
+</section>
+
+<!-- GLOSSARY -->
+<section id="glossary">
+  <div class="phase-num">05</div>
+  <h2>glossary.</h2>
+  <p class="phase-sub">terms that keep showing up — defined once, in plain english.</p>
+  <dl>
+    <dt>affinity mapping</dt><dd>grouping qualitative notes into themes.</dd>
+    <dt>anti-persona</dt><dd>the user you are explicitly not designing for.</dd>
+    <dt>card sorting</dt><dd>ia research method: users group content into categories.</dd>
+    <dt>dark pattern</dt><dd>ui that exploits the user for the business's gain.</dd>
+    <dt>design inception</dt><dd>concentric-circle brief: why → mood → visual language.</dd>
+    <dt>design odyssey</dt><dd>ryan ford's 5-phase project arc.</dd>
+    <dt>empathy map</dt><dd>a one-pager of says / thinks / feels / does.</dd>
+    <dt>gatekeepers of ux</dt><dd>psychology + science + art as the three filters.</dd>
+    <dt>hmw</dt><dd>"how might we" — an open design prompt.</dd>
+    <dt>hta</dt><dd>hierarchical task analysis — decomposing a goal into steps.</dd>
+    <dt>jtbd</dt><dd>"when [situation], i want [motivation], so i can [outcome]."</dd>
+    <dt>journey map</dt><dd>phases + emotions + touchpoints + opportunities.</dd>
+    <dt>lighthouse framework</dt><dd>5-part presentation structure.</dd>
+    <dt>medicine wheel</dt><dd>indigenous framework: balance, wholeness, interconnected, inter-relationship.</dd>
+    <dt>mental model</dt><dd>how the user thinks the thing works.</dd>
+    <dt>mvp</dt><dd>smallest shippable thing that tests the hypothesis.</dd>
+    <dt>persona</dt><dd>evidenced fictional user — proto, qualitative, or statistical.</dd>
+    <dt>product opportunity statement</dt><dd>who / what / where / when / why, in one paragraph.</dd>
+    <dt>prototype fidelity</dt><dd>low / mid / high — matched to the test question.</dd>
+    <dt>story arc</dt><dd>7-point narrative structure for case studies.</dd>
+    <dt>swot</dt><dd>strengths, weaknesses, opportunities, threats — a summary, not a method.</dd>
+    <dt>think-aloud</dt><dd>user narrates while using the product.</dd>
+    <dt>value proposition canvas</dt><dd>value map + customer profile, matched.</dd>
+    <dt>wcag aa</dt><dd>the accessibility standard you're aiming for.</dd>
+    <dt>wireframe</dt><dd>structure without style — layout intent only.</dd>
+  </dl>
+</section>
+
+<footer>
+  <p>compiled from 20 class decks. 860 pages of source material, one reference page. 2026.04.20.</p>
+  <p><a href="#">↑ back to top</a></p>
+</footer>
+
+</main>
+</body>
+</html>
