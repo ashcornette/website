@@ -24,7 +24,6 @@
 
       <div class="component-row">
         <div class="button-demo">
-          <p class="label"></p>
           <button class="pill" data-state="default">Button</button>
           <p class="state-tag">Default</p>
         </div>
@@ -39,6 +38,18 @@
           </label>
           <p class="state-tag toggle-state-tag">Off</p>
         </div>
+
+        <div class="checkbox-demo">
+          <div class="checkbox-wrap" data-state="default">
+            <span class="checkbox-box">
+              <svg class="checkbox-check" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 4L3.5 6.5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span class="checkbox-label">Checkbox</span>
+          </div>
+          <p class="state-tag checkbox-state-tag">Default</p>
+        </div>
       </div>
     </main>
 
@@ -52,6 +63,17 @@
         i = (i + 1) % states.length;
         btn.dataset.state = states[i];
         tag.textContent = labels[i];
+      });
+
+      const cbStates = ['default', 'hover', 'clicked', 'focused', 'ghost', 'disabled'];
+      const cbLabels = ['Default', 'Hover', 'Clicked', 'Focused', 'Ghost', 'Disabled'];
+      let ci = 0;
+      const cbWrap = document.querySelector('.checkbox-wrap');
+      const cbTag = document.querySelector('.checkbox-state-tag');
+      cbWrap.addEventListener('click', () => {
+        ci = (ci + 1) % cbStates.length;
+        cbWrap.dataset.state = cbStates[ci];
+        cbTag.textContent = cbLabels[ci];
       });
 
       const toggleInput = document.querySelector('.toggle-input');

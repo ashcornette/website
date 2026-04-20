@@ -136,18 +136,23 @@ h1::after {
 .component-row {
   display: flex;
   gap: 48px;
-  align-items: flex-start;
+  align-items: stretch;
   margin-bottom: 48px;
 }
 
 /* ── BUTTON DEMO ── */
 .button-demo {
   margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .pill {
+  -webkit-appearance: none;
+  appearance: none;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 12px;
+  font-size: 14px;
+  line-height: 1;
   letter-spacing: 0.03em;
   padding: 8px 20px;
   border-radius: 999px;
@@ -156,7 +161,7 @@ h1::after {
   color: var(--bg);
   cursor: pointer;
   display: block;
-  margin-bottom: 10px;
+  margin: 0 0 10px;
   transition:
     background 0.15s ease,
     color 0.15s ease,
@@ -232,14 +237,15 @@ h1::after {
   font-size: 12px;
   color: var(--muted);
   letter-spacing: 0.05em;
-  text-align: left;
-  padding-left: 20px;
+  text-align: center;
+  margin-top: auto;
 }
 
 /* ── TOGGLE DEMO ── */
 .toggle-demo {
   margin-bottom: 0;
-  padding-top: 15px;
+  display: flex;
+  flex-direction: column;
 }
 
 .toggle {
@@ -301,10 +307,127 @@ h1::after {
 
 .toggle-label {
   font-family: "IBM Plex Mono", monospace;
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.03em;
   color: var(--text);
 }
+/* ── CHECKBOX DEMO ── */
+.checkbox-demo {
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.checkbox-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: transform 0.1s ease;
+}
+
+.checkbox-box {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 1px solid var(--text);
+  background: transparent;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    opacity 0.15s ease,
+    outline-color 0.15s ease;
+}
+
+.checkbox-check {
+  width: 10px;
+  height: 8px;
+  opacity: 0;
+  color: var(--bg);
+  transition: opacity 0.1s ease;
+}
+
+.checkbox-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  color: var(--text);
+}
+
+.checkbox-wrap[data-state="default"] .checkbox-box {
+  background: transparent;
+  border-color: var(--text);
+  box-shadow: none;
+  opacity: 1;
+  outline: 2px solid transparent;
+}
+.checkbox-wrap[data-state="default"] .checkbox-check { opacity: 0; }
+
+.checkbox-wrap[data-state="hover"] {
+  transform: translateY(-2px);
+}
+.checkbox-wrap[data-state="hover"] .checkbox-box {
+  border-color: var(--accent);
+  box-shadow: 0 6px 16px rgba(200, 90, 30, 0.3);
+  background: transparent;
+  opacity: 1;
+  outline: 2px solid transparent;
+}
+.checkbox-wrap[data-state="hover"] .checkbox-check { opacity: 0; }
+
+.checkbox-wrap[data-state="clicked"] {
+  transform: scale(0.96);
+}
+.checkbox-wrap[data-state="clicked"] .checkbox-box {
+  background: var(--text);
+  border-color: var(--text);
+  box-shadow: none;
+  opacity: 1;
+  outline: 2px solid transparent;
+}
+.checkbox-wrap[data-state="clicked"] .checkbox-check { opacity: 1; }
+
+.checkbox-wrap[data-state="focused"] .checkbox-box {
+  background: transparent;
+  border-color: var(--text);
+  outline: 2px dashed var(--accent);
+  outline-offset: 3px;
+  box-shadow: none;
+  opacity: 1;
+}
+.checkbox-wrap[data-state="focused"] .checkbox-check { opacity: 0; }
+
+.checkbox-wrap[data-state="ghost"] .checkbox-box {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  opacity: 1;
+  outline: 2px solid transparent;
+}
+.checkbox-wrap[data-state="ghost"] .checkbox-check { opacity: 0; }
+
+.checkbox-wrap[data-state="disabled"] {
+  cursor: not-allowed;
+}
+.checkbox-wrap[data-state="disabled"] .checkbox-box {
+  background: var(--border);
+  border-color: var(--border);
+  box-shadow: none;
+  opacity: 0.65;
+  outline: 2px solid transparent;
+}
+.checkbox-wrap[data-state="disabled"] .checkbox-check {
+  opacity: 1;
+  color: var(--muted);
+}
+
 /* ── BACK LINK ── */
 .back {
   display: inline-block;
