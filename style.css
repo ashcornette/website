@@ -16,6 +16,13 @@
   --accent: #c85a1e;
 }
 
+[data-theme="dark"] {
+  --bg: #1a1a25;
+  --text: #f5f4f0;
+  --muted: #c8c2ba;
+  --border: #666;
+  --accent: #c85a1e;
+}
 /* ── ANIMATIONS ── */
 /* @keyframes fadein {
   from {
@@ -506,6 +513,20 @@ footer a {
 footer a:hover {
   color: var(--text);
   text-decoration: none;
+}
+
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--grey-mid);
+  color: var(--grey-light);
+  cursor: pointer;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  flex-shrink: 0;
 }
 
 /* ── RESPONSIVE — MOBILE ── */
