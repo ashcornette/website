@@ -517,8 +517,8 @@ footer a:hover {
 
 .theme-toggle {
   background: none;
-  border: 1px solid var(--grey-mid);
-  color: var(--grey-light);
+  border: 0px solid var(--muted);
+  color: var(--text);
   cursor: pointer;
   width: 34px;
   height: 34px;
