@@ -28,35 +28,3 @@
     });
   }
 })();
-
-// Mobile nav drawer
-// (function () {
-//   const toggle = document.querySelector('.menu-toggle');
-//   const drawer = document.getElementById('mobile-drawer');
-//   const overlay = document.getElementById('mobile-overlay');
-//   const closeBtn = document.getElementById('drawer-close');
-
-//   function openDrawer() {
-//     drawer.classList.add('is-open');
-//     drawer.setAttribute('aria-hidden', 'false');
-//     overlay.classList.add('is-open');
-//     toggle.classList.add('is-open');
-//     document.body.style.overflow = 'hidden';
-//   }
-
-//   function closeDrawer() {
-//     drawer.classList.remove('is-open');
-//     drawer.setAttribute('aria-hidden', 'true');
-//     overlay.classList.remove('is-open');
-//     toggle.classList.remove('is-open');
-//     document.body.style.overflow = '';
-//   }
-
-//   if (toggle) toggle.addEventListener('click', openDrawer);
-//   if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
-//   if (overlay) overlay.addEventListener('click', closeDrawer);
-
-//   document.addEventListener('keydown', function (e) {
-//     if (e.key === 'Escape') closeDrawer();
-//   });
-// })();
