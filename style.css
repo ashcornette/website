@@ -168,6 +168,7 @@ h1::after {
   color: var(--bg);
   cursor: pointer;
   display: block;
+  width: fit-content;
   margin: 0 0 10px;
   transition:
     background 0.15s ease,
@@ -547,6 +548,12 @@ footer a:hover {
 
   .bio {
     margin-bottom: 40px;
+  }
+
+  .component-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
   }
 }
 
