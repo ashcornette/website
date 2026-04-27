@@ -555,6 +555,10 @@ footer a:hover {
     grid-template-columns: repeat(2, 1fr);
     gap: 32px;
   }
+    footer {
+    flex-direction: column;
+    gap: 12px;
+  }
 }
 
 /* ── RESPONSIVE — SMALL MOBILE ── */
