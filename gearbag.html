@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arc'teryx Gear Bag — Ash Cornette</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* ── CASE STUDY CORE ── */
+      .section { margin-bottom: 56px; }
+      .section-num { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+      .section h3 { font-size: 14px; font-weight: 400; margin-bottom: 20px; }
+      .section h3::after { content: none; }
+      .section h4 { font-size: 14px; font-weight: 400; color: var(--text); margin-top: 32px; margin-bottom: 10px; letter-spacing: 0.04em; }
+      .section p { font-size: 14px; color: var(--muted); line-height: 1.85; margin-bottom: 14px; }
+      .section p:last-child { margin-bottom: 0; }
+      .section p strong { color: var(--text); font-weight: 400; }
+      .section p em { font-style: italic; }
+      .section ul { list-style: none; font-size: 14px; color: var(--muted); line-height: 1.85; margin-bottom: 14px; }
+      .section ul li { padding: 2px 0; }
+      .section ul li::before { content: "— "; color: var(--muted); }
+
+      /* ── META ── */
+      .meta { font-size: 12px; color: var(--muted); margin-bottom: 48px; line-height: 1.85; }
+      .meta span::after { content: " · "; }
+      .meta span:last-child::after { content: none; }
+
+      /* ── STATS ── */
+      .stats { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 16px 0; margin: 24px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px 24px; }
+      .stat-item { font-size: 14px; color: var(--muted); line-height: 1.6; }
+      .stat-val { color: var(--text); font-weight: 400; }
+
+      /* ── PULLQUOTE ── */
+      .pull { border-left: 2px solid var(--accent); padding-left: 16px; margin: 28px 0; font-size: 12px; font-style: italic; color: var(--text); line-height: 1.85; }
+
+      /* ── STEPS ── */
+      .steps { margin: 20px 0; }
+      .step { padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+      .step:last-child { border-bottom: none; }
+      .step-num { color: var(--accent); font-size: 12px; letter-spacing: 0.08em; margin-bottom: 2px; }
+      .step-title { color: var(--text); margin-bottom: 4px; }
+      .step-desc { color: var(--muted); line-height: 1.75; }
+
+      /* ── PHASES (journey row) ── */
+      .phases { margin: 20px 0; font-size: 12px; }
+      .phase { display: flex; gap: 12px; padding: 6px 0; color: var(--muted); }
+      .phase-num { color: var(--accent); font-size: 12px; width: 16px; flex-shrink: 0; }
+      .phase-name { color: var(--text); width: 96px; flex-shrink: 0; }
+
+      /* ── COMPARE ── */
+      .compare { margin: 24px 0; border-top: 1px solid var(--border); }
+      .compare-header { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 12px 0 8px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+      .compare-header span:first-child { color: var(--muted); }
+      .compare-header span:last-child { color: var(--accent); }
+      .compare-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 6px 0; font-size: 12px; border-bottom: 1px solid var(--border); }
+      .compare-row:last-child { border-bottom: none; }
+      .compare-row span:first-child { color: var(--muted); }
+      .compare-row span:last-child { color: var(--text); }
+
+      /* ── MODAL MOCK ── */
+      .modal-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px 0; }
+      .modal-col { display: flex; flex-direction: column; }
+      .modal-mock {
+        border: 1px solid var(--border);
+        background: var(--bg);
+        padding: 20px 18px 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        font-family: "IBM Plex Mono", monospace;
+        line-height: 1.5;
+      }
+      .modal-close { align-self: flex-start; font-size: 14px; color: var(--muted); line-height: 1; }
+      .modal-img { aspect-ratio: 1 / 1; background: var(--border); width: 55%; margin: 8px auto 4px; }
+      .modal-name { text-align: center; text-transform: uppercase; letter-spacing: 0.06em; font-size: 10px; color: var(--text); }
+      .modal-status { text-align: center; color: var(--muted); font-size: 10px; margin-bottom: 4px; }
+      .modal-link { text-align: center; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid var(--text); padding-bottom: 2px; align-self: center; color: var(--text); margin: 4px 0; }
+      .modal-cta { background: var(--text); color: var(--bg); padding: 10px; text-align: center; font-size: 10px; font-weight: 500; }
+      .mock-cap { font-size: 12px; color: var(--muted); margin-top: 12px; letter-spacing: 0.04em; }
+
+      /* ── PHONE FRAME ── */
+      .phone-wrap { max-width: 280px; margin: 28px auto 8px; }
+      .phone-frame {
+        border: 1px solid var(--border);
+        background: var(--bg);
+        aspect-ratio: 9 / 19.5;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 10px;
+        line-height: 1.4;
+      }
+      .phone-status { display: flex; justify-content: space-between; padding: 10px 14px 6px; color: var(--muted); font-size: 9px; }
+      .phone-head { display: flex; justify-content: space-between; align-items: center; padding: 8px 14px; }
+      .phone-head .head-title { text-transform: uppercase; letter-spacing: 0.08em; font-weight: 500; color: var(--text); }
+      .phone-head .head-side { color: var(--muted); }
+      .phone-tabs { display: flex; gap: 16px; padding: 4px 14px 10px; border-bottom: 1px solid var(--border); color: var(--muted); }
+      .phone-tabs .tab-active { color: var(--text); border-bottom: 1px solid var(--text); padding-bottom: 2px; }
+      .phone-body { flex: 1; padding: 10px 14px; display: flex; flex-direction: column; gap: 10px; overflow: hidden; }
+      .activity-card { border: 1px solid var(--border); }
+      .activity-img { aspect-ratio: 16 / 7; background: var(--border); }
+      .activity-name { background: var(--text); color: var(--bg); padding: 7px; text-align: center; font-size: 10px; font-weight: 500; }
+      .phone-bottom { display: flex; justify-content: space-around; padding: 8px 6px; border-top: 1px solid var(--border); font-size: 8px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+      .phone-bottom .tab-on { color: var(--text); }
+      .phone-cap { font-size: 12px; color: var(--muted); text-align: center; margin-top: 8px; letter-spacing: 0.04em; }
+
+      /* ── RESPONSIVE ── */
+      @media screen and (max-width: 600px) {
+        .modal-row { grid-template-columns: 1fr; }
+        .stats { grid-template-columns: 1fr; }
+        .phone-wrap { max-width: 240px; }
+      }
+    </style>
+  </head>
+  <body>
+    <a href="projects.html" class="back">← projects</a>
+
+    <main>
+      <h2>Arc'teryx Gear Bag</h2>
+      <p class="role">turning a dead-end favourite into a planning tool</p>
+
+      <div class="meta">
+        <span>UX research & design</span>
+        <span>concept</span>
+        <span>Figma</span>
+        <span>Emily Carr University</span>
+      </div>
+
+      <!-- 01 ── THE SPARK ── -->
+      <div class="section">
+        <div class="section-num">01 — the spark</div>
+        <h3>The Problem</h3>
+        <p>Arc'teryx is built on obsessive precision in-store. Walk into the Vancouver flagship and a staff member will ask what you're doing — alpine day, ski tour, climbing — and build a layering recommendation around the answer. That's the brand experience.</p>
+        <p>The app skips the question. You favourite a product. A modal pops up: <em>"Has been successfully added to your favourites."</em> One CTA: <strong>View Favourites</strong>. You go to a generic pile and the trail ends.</p>
+        <div class="pull">The favourite modal is the highest-intent moment in the entire app — and the current design wastes it.</div>
+        <p>That observation became the hinge of the entire redesign. Everything else followed from it.</p>
+        <p><strong>Problem statement:</strong> Arc'teryx's in-store experience is built around activity-specific layering systems, but the app treats every save as a generic favourite — wasting the highest-intent moment in the funnel and giving people no reason to return between purchases.</p>
+
+        <h4>How might we…</h4>
+        <ul>
+          <li>give online shoppers the same activity context an in-store associate provides?</li>
+          <li>turn an infrequently-opened app into a planning tool people open between trips?</li>
+          <li>reframe the favourite modal as a beginning instead of an end?</li>
+        </ul>
+      </div>
+
+      <!-- 02 ── RESEARCH ── -->
+      <div class="section">
+        <div class="section-num">02 — research</div>
+        <h3>Mapping the Gap</h3>
+        <p>I compared the Arc'teryx app to five competitors in the premium outdoor space — Patagonia, The North Face, MEC, Salomon, and Kuiu — to understand the feature landscape and where the real gap lived. The picture was lopsided.</p>
+
+        <div class="stats">
+          <div class="stat-item"><span class="stat-val">5 of 12</span> core features supported — tied for the fewest in the&nbsp;set</div>
+          <div class="stat-item"><span class="stat-val">0 of 5</span> competitors offer activity-specific saved&nbsp;kits</div>
+          <div class="stat-item"><span class="stat-val">1 unique</span> in-app warranty claims — only on&nbsp;Arc'teryx</div>
+          <div class="stat-item"><span class="stat-val">3 channels</span> Main, Outlet, ReGEAR live in separate&nbsp;places</div>
+        </div>
+
+        <h4>Three problems came up everywhere</h4>
+        <p>Across review threads and forum posts, the same complaints surfaced:</p>
+        <ul>
+          <li>Navigation feels like a website wedged into a phone, not built for mobile.</li>
+          <li>Sizing varies by activity and layer system, but the size chart doesn't reflect that.</li>
+          <li>Outlet, ReGEAR, and the main store live in three separate places.</li>
+        </ul>
+
+        <h4>The middle of nowhere</h4>
+        <p>Arc'teryx as a brand layers context. <strong>Brand → activity → kit → product.</strong> Each layer gives meaning to the one inside it. The app skips straight to the middle. A favourite without an activity context, without a bag, without a connection to the system it lives in.</p>
+        <p>The fix wasn't another feature. It was putting the activity context back at the moment of intent — and letting the layers do their job.</p>
+      </div>
+
+      <!-- 03 ── DESIGN PROCESS ── -->
+      <div class="section">
+        <div class="section-num">03 — design process</div>
+        <h3>From Observation to Move</h3>
+        <p>The guiding principle was simple: do less work in more meaningful places. Don't add a feature. Reroute a moment that's already there.</p>
+
+        <div class="steps">
+          <div class="step"><div class="step-num">01</div><div class="step-title">Competitive review</div><div class="step-desc">Mapped feature parity across five competitors and identified the unique gap — no premium outdoor app offers activity-specific saved kits.</div></div>
+          <div class="step"><div class="step-num">02</div><div class="step-title">IA audit</div><div class="step-desc">Audited the app's navigation tree. Found the favourite modal isolated from the system around it — a high-intent moment routed to a low-intent surface.</div></div>
+          <div class="step"><div class="step-num">03</div><div class="step-title">Concept exploration</div><div class="step-desc">Sketched five variants of the modal. The activity-CTA pattern won immediately — fewest taps, clearest intent, no new screen.</div></div>
+          <div class="step"><div class="step-num">04</div><div class="step-title">Visual exploration</div><div class="step-desc">Designed in Arc'teryx's existing visual language — URW DIN, minimal black on white, dark filled buttons. The change should feel like the app the user already has.</div></div>
+          <div class="step"><div class="step-num">05</div><div class="step-title">Mid-fi mockups</div><div class="step-desc">Built the modal and the gear bag tab in Figma. Stayed on platform conventions to keep the change quiet.</div></div>
+          <div class="step"><div class="step-num">06</div><div class="step-title">CTA refinement</div><div class="step-desc">Iterated on label and ordering. "Add to Trail" beat "Save to Trail" — committed verb, planning posture, no extra word.</div></div>
+        </div>
+
+        <h4>The key move</h4>
+        <p>The redesign rests on one decision. Replace the dead-end favourites CTA with three activity-specific CTAs. <strong>View Favourites</strong> stays. <strong>Add to Trail</strong>, <strong>Add to Climb</strong>, and <strong>Add to Ski & Snowboard</strong> join it.</p>
+        <p>Same modal. Same product. Same heart tap. But the next surface is no longer a generic pile — it's a planning bag for a specific trip.</p>
+
+        <h4>The journey</h4>
+        <p>Five beats from product page to packed bag.</p>
+        <div class="phases">
+          <div class="phase"><span class="phase-num">01</span><span class="phase-name">Browse</span><span>explore or shop for gear</span></div>
+          <div class="phase"><span class="phase-num">02</span><span class="phase-name">Discover</span><span>view product details</span></div>
+          <div class="phase"><span class="phase-num">03</span><span class="phase-name">Save</span><span>tap heart → modal CTAs</span></div>
+          <div class="phase"><span class="phase-num">04</span><span class="phase-name">Organize</span><span>item added to gear bag</span></div>
+          <div class="phase"><span class="phase-num">05</span><span class="phase-name">Plan</span><span>review bag for adventure</span></div>
+        </div>
+      </div>
+
+      <!-- 04 ── THE SOLUTION ── -->
+      <div class="section">
+        <div class="section-num">04 — the solution</div>
+        <h3>Three Bags, One Hinge</h3>
+
+        <h4>The modal</h4>
+        <p>The central design move is right here. One modal, before and after.</p>
+        <div class="modal-row">
+          <div class="modal-col">
+            <div class="modal-mock">
+              <span class="modal-close">×</span>
+              <div class="modal-img"></div>
+              <div class="modal-name">beta sl jacket men's</div>
+              <div class="modal-status">has been successfully added to your favourites</div>
+              <div class="modal-link">continue shopping</div>
+              <div class="modal-cta">view favourites</div>
+            </div>
+            <div class="mock-cap">current — one road, dead end.</div>
+          </div>
+          <div class="modal-col">
+            <div class="modal-mock">
+              <span class="modal-close">×</span>
+              <div class="modal-img"></div>
+              <div class="modal-name">beta sl jacket men's</div>
+              <div class="modal-status">has been successfully added to your favourites</div>
+              <div class="modal-link">continue shopping</div>
+              <div class="modal-cta">view favourites</div>
+              <div class="modal-cta">add to trail</div>
+              <div class="modal-cta">add to climb</div>
+              <div class="modal-cta">add to ski &amp; snowboard</div>
+            </div>
+            <div class="mock-cap">new — favourites, plus three planning destinations.</div>
+          </div>
+        </div>
+        <p>Three new CTAs, sorted by activity. Tap one and the product joins that gear bag — you've started planning a trip without realising you started.</p>
+
+        <h4>The gear bag</h4>
+        <p>Each CTA routes into a bag the user can review before a trip. The bag lives one tap away inside the Explore tab — alongside Favourites and My Feed, which stay where they are.</p>
+        <div class="phone-wrap">
+          <div class="phone-frame">
+            <div class="phone-status"><span>9:41</span><span>●●●</span></div>
+            <div class="phone-head">
+              <span class="head-side">edit</span>
+              <span class="head-title">explore</span>
+              <span class="head-side">⌂</span>
+            </div>
+            <div class="phone-tabs">
+              <span>favourites</span>
+              <span>my feed</span>
+              <span class="tab-active">gear bag</span>
+            </div>
+            <div class="phone-body">
+              <div class="activity-card">
+                <div class="activity-img"></div>
+                <div class="activity-name">trail</div>
+              </div>
+              <div class="activity-card">
+                <div class="activity-img"></div>
+                <div class="activity-name">climb</div>
+              </div>
+              <div class="activity-card">
+                <div class="activity-img"></div>
+                <div class="activity-name">ski &amp; snowboard</div>
+              </div>
+            </div>
+            <div class="phone-bottom">
+              <span>shop</span>
+              <span>account</span>
+              <span class="tab-on">explore</span>
+              <span>stores</span>
+              <span>help</span>
+            </div>
+          </div>
+          <div class="phone-cap">three bags, one screen — shop &gt; explore &gt; plan.</div>
+        </div>
+
+        <h4>Before / after</h4>
+        <div class="compare">
+          <div class="compare-header"><span>before</span><span>after</span></div>
+          <div class="compare-row"><span>One CTA: View Favourites</span><span>Four CTAs: favourites + three activities</span></div>
+          <div class="compare-row"><span>Generic favourites pile</span><span>Activity-specific planning bag</span></div>
+          <div class="compare-row"><span>Modal closes a loop</span><span>Modal opens one</span></div>
+          <div class="compare-row"><span>App opened twice a year</span><span>Reason to open between purchases</span></div>
+          <div class="compare-row"><span>Cross-sell feels like upsell</span><span>Cross-sell reframed as "what's missing"</span></div>
+        </div>
+      </div>
+
+      <!-- 05 ── OUTCOMES ── -->
+      <div class="section">
+        <div class="section-num">05 — outcomes</div>
+        <h3>What This Would Unlock</h3>
+        <p>This concept hasn't been tested with users yet — that's the next phase. But the redesign is built around three measurable shifts that would be worth tracking if it shipped.</p>
+        <ul>
+          <li>A wasted high-intent moment converted into a planning action, with no extra taps.</li>
+          <li>An infrequently-opened app given a reason to be opened between purchases — checking the trail bag before a trip, organizing the climb bag for the season.</li>
+          <li>Cross-sell reframed quietly. Users aren't shown more things to buy. They're shown what's missing from their bag.</li>
+        </ul>
+        <div class="pull">The cross-sell writes itself — but quietly. You're not buying a jacket. You're filling a slot in your alpine kit.</div>
+        <p>The next phase would test whether activity-based saving feels natural to users who don't already speak Arc'teryx's layering vocabulary, or whether the language needs translation.</p>
+      </div>
+
+      <!-- 06 ── REFLECTION ── -->
+      <div class="section">
+        <div class="section-num">06 — reflection</div>
+        <h3>What's Next, What I'd Change</h3>
+
+        <h4>Next steps</h4>
+        <ul>
+          <li>User research interviews with outdoor enthusiasts at three commitment levels — casual, intermediate, alpine.</li>
+          <li>Usability testing on the redesigned modal flow specifically.</li>
+          <li>"Create Custom Bag" for trip-specific lists that fall outside the three default activities.</li>
+          <li>Hi-fi prototype with real product imagery, not placeholders.</li>
+          <li>Kit total + "Add All to Cart" from inside the gear bag.</li>
+          <li>Heuristic evaluation: current app vs redesign, side by side.</li>
+        </ul>
+
+        <h4>The assumption risk</h4>
+        <p>The redesign rests on one observation about the favourite modal. That's a strong wedge but also a risky one — if the modal isn't actually the highest-intent moment for most users, the whole concept loses its grounding. A diary study with 5–8 outdoor enthusiasts would test the assumption directly: where do people hesitate, where do they save, where do they bail.</p>
+
+        <h4>The taxonomy question</h4>
+        <p>Trail / Climb / Ski & Snowboard maps to Arc'teryx's marketing categories, but real users build mixed kits — a hike that ends at a crag, a ski tour that starts with an approach. The "Create Custom Bag" stretch goal exists for that reason, but it should probably be a Day 1 feature, not a Day 2 one.</p>
+
+        <h4>What this taught me</h4>
+        <p>The strongest design moves aren't always new features. Sometimes the right move is finding a moment the system is already creating and giving it somewhere to go. The favourite modal already existed. The heart tap already existed. Activity-specific kit-building was already happening in-store. The work was identifying the gap between them — and closing it with as few new pieces as possible.</p>
+        <figure style="margin: 32px 0 0;">
+          <img src="img/arcteryx-change.png" alt="Arc'teryx redesign" loading="lazy" style="width: 100%; display: block;">
+          <figcaption style="font-size: 12px; color: var(--muted); margin-top: 8px;">Arc'teryx redesign</figcaption>
+        </figure>
+      </div>
+    </main>
+
+    <footer>
+      <a href="projects.html">projects</a>
+      <a href="index.html">home</a>
+      <a href="mailto:hello@ashcornette.com">hello@ashcornette.com</a>
+      <a href="https://linkedin.com/in/ashcornette" target="_blank" rel="noopener noreferrer">linkedin</a>
+      <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to light mode">
+        <i class="fa-solid fa-sun" aria-hidden="true"></i>
+      </button>
+      <a href="#">↑ back to top</a>
+    </footer>
+    <script src="theme.js"></script>
+  </body>
+</html>
