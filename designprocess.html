@@ -21,8 +21,6 @@ h3 { font-size: var(--fs); font-weight: 500; margin: 32px 0 12px; }
 h4 { font-size: var(--fs); font-weight: 500; margin: 20px 0 8px; color: var(--muted); }
 p  { margin-bottom: 12px; max-width: 62ch; }
 p + p { margin-top: 0; }
-a  { color: var(--accent); border-bottom: 1px solid var(--accent); }
-a:hover { opacity: .7; text-decoration: none; }
 
 /* header */
 .masthead { border-bottom: 1px solid var(--border); padding-bottom: 24px; margin-bottom: 40px; }
@@ -77,10 +75,6 @@ ol.num li::before   { content: counter(n, decimal-leading-zero) "  "; color: var
 .pull      { border-left: 2px solid var(--accent); padding: 8px 0 8px 16px; margin: 20px 0; color: var(--text); max-width: 60ch; }
 .pull-cite { color: var(--muted); margin-top: 6px; }
 
-/* footer */
-footer   { margin-top: 96px; padding-top: 24px; border-top: 1px solid var(--border); color: var(--muted); display: block; gap: 0; flex-wrap: unset; }
-footer p { max-width: 60ch; }
-
 /* phase rail */
 .rail                   { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--border); margin: 24px 0 40px; }
 .rail a                 { padding: 16px; border-right: 1px solid var(--border); color: var(--text); border-bottom: none; display: block; }
@@ -96,7 +90,8 @@ footer p { max-width: 60ch; }
 </style>
 </head>
 <body>
-<main id="top">
+  <main id="top">
+  <a href="index.html" class="back">← ash cornette</a>
 
 <header class="masthead">
   <div class="eyebrow">a reference — 2026.04.20</div>
@@ -618,12 +613,14 @@ footer p { max-width: 60ch; }
 </section>
 
 <footer>
-  <p>compiled from 20 class decks. 860 pages of source material, one reference page. 2026.04.20.</p>
-  <p><a href="#">↑ back to top</a></p>
-<button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to light mode">
+  <a href="index.html">home</a>
+  <a href="projects.html">projects</a>
+      <a href="mailto:hello@ashcornette.com">hello@ashcornette.com</a>
+      <a href="https://linkedin.com/in/ashcornette" target="_blank" rel="noopener noreferrer">linkedin</a>
+      <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to light mode">
           <i class="fa-solid fa-sun" aria-hidden="true"></i>
         </button>
-
+        <a href="#">↑ back to top</a>
     </footer>
     <script src="theme.js"></script>
 </main>
