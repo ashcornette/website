@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Three Fits & MVP — Business of Design</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    main { max-width: 960px; }
+    footer { max-width: 960px; }
+
+    /* ── FITS GRID ── */
+    .fits-grid {
+      display: flex;
+      border: 1px solid var(--border);
+      margin-bottom: 48px;
+      overflow-x: auto;
+      min-width: 0;
+    }
+
+    .fit-col {
+      flex: 1;
+      min-width: 200px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .fit-col:not(:last-child) {
+      border-right: 1px solid var(--border);
+    }
+
+    .fit-tag {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .fit-question {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .fit-body {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.75;
+      flex: 1;
+    }
+
+    .fit-status {
+      font-size: 11px;
+      color: var(--muted);
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .dot-green  { background: #1D9E75; }
+    .dot-purple { background: #7F77DD; }
+    .dot-amber  { background: #BA7517; }
+
+    /* ── MVP GRID ── */
+    .mvp-grid {
+      display: flex;
+      border: 1px solid var(--border);
+      margin-bottom: 48px;
+      overflow-x: auto;
+      min-width: 0;
+    }
+
+    .mvp-col {
+      flex: 1;
+      min-width: 200px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .mvp-col:not(:last-child) {
+      border-right: 1px solid var(--border);
+    }
+
+    .mvp-col.recommended {
+      background: var(--text);
+      color: var(--bg);
+    }
+
+    .mvp-badge {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+    }
+
+    .mvp-col.recommended .mvp-badge {
+      color: var(--accent);
+    }
+
+    .mvp-name {
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .mvp-col.recommended .mvp-name {
+      color: var(--bg);
+    }
+
+    .mvp-body {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .mvp-col.recommended .mvp-body {
+      color: var(--bg);
+      opacity: 0.75;
+    }
+
+    /* ── BML ROW ── */
+    .bml-grid {
+      display: flex;
+      border: 1px solid var(--border);
+      overflow-x: auto;
+      min-width: 0;
+    }
+
+    .bml-cell {
+      flex: 1;
+      min-width: 160px;
+      padding: 20px;
+    }
+
+    .bml-cell:not(:last-child) {
+      border-right: 1px solid var(--border);
+    }
+
+    .bml-label {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .bml-value {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    .bml-note {
+      font-size: 11px;
+      color: var(--muted);
+      font-style: italic;
+      margin-top: 16px;
+    }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    @media screen and (max-width: 600px) {
+      main { max-width: 100%; }
+      footer { max-width: 100%; }
+
+      .fits-grid,
+      .mvp-grid,
+      .bml-grid {
+        flex-direction: column;
+      }
+
+      .fit-col:not(:last-child),
+      .mvp-col:not(:last-child),
+      .bml-cell:not(:last-child) {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <p class="role">draft — week 3 · three fits + mvp</p>
+
+    <p class="section-label">The three fits</p>
+    <div class="fits-grid">
+
+      <div class="fit-col">
+        <span class="fit-tag">Problem–solution fit</span>
+        <p class="fit-question">Are you solving a real and important problem?</p>
+        <p class="fit-body">Running out of essentials without warning is a frequent, high-intensity pain. Fixed delivery schedules don't match real usage. Manual tracking doesn't stick.</p>
+        <div class="fit-status">
+          <span class="status-dot dot-green"></span>
+          <span>Strong — real pain, no good solution exists</span>
+        </div>
+      </div>
+
+      <div class="fit-col">
+        <span class="fit-tag">Product–market fit</span>
+        <p class="fit-question">Do the right customers want this and keep using it?</p>
+        <p class="fit-body">Target: busy multi-person households. Shared view and two-tap logging are designed for retention. Key risk: will users actually log consistently?</p>
+        <div class="fit-status">
+          <span class="status-dot dot-purple"></span>
+          <span>Solid premise — validate logging behaviour first</span>
+        </div>
+      </div>
+
+      <div class="fit-col">
+        <span class="fit-tag">Business model fit</span>
+        <p class="fit-question">Can the product make money and sustain itself?</p>
+        <p class="fit-body">Free tier + premium (household sharing). Affiliate links at reorder intent = high-conversion moment. Primary revenue stream still needs to be defined.</p>
+        <div class="fit-status">
+          <span class="status-dot dot-amber"></span>
+          <span>Needs work — subscription vs. affiliate?</span>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="section-label">MVP recommendation</p>
+    <div class="mvp-grid">
+
+      <div class="mvp-col recommended">
+        <span class="mvp-badge">— recommended</span>
+        <p class="mvp-name">Concierge MVP</p>
+        <p class="mvp-body">Manually alert 5–10 households when items run low. No app needed. Tests the riskiest assumption: do people act on alerts?</p>
+      </div>
+
+      <div class="mvp-col">
+        <span class="mvp-badge">&nbsp;</span>
+        <p class="mvp-name">Piecemeal MVP</p>
+        <p class="mvp-body">Google Sheets + push notifications simulate the product. Zero custom dev — good for a class prototype.</p>
+      </div>
+
+      <div class="mvp-col">
+        <span class="mvp-badge">&nbsp;</span>
+        <p class="mvp-name">Landing page</p>
+        <p class="mvp-body">Tests demand, not behaviour. Weakest option — demand isn't the question here, behaviour change is.</p>
+      </div>
+
+    </div>
+
+    <p class="section-label">Build · measure · learn</p>
+    <div class="bml-grid">
+      <div class="bml-cell">
+        <span class="bml-label">Riskiest assumption</span>
+        <p class="bml-value">Users will log consumption consistently</p>
+      </div>
+      <div class="bml-cell">
+        <span class="bml-label">Metric to define before building</span>
+        <p class="bml-value">% who log 3+ items in first 7 days</p>
+      </div>
+      <div class="bml-cell">
+        <span class="bml-label">Success signal</span>
+        <p class="bml-value">User acts on a low-stock alert without being prompted</p>
+      </div>
+    </div>
+    <p class="bml-note">behaviour beats opinion. define your metric before you build.</p>
+
+  </main>
+
+  <footer>
+    <a href="https://ashcornette.com">ashcornette.com</a>
+    <a href="/bmc">BMC</a>
+    <a href="/vpc">VPC</a>
+    <a href="/fits">Fits & MVP</a>
+    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+      <i class="fa-solid fa-sun" aria-hidden="true"></i>
+    </button>
+  </footer>
+  <script src="theme.js"></script>
+
+</body>
+</html>
