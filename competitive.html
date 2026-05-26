@@ -248,6 +248,36 @@
     @media screen and (max-width: 600px) {
       .swot-grid { grid-template-columns: 1fr; }
     }
+
+    /* ── POSITIONING STRATEGY ── */
+    .strategy-intro {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    /* ── POSITIONING MAP ── */
+    .pmap {
+      border: 1px solid var(--border);
+      padding: 24px 20px 18px;
+      margin-bottom: 12px;
+    }
+
+    .pmap svg {
+      width: 100%;
+      height: auto;
+      max-width: 560px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .pmap-cap {
+      font-size: 11px;
+      color: var(--muted);
+      font-style: italic;
+      line-height: 1.65;
+    }
   </style>
 </head>
 <body>
@@ -470,6 +500,66 @@
           <li>owns non-food consumables — the pantry crowd only watches food</li>
           <li>sits between the dumb subscription and the manual list — we're the timing layer</li>
         </ul>
+      </div>
+
+      <!-- POSITIONING STRATEGY -->
+      <div class="section">
+        <div class="section-label">Positioning strategy</div>
+        <p class="strategy-intro">of the three class-4 strategies, we play two — and deliberately skip the third.</p>
+
+        <div class="comp">
+          <div class="comp-name">Differentiation <span class="tag tag-accent">primary</span></div>
+          <div class="comp-desc">win on a unique capability, not price — the only app that learns timing instead of holding a list or shipping on a clock. apple, not walmart.</div>
+        </div>
+        <div class="comp">
+          <div class="comp-name">Focus / niche <span class="tag tag-accent">secondary</span></div>
+          <div class="comp-desc">serve one segment well — households buried in the non-food consumables the food-and-expiry apps overlook. the peloton move.</div>
+        </div>
+        <div class="comp">
+          <div class="comp-name">Cost leadership <span class="tag">not us</span></div>
+          <div class="comp-desc">rejected — everyone here is already free or near-free, so competing on price is a race to the bottom we'd lose to Amazon.</div>
+        </div>
+      </div>
+
+      <!-- POSITIONING MAP -->
+      <div class="section">
+        <div class="section-label">Positioning map</div>
+        <div class="pmap">
+          <svg viewBox="0 0 560 430" role="img" aria-label="Positioning map plotting competitors on a reactive-to-predictive axis against effort to maintain. Ours sits alone in the predictive and effortless corner.">
+            <rect x="290" y="40" width="250" height="170" fill="var(--accent-dim)"></rect>
+
+            <line x1="40" y1="210" x2="540" y2="210" stroke="var(--muted)" stroke-width="1"></line>
+            <line x1="290" y1="40" x2="290" y2="380" stroke="var(--muted)" stroke-width="1"></line>
+
+            <polygon points="540,210 531,205 531,215" fill="var(--muted)"></polygon>
+            <polygon points="40,210 49,205 49,215" fill="var(--muted)"></polygon>
+            <polygon points="290,40 285,49 295,49" fill="var(--muted)"></polygon>
+            <polygon points="290,380 285,371 295,371" fill="var(--muted)"></polygon>
+
+            <text x="290" y="30" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="11" fill="var(--text)">predictive</text>
+            <text x="290" y="402" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="11" fill="var(--text)">reactive / fixed</text>
+            <text x="46" y="204" text-anchor="start" font-family="'IBM Plex Mono', monospace" font-size="10" fill="var(--muted)">high effort</text>
+            <text x="534" y="204" text-anchor="end" font-family="'IBM Plex Mono', monospace" font-size="10" fill="var(--muted)">effortless</text>
+
+            <text x="532" y="58" text-anchor="end" font-family="'IBM Plex Mono', monospace" font-size="9" fill="var(--accent)" opacity="0.7">open space</text>
+
+            <circle cx="150" cy="165" r="5" fill="var(--text)"></circle>
+            <text x="150" y="150" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10" fill="var(--muted)">pantry trackers</text>
+
+            <circle cx="160" cy="320" r="5" fill="var(--text)"></circle>
+            <text x="160" y="340" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10" fill="var(--muted)">shared lists</text>
+
+            <circle cx="455" cy="295" r="5" fill="var(--text)"></circle>
+            <text x="455" y="315" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10" fill="var(--muted)">subscribe &amp; save</text>
+
+            <circle cx="360" cy="250" r="5" fill="var(--text)"></circle>
+            <text x="360" y="270" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10" fill="var(--muted)">restock planner</text>
+
+            <circle cx="450" cy="105" r="7" fill="var(--accent)"></circle>
+            <text x="450" y="88" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="11" fill="var(--accent)">ours</text>
+          </svg>
+        </div>
+        <p class="pmap-cap">class 4 positioning-map technique, with axes chosen for this market — how the product decides timing (reactive ↔ predictive) against effort to maintain. the predictive-and-effortless corner sits empty; that's the gap we take.</p>
       </div>
 
       <!-- RISK -->
