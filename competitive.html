@@ -19,11 +19,11 @@
       font-size: 11px;
       color: var(--muted);
       font-style: italic;
-      margin-bottom: 40px;
+      margin-bottom: 14px;
       letter-spacing: 0.03em;
     }
 
-     .ca-method {
+    .ca-method {
       font-size: 12px;
       color: var(--muted);
       line-height: 1.7;
@@ -31,9 +31,9 @@
       border-left: 2px solid var(--accent);
       margin-bottom: 40px;
     }
- 
+
     .ca-method .accent { color: var(--accent); }
-    
+
     .ca-intro {
       font-size: 14px;
       color: var(--muted);
@@ -183,6 +183,71 @@
     }
 
     .position .accent { color: var(--accent); }
+
+    /* ── SWOT ── */
+    .swot-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .swot-cell {
+      background: var(--bg);
+      padding: 16px 18px;
+      min-height: 160px;
+    }
+
+    .swot-cell-accent {
+      border-left: 2px solid var(--accent);
+    }
+
+    .swot-label {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .swot-cell-accent .swot-label {
+      color: var(--accent);
+    }
+
+    .swot-sub {
+      font-size: 9px;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 10px;
+      letter-spacing: 0.02em;
+    }
+
+    .swot-items {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      line-height: 1.75;
+    }
+
+    .swot-items li {
+      font-size: 12px;
+      color: var(--text);
+      padding-left: 12px;
+      position: relative;
+      margin-bottom: 2px;
+    }
+
+    .swot-items li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--muted);
+    }
+
+    @media screen and (max-width: 600px) {
+      .swot-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -190,6 +255,7 @@
   <main>
     <div class="ca-wrap">
       <p class="ca-meta">draft — week 4 · competitive analysis · phase 2 research</p>
+
       <p class="ca-method">method — <span class="accent">data detective</span> (desk research on features, pricing and reviews) and <span class="accent">impersonator</span> (hands-on use of the closest apps). two of the six customer-insight techniques.</p>
 
       <!-- LANDSCAPE -->
@@ -332,6 +398,62 @@
               </tr>
             </tbody>
           </table>
+        </div>
+      </div>
+
+      <!-- SWOT -->
+      <div class="section">
+        <div class="section-label">SWOT</div>
+        <div class="swot-grid">
+
+          <div class="swot-cell swot-cell-accent">
+            <div class="swot-label">Strengths</div>
+            <div class="swot-sub">internal · what we do well</div>
+            <ul class="swot-items">
+              <li>learns real consumption — the one thing no direct competitor does</li>
+              <li>two-tap logging built for low friction</li>
+              <li>owns non-food consumables, not just food</li>
+              <li>shared household view by default</li>
+              <li>freemium lowers the barrier to first value</li>
+            </ul>
+          </div>
+
+          <div class="swot-cell">
+            <div class="swot-label">Weaknesses</div>
+            <div class="swot-sub">internal · gaps</div>
+            <ul class="swot-items">
+              <li>only works if people keep logging — high abandonment risk</li>
+              <li>no delivery; relies on reorder links, doesn't close the loop</li>
+              <li>cold start — needs a few cycles per item before it's useful</li>
+              <li>new brand, no name or distribution yet</li>
+              <li>student-stage team and resources</li>
+            </ul>
+          </div>
+
+          <div class="swot-cell swot-cell-accent">
+            <div class="swot-label">Opportunities</div>
+            <div class="swot-sub">external · openings</div>
+            <ul class="swot-items">
+              <li>genuine white space — no consumer app learns consumption</li>
+              <li>pantry apps ignore consumables; room to own "everything you run out of"</li>
+              <li>rising mental-load awareness; the reverse-grocery-list trend shows demand</li>
+              <li>retailer affiliate &amp; reorder partnerships as revenue</li>
+              <li>an AI-skeptic segment the AI-racing apps aren't serving</li>
+            </ul>
+          </div>
+
+          <div class="swot-cell">
+            <div class="swot-label">Threats</div>
+            <div class="swot-sub">external · risks</div>
+            <ul class="swot-items">
+              <li>Amazon could add learned timing to Subscribe &amp; Save easily</li>
+              <li>a near-clone (Restock planner) is live and could learn first</li>
+              <li>the real default is free manual habits — hard to displace "good enough"</li>
+              <li>big platforms own distribution and can absorb the feature</li>
+              <li>crowded app store — discoverability is hard</li>
+            </ul>
+          </div>
+
         </div>
       </div>
 
