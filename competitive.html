@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Competitive Analysis — Business of Design</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    main { max-width: 960px; }
+    footer { max-width: 960px; }
+
+    .ca-wrap {
+      width: 100%;
+      animation: fadein 0.5s ease 0.1s both;
+    }
+
+    .ca-meta {
+      font-size: 11px;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 40px;
+      letter-spacing: 0.03em;
+    }
+
+    .ca-intro {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 8px;
+    }
+
+    /* ── COMPETITOR LIST ── */
+    .comp-group {
+      margin-bottom: 28px;
+    }
+
+    .comp-group-label {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .comp-group-sub {
+      font-size: 11px;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 14px;
+    }
+
+    .comp {
+      display: flex;
+      gap: 24px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+    }
+
+    .comp:first-of-type {
+      border-top: 1px solid var(--border);
+    }
+
+    .comp-name {
+      flex-shrink: 0;
+      width: 230px;
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .comp-desc {
+      flex: 1;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── MATRIX ── */
+    .matrix-scroll {
+      overflow-x: auto;
+      margin-bottom: 8px;
+    }
+
+    .matrix {
+      width: 100%;
+      min-width: 720px;
+      border-collapse: collapse;
+      font-size: 11px;
+    }
+
+    .matrix th,
+    .matrix td {
+      border: 1px solid var(--border);
+      padding: 10px 12px;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .matrix thead th {
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .matrix th.cap,
+    .matrix td.cap {
+      text-align: left;
+      color: var(--text);
+      width: 230px;
+      white-space: normal;
+    }
+
+    .matrix th.ours,
+    .matrix td.ours {
+      background: var(--accent-dim);
+    }
+
+    .matrix thead th.ours {
+      color: var(--accent);
+      font-weight: 400;
+    }
+
+    .matrix tbody td {
+      font-size: 14px;
+    }
+
+    .matrix .cost {
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    .y { color: var(--text); }
+    .p { color: var(--muted); }
+    .n { color: var(--muted); opacity: 0.4; }
+    td.ours .y { color: var(--accent); }
+
+    .matrix tbody td .y,
+    .matrix tbody td .p,
+    .matrix tbody td .n {
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .legend {
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+
+    .legend .y,
+    .legend .p,
+    .legend .n { font-size: 12px; margin: 0 2px 0 10px; }
+    .legend .y:first-child { margin-left: 0; }
+
+    /* ── POSITIONING ── */
+    .position {
+      border-left: 2px solid var(--accent);
+      padding: 4px 0 4px 20px;
+      margin-bottom: 32px;
+    }
+
+    .position p {
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .position .accent { color: var(--accent); }
+  </style>
+</head>
+<body>
+
+  <main>
+    <div class="ca-wrap">
+      <p class="ca-meta">draft — week 4 · competitive analysis · phase 2 research</p>
+
+      <!-- LANDSCAPE -->
+      <div class="section">
+        <div class="section-label">The landscape</div>
+        <p class="ca-intro">three camps solve this problem today — subscription delivery, inventory trackers, and shared lists. none of them learn how fast a household actually burns through things. that's the gap we sit in.</p>
+      </div>
+
+      <!-- DIRECT -->
+      <div class="section">
+        <div class="comp-group">
+          <div class="comp-group-label">Direct competitors</div>
+          <div class="comp-group-sub">apps that track stock and restocking</div>
+
+          <div class="comp">
+            <div class="comp-name">Restock: Shopping List &amp; Planner <span class="tag tag-accent">closest</span></div>
+            <div class="comp-desc">tracks purchase cycles with 7 / 14 / 30 / 60-day presets and flags items by urgency. the nearest thing to us on the store — but you set the interval, it doesn't learn it. updated 2026.</div>
+          </div>
+
+          <div class="comp">
+            <div class="comp-name">Restock for offices <span class="tag">b2b</span></div>
+            <div class="comp-desc">its AI learns office consumption and auto-delivers supplies. proves the predictive model works — and leaves the consumer household version wide open.</div>
+          </div>
+
+          <div class="comp">
+            <div class="comp-name">Pantry Check · NoWaste · KitchenPal</div>
+            <div class="comp-desc">barcode scanning, expiry dates, low-stock alerts off a manually-set minimum quantity. built for food waste, not consumables — and the threshold is a guess, not a learned rate.</div>
+          </div>
+
+          <div class="comp">
+            <div class="comp-name">Supplies · Out of Milk</div>
+            <div class="comp-desc">shopping plus pantry lists that stretch to household inventory. manual and reactive — you tell them everything, every time.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INDIRECT -->
+      <div class="section">
+        <div class="comp-group">
+          <div class="comp-group-label">Indirect competitors</div>
+          <div class="comp-group-sub">solve the same problem a different way</div>
+
+          <div class="comp">
+            <div class="comp-name">Amazon Subscribe &amp; Save</div>
+            <div class="comp-desc">fixed-schedule auto-delivery, 5–15% off for five or more items to one address. closes the whole loop — but on a rigid cadence that ignores how fast you really use things.</div>
+          </div>
+
+          <div class="comp">
+            <div class="comp-name">Bring! · AnyList · Cozi</div>
+            <div class="comp-desc">shared lists and family organizers. excellent real-time sync, no prediction. tells us household sharing is table stakes here — not a selling point.</div>
+          </div>
+
+          <div class="comp">
+            <div class="comp-name">Manual habits <span class="tag tag-accent">real default</span></div>
+            <div class="comp-desc">the reverse grocery list, one-spare-of-everything, pen and paper. free and zero-friction — this, not another app, is what we actually have to beat.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MATRIX -->
+      <div class="section">
+        <div class="section-label">Feature comparison</div>
+        <p class="legend"><span class="y">●</span> has it<span class="p">◐</span> partial<span class="n">○</span> none</p>
+        <div class="matrix-scroll">
+          <table class="matrix">
+            <thead>
+              <tr>
+                <th class="cap"></th>
+                <th class="ours">Ours</th>
+                <th>Restock planner</th>
+                <th>Pantry trackers</th>
+                <th>Subscribe &amp; Save</th>
+                <th>Shared lists</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="cap">learns restock timing from real use</td>
+                <td class="ours"><span class="y">●</span></td>
+                <td><span class="n">○</span></td>
+                <td><span class="p">◐</span></td>
+                <td><span class="n">○</span></td>
+                <td><span class="n">○</span></td>
+              </tr>
+              <tr>
+                <td class="cap">proactive low-stock alerts</td>
+                <td class="ours"><span class="y">●</span></td>
+                <td><span class="y">●</span></td>
+                <td><span class="y">●</span></td>
+                <td><span class="p">◐</span></td>
+                <td><span class="n">○</span></td>
+              </tr>
+              <tr>
+                <td class="cap">covers non-food consumables</td>
+                <td class="ours"><span class="y">●</span></td>
+                <td><span class="y">●</span></td>
+                <td><span class="p">◐</span></td>
+                <td><span class="y">●</span></td>
+                <td><span class="p">◐</span></td>
+              </tr>
+              <tr>
+                <td class="cap">low logging effort</td>
+                <td class="ours"><span class="y">●</span></td>
+                <td><span class="p">◐</span></td>
+                <td><span class="n">○</span></td>
+                <td><span class="y">●</span></td>
+                <td><span class="p">◐</span></td>
+              </tr>
+              <tr>
+                <td class="cap">shared household view</td>
+                <td class="ours"><span class="y">●</span></td>
+                <td><span class="n">○</span></td>
+                <td><span class="p">◐</span></td>
+                <td><span class="n">○</span></td>
+                <td><span class="y">●</span></td>
+              </tr>
+              <tr>
+                <td class="cap">direct reorder links</td>
+                <td class="ours"><span class="y">●</span></td>
+                <td><span class="n">○</span></td>
+                <td><span class="p">◐</span></td>
+                <td><span class="y">●</span></td>
+                <td><span class="n">○</span></td>
+              </tr>
+              <tr>
+                <td class="cap">handles delivery</td>
+                <td class="ours"><span class="n">○</span></td>
+                <td><span class="n">○</span></td>
+                <td><span class="n">○</span></td>
+                <td><span class="y">●</span></td>
+                <td><span class="n">○</span></td>
+              </tr>
+              <tr>
+                <td class="cap">cost model</td>
+                <td class="ours cost">freemium</td>
+                <td class="cost">free / iap</td>
+                <td class="cost">free → sub</td>
+                <td class="cost">free + goods</td>
+                <td class="cost">~$15–39/yr</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- POSITIONING -->
+      <div class="section">
+        <div class="section-label">Where we win</div>
+
+        <div class="position">
+          <p>for busy households that keep running out of everyday essentials, <span class="accent">ours</span> is the restocking app that warns you <span class="accent">before</span> you run out — not after — by learning how fast your household actually uses things, instead of relying on fixed schedules or manual lists.</p>
+        </div>
+
+        <ul class="dash-list">
+          <li>it learns, you don't configure — the one thing none of them do</li>
+          <li>owns non-food consumables — the pantry crowd only watches food</li>
+          <li>sits between the dumb subscription and the manual list — we're the timing layer</li>
+        </ul>
+      </div>
+
+      <!-- RISK -->
+      <div class="section">
+        <div class="card card-accent">
+          <div class="card-title">The catch — to stress-test in research</div>
+          <div class="card-body">prediction only works if people keep logging — the exact behaviour every pantry app dies on. and Amazon could bolt learned timing onto Subscribe &amp; Save in a sprint. the moat isn't the feature, it's whether two-tap logging stays frictionless past month three. one more: "no AI" reads better as "private and works offline" than as a missing feature.</div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <a href="cuxd211.html">CUXD211</a>
+    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+      <i class="fa-solid fa-sun" aria-hidden="true"></i>
+    </button>
+  </footer>
+  <script src="theme.js"></script>
+
+</body>
+</html>
