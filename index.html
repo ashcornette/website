@@ -10,21 +10,23 @@
   <body>
     <main>
       <h1>ash cornette</h1>
-      <p class="role">performing artist &amp; UX/UI designer</p>
+      <p class="role">UX/UI designer · calm tech · movement &amp; wellness</p>
       <div class="bio">
         <p>
           Based in Vancouver, BC. 27 years in breaking —
-          now&nbsp;evolving into UX/UI design.
+          perspective that shapes everything I design.
         </p>
         <p>
-          Dancer at OURO Collective. Currently studying UX/UI Design
-          at&nbsp;Emily Carr University.
+          Performing artist at OURO Collective. Studying UX/UI Design
+          at&nbsp;Emily Carr University. Designing quiet products
+          for&nbsp;people who move.
         </p>
       </div>
 
+      <p class="component-caption">inputs — try them.</p>
       <div class="component-row">
         <div class="button-demo">
-          <button class="pill" data-state="default">Button</button>
+          <button class="pill" data-state="default">press</button>
           <p class="state-tag">Default</p>
         </div>
 
@@ -34,7 +36,7 @@
             <span class="toggle-track">
               <span class="toggle-knob"></span>
             </span>
-            <span class="toggle-label">Toggle</span>
+            <span class="toggle-label">switch</span>
           </label>
           <p class="state-tag toggle-state-tag">Off</p>
         </div>
@@ -46,16 +48,63 @@
                 <path d="M1 4L3.5 6.5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </span>
-            <span class="checkbox-label">Checkbox</span>
+            <span class="checkbox-label">select</span>
           </div>
           <p class="state-tag checkbox-state-tag">Default</p>
         </div>
       </div>
+
+      <!-- what I believe -->
+      <div class="section">
+        <div class="section-num">01 — what I believe</div>
+
+        <div class="belief">
+          <p class="belief-title"><strong>Quiet is a feature.</strong></p>
+          <p>Most products compete for attention. I'm interested in the ones that don't. The best tool I can build is one the user closes without thinking — because the job is done.</p>
+        </div>
+
+        <div class="belief">
+          <p class="belief-title"><strong>The surface problem is rarely the real one.</strong></p>
+          <p>The stated brief is usually a layer over something more specific and more true. Research earns the right to change it. My process starts with the question but isn't loyal to it.</p>
+        </div>
+
+        <div class="belief">
+          <p class="belief-title"><strong>Build for the edge case first.</strong></p>
+          <p>The early-career designer, the injured performing artist, the person checking three platforms before finding anything useful — not edge cases. The clearest signal of where a system fails.</p>
+        </div>
+
+        <div class="belief">
+          <p class="belief-title"><strong>Community is continuity.</strong></p>
+          <p>It's easy to get people in the room. The harder problem — the one almost nothing is designed for — is what happens after. The problem isn't connection, it's continuity.</p>
+        </div>
+
+        <div class="belief">
+          <p class="belief-title"><strong>The body is context.</strong></p>
+          <p>Most wellness tech is designed for a sedentary body. A performing artist doesn't need another notification — the real work happens off the screen.</p>
+        </div>
+      </div>
+
+      <div class="pull">The right product is one the user closes without thinking about it — because the job got done.</div>
+
+      <!-- what I'm building toward -->
+      <div class="section">
+        <div class="section-num">02 — what I'm building toward</div>
+        <p>I want to design products for people who move — performing artists, athletes, movers — and for the organizations that support them. The mainstream got it wrong: wellness apps are loud, addictive, and built for a sedentary user.</p>
+        <p>I'm drawn to calm technology — products designed to be used less, not more. If your success metric is engagement, we'll probably disagree. If it's whether the person closed the app feeling like something got done, we're speaking the same language.</p>
+        <p>Target: performing artist wellness, calm-tech companies, cultural organizations, studios building intentional tools for movement-based artists.</p>
+      </div>
+
+      <!-- how I work -->
+      <div class="section">
+        <div class="section-num">03 — how I work</div>
+        <p>Mixed-methods research grounded in real behaviour, not reported preference. Structured critique that surfaces the reframe, not just the fix. Visual design close enough to the craft that the idea survives implementation. Front-end code when fidelity matters.</p>
+        <p>I work best with teams who treat research as a design tool, not a gate before design starts.</p>
+      </div>
     </main>
 
     <script>
-      const states = ['default', 'hover', 'clicked', 'focused', 'ghost', 'disabled'];
-      const labels = ['Default', 'Hover', 'Clicked', 'Focused', 'Ghost', 'Disabled'];
+      const states = ['default', 'hover', 'clicked', 'focused'];
+      const labels = ['Default', 'Hover', 'Clicked', 'Focused'];
       let i = 0;
       const btn = document.querySelector('.pill');
       const tag = document.querySelector('.state-tag');
@@ -65,8 +114,8 @@
         tag.textContent = labels[i];
       });
 
-      const cbStates = ['default', 'hover', 'clicked', 'focused', 'ghost', 'disabled'];
-      const cbLabels = ['Default', 'Hover', 'Clicked', 'Focused', 'Ghost', 'Disabled'];
+      const cbStates = ['default', 'hover', 'clicked', 'focused'];
+      const cbLabels = ['Default', 'Hover', 'Clicked', 'Focused'];
       let ci = 0;
       const cbWrap = document.querySelector('.checkbox-wrap');
       const cbTag = document.querySelector('.checkbox-state-tag');
@@ -89,10 +138,8 @@
       <a href="mailto:hello@ashcornette.com">hello@ashcornette.com</a>
       <a href="https://linkedin.com/in/ashcornette" target="_blank" rel="noopener noreferrer">linkedin</a>
       <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to light mode">
-          <i class="fa-solid fa-sun" aria-hidden="true"></i>
-        </button>
-        <a href="designprocess.html"><button class="pill" data-state="default">Design</button></a>
-
+        <i class="fa-solid fa-sun" aria-hidden="true"></i>
+      </button>
     </footer>
     <script src="theme.js"></script>
   </body>

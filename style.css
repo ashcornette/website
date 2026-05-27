@@ -13,18 +13,18 @@
   --text: #1a1a25;
   --muted: #525256;
   --border: #e0ddd8;
-  --accent: #c85a1e;
+  --accent: #7d3410;
 }
 
 [data-theme="dark"] {
-  --bg: #1a1a25;
+  --bg: #1c1c1c;
   --text: #f5f4f0;
   --muted: #c8c2ba;
-  --border: #666;
-  --accent: #c85a1e;
+  --border: #333;
+  --accent: #f0904e;
 }
 /* ── ANIMATIONS ── */
-/* @keyframes fadein {
+@keyframes fadein {
   from {
     opacity: 0;
     transform: translateY(5px);
@@ -33,7 +33,7 @@
     opacity: 1;
     transform: translateY(0);
   }
-} */
+}
 
 @keyframes blink {
   0%,
@@ -48,7 +48,7 @@
 /* ── BASE ── */
 body {
   font-family: "IBM Plex Mono", monospace;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.85;
   color: var(--text);
   background: var(--bg);
@@ -79,10 +79,10 @@ main {
 
 /* ── NAME ── */
 h1 {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 400;
   letter-spacing: 0.01em;
-  margin-bottom: 3px;
+  margin-bottom: 6px;
 }
 
 h1::after {
@@ -114,7 +114,7 @@ h1::after {
 
 /* ── SECTION LABEL ── */
 .label {
-  font-size: 16px;
+  font-size: 14px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text);
@@ -128,7 +128,7 @@ h1::after {
 
 .nav-links a {
   display: block;
-  font-size: 16px;
+  font-size: 14px;
   color: var(--muted);
   margin-bottom: 4px;
   transition: color 0.15s ease;
@@ -137,6 +137,13 @@ h1::after {
 .nav-links a:hover {
   color: var(--text);
   text-decoration: none;
+}
+
+/* ── COMPONENT CAPTION ── */
+.component-caption {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 20px;
 }
 
 /* ── COMPONENT ROW ── */
@@ -436,10 +443,64 @@ h1::after {
   color: var(--muted);
 }
 
+/* ── SECTION CONTENT ── */
+.section {
+  margin-bottom: 52px;
+}
+
+.section-num {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.section p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.85;
+  margin-bottom: 14px;
+}
+
+.section p:last-child {
+  margin-bottom: 0;
+}
+
+.section p strong {
+  color: var(--text);
+  font-weight: 400;
+}
+
+.belief {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.belief:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.belief-title {
+  color: var(--text) !important;
+  margin-bottom: 8px !important;
+}
+
+/* ── PULL QUOTE ── */
+.pull {
+  border-left: 2px solid var(--accent);
+  padding-left: 16px;
+  margin: 28px 0;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.85;
+}
+
 /* ── BACK LINK ── */
 .back {
   display: inline-block;
-  font-size: 16px;
+  font-size: 14px;
   color: var(--muted);
   margin-bottom: 52px;
   transition: color 0.15s ease;
@@ -455,7 +516,7 @@ h1::after {
 
 /* ── PAGE TITLE (projects page) ── */
 h2 {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 400;
   margin-bottom: 32px;
 }
@@ -481,13 +542,13 @@ h2 {
 }
 
 .project-list .project-title {
-  font-size: 16px;
+  font-size: 14px;
   display: block;
   margin-bottom: 4px;
 }
 
 .project-list .project-desc {
-  font-size: 16px;
+  font-size: 14px;
   color: var(--muted);
   line-height: 1.75;
 }
@@ -507,7 +568,7 @@ footer {
 }
 
 footer a {
-  font-size: 16px;
+  font-size: 14px;
   color: var(--muted);
   transition: color 0.15s ease;
 }
@@ -526,8 +587,8 @@ footer a:hover {
   height: 34px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 0.85rem;
+  justify-content: left;
+  font-size: 1rem;
   flex-shrink: 0;
 }
 
@@ -560,7 +621,7 @@ footer a:hover {
   footer {
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
+    gap: 10px;
   }
 }
 
