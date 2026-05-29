@@ -13,7 +13,7 @@
   --text: #1a1a25;
   --muted: #525256;
   --border: #e0ddd8;
-  --accent: #8f3000;
+  --accent: #7d3410;
 }
 
 [data-theme="dark"] {
@@ -43,6 +43,9 @@
   50% {
     opacity: 0;
   }
+}
+@keyframes cursor-rest {
+  to { opacity: 0; }
 }
 
 /* ── BASE ── */
@@ -85,10 +88,14 @@ h1 {
   margin-bottom: 6px;
 }
 
+/* the cursor blinks a few times, then does its job and leaves */
 h1::after {
   content: "_";
-  animation: blink 1.1s step-end infinite;
   margin-left: 1px;
+  animation:
+    blink 1.1s step-end 3,                 /* blink 3 times — change the 3 to taste */
+    cursor-rest 0.6s ease 3.3s forwards;   /* then fade out and stay gone */
+  /* note: the 3.3s delay = 1.1s × blink count. update it if you change the 3 */
 }
 
 /* ── ROLE ── */
@@ -577,6 +584,13 @@ footer a:hover {
   color: var(--text);
   text-decoration: none;
 }
+.local-time {
+  font-size: 14px;
+  color: var(--muted);
+  margin-left: auto;        /* pushes it to the far right, like a status line */
+  letter-spacing: 0.03em;
+}
+
 
 .theme-toggle {
   background: none;
@@ -618,6 +632,8 @@ footer a:hover {
     gap: 32px;
   }
 
+  .local-time { margin-left: 0; }   /* stacks left with everything else on mobile */
+
   footer {
     flex-direction: column;
     align-items: flex-start;
@@ -637,4 +653,8 @@ footer a:hover {
   body {
     padding-top: max(80px, 12vh);
   }
+}
+/* respect reduced-motion: skip straight to the calm resting state */
+@media (prefers-reduced-motion: reduce) {
+  h1::after { animation: none; opacity: 0; }
 }
