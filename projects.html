@@ -8,9 +8,16 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <a href="index.html" class="back">← ash cornette</a>
+    <a class="skip-link" href="#main">skip to content</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html" class="wordmark">ash cornette</a>
+      <div class="nav-right">
+        <a href="index.html">home</a>
+        <a href="projects.html" aria-current="page">projects</a>
+      </div>
+    </nav>
 
-    <main>
+    <main id="main" tabindex="-1">
       <h2>Projects</h2>
 
       <ul class="project-list">
@@ -56,15 +63,14 @@
     </main>
 
     <footer>
-      <footer>
       <a href="index.html">home</a>
-  <a href="projects.html">projects</a>
-  <a href="mailto:hello@ashcornette.com">hello@ashcornette.com</a>
-  <a href="https://linkedin.com/in/ashcornette" target="_blank" rel="noopener noreferrer">linkedin</a>
-  <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to light mode">
-    <i class="fa-solid fa-sun" aria-hidden="true"></i>
-  </button>
-  <span class="local-time">vancouver · <span id="local-time">--:--</span></span>
+      <a href="projects.html">projects</a>
+      <a href="mailto:hello@ashcornette.com">hello@ashcornette.com</a>
+      <a href="https://linkedin.com/in/ashcornette" target="_blank" rel="noopener noreferrer">linkedin</a>
+      <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to light mode">
+        <i class="fa-solid fa-sun" aria-hidden="true"></i>
+      </button>
+      <span class="local-time">vancouver · <span id="local-time">--:--</span></span>
     </footer>
     <script src="theme.js"></script>
     <script src="time.js"></script>

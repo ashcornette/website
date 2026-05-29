@@ -486,21 +486,45 @@ h1::after {
   line-height: 1.85;
 }
 
-/* ── BACK LINK ── */
-.back {
-  display: inline-block;
-  font-size: 14px;
-  color: var(--muted);
-  margin-bottom: 52px;
-  transition: color 0.15s ease;
-  animation: fadein 0.4s ease both;
+/* ── TOP NAV ── */
+.site-nav {
   width: 100%;
   max-width: 720px;
+  margin-bottom: 52px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  animation: fadein 0.4s ease both;
 }
 
-.back:hover {
+.site-nav .wordmark {
+  font-size: 14px;
+  color: var(--text);
+}
+
+.site-nav .nav-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.site-nav a {
+  font-size: 14px;
+  color: var(--muted);
+  transition: color 0.15s ease;
+}
+
+.site-nav a:hover {
   color: var(--text);
   text-decoration: none;
+}
+
+.site-nav a[aria-current="page"] {
+  color: var(--text);
 }
 
 /* ── PAGE TITLE (projects page) ── */
