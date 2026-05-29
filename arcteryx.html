@@ -115,9 +115,10 @@
     </style>
   </head>
   <body>
+    <a class="skip-link" href="#main">skip to content</a>
     <a href="projects.html" class="back">← projects</a>
 
-    <main>
+    <main id="main" tabindex="-1">
       <h2>Arc'teryx Gear Bag</h2>
       <p class="role">turning a dead-end favourite into a planning tool</p>
 
@@ -322,11 +323,11 @@
         <h4>What this taught me</h4>
         <p>The strongest design moves aren't always new features. Sometimes the right move is finding a moment the system is already creating and giving it somewhere to go. The favourite modal already existed. The heart tap already existed. Activity-specific kit-building was already happening in-store. The work was identifying the gap between them — and closing it with as few new pieces as possible.</p>
         <figure style="margin: 32px 0 0;">
-          <img src="img/arcteryx-change.png" alt="Arc'teryx redesign" loading="lazy" style="width: 100%; display: block;">
+          <img src="img/arcteryx-change.png" alt="The redesigned Arc'teryx favourite modal, with an activity-specific gear bag added to the heart-tap moment." loading="lazy" style="width: 100%; display: block;">
           <figcaption style="font-size: 12px; color: var(--muted); margin-top: 8px;">Arc'teryx Modal Redesign</figcaption>
         </figure>
         <figure style="margin: 32px 0 0;">
-          <img src="img/arcteryx-gearbag.png" alt="Arc'teryx redesign" loading="lazy" style="width: 100%; display: block;">
+          <img src="img/arcteryx-gearbag.png" alt="The Arc'teryx gear bag screen — a Trail, Climb, or Ski kit showing owned items and the slots still missing." loading="lazy" style="width: 100%; display: block;">
           <figcaption style="font-size: 12px; color: var(--muted); margin-top: 8px;">Arc'teryx Gear Bag</figcaption>
         </figure>
       </div>
@@ -340,8 +341,10 @@
       <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to light mode">
           <i class="fa-solid fa-sun" aria-hidden="true"></i>
         </button>
-        <a href="#">↑ back to top</a>
+        <a href="#">↑ top</a>
+      <span class="local-time">vancouver · <span id="local-time">--:--</span></span>
     </footer>
     <script src="theme.js"></script>
+    <script src="time.js"></script>
   </body>
 </html>

@@ -119,33 +119,6 @@ h1::after {
   margin-bottom: 0;
 }
 
-/* ── SECTION LABEL ── */
-.label {
-  font-size: 14px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text);
-  margin-bottom: 10px;
-}
-
-/* ── NAV LINKS ── */
-.nav-links {
-  margin-bottom: 48px;
-}
-
-.nav-links a {
-  display: block;
-  font-size: 14px;
-  color: var(--muted);
-  margin-bottom: 4px;
-  transition: color 0.15s ease;
-}
-
-.nav-links a:hover {
-  color: var(--text);
-  text-decoration: none;
-}
-
 /* ── COMPONENT CAPTION ── */
 .component-caption {
   font-size: 12px;
@@ -341,6 +314,15 @@ h1::after {
 }
 
 .checkbox-wrap {
+  /* a real, keyboard-operable button styled to look like the old div */
+  appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -591,7 +573,6 @@ footer a:hover {
   letter-spacing: 0.03em;
 }
 
-
 .theme-toggle {
   background: none;
   border: 0px solid var(--muted);
@@ -601,9 +582,50 @@ footer a:hover {
   height: 34px;
   display: flex;
   align-items: center;
-  justify-content: left;
+  justify-content: flex-start;
   font-size: 1rem;
   flex-shrink: 0;
+}
+
+/* ── ACCESSIBILITY ─────────────────────────────── */
+
+/* skip link — first stop for keyboard users, hidden until focused */
+.skip-link {
+  position: absolute;
+  left: 8px;
+  top: -48px;
+  z-index: 10;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--text);
+  color: var(--bg);
+  font-size: 14px;
+  transition: top 0.15s ease;
+}
+.skip-link:focus { top: 8px; text-decoration: none; }
+
+/* visible focus ring on everything interactive — same language as your pill/toggle */
+a:focus-visible,
+button:focus-visible,
+.checkbox-wrap:focus-visible,
+.theme-toggle:focus-visible {
+  outline: 2px dashed var(--accent);
+  outline-offset: 3px;
+}
+
+/* keep belief titles at body size once they become <h3> */
+.belief-title { font-size: 14px; }
+
+/* honour reduced-motion everywhere — not just the cursor */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  /* hide the name cursor instantly rather than letting it sit for 3.3s */
+  h1::after { animation: none; opacity: 0; }
 }
 
 /* ── RESPONSIVE — MOBILE ── */
@@ -653,8 +675,4 @@ footer a:hover {
   body {
     padding-top: max(80px, 12vh);
   }
-}
-/* respect reduced-motion: skip straight to the calm resting state */
-@media (prefers-reduced-motion: reduce) {
-  h1::after { animation: none; opacity: 0; }
 }

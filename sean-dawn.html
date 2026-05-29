@@ -145,9 +145,10 @@
     </style>
   </head>
   <body>
+    <a class="skip-link" href="#main">skip to content</a>
     <a href="projects.html" class="back">← projects</a>
 
-    <main>
+    <main id="main" tabindex="-1">
       <h2>Sean Dawn</h2>
       <p class="role">a productivity app for the mind that won't stop</p>
 
@@ -242,7 +243,7 @@
 
         <h4>Competitive positioning</h4>
         <p>I mapped the productivity space on two axes: more features vs. fewer features, planning-oriented vs. doing-oriented. Most tools clustered together — many features, heavy on planning. The opposite corner — fewer features, biased toward doing — was almost empty. That's where Sean Dawn would live.</p>
-        <div style="margin:26px 0;"><svg viewBox="0 0 450 320" xmlns="http://www.w3.org/2000/svg">
+        <div style="margin:26px 0;"><svg viewBox="0 0 450 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Competitive positioning map on two axes — more versus fewer features, and planning versus doing. Most tools (Asana, Notion, Todoist, Cal.com) cluster in the more-features, planning corner; Sean Dawn sits alone in the fewer-features, doing corner.">
           <style>.ax{font-family:'IBM Plex Mono',monospace;font-size:8px;fill:#6b6b72;letter-spacing:0.08em}.cl{font-family:'IBM Plex Mono',monospace;font-size:9px;fill:#6b6b72}.sd{font-family:'IBM Plex Mono',monospace;font-size:10px;fill:#c85a1e}</style>
           <line x1="60" y1="160" x2="390" y2="160" stroke="#e0ddd8"/><line x1="210" y1="20" x2="210" y2="300" stroke="#e0ddd8"/>
           <text x="210" y="14" text-anchor="middle" class="ax">MORE FEATURES</text><text x="210" y="314" text-anchor="middle" class="ax">FEWER FEATURES</text>
@@ -340,8 +341,8 @@
         <h4>Unwind</h4>
         <div class="screens triple">
           <img src="img/LOFI-APP-06-Unwind 1.png" alt="Unwind screen — time to unwind, set your break to 15 min" loading="lazy">
-          <img src="img/LOFI-APP-06-Unwind 2.png" alt="Focus screen — set your time before starting" loading="lazy">
-          <img src="img/LOFI-APP-06-Unwind 3.png" alt="Focus screen — email client updates, set your time" loading="lazy">
+          <img src="img/LOFI-APP-06-Unwind 2.png" alt="Unwind screen — set your break length before starting" loading="lazy">
+          <img src="img/LOFI-APP-06-Unwind 3.png" alt="Unwind screen — email client updates, set your break time" loading="lazy">
         </div>
         <div class="screens-caption">unwind — choose your break length, or skip straight to reflect</div>
 
@@ -411,7 +412,7 @@
         <p>The research was one interview and secondary sources — directional, not definitive. A larger participant pool and a diary study would capture real-time behavior rather than recall. The color-shifting screen also needs iconography and haptic feedback alongside color — state shouldn't live in color alone.</p>
         <h4>What this taught me</h4>
         <p>The biggest lesson was restraint. Every instinct as a designer is to add — more features, more options, more flexibility. Sean Dawn forced me to do the opposite. The hardest screen to design wasn't the most complex one. It was the one with almost nothing on it.</p>
-      <img src="img/daily.png" alt="high fidelity overview" loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px;border:0px solid var(--border);margin-top:1.5rem;">
+      <img src="img/daily.png" alt="High-fidelity mockup of Sean Dawn's daily screen — the single screen that shifts through the day." loading="lazy" style="width:100%;height:auto;display:block;border-radius:8px;border:0px solid var(--border);margin-top:1.5rem;">
       </div>
     </main>
 
@@ -423,8 +424,10 @@
       <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to light mode">
           <i class="fa-solid fa-sun" aria-hidden="true"></i>
         </button>
-        <a href="#">↑ back to top</a>
+        <a href="#">↑ top</a>
+      <span class="local-time">vancouver · <span id="local-time">--:--</span></span>
     </footer>
     <script src="theme.js"></script>
+    <script src="time.js"></script>
   </body>
 </html>
