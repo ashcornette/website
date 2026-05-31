@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <main>
+    <a class="skip-link" href="#main">skip to content</a>
+    <main id="main" tabindex="-1">
       <h1>ash cornette</h1>
       <p class="role">UX/UI designer · calm tech · movement &amp; wellness</p>
       <div class="bio">
@@ -42,64 +43,57 @@
         </div>
 
         <div class="checkbox-demo">
-          <div class="checkbox-wrap" data-state="default">
+          <button type="button" class="checkbox-wrap" data-state="default">
             <span class="checkbox-box">
-              <svg class="checkbox-check" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg class="checkbox-check" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
                 <path d="M1 4L3.5 6.5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </span>
             <span class="checkbox-label">select</span>
-          </div>
+          </button>
           <p class="state-tag checkbox-state-tag">Default</p>
         </div>
       </div>
 
       <!-- what I believe -->
       <div class="section">
-        <div class="section-num">01 — what I believe</div>
+        <h2 class="section-num">what I believe</h2>
 
         <div class="belief">
-          <p class="belief-title"><strong>Quiet is a feature.</strong></p>
-          <p>Most products compete for attention. I'm interested in the ones that don't. The best tool I can build is one the user closes without thinking — because the job is done.</p>
+          <h3 class="belief-title"><strong>Quiet is a feature.</strong></h3>
+          <p>Most products compete for attention. The best ones don't — you close them because the job is done.</p>
         </div>
 
         <div class="belief">
-          <p class="belief-title"><strong>The surface problem is rarely the real one.</strong></p>
-          <p>The stated brief is usually a layer over something more specific and more true. Research earns the right to change it. My process starts with the question but isn't loyal to it.</p>
+          <h3 class="belief-title"><strong>The surface problem is rarely the real one.</strong></h3>
+          <p>The brief is usually a layer over something truer. Research earns the right to change it — I start with the question, but I'm not loyal to it.</p>
         </div>
 
         <div class="belief">
-          <p class="belief-title"><strong>Build for the edge case first.</strong></p>
-          <p>The early-career designer, the injured performing artist, the person checking three platforms before finding anything useful — not edge cases. The clearest signal of where a system fails.</p>
+          <h3 class="belief-title"><strong>The hardest moment is the test.</strong></h3>
+          <p>A product proves itself when someone reaches for it depleted, not when they're fresh.</p>
         </div>
 
         <div class="belief">
-          <p class="belief-title"><strong>Community is continuity.</strong></p>
-          <p>It's easy to get people in the room. The harder problem — the one almost nothing is designed for — is what happens after. The problem isn't connection, it's continuity.</p>
+          <h3 class="belief-title"><strong>Community is continuity.</strong></h3>
+          <p>Getting people in the room is easy; almost nothing is designed for what happens after. The problem isn't connection, it's continuity.</p>
         </div>
 
         <div class="belief">
-          <p class="belief-title"><strong>The body is context.</strong></p>
+          <h3 class="belief-title"><strong>The body is context.</strong></h3>
           <p>Most wellness tech is designed for a sedentary body. A performing artist doesn't need another notification — the real work happens off the screen.</p>
         </div>
       </div>
 
-      <div class="pull">The right product is one the user closes without thinking about it — because the job got done.</div>
-
       <!-- what I'm building toward -->
       <div class="section">
-        <div class="section-num">02 — what I'm building toward</div>
-        <p>I want to design products for people who move — performing artists, athletes, movers — and for the organizations that support them. The mainstream got it wrong: wellness apps are loud, addictive, and built for a sedentary user.</p>
-        <p>I'm drawn to calm technology — products designed to be used less, not more. If your success metric is engagement, we'll probably disagree. If it's whether the person closed the app feeling like something got done, we're speaking the same language.</p>
-        <p>Target: performing artist wellness, calm-tech companies, cultural organizations, studios building intentional tools for movement-based artists.</p>
+        <h2 class="section-num">what I'm building toward</h2>
+        <p>I design for people who move — performers, athletes — and the organizations behind them. The mainstream got it wrong: wellness tech that's loud, addictive, and built for a body at rest.</p>
+        <p>I'm drawn to calm technology — made to be used less, not more. If your success metric is engagement, we'll probably disagree.</p>
+        <p>Target: performer wellness, calm-tech companies, cultural organizations, studios building intentional tools for movement.</p>
       </div>
 
       <!-- how I work -->
-      <div class="section">
-        <div class="section-num">03 — how I work</div>
-        <p>Mixed-methods research grounded in real behaviour, not reported preference. Structured critique that surfaces the reframe, not just the fix. Visual design close enough to the craft that the idea survives implementation. Front-end code when fidelity matters.</p>
-        <p>I work best with teams who treat research as a design tool, not a gate before design starts.</p>
-      </div>
     </main>
 
     <script>
@@ -125,22 +119,17 @@
         cbTag.textContent = cbLabels[ci];
       });
 
-      const toggleInput = document.querySelector('.toggle-input');
-      const toggleTag = document.querySelector('.toggle-state-tag');
-      toggleInput.addEventListener('change', () => {
-        toggleTag.textContent = toggleInput.checked ? 'On' : 'Off';
-      });
     </script>
 
     <footer>
       <a href="index.html">home</a>
-  <a href="projects.html">projects</a>
-  <a href="mailto:hello@ashcornette.com">hello@ashcornette.com</a>
-  <a href="https://linkedin.com/in/ashcornette" target="_blank" rel="noopener noreferrer">linkedin</a>
-  <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to light mode">
-    <i class="fa-solid fa-sun" aria-hidden="true"></i>
-  </button>
-  <span class="local-time">vancouver · <span id="local-time">--:--</span></span>
+      <a href="projects.html">projects</a>
+      <a href="mailto:hello@ashcornette.com">hello@ashcornette.com</a>
+      <a href="https://linkedin.com/in/ashcornette" target="_blank" rel="noopener noreferrer">linkedin</a>
+      <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to light mode">
+        <i class="fa-solid fa-sun" aria-hidden="true"></i>
+      </button>
+      <span class="local-time">vancouver · <span id="local-time">--:--</span></span>
     </footer>
     <script src="theme.js"></script>
     <script src="time.js"></script>
