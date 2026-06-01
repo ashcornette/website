@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Complex Breaks — Ash Cornette</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* ── CASE STUDY CORE ── */
+      .section { margin-bottom: 56px; }
+      .section-num { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+      .section h3 { font-size: 16px; font-weight: 400; margin-bottom: 20px; }
+      .section h3::after { content: none; }
+      .section h4 { font-size: 14px; font-weight: 400; color: var(--text); margin-top: 32px; margin-bottom: 10px; letter-spacing: 0.04em; }
+      .section p { font-size: 14px; color: var(--muted); line-height: 1.85; margin-bottom: 14px; }
+      .section p:last-child { margin-bottom: 0; }
+      .section p strong { color: var(--text); font-weight: 400; }
+      .section p em { font-style: italic; }
+      .section a { color: var(--accent); }
+
+      /* ── META ── */
+      .meta { font-size: 12px; color: var(--muted); margin-bottom: 48px; line-height: 1.85; }
+      .meta span::after { content: " · "; }
+      .meta span:last-child::after { content: none; }
+
+      /* ── STATS ── */
+      .stats { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 16px 0; margin: 24px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px 24px; }
+      .stat-item { font-size: 14px; color: var(--muted); line-height: 1.6; }
+      .stat-val { color: var(--text); font-weight: 400; }
+
+      /* ── PULLQUOTE ── */
+      .pull { border-left: 2px solid var(--accent); padding-left: 16px; margin: 28px 0; font-size: 12px; font-style: italic; color: var(--text); line-height: 1.85; }
+
+      /* ── STEPS ── */
+      .steps { margin: 20px 0; }
+      .step { padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+      .step:last-child { border-bottom: none; }
+      .step-num { color: var(--accent); font-size: 12px; letter-spacing: 0.08em; margin-bottom: 2px; }
+      .step-title { color: var(--text); margin-bottom: 4px; }
+      .step-desc { color: var(--muted); line-height: 1.75; }
+
+      /* ── COMPARE ── */
+      .compare { margin: 24px 0; border-top: 1px solid var(--border); }
+      .compare-header { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 12px 0 8px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+      .compare-header span:first-child { color: var(--muted); }
+      .compare-header span:last-child { color: var(--accent); }
+      .compare-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 6px 0; font-size: 12px; border-bottom: 1px solid var(--border); }
+      .compare-row:last-child { border-bottom: none; }
+      .compare-row span:first-child { color: var(--muted); }
+      .compare-row span:last-child { color: var(--text); }
+
+      /* ── REFLECT PILLS ── */
+      .reflect { display: flex; gap: 12px; margin: 20px 0; flex-wrap: wrap; }
+      .reflect-pill { font-family: "IBM Plex Mono", monospace; font-size: 12px; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border); background: transparent; color: var(--muted); cursor: default; }
+      .reflect-pill.moved { border-color: #5ba65b; color: #5ba65b; }
+      .reflect-pill.mixed { border-color: var(--accent); color: var(--accent); }
+
+      /* ── SCREENS ── */
+      .screens { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 28px 0; }
+      .screens img { width: 100%; height: auto; display: block; border-radius: 8px; border: 1px solid var(--border); aspect-ratio: 4 / 3; object-fit: cover; }
+      .screens-caption { font-size: 12px; color: var(--muted); margin-top: 8px; letter-spacing: 0.04em; }
+      .closing-img { width: 100%; height: auto; display: block; border-radius: 8px; border: 1px solid var(--border); margin-top: 1.5rem; }
+
+      /* ── TODO (fill-in markers — delete the class once filled) ── */
+      .todo { background: rgba(200, 90, 30, 0.14); color: var(--accent); padding: 0 5px; }
+
+      /* ── RESPONSIVE ── */
+      @media screen and (max-width: 600px) {
+        .screens { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">skip to content</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html" class="wordmark">ash cornette</a>
+      <div class="nav-right">
+        <a href="index.html">home</a>
+        <a href="projects.html">projects</a>
+      </div>
+    </nav>
+
+    <main id="main" tabindex="-1">
+      <h2>Complex Breaks</h2>
+      <p class="role">simple is complex — breaking culture, in my own voice</p>
+
+      <div class="meta">
+        <span>brand, identity &amp; content</span>
+        <span>ongoing since 2020</span>
+        <span>independent</span>
+      </div>
+
+      <!-- 01 ── THE SPARK ── -->
+      <div class="section">
+        <div class="section-num">01 — the spark</div>
+        <h3>Why This Exists</h3>
+        <p>Complex Breaks is my story and my perspective of breaking — told on my own terms. Not packaged for social media, not filtered through a company brand, not sorted by an algorithm.</p>
+        <p>Breaking already lives on platforms built to rank it and sell against it. I wanted one place to say what I actually think about the culture, in my own voice, on ground I own.</p>
+        <div class="compare">
+          <div class="compare-header"><span>the usual way breaking gets shared</span><span>complex breaks</span></div>
+          <div class="compare-row"><span>packaged for social media</span><span>a home of its own</span></div>
+          <div class="compare-row"><span>filtered through company brands</span><span>my voice, unfiltered</span></div>
+          <div class="compare-row"><span>sorted by an algorithm</span><span>on my own terms</span></div>
+        </div>
+        <div class="pull">"simple is complex." the name says it — breaking looks effortless and is anything but. I wanted to talk about that in my own words, not through a feed.</div>
+      </div>
+
+      <!-- 02 ── THE WORLD ── -->
+      <div class="section">
+        <div class="section-num">02 — the world</div>
+        <h3>The Culture It Serves</h3>
+        <p>Breaking happens at jams — long, loud nights where crews battle, cyphers open and close, and the people in the room are the whole point. Complex Breaks documents them the way they actually feel: shot from inside the circle, never staged.</p>
+        <p>New Birth, Porto, the Elephant Graveyard, Sunshine Jam — events across cities and years, held together by one lens and the same care.</p>
+        <!-- Local images live in img/ (download via the commands from chat). -->
+        <div class="screens">
+          <img src="img/elephant-graveyard.jpeg" alt="A b-boy frozen in a headspin on a checkered floor as a dim crowd watches — Elephant Graveyard." loading="lazy">
+          <img src="img/newbirth-2025.jpeg" alt="Three dancers on stage in front of a seated crowd at New Birth 2025." loading="lazy">
+          <img src="img/porto-2025.jpeg" alt="A dancer walking beneath a large suspended globe in an indoor hall — Porto 2025." loading="lazy">
+          <img src="img/sunshine-jam.jpeg" alt="Dancers talking together indoors between battles at Sunshine Jam." loading="lazy">
+        </div>
+        <div class="screens-caption">documented jams, shot from inside the circle — 2024–2025.</div>
+      </div>
+
+      <!-- 03 ── THE IDENTITY ── -->
+      <div class="section">
+        <div class="section-num">03 — the identity</div>
+        <h3>The Identity</h3>
+        <p>Three pillars, one line — <strong>shop, session, culture.</strong> The commerce that funds the work, the sessions that are the work, and the culture that holds it all together.</p>
+        <p>The visual language is deliberately quiet: documentary photography, lowercase type, an animated mark, and no marketing gloss. A scene this loud doesn't need a loud website — the restraint is the point, and it's the same instinct I bring to everything I design.</p>
+        <p>Merch is part of the identity, not a side hustle. Small, considered drops — the Fisherman Beanie, the Hollow Earth tee, Bboys in Hoodz, the Style oversized tee — each one a piece of graphic design that puts the culture on a body and funds the artform.</p>
+      </div>
+
+      <!-- 04 ── WHAT I BUILT ── -->
+      <div class="section">
+        <div class="section-num">04 — what I built</div>
+        <h3>What I Built</h3>
+        <p>I designed and run Complex Breaks end to end — the brand and logo, the photography and its curation, the merch, the writing, and the system that ties a shop, a Substack, an event archive, and a donation flow into one coherent place.</p>
+        <div class="steps">
+          <div class="step"><div class="step-num">→</div><div class="step-title">Brand &amp; logo</div><div class="step-desc">The mark, the type, the lowercase voice.</div></div>
+          <div class="step"><div class="step-num">→</div><div class="step-title">Documentary archive</div><div class="step-desc">Jams shot and kept — not lost to a feed.</div></div>
+          <div class="step"><div class="step-num">→</div><div class="step-title">Editorial</div><div class="step-desc">Long-form writing, published on Substack.</div></div>
+          <div class="step"><div class="step-num">→</div><div class="step-title">Merch line</div><div class="step-desc">Designed drops that put the culture on a body.</div></div>
+          <div class="step"><div class="step-num">→</div><div class="step-title">Shop &amp; commerce</div><div class="step-desc">A real storefront, not a link in bio.</div></div>
+          <div class="step"><div class="step-num">→</div><div class="step-title">Community &amp; values</div><div class="step-desc">Donations, plus open advocacy for calm tech.</div></div>
+        </div>
+        <p>It's built on Squarespace — on purpose. The calm-tech principle I design by applies to my own tools: use the simplest thing that ships, and spend the energy on the brand and the writing, not on infrastructure nobody sees. Technology that knows when to stop starts with not over-building your own stack.</p>
+        <p>The values are wired in. The site points people toward the Light Phone and Proton, the writing lives on Substack instead of an algorithm, and the whole thing stays calm. It practices what it preaches.</p>
+      </div>
+
+      <!-- 05 ── WHERE IT LIVES NOW ── -->
+      <div class="section">
+        <div class="section-num">05 — where it lives now</div>
+        <h3>Where It Lives Now</h3>
+        <p>Complex Breaks is ongoing — a real platform I've run on my own, not a concept.</p>
+        <div class="stats">
+          <div class="stat-item"><span class="stat-val">Substack</span> long-form writing</div>
+          <div class="stat-item"><span class="stat-val">merch</span> out in the world</div>
+          <div class="stat-item"><span class="stat-val">jams</span> documented inside the circle</div>
+          <div class="stat-item"><span class="stat-val">6 years</span> running, solo</div>
+        </div>
+        <p>It lives across a shop, a Substack, Bluesky, Instagram, and YouTube — and it's still going. See it live at <a href="https://complexbreaks.com" target="_blank" rel="noopener noreferrer">complexbreaks.com</a>, read the writing on <a href="https://complexbreaks.substack.com" target="_blank" rel="noopener noreferrer">Substack</a>, or browse <a href="https://complexbreaks.com/shop" target="_blank" rel="noopener noreferrer">the shop</a>.</p>
+      </div>
+
+      <!-- 06 ── REFLECTION ── -->
+      <div class="section">
+        <div class="section-num">06 — reflection</div>
+        <h3>What It Taught Me</h3>
+        <p>Running this end to end — brand, commerce, writing, community — taught me what a school brief can't: that shipping and maintaining a real thing is its own design skill. The hardest part wasn't making it look good. It was keeping it simple enough to keep going alone.</p>
+        <div class="reflect">
+          <span class="reflect-pill moved">shipped</span>
+          <span class="reflect-pill">maintained solo</span>
+          <span class="reflect-pill mixed">still running</span>
+        </div>
+        <div class="pull">simple is complex. it started as a tagline for a dance. it became the way I design everything.</div>
+        <img class="closing-img" src="img/thanks.png" alt="A masked figure in a beanie bowing with hands together under stage light — the site's closing image." loading="lazy">
+      </div>
+    </main>
+
+    <footer>
+      <a href="index.html">home</a>
+      <a href="projects.html">projects</a>
+      <a href="mailto:hello@ashcornette.com">hello@ashcornette.com</a>
+      <a href="https://linkedin.com/in/ashcornette" target="_blank" rel="noopener noreferrer">linkedin</a>
+      <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to light mode">
+        <i class="fa-solid fa-sun" aria-hidden="true"></i>
+      </button>
+      <a href="#">↑ top</a>
+      <span class="local-time">vancouver · <span id="local-time">--:--</span></span>
+    </footer>
+    <script src="theme.js"></script>
+    <script src="time.js"></script>
+  </body>
+</html>
