@@ -19,20 +19,9 @@
       font-size: 11px;
       color: var(--muted);
       font-style: italic;
-      margin-bottom: 14px;
+      margin-bottom: 40px;
       letter-spacing: 0.03em;
     }
-
-    .ca-method {
-      font-size: 12px;
-      color: var(--muted);
-      line-height: 1.7;
-      padding-left: 12px;
-      border-left: 2px solid var(--accent);
-      margin-bottom: 40px;
-    }
-
-    .ca-method .accent { color: var(--accent); }
 
     .ca-intro {
       font-size: 14px;
@@ -184,100 +173,40 @@
 
     .position .accent { color: var(--accent); }
 
-    /* ── SWOT ── */
-    .swot-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-    }
-
-    .swot-cell {
-      background: var(--bg);
-      padding: 16px 18px;
-      min-height: 160px;
-    }
-
-    .swot-cell-accent {
-      border-left: 2px solid var(--accent);
-    }
-
-    .swot-label {
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text);
-      margin-bottom: 2px;
-    }
-
-    .swot-cell-accent .swot-label {
-      color: var(--accent);
-    }
-
-    .swot-sub {
-      font-size: 9px;
-      color: var(--muted);
-      font-style: italic;
-      margin-bottom: 10px;
-      letter-spacing: 0.02em;
-    }
-
-    .swot-items {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      line-height: 1.75;
-    }
-
-    .swot-items li {
-      font-size: 12px;
-      color: var(--text);
-      padding-left: 12px;
-      position: relative;
-      margin-bottom: 2px;
-    }
-
-    .swot-items li::before {
-      content: "—";
-      position: absolute;
-      left: 0;
-      color: var(--muted);
-    }
-
-    @media screen and (max-width: 600px) {
-      .swot-grid { grid-template-columns: 1fr; }
-    }
-
-    /* ── POSITIONING STRATEGY ── */
-    .strategy-intro {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 14px;
-    }
-
     /* ── POSITIONING MAP ── */
-    .pmap {
-      border: 1px solid var(--border);
-      padding: 24px 20px 18px;
-      margin-bottom: 12px;
+    .pm-intro {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 16px;
     }
 
-    .pmap svg {
-      width: 100%;
-      height: auto;
-      max-width: 560px;
+    .pm {
       display: block;
-      margin: 0 auto;
+      width: 100%;
+      max-width: 560px;
+      height: auto;
+      margin: 4px 0 6px;
     }
 
-    .pmap-cap {
-      font-size: 11px;
+    .pm-cap {
+      font-size: 12px;
       color: var(--muted);
       font-style: italic;
-      line-height: 1.65;
+      line-height: 1.7;
+      max-width: 560px;
     }
+
+    .pm-frame { fill: none; stroke: var(--border, #e0ddd8); stroke-width: 1; }
+    .pm-cross { stroke: var(--muted, #525256); stroke-width: 1; stroke-dasharray: 3 4; opacity: 0.45; }
+    .pm-shade { fill: var(--accent-dim, rgba(200, 90, 30, 0.12)); }
+    .pm-dot   { fill: var(--text, #1a1a25); }
+    .pm-dot-ours { fill: var(--accent, #7d3410); }
+    .pm-ring  { fill: none; stroke: var(--accent, #7d3410); stroke-width: 1; opacity: 0.5; }
+    .pm-axis  { fill: var(--muted, #525256); font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.08em; }
+    .pm-label { fill: var(--text, #1a1a25); font-family: "IBM Plex Mono", monospace; font-size: 11px; }
+    .pm-label-ours { fill: var(--accent, #7d3410); font-family: "IBM Plex Mono", monospace; font-size: 11px; }
+    .pm-ws    { fill: var(--accent, #7d3410); font-family: "IBM Plex Mono", monospace; font-size: 10px; font-style: italic; }
   </style>
 </head>
 <body>
@@ -285,8 +214,6 @@
   <main>
     <div class="ca-wrap">
       <p class="ca-meta">draft — week 4 · competitive analysis · phase 2 research</p>
-
-      <p class="ca-method">method — <span class="accent">data detective</span> (desk research on features, pricing and reviews) and <span class="accent">impersonator</span> (hands-on use of the closest apps). two of the six customer-insight techniques.</p>
 
       <!-- LANDSCAPE -->
       <div class="section">
@@ -431,60 +358,48 @@
         </div>
       </div>
 
-      <!-- SWOT -->
+      <!-- POSITIONING MAP -->
       <div class="section">
-        <div class="section-label">SWOT</div>
-        <div class="swot-grid">
+        <div class="section-label">Positioning map</div>
+        <p class="pm-intro">two axes pull the field apart — whether it <em>learns</em> when to restock (reactive vs predictive), and what it costs you to keep it fed (logging effort). plotted, the picture matches the matrix: the predictive, low-effort corner is empty.</p>
 
-          <div class="swot-cell swot-cell-accent">
-            <div class="swot-label">Strengths</div>
-            <div class="swot-sub">internal · what we do well</div>
-            <ul class="swot-items">
-              <li>learns real consumption — the one thing no direct competitor does</li>
-              <li>two-tap logging built for low friction</li>
-              <li>owns non-food consumables, not just food</li>
-              <li>shared household view by default</li>
-              <li>freemium lowers the barrier to first value</li>
-            </ul>
-          </div>
+        <svg class="pm" viewBox="0 0 660 510" role="img" xmlns="http://www.w3.org/2000/svg">
+          <title>Positioning map — reactive vs predictive against logging effort</title>
+          <desc>A two-axis quadrant chart. Horizontal axis runs from reactive on the left to predictive on the right; vertical axis from low effort at the top to high effort at the bottom. Ours sits alone in the top-right predictive, low-effort quadrant, shaded as white space. Subscribe and Save is top-left (reactive but low effort), Restock planner near centre, and shared lists, manual habits and pantry trackers cluster in the reactive, higher-effort lower-left.</desc>
 
-          <div class="swot-cell">
-            <div class="swot-label">Weaknesses</div>
-            <div class="swot-sub">internal · gaps</div>
-            <ul class="swot-items">
-              <li>only works if people keep logging — high abandonment risk</li>
-              <li>no delivery; relies on reorder links, doesn't close the loop</li>
-              <li>cold start — needs a few cycles per item before it's useful</li>
-              <li>new brand, no name or distribution yet</li>
-              <li>student-stage team and resources</li>
-            </ul>
-          </div>
+          <rect class="pm-shade" x="340" y="80" width="200" height="190"/>
+          <rect class="pm-frame" x="140" y="80" width="400" height="380"/>
+          <line class="pm-cross" x1="340" y1="80" x2="340" y2="460"/>
+          <line class="pm-cross" x1="140" y1="270" x2="540" y2="270"/>
 
-          <div class="swot-cell swot-cell-accent">
-            <div class="swot-label">Opportunities</div>
-            <div class="swot-sub">external · openings</div>
-            <ul class="swot-items">
-              <li>genuine white space — no consumer app learns consumption</li>
-              <li>pantry apps ignore consumables; room to own "everything you run out of"</li>
-              <li>rising mental-load awareness; the reverse-grocery-list trend shows demand</li>
-              <li>retailer affiliate &amp; reorder partnerships as revenue</li>
-              <li>an AI-skeptic segment the AI-racing apps aren't serving</li>
-            </ul>
-          </div>
+          <text class="pm-axis" x="132" y="274" text-anchor="end">REACTIVE</text>
+          <text class="pm-axis" x="548" y="274" text-anchor="start">PREDICTIVE</text>
+          <text class="pm-axis" x="340" y="68" text-anchor="middle">LOW EFFORT</text>
+          <text class="pm-axis" x="340" y="484" text-anchor="middle">HIGH EFFORT</text>
 
-          <div class="swot-cell">
-            <div class="swot-label">Threats</div>
-            <div class="swot-sub">external · risks</div>
-            <ul class="swot-items">
-              <li>Amazon could add learned timing to Subscribe &amp; Save easily</li>
-              <li>a near-clone (Restock planner) is live and could learn first</li>
-              <li>the real default is free manual habits — hard to displace "good enough"</li>
-              <li>big platforms own distribution and can absorb the feature</li>
-              <li>crowded app store — discoverability is hard</li>
-            </ul>
-          </div>
+          <text class="pm-ws" x="430" y="100" text-anchor="middle">white space</text>
 
-        </div>
+          <circle class="pm-dot" cx="225" cy="150" r="5"/>
+          <text class="pm-label" x="225" y="134" text-anchor="middle">Subscribe &amp; Save</text>
+
+          <circle class="pm-dot" cx="315" cy="225" r="5"/>
+          <text class="pm-label" x="315" y="243" text-anchor="middle">Restock planner</text>
+
+          <circle class="pm-dot" cx="235" cy="315" r="5"/>
+          <text class="pm-label" x="235" y="333" text-anchor="middle">Shared lists</text>
+
+          <circle class="pm-dot" cx="185" cy="360" r="5"/>
+          <text class="pm-label" x="188" y="378" text-anchor="middle">Manual habits</text>
+
+          <circle class="pm-dot" cx="270" cy="400" r="5"/>
+          <text class="pm-label" x="270" y="418" text-anchor="middle">Pantry trackers</text>
+
+          <circle class="pm-ring" cx="470" cy="150" r="10"/>
+          <circle class="pm-dot-ours" cx="470" cy="150" r="6"/>
+          <text class="pm-label-ours" x="470" y="172" text-anchor="middle">Ours</text>
+        </svg>
+
+        <p class="pm-cap">only Subscribe &amp; Save and manual habits get near us on one axis — and both are blind to how fast a household actually moves through things.</p>
       </div>
 
       <!-- POSITIONING -->
@@ -500,66 +415,6 @@
           <li>owns non-food consumables — the pantry crowd only watches food</li>
           <li>sits between the dumb subscription and the manual list — we're the timing layer</li>
         </ul>
-      </div>
-
-      <!-- POSITIONING STRATEGY -->
-      <div class="section">
-        <div class="section-label">Positioning strategy</div>
-        <p class="strategy-intro">of the three class-4 strategies, we play two — and deliberately skip the third.</p>
-
-        <div class="comp">
-          <div class="comp-name">Differentiation <span class="tag tag-accent">primary</span></div>
-          <div class="comp-desc">win on a unique capability, not price — the only app that learns timing instead of holding a list or shipping on a clock. apple, not walmart.</div>
-        </div>
-        <div class="comp">
-          <div class="comp-name">Focus / niche <span class="tag tag-accent">secondary</span></div>
-          <div class="comp-desc">serve one segment well — households buried in the non-food consumables the food-and-expiry apps overlook. the peloton move.</div>
-        </div>
-        <div class="comp">
-          <div class="comp-name">Cost leadership <span class="tag">not us</span></div>
-          <div class="comp-desc">rejected — everyone here is already free or near-free, so competing on price is a race to the bottom we'd lose to Amazon.</div>
-        </div>
-      </div>
-
-      <!-- POSITIONING MAP -->
-      <div class="section">
-        <div class="section-label">Positioning map</div>
-        <div class="pmap">
-          <svg viewBox="0 0 560 430" role="img" aria-label="Positioning map plotting competitors on a reactive-to-predictive axis against effort to maintain. Ours sits alone in the predictive and effortless corner.">
-            <rect x="290" y="40" width="250" height="170" fill= var(--accent-dim) fill-opacity="0.2"></rect>
-
-            <line x1="40" y1="210" x2="540" y2="210" stroke="var(--muted)" stroke-width="1"></line>
-            <line x1="290" y1="40" x2="290" y2="380" stroke="var(--muted)" stroke-width="1"></line>
-
-            <polygon points="540,210 531,205 531,215" fill="var(--muted)"></polygon>
-            <polygon points="40,210 49,205 49,215" fill="var(--muted)"></polygon>
-            <polygon points="290,40 285,49 295,49" fill="var(--muted)"></polygon>
-            <polygon points="290,380 285,371 295,371" fill="var(--muted)"></polygon>
-
-            <text x="290" y="30" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="11" fill="var(--text)">predictive</text>
-            <text x="290" y="402" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="11" fill="var(--text)">reactive / fixed</text>
-            <text x="46" y="204" text-anchor="start" font-family="'IBM Plex Mono', monospace" font-size="10" fill="var(--muted)">high effort</text>
-            <text x="534" y="204" text-anchor="end" font-family="'IBM Plex Mono', monospace" font-size="10" fill="var(--muted)">effortless</text>
-
-            <text x="532" y="58" text-anchor="end" font-family="'IBM Plex Mono', monospace" font-size="9" fill="var(--accent)" opacity="0.7">open space</text>
-
-            <circle cx="150" cy="165" r="5" fill="var(--text)"></circle>
-            <text x="150" y="150" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10" fill="var(--muted)">pantry trackers</text>
-
-            <circle cx="160" cy="320" r="5" fill="var(--text)"></circle>
-            <text x="160" y="340" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10" fill="var(--muted)">shared lists</text>
-
-            <circle cx="455" cy="295" r="5" fill="var(--text)"></circle>
-            <text x="455" y="315" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10" fill="var(--muted)">subscribe &amp; save</text>
-
-            <circle cx="360" cy="250" r="5" fill="var(--text)"></circle>
-            <text x="360" y="270" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10" fill="var(--muted)">restock planner</text>
-
-            <circle cx="450" cy="105" r="7" fill="var(--accent)"></circle>
-            <text x="450" y="88" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="11" fill="var(--accent)">ours</text>
-          </svg>
-        </div>
-        <p class="pmap-cap">class 4 positioning-map technique, with axes chosen for this market — how the product decides timing (reactive ↔ predictive) against effort to maintain. the predictive-and-effortless corner sits empty; that's the gap we take.</p>
       </div>
 
       <!-- RISK -->
