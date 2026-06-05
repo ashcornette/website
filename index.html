@@ -13,6 +13,7 @@
       <h1>ash cornette</h1>
       <p class="role">UX/UI designer · calm tech · movement &amp; wellness</p>
       <div class="bio">
+        
         <p>
           Based in Vancouver, BC. 27 years in breaking —
           a perspective that shapes everything I design.
@@ -116,6 +117,67 @@
         ci = (ci + 1) % cbStates.length;
         cbWrap.dataset.state = cbStates[ci];
         cbTag.textContent = cbLabels[ci];
+      });
+
+      // ── GRAVITY TOGGLE ──
+      const toggleInput = document.querySelector('.toggle-input');
+      const toggleStateTag = document.querySelector('.toggle-state-tag');
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let gravityOriginals = null;
+
+      function wrapWordsInElement(el) {
+        const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+        const textNodes = [];
+        let node;
+        while ((node = walker.nextNode())) {
+          if (node.nodeValue.trim()) textNodes.push(node);
+        }
+        textNodes.forEach(textNode => {
+          const parts = textNode.nodeValue.split(/(\s+)/);
+          const frag = document.createDocumentFragment();
+          parts.forEach(part => {
+            if (/^\s+$/.test(part)) {
+              frag.appendChild(document.createTextNode(part));
+            } else if (part) {
+              const span = document.createElement('span');
+              span.className = 'gravity-word';
+              span.style.setProperty('--word-delay', (Math.random() * 0.55).toFixed(3) + 's');
+              span.style.setProperty('--word-duration', (0.55 + Math.random() * 0.45).toFixed(3) + 's');
+              span.style.setProperty('--word-rotate', ((Math.random() - 0.5) * 45).toFixed(1) + 'deg');
+              span.textContent = part;
+              frag.appendChild(span);
+            }
+          });
+          textNode.parentNode.replaceChild(frag, textNode);
+        });
+      }
+
+      function activateGravity() {
+        const targets = document.querySelectorAll(
+          'main h1, main .role, main .bio p, .component-caption, ' +
+          'main .section-num, main .belief-title, main .belief p, main .section > p'
+        );
+        gravityOriginals = [];
+        targets.forEach(el => {
+          gravityOriginals.push({ el, html: el.innerHTML });
+          wrapWordsInElement(el);
+        });
+      }
+
+      function deactivateGravity() {
+        if (!gravityOriginals) return;
+        gravityOriginals.forEach(({ el, html }) => { el.innerHTML = html; });
+        gravityOriginals = null;
+      }
+
+      toggleInput.addEventListener('change', () => {
+        if (toggleInput.checked) {
+          toggleStateTag.textContent = 'On';
+          if (!reducedMotion) activateGravity();
+        } else {
+          toggleStateTag.textContent = 'Off';
+          deactivateGravity();
+        }
       });
 
     </script>

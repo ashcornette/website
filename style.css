@@ -24,6 +24,16 @@
   --accent: #f0904e;
 }
 /* ── ANIMATIONS ── */
+@keyframes word-fall {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(var(--word-rotate, 12deg)); opacity: 0; }
+}
+
+.gravity-word {
+  display: inline-block;
+  animation: word-fall var(--word-duration, 0.9s) cubic-bezier(0.4, 0, 1, 1) var(--word-delay, 0s) forwards;
+}
+
 @keyframes fadein {
   from {
     opacity: 0;
