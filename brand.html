@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>owduv — brand identity</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .brand-intro { margin-bottom: 48px; }
+    .brand-intro p { font-size: 14px; color: var(--muted); line-height: 1.85; }
+
+    .tile {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      padding: 44px 28px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 14px;
+    }
+    .tile-dark { background: #18241e; border-color: #18241e; }
+    .lockup { width: 100%; max-width: 300px; height: auto; display: block; }
+
+    .logo-caption { font-size: 12px; color: var(--muted); margin-bottom: 40px; }
+
+    .mark-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin-bottom: 14px; }
+    .mark-cell {
+      background: #ffffff; border: 1px solid var(--border);
+      padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 16px;
+    }
+    .mark { width: 72px; height: 72px; display: block; }
+    .mark-name { font-size: 12px; color: var(--muted); letter-spacing: 0.03em; }
+
+    .icon-row { display: flex; gap: 20px; align-items: flex-end; flex-wrap: wrap; margin-bottom: 14px; }
+    .icon-cell { display: flex; flex-direction: column; align-items: center; gap: 9px; }
+    .icon { width: 64px; height: 64px; display: block; }
+    .icon.fav { width: 20px; height: 20px; }
+    .icon-name { font-size: 11px; color: var(--muted); letter-spacing: 0.03em; }
+
+    .swatch-sub { font-size: 12px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin: 24px 0 12px; }
+    .swatch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px 24px; }
+    .swatch { display: flex; align-items: center; gap: 12px; }
+    .swatch-chip { width: 30px; height: 30px; border: 1px solid var(--border); flex-shrink: 0; }
+    .swatch-role { font-size: 13px; color: var(--text); flex: 1; }
+    .swatch-hex { font-size: 12px; color: var(--muted); }
+
+    @media screen and (max-width: 600px) {
+      main { max-width: 100%; }
+      footer { max-width: 100%; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <main>
+    <h1>owduv</h1>
+    <p class="role">brand identity · household restocking</p>
+
+    <div class="brand-intro">
+      <p>owduv tracks the everyday things a home runs through — soap, detergent, coffee — and nudges you before you run out, not after. the identity keeps that calm and plainspoken: lowercase, unhurried, friendly without trying too hard.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-num">the mark</p>
+      <p>the logo lives in the "o" — a container filling up, drawn in the green that means stocked. one glyph holds the whole idea: a thing, and how full it is. it survives the squeeze too — legible at favicon size, intact in a single colour, at home on light, dark, or a solid green tile.</p>
+      <div class="tile"><svg viewBox="0 0 394.65 120" class="lockup" role="img" aria-label="owduv logo"><g transform="translate(12 12) scale(0.96)"><defs><clipPath id="clipA"><circle cx="50" cy="50" r="37"/></clipPath></defs><rect x="13" y="41" width="74" height="46" fill="#1f9d63" clip-path="url(#clipA)"/><circle cx="50" cy="50" r="37" fill="none" stroke="#18241e" stroke-width="6.5"/></g><g transform="translate(132 30.0) scale(0.8)"><path d="M53.11 47.7Q53.11 55.7 49.61 61.86Q46.11 68.0 40.11 71.5Q34.11 75.0 26.61 75.0Q19.11 75.0 13.11 71.5Q7.11 68.0 3.55 61.86Q0.0 55.7 0.0 47.7Q0.0 39.59 3.55 33.45Q7.11 27.3 13.11 23.75Q19.11 20.2 26.61 20.2Q34.11 20.2 40.11 23.75Q46.11 27.3 49.61 33.45Q53.11 39.59 53.11 47.7ZM43.11 47.7Q43.11 42.2 40.91 38.16Q38.7 34.09 34.95 31.75Q31.2 29.41 26.61 29.41Q22.0 29.41 18.2 31.75Q14.41 34.09 12.2 38.16Q10.0 42.2 10.0 47.7Q10.0 53.0 12.2 57.11Q14.41 61.2 18.2 63.5Q22.0 65.8 26.61 65.8Q31.2 65.8 34.95 63.5Q38.7 61.2 40.91 57.11Q43.11 53.0 43.11 47.7ZM125.7 20.91Q127.61 20.91 129.04 22.36Q130.5 23.8 130.5 26.09Q130.5 26.59 130.4 27.09Q130.31 27.59 130.11 28.0L114.81 70.8Q114.2 72.5 112.7 73.36Q111.2 74.2 109.61 74.0Q106.7 73.8 105.31 70.8L94.0 40.8L96.31 41.0L85.9 70.8Q84.5 73.8 81.61 74.0Q80.11 74.2 78.54 73.36Q77.0 72.5 76.4 70.8L61.0 28.0Q60.61 27.09 60.61 26.09Q60.61 24.0 61.95 22.45Q63.31 20.91 65.61 20.91Q67.2 20.91 68.45 21.7Q69.7 22.5 70.2 24.09L83.0 60.2L80.7 60.0L91.11 32.7Q92.4 29.59 95.7 29.59Q97.5 29.59 98.5 30.41Q99.5 31.2 100.11 32.7L110.7 60.09L108.0 60.41L120.9 24.09Q121.9 20.91 125.7 20.91ZM183.8 0.0Q186.0 0.0 187.39 1.41Q188.8 2.8 188.8 5.09L188.8 68.91Q188.8 71.09 187.39 72.55Q186.0 74.0 183.8 74.0Q181.7 74.0 180.25 72.55Q178.8 71.09 178.8 68.91L178.8 61.7L180.91 61.8Q180.91 63.59 179.45 65.84Q178.0 68.09 175.5 70.2Q173.0 72.3 169.59 73.66Q166.2 75.0 162.3 75.0Q155.41 75.0 149.91 71.45Q144.41 67.91 141.2 61.75Q138.0 55.59 138.0 47.59Q138.0 39.59 141.2 33.45Q144.41 27.3 149.84 23.75Q155.3 20.2 162.0 20.2Q166.2 20.2 169.84 21.61Q173.5 23.0 176.2 25.2Q178.91 27.41 180.41 29.86Q181.91 32.3 181.91 34.5L178.8 34.8L178.8 5.09Q178.8 2.91 180.25 1.45Q181.7 0.0 183.8 0.0ZM163.41 65.8Q168.2 65.8 171.75 63.41Q175.3 61.0 177.3 56.91Q179.3 52.8 179.3 47.59Q179.3 42.41 177.3 38.31Q175.3 34.2 171.7 31.81Q168.11 29.41 163.41 29.41Q158.8 29.41 155.25 31.81Q151.7 34.2 149.66 38.31Q147.61 42.41 147.61 47.59Q147.61 52.8 149.66 56.91Q151.7 61.0 155.25 63.41Q158.8 65.8 163.41 65.8ZM242.01 21.41Q244.1 21.41 245.55 22.86Q247.01 24.3 247.01 26.5L247.01 52.8Q247.01 63.2 241.19 69.06Q235.4 74.91 224.8 74.91Q214.3 74.91 208.55 69.06Q202.8 63.2 202.8 52.8L202.8 26.5Q202.8 24.3 204.19 22.86Q205.6 21.41 207.8 21.41Q209.9 21.41 211.35 22.86Q212.8 24.3 212.8 26.5L212.8 52.8Q212.8 59.3 215.85 62.5Q218.9 65.7 224.8 65.7Q230.8 65.7 233.9 62.5Q237.01 59.3 237.01 52.8L237.01 26.5Q237.01 24.3 238.4 22.86Q239.8 21.41 242.01 21.41ZM262.11 20.91Q263.61 20.91 264.95 21.7Q266.31 22.5 266.9 24.09L282.61 60.41L280.7 61.3L296.61 24.2Q298.0 20.91 301.11 21.0Q303.11 21.0 304.45 22.25Q305.81 23.5 305.81 25.5Q305.81 26.09 305.61 26.75Q305.4 27.41 305.11 28.0L286.11 70.8Q284.81 73.8 281.81 74.0Q280.31 74.2 278.86 73.36Q277.4 72.5 276.61 70.8L257.7 28.0Q257.5 27.59 257.29 26.95Q257.11 26.3 257.11 25.41Q257.11 23.91 258.45 22.41Q259.81 20.91 262.11 20.91Z" fill="#18241e"/></g></svg></div>
+      <div class="tile tile-dark"><svg viewBox="0 0 394.65 120" class="lockup" role="img" aria-label="owduv logo"><g transform="translate(12 12) scale(0.96)"><defs><clipPath id="clipB"><circle cx="50" cy="50" r="37"/></clipPath></defs><rect x="13" y="41" width="74" height="46" fill="#4fc98a" clip-path="url(#clipB)"/><circle cx="50" cy="50" r="37" fill="none" stroke="#4fc98a" stroke-width="6.5"/></g><g transform="translate(132 30.0) scale(0.8)"><path d="M53.11 47.7Q53.11 55.7 49.61 61.86Q46.11 68.0 40.11 71.5Q34.11 75.0 26.61 75.0Q19.11 75.0 13.11 71.5Q7.11 68.0 3.55 61.86Q0.0 55.7 0.0 47.7Q0.0 39.59 3.55 33.45Q7.11 27.3 13.11 23.75Q19.11 20.2 26.61 20.2Q34.11 20.2 40.11 23.75Q46.11 27.3 49.61 33.45Q53.11 39.59 53.11 47.7ZM43.11 47.7Q43.11 42.2 40.91 38.16Q38.7 34.09 34.95 31.75Q31.2 29.41 26.61 29.41Q22.0 29.41 18.2 31.75Q14.41 34.09 12.2 38.16Q10.0 42.2 10.0 47.7Q10.0 53.0 12.2 57.11Q14.41 61.2 18.2 63.5Q22.0 65.8 26.61 65.8Q31.2 65.8 34.95 63.5Q38.7 61.2 40.91 57.11Q43.11 53.0 43.11 47.7ZM125.7 20.91Q127.61 20.91 129.04 22.36Q130.5 23.8 130.5 26.09Q130.5 26.59 130.4 27.09Q130.31 27.59 130.11 28.0L114.81 70.8Q114.2 72.5 112.7 73.36Q111.2 74.2 109.61 74.0Q106.7 73.8 105.31 70.8L94.0 40.8L96.31 41.0L85.9 70.8Q84.5 73.8 81.61 74.0Q80.11 74.2 78.54 73.36Q77.0 72.5 76.4 70.8L61.0 28.0Q60.61 27.09 60.61 26.09Q60.61 24.0 61.95 22.45Q63.31 20.91 65.61 20.91Q67.2 20.91 68.45 21.7Q69.7 22.5 70.2 24.09L83.0 60.2L80.7 60.0L91.11 32.7Q92.4 29.59 95.7 29.59Q97.5 29.59 98.5 30.41Q99.5 31.2 100.11 32.7L110.7 60.09L108.0 60.41L120.9 24.09Q121.9 20.91 125.7 20.91ZM183.8 0.0Q186.0 0.0 187.39 1.41Q188.8 2.8 188.8 5.09L188.8 68.91Q188.8 71.09 187.39 72.55Q186.0 74.0 183.8 74.0Q181.7 74.0 180.25 72.55Q178.8 71.09 178.8 68.91L178.8 61.7L180.91 61.8Q180.91 63.59 179.45 65.84Q178.0 68.09 175.5 70.2Q173.0 72.3 169.59 73.66Q166.2 75.0 162.3 75.0Q155.41 75.0 149.91 71.45Q144.41 67.91 141.2 61.75Q138.0 55.59 138.0 47.59Q138.0 39.59 141.2 33.45Q144.41 27.3 149.84 23.75Q155.3 20.2 162.0 20.2Q166.2 20.2 169.84 21.61Q173.5 23.0 176.2 25.2Q178.91 27.41 180.41 29.86Q181.91 32.3 181.91 34.5L178.8 34.8L178.8 5.09Q178.8 2.91 180.25 1.45Q181.7 0.0 183.8 0.0ZM163.41 65.8Q168.2 65.8 171.75 63.41Q175.3 61.0 177.3 56.91Q179.3 52.8 179.3 47.59Q179.3 42.41 177.3 38.31Q175.3 34.2 171.7 31.81Q168.11 29.41 163.41 29.41Q158.8 29.41 155.25 31.81Q151.7 34.2 149.66 38.31Q147.61 42.41 147.61 47.59Q147.61 52.8 149.66 56.91Q151.7 61.0 155.25 63.41Q158.8 65.8 163.41 65.8ZM242.01 21.41Q244.1 21.41 245.55 22.86Q247.01 24.3 247.01 26.5L247.01 52.8Q247.01 63.2 241.19 69.06Q235.4 74.91 224.8 74.91Q214.3 74.91 208.55 69.06Q202.8 63.2 202.8 52.8L202.8 26.5Q202.8 24.3 204.19 22.86Q205.6 21.41 207.8 21.41Q209.9 21.41 211.35 22.86Q212.8 24.3 212.8 26.5L212.8 52.8Q212.8 59.3 215.85 62.5Q218.9 65.7 224.8 65.7Q230.8 65.7 233.9 62.5Q237.01 59.3 237.01 52.8L237.01 26.5Q237.01 24.3 238.4 22.86Q239.8 21.41 242.01 21.41ZM262.11 20.91Q263.61 20.91 264.95 21.7Q266.31 22.5 266.9 24.09L282.61 60.41L280.7 61.3L296.61 24.2Q298.0 20.91 301.11 21.0Q303.11 21.0 304.45 22.25Q305.81 23.5 305.81 25.5Q305.81 26.09 305.61 26.75Q305.4 27.41 305.11 28.0L286.11 70.8Q284.81 73.8 281.81 74.0Q280.31 74.2 278.86 73.36Q277.4 72.5 276.61 70.8L257.7 28.0Q257.5 27.59 257.29 26.95Q257.11 26.3 257.11 25.41Q257.11 23.91 258.45 22.41Q259.81 20.91 262.11 20.91Z" fill="#ebf2e9"/></g></svg></div>
+      <p class="logo-caption">primary lockup, and reversed for dark surfaces.</p>
+
+      <div class="mark-grid">
+        <div class="mark-cell"><svg viewBox="0 0 100 100" class="mark" role="img" aria-label="filling-o mark"><defs><clipPath id="clipM1"><circle cx="50" cy="50" r="37"/></clipPath></defs><rect x="13" y="41" width="74" height="46" fill="#1f9d63" clip-path="url(#clipM1)"/><circle cx="50" cy="50" r="37" fill="none" stroke="#18241e" stroke-width="6.5"/></svg><span class="mark-name">filling o</span></div>
+        <div class="mark-cell"><svg viewBox="0 0 100 100" class="mark" role="img" aria-label="refill-ring mark"><circle cx="50" cy="50" r="35" fill="none" stroke="#1f9d63" stroke-width="10.5" stroke-linecap="round" stroke-dasharray="161 59" transform="rotate(-90 50 50)"/><circle cx="50" cy="50" r="35" fill="none" stroke="#2f6bef" stroke-width="10.5" stroke-linecap="round" stroke-dasharray="37 183" stroke-dashoffset="-170" transform="rotate(-90 50 50)"/></svg><span class="mark-name">refill ring</span></div>
+        <div class="mark-cell"><svg viewBox="0 0 100 100" class="mark" role="img" aria-label="o-d monogram mark"><circle cx="38" cy="58" r="25" fill="none" stroke="#18241e" stroke-width="6.5"/><line x1="64" y1="17" x2="64" y2="83" stroke="#1f9d63" stroke-width="6.5" stroke-linecap="round"/></svg><span class="mark-name">o-d monogram</span></div>
+      </div>
+      <p class="logo-caption">the filling o leads; the ring and monogram are alternates.</p>
+
+      <div class="icon-row">
+        <div class="icon-cell"><svg viewBox="0 0 100 100" class="icon" role="img" aria-label="app icon light"><rect x="0" y="0" width="100" height="100" rx="22" fill="#ffffff" stroke="#e0ddd8" stroke-width="1"/><g transform="translate(20 20) scale(0.6)"><defs><clipPath id="clipI1"><circle cx="50" cy="50" r="37"/></clipPath></defs><rect x="13" y="41" width="74" height="46" fill="#1f9d63" clip-path="url(#clipI1)"/><circle cx="50" cy="50" r="37" fill="none" stroke="#18241e" stroke-width="6.5"/></g></svg><span class="icon-name">light</span></div>
+        <div class="icon-cell"><svg viewBox="0 0 100 100" class="icon" role="img" aria-label="app icon dark"><rect x="0" y="0" width="100" height="100" rx="22" fill="#18241e"/><g transform="translate(20 20) scale(0.6)"><defs><clipPath id="clipI2"><circle cx="50" cy="50" r="37"/></clipPath></defs><rect x="13" y="41" width="74" height="46" fill="#4fc98a" clip-path="url(#clipI2)"/><circle cx="50" cy="50" r="37" fill="none" stroke="#4fc98a" stroke-width="6.5"/></g></svg><span class="icon-name">dark</span></div>
+        <div class="icon-cell"><svg viewBox="0 0 100 100" class="icon" role="img" aria-label="app icon green"><rect x="0" y="0" width="100" height="100" rx="22" fill="#1f9d63"/><g transform="translate(20 20) scale(0.6)"><defs><clipPath id="clipI3"><circle cx="50" cy="50" r="37"/></clipPath></defs><rect x="13" y="41" width="74" height="46" fill="#ffffff" clip-path="url(#clipI3)"/><circle cx="50" cy="50" r="37" fill="none" stroke="#ffffff" stroke-width="6.5"/></g></svg><span class="icon-name">green</span></div>
+        <div class="icon-cell"><svg viewBox="0 0 100 100" class="icon fav" role="img" aria-label="favicon"><rect x="0" y="0" width="100" height="100" rx="22" fill="#ffffff" stroke="#e0ddd8" stroke-width="1"/><g transform="translate(20 20) scale(0.6)"><defs><clipPath id="clipFav"><circle cx="50" cy="50" r="37"/></clipPath></defs><rect x="13" y="41" width="74" height="46" fill="#1f9d63" clip-path="url(#clipFav)"/><circle cx="50" cy="50" r="37" fill="none" stroke="#18241e" stroke-width="6.5"/></g></svg><span class="icon-name">16px</span></div>
+      </div>
+      <p class="logo-caption">app icon across surfaces, down to favicon size.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-num">palette</p>
+      <p>green leads and carries the stock states — full, low, out. cobalt is the accent and the predictive cues. the neutrals run a touch warm-green so the whole thing reads fresh rather than clinical — and it all has a dark mode.</p>
+
+      <p class="swatch-sub">neutrals</p>
+      <div class="swatch-grid"><div class="swatch"><span class="swatch-chip" style="background:#f2f7f1"></span><span class="swatch-role">background</span><span class="swatch-hex">#f2f7f1</span></div><div class="swatch"><span class="swatch-chip" style="background:#ffffff"></span><span class="swatch-role">surface</span><span class="swatch-hex">#ffffff</span></div><div class="swatch"><span class="swatch-chip" style="background:#18241e"></span><span class="swatch-role">text</span><span class="swatch-hex">#18241e</span></div><div class="swatch"><span class="swatch-chip" style="background:#54635c"></span><span class="swatch-role">muted</span><span class="swatch-hex">#54635c</span></div><div class="swatch"><span class="swatch-chip" style="background:#dde7dd"></span><span class="swatch-role">border</span><span class="swatch-hex">#dde7dd</span></div></div>
+      <p class="swatch-sub">brand</p>
+      <div class="swatch-grid"><div class="swatch"><span class="swatch-chip" style="background:#1f9d63"></span><span class="swatch-role">green · primary</span><span class="swatch-hex">#1f9d63</span></div><div class="swatch"><span class="swatch-chip" style="background:#146b41"></span><span class="swatch-role">green deep</span><span class="swatch-hex">#146b41</span></div><div class="swatch"><span class="swatch-chip" style="background:#2f6bef"></span><span class="swatch-role">cobalt · accent</span><span class="swatch-hex">#2f6bef</span></div><div class="swatch"><span class="swatch-chip" style="background:#1b3f8a"></span><span class="swatch-role">cobalt deep</span><span class="swatch-hex">#1b3f8a</span></div></div>
+      <p class="swatch-sub">status</p>
+      <div class="swatch-grid"><div class="swatch"><span class="swatch-chip" style="background:#1f9d63"></span><span class="swatch-role">full</span><span class="swatch-hex">#1f9d63</span></div><div class="swatch"><span class="swatch-chip" style="background:#e8943c"></span><span class="swatch-role">low</span><span class="swatch-hex">#e8943c</span></div><div class="swatch"><span class="swatch-chip" style="background:#e0584a"></span><span class="swatch-role">out</span><span class="swatch-hex">#e0584a</span></div></div>
+    </div>
+
+    <div class="section">
+      <p class="section-num">voice</p>
+      <p class="pull">never out of the everyday.</p>
+      <p>owduv speaks in lowercase and short sentences — a note on the fridge, not a sales pitch. it talks in outcomes ("you're stocked", "you're running low"), never about the tracking underneath.</p>
+    </div>
+
+  </main>
+
+  <footer>
+    <a href="cuxd211.html">CUXD211</a>
+    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+      <i class="fa-solid fa-sun" aria-hidden="true"></i>
+    </button>
+  </footer>
+  <script src="theme.js"></script>
+
+</body>
+</html>
