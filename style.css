@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:ital,wght@0,300;0,400;1,300&display=swap");
 
 *,
 *::before,
@@ -60,7 +60,7 @@
 
 /* ── BASE ── */
 body {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Spline Sans Mono", monospace;
   font-size: 14px;
   line-height: 1.85;
   color: var(--text);
@@ -86,7 +86,7 @@ a:hover {
 /* ── MAIN CONTENT ── */
 main {
   width: 100%;
-  max-width: 720px;
+  max-width: 900px;
   animation: fadein 0.5s ease 0.1s both;
 }
 
@@ -154,7 +154,7 @@ h1::after {
 .pill {
   -webkit-appearance: none;
   appearance: none;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Spline Sans Mono", monospace;
   font-size: 14px;
   line-height: 1.2;
   letter-spacing: 0.03em;
@@ -174,6 +174,16 @@ h1::after {
     box-shadow 0.15s ease,
     opacity 0.15s ease,
     outline-color 0.15s ease;
+}
+
+a.pill { text-decoration: none; }
+
+.pill:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(125,52,16,0.25);
 }
 
 .pill[data-state="default"] {
@@ -311,7 +321,7 @@ h1::after {
 }
 
 .toggle-label {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Spline Sans Mono", monospace;
   font-size: 14px;
   letter-spacing: 0.03em;
   color: var(--text);
@@ -369,7 +379,7 @@ h1::after {
 }
 
 .checkbox-label {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Spline Sans Mono", monospace;
   font-size: 14px;
   letter-spacing: 0.03em;
   color: var(--text);
@@ -498,7 +508,7 @@ h1::after {
 /* ── TOP NAV ── */
 .site-nav {
   width: 100%;
-  max-width: 720px;
+  max-width: 900px;
   margin-bottom: 52px;
   padding-bottom: 20px;
   border-bottom: 1px solid var(--border);
@@ -547,7 +557,7 @@ h2 {
 .project-list {
   list-style: none;
   width: 100%;
-  max-width: 720px;
+  max-width: 900px;
   animation: fadein 0.5s ease 0.1s both;
 }
 
@@ -575,10 +585,39 @@ h2 {
   line-height: 1.75;
 }
 
+/* ── BACK LINK (case studies) ── */
+.back-link {
+  font-size: 12px;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 24px;
+}
+.back-link:hover { color: var(--text); text-decoration: none; }
+
+/* ── PROJECT META (projects list) ── */
+.project-meta {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 4px;
+  opacity: 0.7;
+}
+
+/* ── AVAILABILITY ── */
+.avail {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+/* ── META STATUS LABEL ── */
+.meta .status {
+  color: var(--accent);
+}
+
 /* ── FOOTER ── */
 footer {
   width: 100%;
-  max-width: 720px;
+  max-width: 900px;
   margin-top: 80px;
   padding-top: 20px;
   border-top: 1px solid var(--border);
@@ -708,4 +747,46 @@ button:focus-visible,
   body {
     padding-top: max(80px, 12vh);
   }
+}
+/* ── QUIET MODE — the page resolves to its essence ── */
+/* On "quiet mode", the words drop (gravity) and the two things that matter —
+   the CTA + the switch — are lifted into the centre of the viewport, so the
+   hollow space left behind by the fallen words never shows. */
+
+.quiet-cluster {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  z-index: 100;
+  pointer-events: none;        /* let clicks fall through; children re-enable */
+}
+
+.quiet-cluster > * { pointer-events: auto; }
+
+.quiet-cluster .pill { margin: 0; }            /* drop the stacking margin, centre on its own */
+.quiet-cluster .toggle-demo { align-items: center; }
+.quiet-cluster .toggle { margin-bottom: 6px; }
+
+/* the pill + switch glide in/out via the Web Animations API (see script).
+   fade the now-hollow page + chrome so only the cluster reads.
+   (the fallen words fade themselves via word-fall; these don't, so we fade them) */
+body.quiet { overflow: hidden; }   /* kill the scrollable void behind the cluster */
+
+body.quiet .avail,
+body.quiet hr,
+body.quiet .site-nav,
+body.quiet footer {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+/* reduced motion: no fall — cross-fade the static page out instead */
+body.quiet-instant main {
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ash cornette · website finder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:wght@400&display=swap" rel="stylesheet">
+<meta name="description" content="Website finder by Ash Cornette — five questions to find the right type of website for your business.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ash cornette · website finder">
+<meta property="og:description" content="Five questions to find the right type of website for your business.">
+<meta property="og:url" content="https://ashcornette.com/website.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+  :root{
+    --bg:#f5f4f0; --text:#1a1a25; --muted:#525256; --border:#e0ddd8; --accent:#7d3410;
+  }
+  [data-theme="dark"]{
+    --bg:#1c1c1c; --text:#f5f4f0; --muted:#c8c2ba; --border:#333; --accent:#f0904e;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg); color:var(--text);
+    font-family:'Spline Sans Mono', ui-monospace, monospace;
+    font-size:14px; line-height:1.85; font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh; padding:80px 48px;
+  }
+  .wrap{max-width:900px; margin:0 auto;}
+
+  .head{margin-bottom:48px;}
+  .head h1{font-size:20px; font-weight:400; letter-spacing:0.01em; margin:0 0 6px;}
+  .cursor{
+    color:var(--accent);
+    animation:
+      blink 1.1s step-end 3,
+      cursor-rest 1.8s ease 3.3s forwards;
+  }
+  @keyframes blink{0%,100%{opacity:1;} 50%{opacity:0;}}
+  @keyframes cursor-rest{to{opacity:0;}}
+  .head p{font-size:12px; color:var(--muted); margin:6px 0 0; max-width:56ch;}
+
+  .prog{display:flex; align-items:center; gap:14px; margin-bottom:30px; color:var(--muted);}
+  .prog .count{white-space:nowrap;}
+  .track{flex:1; height:1px; background:var(--border); position:relative;}
+  .track i{position:absolute; left:0; top:0; bottom:0; background:var(--accent); transition:width .25s ease;}
+
+  .q{font-size:18px; font-weight:400; margin:0 0 22px; line-height:1.45;}
+  .q:focus{outline:none;}
+
+  .opts{display:flex; flex-direction:column; gap:10px;}
+  .opt{
+    text-align:left; width:100%; max-width:75%; font:inherit; font-size:14px; letter-spacing:0.03em;
+    color:var(--text); background:transparent;
+    border:1px solid var(--text); border-radius:999px;
+    padding:11px 18px; cursor:pointer; line-height:1.3;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    transition:background .15s ease, color .15s ease, border-color .15s ease, transform .1s ease, box-shadow .15s ease;
+  }
+  .opt:hover{border-color:var(--accent); transform:translateY(-2px); box-shadow:0 6px 16px rgba(125,52,16,0.25);}
+  .opt:active{transform:scale(0.98);}
+  .opt:focus-visible{outline:2px dashed var(--accent); outline-offset:3px;}
+  .opt[aria-pressed="true"]{background:var(--text); color:var(--bg); border-color:var(--text); transform:none; box-shadow:none;}
+  .opt .arr{color:var(--accent); opacity:0; transform:translateX(-4px); transition:opacity .15s ease, transform .15s ease;}
+  .opt:hover .arr{opacity:1; transform:translateX(0);}
+  .opt[aria-pressed="true"] .arr{color:var(--bg); opacity:1; transform:translateX(0);}
+
+  .nav{display:flex; align-items:center; justify-content:space-between; margin-top:30px;}
+  .btn{font:inherit; background:transparent; border:0; padding:6px 0; cursor:pointer; color:var(--accent);}
+  .btn:disabled{color:var(--border); cursor:default;}
+  .btn.back{color:var(--muted);}
+  .btn:focus-visible{outline:2px dashed var(--accent); outline-offset:3px;}
+  .btn .g{display:inline-block; transition:transform .15s ease;}
+  .btn.next:hover:not(:disabled) .g{transform:translateX(4px);}
+  .btn.back:hover .g{transform:translateX(-4px);}
+  a.btn{text-decoration:none; display:inline-block;}
+
+  .res h2{font-size:18px; font-weight:400; margin:0 0 28px;}
+  .card{border:1px solid var(--border); padding:20px 22px; margin-bottom:14px;}
+  .lab{font-size:14px; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); margin:0 0 8px;}
+  .card .val{font-size:20px; color:var(--accent); margin:0 0 8px; line-height:1.3;}
+  .card .why{margin:0; max-width:60ch;}
+  .note{color:var(--muted); margin:20px 0 28px; padding-left:16px; border-left:1px solid var(--border); max-width:62ch;}
+  .expect{margin:0 0 30px;}
+  .expect ul{list-style:none; margin:0; padding:0;}
+  .expect li{position:relative; padding-left:22px; margin-bottom:12px; max-width:62ch;}
+  .expect li::before{content:'\2192'; position:absolute; left:0; color:var(--accent);}
+  .cta{border:1px solid var(--border); border-left:3px solid var(--accent); padding:20px 22px; margin-bottom:30px;}
+  .cta .lab{color:var(--accent);}
+  .cta p{margin:0 0 16px; max-width:60ch;}
+  .actions{display:flex; gap:28px;}
+
+  /* ── SITE NAV ── */
+  .site-nav{
+    width:100%; max-width:900px; margin:0 auto 48px;
+    display:flex; align-items:center; justify-content:space-between;
+    padding-bottom:16px; border-bottom:1px solid var(--border);
+  }
+  .site-nav .wordmark{ font-size:14px; color:var(--text); text-decoration:none; letter-spacing:0.04em; }
+  .site-nav .nav-right{ display:flex; gap:20px; }
+  .site-nav .nav-right a{ font-size:14px; color:var(--muted); text-decoration:none; }
+  .site-nav .nav-right a:hover{ color:var(--text); }
+  .site-nav .nav-right a[aria-current="page"]{ color:var(--text); }
+
+  /* ── FOOTER ── */
+  .finder-footer{
+    margin-top:64px; padding-top:20px;
+    border-top:1px solid var(--border);
+    display:flex; align-items:center; gap:20px; flex-wrap:wrap;
+  }
+  .finder-footer a{ font-size:14px; color:var(--muted); text-decoration:none; }
+  .finder-footer a:hover{ text-decoration:underline; text-underline-offset:3px; text-decoration-color:var(--accent); }
+  .theme-toggle{
+    background:none; border:0; color:var(--text); cursor:pointer;
+    width:34px; height:34px; display:flex; align-items:center; justify-content:center;
+    font-size:1rem; flex-shrink:0;
+  }
+  .theme-toggle:focus-visible{ outline:2px dashed var(--accent); outline-offset:3px; }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+
+  @media (max-width:600px){ body{ padding:52px 24px; } .opt{ max-width:100%; } }
+  @media (max-width:380px){ body{ padding:40px 18px; } }
+  @media (min-width:1200px){ body{ padding-top:max(80px,12vh); } }
+</style>
+</head>
+<body>
+  <a href="#app" style="position:absolute;left:8px;top:-48px;z-index:10;padding:8px 16px;border-radius:999px;background:var(--text);color:var(--bg);font-size:14px;font-family:'Spline Sans Mono',monospace;transition:top .15s ease;text-decoration:none;" onfocus="this.style.top='8px'" onblur="this.style.top='-48px'">skip to content</a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="index.html" class="wordmark">ash</a>
+    <div class="nav-right">
+      <a href="index.html">home</a>
+      <a href="projects.html">projects</a>
+      <a href="services.html">services</a>
+    </div>
+  </nav>
+  <div class="wrap">
+    <header class="head">
+      <h1>Find the right website<span class="cursor">_</span></h1>
+      <p>Five quick questions to work out what kind of site actually fits your project — a simple custom site, Squarespace, or Shopify.</p>
+    </header>
+    <main id="app" aria-live="polite"></main>
+    <footer class="finder-footer">
+      <a href="index.html">home</a>
+      <a href="projects.html">projects</a>
+      <a href="services.html">services</a>
+      <a href="mailto:hello@ashcornette.com">hello@ashcornette.com</a>
+      <a href="https://linkedin.com/in/ashcornette" target="_blank" rel="noopener noreferrer">linkedin</a>
+      <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </footer>
+  </div>
+
+<script>
+/* ---- The questions. Plain language, no platform jargon. ---- */
+const QUESTIONS = [
+  { id:'purpose', q:'What’s the website mainly for?', options:[
+    {v:'showcase', label:'Portfolio or info site'},
+    {v:'services', label:'Bookings or enquiries'},
+    {v:'redesign', label:'Redesigning an existing site'},
+    {v:'unsure',   label:'A mix / not sure'},
+  ]},
+  { id:'sell', q:'Will people buy things directly through the site?', options:[
+    {v:'core',  label:'Yes, it’s a shop'},
+    {v:'light', label:'A few items'},
+    {v:'none',  label:'No'},
+  ]},
+  { id:'change', q:'How often will the content change after launch?', options:[
+    {v:'often',      label:'Often'},
+    {v:'occasional', label:'Sometimes'},
+    {v:'rarely',     label:'Rarely'},
+  ]},
+  { id:'control', q:'Who’ll make those updates?', options:[
+    {v:'myself',  label:'You'},
+    {v:'someone', label:'Ash'},
+  ]},
+  { id:'cost', q:'How do you feel about ongoing monthly costs?', options:[
+    {v:'low', label:'Keep them low'},
+    {v:'ok',  label:'Fine with a fee'},
+  ]},
+];
+
+/* ---- Which kind of site fits. ---- */
+function recommend(a){
+  let platform, why;
+  if (a.sell === 'core'){
+    platform = 'Shopify';
+    why = 'Selling products is the main point of the site — that calls for a platform built around a proper store.';
+  } else if (a.sell === 'light'){
+    platform = 'Squarespace';
+    why = 'Mostly a website, with a few things to sell — Squarespace does both without bolting on extra tools.';
+  } else if (a.purpose === 'services'){
+    platform = 'Squarespace';
+    why = 'Bookings and enquiries are easier on a platform with forms and scheduling built in.';
+  } else if (a.control === 'myself'){
+    platform = 'Squarespace';
+    why = 'You’d like to update the site yourself — Squarespace lets you log in and edit without touching code.';
+  } else if (a.change === 'rarely'){
+    platform = 'A simple custom site';
+    why = 'No online store, and the content will stay fairly stable — a clean, hand-built site is the simplest and cheapest thing that does the job well.';
+  } else if (a.cost === 'low'){
+    platform = 'A simple custom site';
+    why = 'It’ll change now and then, but you’d rather not run it yourself — a hand-built site keeps your monthly cost at zero, and I make updates as they come up.';
+  } else {
+    platform = 'Squarespace';
+    why = 'The site will keep changing and you’d rather it be easy to manage — Squarespace keeps updates quick, whether that’s you or me.';
+  }
+
+  const expect = {
+    'A simple custom site':[
+      'No monthly platform fee — you own the site outright and only pay when something needs changing.',
+      'Fast, lightweight, and built to match your brand exactly.',
+      'Need a change? You send it over and I make it — there’s no dashboard for you to learn.',
+    ],
+    'Squarespace':[
+      'A predictable monthly subscription, paid to Squarespace.',
+      'Log in anytime to edit pages, swap images, or add posts — no code needed.',
+      'Covers a small shop, a blog, and bookings without extra tools.',
+    ],
+    'Shopify':[
+      'A monthly plan built for selling — the cost scales with the size of your store.',
+      'Products, inventory, payments, and shipping all managed in one place.',
+      'Room to grow from a handful of products to a full catalogue.',
+    ],
+  }[platform];
+
+  const note = a.cost === 'low'
+    ? 'You’d like to keep ongoing costs down — so this points to the lightest option that still does what you need, nothing you’ll pay for and not use.'
+    : 'A monthly fee is fine by you — so this leans toward whatever’s most convenient for the way you’ll actually use the site.';
+
+  return { platform, why, expect, note };
+}
+
+/* ---- Render ---- */
+const app = document.getElementById('app');
+let idx = 0;
+const answers = {};
+
+function render(){
+  if (idx < QUESTIONS.length) renderQuestion();
+  else renderResults();
+}
+
+function renderQuestion(){
+  const item = QUESTIONS[idx];
+  const pct = Math.round((idx / QUESTIONS.length) * 100);
+  app.innerHTML = `
+    <div class="prog">
+      <span class="count">${String(idx+1).padStart(2,'0')} / ${String(QUESTIONS.length).padStart(2,'0')}</span>
+      <span class="track"><i style="width:${pct}%"></i></span>
+    </div>
+    <h2 class="q" tabindex="-1">${item.q}</h2>
+    <div class="opts" role="group" aria-label="${item.q}">
+      ${item.options.map(o => `
+        <button class="opt" data-v="${o.v}" aria-pressed="${answers[item.id]===o.v}">
+          <span class="mark"></span>
+          <span>${o.label}</span>
+          <span class="arr" aria-hidden="true">→</span>
+        </button>`).join('')}
+    </div>
+    <div class="nav">
+      <button class="btn back" ${idx===0?'style="visibility:hidden"':''}><span class="g">←</span> Back</button>
+      <button class="btn next" ${answers[item.id]?'':'disabled'}>
+        ${idx===QUESTIONS.length-1?'See result':'Next'} <span class="g">→</span>
+      </button>
+    </div>`;
+
+  const next = app.querySelector('.next');
+  app.querySelectorAll('.opt').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      answers[item.id] = btn.dataset.v;
+      app.querySelectorAll('.opt').forEach(b=>b.setAttribute('aria-pressed', b===btn));
+      next.disabled = false;
+    });
+  });
+  app.querySelector('.back').addEventListener('click', ()=>{ if(idx>0){ idx--; render(); }});
+  next.addEventListener('click', ()=>{ if(!next.disabled){ idx++; render(); }});
+  app.querySelector('.q').focus();
+}
+
+function buildMailto(r){
+  const purposeText = {
+    showcase: 'a portfolio or info site',
+    services: 'bookings / enquiries',
+    redesign: 'a redesign of an existing site',
+    unsure:   'a mix / not sure yet',
+  }[answers.purpose];
+  const sellText = {
+    core:  'yes — basically a shop',
+    light: 'a few items now and then',
+    none:  'no online selling',
+  }[answers.sell];
+  const changeText = { often:'often', occasional:'sometimes', rarely:'rarely' }[answers.change];
+  const controlText = {
+    myself:  'I’ll handle updates myself',
+    someone: 'I’d like Ash to handle updates',
+  }[answers.control];
+  const costText = {
+    low: 'keep ongoing costs low',
+    ok:  'fine with a monthly fee',
+  }[answers.cost];
+
+  const subject = `Website enquiry — ${r.platform}`;
+  const body = [
+    'Hi Ash,',
+    '',
+    `I used the website finder on your site and it pointed me to: ${r.platform}.`,
+    '',
+    'A bit about the project:',
+    `- What it’s for: ${purposeText}`,
+    `- Selling: ${sellText}`,
+    `- Updates: ${changeText} — ${controlText}`,
+    `- Monthly cost: ${costText}`,
+    '',
+    'I’d love to talk about next steps.',
+    '',
+    'Thanks!',
+  ].join('\r\n');
+
+  return `mailto:hello@ashcornette.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+function renderResults(){
+  const r = recommend(answers);
+  app.innerHTML = `
+    <section class="res">
+      <h2>For what you’ve described<span class="cursor">_</span></h2>
+
+      <div class="card">
+        <p class="lab">Best fit</p>
+        <p class="val">${r.platform}</p>
+        <p class="why">${r.why}</p>
+      </div>
+
+      <p class="note">${r.note}</p>
+
+      <div class="expect">
+        <p class="lab">What to expect</p>
+        <ul>${r.expect.map(s=>`<li>${s}</li>`).join('')}</ul>
+      </div>
+
+      <div class="cta">
+        <p class="lab">Next step</p>
+        <p>If that sounds about right, tell me a bit about your project and I’ll map out the specifics — timeline, scope, and cost. Torn between two, or not sure? That’s exactly what a short conversation is for.</p>
+        <a class="btn next" href="mailto:hello@ashcornette.com">Start a conversation <span class="g" aria-hidden="true">→</span></a>
+      </div>
+
+      <div class="actions">
+        <button class="btn back revise"><span class="g">←</span> Change my answers</button>
+        <button class="btn restart">Start over <span class="g" aria-hidden="true">↺</span></button>
+      </div>
+    </section>`;
+
+  app.querySelector('.cta a').href = buildMailto(r);
+  app.querySelector('.revise').addEventListener('click', ()=>{ idx = 0; render(); });
+  app.querySelector('.restart').addEventListener('click', ()=>{
+    for (const k in answers) delete answers[k];
+    idx = 0; render();
+  });
+  app.querySelector('h2').setAttribute('tabindex','-1');
+  app.querySelector('h2').focus();
+}
+
+render();
+
+</script>
+<script src="theme.js"></script>
+</body>
+</html>

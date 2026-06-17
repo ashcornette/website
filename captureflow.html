@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Capture flow — Business of Design</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    main { max-width: 720px; }
+    footer { max-width: 720px; }
+
+    .cf-wrap {
+      width: 100%;
+      animation: fadein 0.5s ease 0.1s both;
+    }
+
+    .cf-meta {
+      font-size: 11px;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 40px;
+      letter-spacing: 0.03em;
+    }
+
+    .cf-intro {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 8px;
+    }
+
+    .cf-note {
+      font-size: 13px;
+      color: var(--muted);
+      font-style: italic;
+      line-height: 1.75;
+      margin-top: 22px;
+    }
+
+    /* ── CAPTURE-FLOW DIAGRAM ── */
+    .map { display: block; width: 100%; height: auto; }
+
+    .m-box  { fill: var(--bg); stroke: var(--border); stroke-width: 1; }
+    .m-bar  { fill: var(--accent); }
+    .m-zone { fill: none; stroke: var(--muted); stroke-width: 1; stroke-dasharray: 4 4; }
+    .m-t        { fill: var(--text);   font-family: "Spline Sans Mono", monospace; font-size: 12px; letter-spacing: 0.08em; }
+    .m-t-accent { fill: var(--accent); font-family: "Spline Sans Mono", monospace; font-size: 12px; letter-spacing: 0.08em; }
+    .m-sub  { fill: var(--muted); font-family: "Spline Sans Mono", monospace; font-size: 10px; font-style: italic; }
+    .m-arr  { stroke: var(--muted); stroke-width: 1; fill: none; }
+    .m-loop { stroke: var(--muted); stroke-width: 1; fill: none; stroke-dasharray: 4 4; }
+    .m-leg  { fill: var(--muted); font-family: "Spline Sans Mono", monospace; font-size: 11px; }
+  </style>
+</head>
+<body>
+
+  <main>
+    <div class="cf-wrap">
+      <p class="cf-meta">draft — week 5 · capture flow · phase 2 research</p>
+
+      <!-- THE LOOP -->
+      <div class="section">
+        <div class="section-label">The capture loop</div>
+        <p class="cf-intro">the hard part was never the alert — it's the logging. so the app doesn't ask you to log. it reads the purchase you already made, learns how fast you get through things, and only asks for a tap when it needs to correct a guess.</p>
+      </div>
+
+      <!-- DIAGRAM -->
+      <div class="section">
+        <div class="section-label">How signals get in</div>
+
+        <svg class="map" viewBox="0 0 680 426" role="img" xmlns="http://www.w3.org/2000/svg">
+          <title>Capture flow for the restocking app</title>
+          <desc>Three neutral input boxes — receipts and orders (zero-touch), barcode scan, and manual add — feed an on-device engine drawn as a dashed boundary containing two accent boxes, parse receipts and learn cadence. The engine produces an accent restock nudge, and a neutral one-tap reply loops back to refine the cadence model.</desc>
+          <defs>
+            <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </marker>
+          </defs>
+
+          <rect class="m-zone" x="240" y="70" width="250" height="240"/>
+          <text class="m-t-accent" x="256" y="90">ON DEVICE</text>
+          <text class="m-sub" x="256" y="106">raw data stays here</text>
+
+          <rect class="m-box" x="40" y="90" width="168" height="56"/>
+          <text class="m-t" x="124" y="114" text-anchor="middle">RECEIPTS &amp; ORDERS</text>
+          <text class="m-sub" x="124" y="130" text-anchor="middle">zero-touch</text>
+
+          <rect class="m-box" x="40" y="164" width="168" height="56"/>
+          <text class="m-t" x="124" y="188" text-anchor="middle">BARCODE SCAN</text>
+          <text class="m-sub" x="124" y="204" text-anchor="middle">occasional</text>
+
+          <rect class="m-box" x="40" y="238" width="168" height="56"/>
+          <text class="m-t" x="124" y="262" text-anchor="middle">MANUAL ADD</text>
+          <text class="m-sub" x="124" y="278" text-anchor="middle">rare</text>
+
+          <rect class="m-box" x="262" y="128" width="200" height="56"/>
+          <rect class="m-bar" x="262" y="128" width="2" height="56"/>
+          <text class="m-t-accent" x="364" y="152" text-anchor="middle">PARSE RECEIPTS</text>
+          <text class="m-sub" x="364" y="168" text-anchor="middle">date · sku · qty</text>
+
+          <rect class="m-box" x="262" y="216" width="200" height="56"/>
+          <rect class="m-bar" x="262" y="216" width="2" height="56"/>
+          <text class="m-t-accent" x="364" y="240" text-anchor="middle">LEARN CADENCE</text>
+          <text class="m-sub" x="364" y="256" text-anchor="middle">predicts next buy</text>
+
+          <rect class="m-box" x="508" y="216" width="132" height="56"/>
+          <rect class="m-bar" x="508" y="216" width="2" height="56"/>
+          <text class="m-t-accent" x="576" y="240" text-anchor="middle">RESTOCK NUDGE</text>
+          <text class="m-sub" x="576" y="256" text-anchor="middle">predicted low</text>
+
+          <rect class="m-box" x="508" y="302" width="132" height="56"/>
+          <text class="m-t" x="574" y="326" text-anchor="middle">ONE TAP</text>
+          <text class="m-sub" x="574" y="342" text-anchor="middle">refines model</text>
+
+          <line class="m-arr" x1="208" y1="118" x2="258" y2="150" marker-end="url(#ar)"/>
+          <line class="m-arr" x1="208" y1="192" x2="258" y2="238" marker-end="url(#ar)"/>
+          <line class="m-arr" x1="208" y1="266" x2="258" y2="250" marker-end="url(#ar)"/>
+          <line class="m-arr" x1="362" y1="184" x2="362" y2="214" marker-end="url(#ar)"/>
+          <line class="m-arr" x1="462" y1="244" x2="504" y2="244" marker-end="url(#ar)"/>
+          <line class="m-arr" x1="574" y1="272" x2="574" y2="300" marker-end="url(#ar)"/>
+          <path class="m-loop" d="M574 358 L574 376 L362 376 L362 274" marker-end="url(#ar)"/>
+
+          <rect class="m-box" x="40" y="392" width="14" height="14"/>
+          <text class="m-leg" x="62" y="403">signals in</text>
+          <rect class="m-box" x="186" y="392" width="14" height="14"/>
+          <rect class="m-bar" x="186" y="392" width="2" height="14"/>
+          <text class="m-leg" x="208" y="403">on-device engine</text>
+        </svg>
+
+        <p class="cf-note">most of the signal enters at zero touch — receipts and orders. scan and manual are only there to catch what receipts miss. everything between intake and the nudge happens on the phone: raw purchase data is reduced to date, sku and quantity, and never leaves it.</p>
+      </div>
+
+      <!-- RISK -->
+      <div class="section">
+        <div class="card card-accent">
+          <div class="card-title">The catch — to stress-test in research</div>
+          <div class="card-body">cash and un-receipted buys are invisible. variable pack sizes wobble the cadence. and genuinely irregular items — bleach, batteries — don't follow a curve. those are the edges the interviews need to probe.</div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <a href="cuxd211.html">CUXD211</a>
+    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+      <i class="fa-solid fa-moon" aria-hidden="true"></i>
+    </button>
+  </footer>
+  <script src="theme.js"></script>
+
+</body>
+</html>

@@ -8,11 +8,20 @@ function renderVancouverTime() {
       minute: "2-digit",
       hour12: true,
     })
-    .toLowerCase();                          // "11:42 pm" — matches your lowercase voice
+    .toLowerCase();
   if (vanTime.textContent !== t) vanTime.textContent = t;
 }
 
 if (vanTime) {
   renderVancouverTime();
-  setInterval(renderVancouverTime, 1000);
+  let timer = setInterval(renderVancouverTime, 30000);
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      clearInterval(timer);
+    } else {
+      renderVancouverTime();
+      timer = setInterval(renderVancouverTime, 30000);
+    }
+  });
 }
