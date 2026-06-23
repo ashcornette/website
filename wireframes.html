@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Wireframes — owduv</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* self-contained: tokens + chrome mirrored so the page renders standalone and drops in */
+    @import url("https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:ital,wght@0,300;0,400;1,300&display=swap");
+
+    :root {
+      --bg: #f5f4f0;
+      --text: #1a1a25;
+      --muted: #525256;
+      --border: #e0ddd8;
+      --accent: #7d3410;
+      --st-ok: #1f9d63;
+      --st-low: #e8943c;
+      --st-out: #e0584a;
+    }
+    [data-theme="dark"] {
+      --bg: #1c1c1c;
+      --text: #f5f4f0;
+      --muted: #c8c2ba;
+      --border: #333;
+      --accent: #f0904e;
+      --st-ok: #4fc98a;
+      --st-low: #e8943c;
+      --st-out: #e0584a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    @keyframes fadein { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+    body {
+      font-family: "Spline Sans Mono", monospace;
+      font-size: 14px; line-height: 1.85;
+      color: var(--text); background: var(--bg);
+      min-height: 100vh; padding: 80px 48px;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    a { color: var(--text); text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--accent); }
+
+    main { width: 100%; max-width: 720px; }
+    footer { max-width: 720px; }
+
+    .wf-wrap { width: 100%; animation: fadein 0.5s ease 0.1s both; }
+    .wf-meta { font-size: 11px; color: var(--muted); font-style: italic; letter-spacing: 0.03em; margin-bottom: 10px; }
+    h1 { font-size: 20px; font-weight: 400; letter-spacing: 0.01em; margin-bottom: 16px; }
+    h1::after { content: none; }
+    .wf-lede { font-size: 14px; color: var(--muted); line-height: 1.85; max-width: 64ch; margin-bottom: 52px; }
+    .wf-lede strong { color: var(--text); font-weight: 400; }
+
+    .section { margin-bottom: 56px; }
+    .section:last-child { margin-bottom: 0; }
+    .section-label { font-size: 13px; letter-spacing: 0.06em; color: var(--text); margin-bottom: 12px; }
+    .wf-intro { font-size: 14px; color: var(--muted); line-height: 1.85; margin-bottom: 28px; }
+
+    /* ── STAGE: phone + annotations ── */
+    .wf-stage { display: flex; gap: 40px; align-items: flex-start; }
+    .wf-notes { flex: 1; padding-top: 6px; }
+    .wf-note { display: flex; gap: 12px; font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 14px; }
+    .wf-note:last-child { margin-bottom: 0; }
+    .wf-note .n { color: var(--accent); flex-shrink: 0; }
+
+    /* ── DEVICE — iPhone 17 (402 × 874 CSS-px viewport) ── */
+    .wf-phone {
+      flex-shrink: 0;
+      border: 1.5px solid var(--text);
+      border-radius: 48px;
+      padding: 12px;
+      background: var(--bg);
+    }
+    .wf-screen {
+      width: 402px;       /* iPhone 17 logical viewport width  */
+      height: 874px;      /* iPhone 17 logical viewport height */
+      border-radius: 38px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg);
+    }
+    .wf-scroll { flex: 1; overflow-y: auto; }
+
+    .wf-statusbar { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); letter-spacing: 0.06em; padding: 14px 22px 12px; flex-shrink: 0; }
+
+    .wf-appbar { display: flex; align-items: center; gap: 12px; padding: 4px 18px 16px; border-bottom: 1px solid var(--border); flex-shrink: 0; }
+    .wf-logo { font-size: 16px; color: var(--text); letter-spacing: 0.02em; }
+    .wf-hh { margin-left: auto; font-size: 12px; border: 1px solid var(--border); border-radius: 999px; padding: 4px 12px; color: var(--muted); }
+    .wf-avatar { width: 28px; height: 28px; border: 1px solid var(--border); border-radius: 50%; flex-shrink: 0; }
+
+    .wf-summary { padding: 18px 18px 2px; font-size: 14px; color: var(--text); }
+    .wf-summary .q { color: var(--muted); }
+
+    .wf-group { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); padding: 18px 18px 6px; }
+
+    .wf-item { display: flex; align-items: center; gap: 14px; padding: 13px 18px; border-bottom: 1px solid var(--border); }
+    .wf-stat { font-size: 24px; width: 26px; text-align: center; color: var(--text); flex-shrink: 0; }
+    .wf-stat.in  { color: var(--st-ok); }
+    .wf-stat.low { color: var(--st-low); }
+    .wf-stat.out { color: var(--st-out); }
+    .wf-item-main { flex: 1; min-width: 0; }
+    .wf-item-name { font-size: 14px; color: var(--text); }
+    .wf-item-cat { font-size: 11px; color: var(--muted); letter-spacing: 0.04em; }
+    .wf-eta { font-size: 12px; color: var(--muted); white-space: nowrap; }
+    .wf-reorder { font-size: 11px; border: 1px solid var(--border); border-radius: 999px; padding: 4px 11px; color: var(--text); white-space: nowrap; letter-spacing: 0.04em; }
+
+    .wf-addbar { display: flex; gap: 10px; padding: 18px 18px 24px; }
+    .wf-action { font-size: 12px; border: 1px solid var(--border); border-radius: 999px; padding: 7px 14px; color: var(--text); letter-spacing: 0.04em; }
+
+    .wf-nav { display: flex; justify-content: space-around; padding: 14px 18px; border-top: 1px solid var(--border); flex-shrink: 0; }
+    .wf-nav span { font-size: 11px; color: var(--muted); letter-spacing: 0.08em; }
+    .wf-nav .on { color: var(--text); }
+
+    /* ── SHARED BITS (detail / sheet / shared / onboard) ── */
+    .wf-back { font-size: 17px; color: var(--text); }
+    .wf-appbar-title { font-size: 12px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-left: 4px; }
+    .wf-more { margin-left: auto; font-size: 17px; color: var(--muted); letter-spacing: 0.06em; }
+    .wf-stat-sm { font-size: 15px; }
+    .wf-btn { display: block; width: 100%; text-align: center; font-size: 13px; letter-spacing: 0.04em; padding: 13px; border-radius: 999px; border: 1px solid var(--text); background: var(--text); color: var(--bg); }
+    .wf-link { display: block; text-align: center; font-size: 12px; color: var(--muted); padding: 14px 0 2px; }
+    .wf-row-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 4px 0 8px; }
+
+    /* item detail */
+    .wf-detail-head { padding: 18px 18px 4px; }
+    .wf-detail-name { font-size: 18px; color: var(--text); }
+    .wf-detail-status { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); margin-top: 8px; }
+    .wf-hero { padding: 16px 18px 6px; }
+    .wf-hero-big { font-size: 22px; color: var(--text); letter-spacing: 0.01em; }
+    .wf-hero-sub { font-size: 12px; color: var(--muted); margin-top: 3px; }
+    .wf-facts { padding: 6px 18px 0; }
+    .wf-fact { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .wf-fact-label { font-size: 12px; color: var(--muted); }
+    .wf-fact-val { font-size: 13px; color: var(--text); text-align: right; }
+    .wf-spark-wrap { padding: 18px 18px 4px; }
+    .wf-spark { display: block; width: 100%; height: auto; }
+    .wf-sparkline { stroke: var(--muted); stroke-width: 1; }
+    .wf-spark-dot { fill: var(--text); }
+    .wf-spark-now { stroke: var(--muted); stroke-width: 1; }
+    .wf-spark-proj { fill: none; stroke: var(--accent); stroke-width: 1.5; stroke-dasharray: 3 2; }
+    .wf-spark-pred { fill: none; stroke: var(--accent); stroke-width: 1; stroke-dasharray: 3 3; }
+    .wf-spark-lbl { fill: var(--muted); font-family: "Spline Sans Mono", monospace; font-size: 9px; }
+    .wf-spark-lbl-a { fill: var(--accent); font-family: "Spline Sans Mono", monospace; font-size: 9px; }
+    .wf-spark-cap { font-size: 11px; color: var(--muted); padding: 2px 18px 0; font-style: italic; }
+    .wf-cta { padding: 18px 18px 8px; }
+
+    /* reorder sheet */
+    .wf-screen.modal { position: relative; }
+    .wf-scrim { position: absolute; inset: 0; background: rgba(20,20,25,0.34); z-index: 1; }
+    .wf-sheet { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; background: var(--bg); border-top: 1px solid var(--border); border-radius: 22px 22px 0 0; padding: 10px 18px 24px; }
+    .wf-grabber { width: 38px; height: 4px; border-radius: 999px; background: var(--border); margin: 2px auto 16px; }
+    .wf-sheet-title { font-size: 15px; color: var(--text); margin-bottom: 4px; }
+    .wf-sheet-sub { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); margin-bottom: 18px; }
+    .wf-stepper { display: flex; align-items: center; gap: 16px; margin-bottom: 4px; }
+    .wf-step-btn { width: 30px; height: 30px; border: 1px solid var(--text); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; color: var(--text); }
+    .wf-step-val { font-size: 16px; color: var(--text); min-width: 16px; text-align: center; }
+    .wf-step-note { font-size: 11px; color: var(--muted); margin-left: 4px; }
+    .wf-radio-row { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .wf-radio-dot { width: 14px; height: 14px; border: 1px solid var(--text); border-radius: 50%; flex-shrink: 0; }
+    .wf-radio-dot.on { background: var(--text); box-shadow: inset 0 0 0 3px var(--bg); }
+    .wf-radio-label { font-size: 13px; color: var(--text); }
+    .wf-radio-sub { font-size: 11px; color: var(--muted); margin-left: auto; }
+    .wf-note-sm { font-size: 11px; color: var(--muted); line-height: 1.6; font-style: italic; margin: 16px 0; }
+
+    /* shared household */
+    .wf-members { display: flex; align-items: center; gap: 0; padding: 14px 18px; border-bottom: 1px solid var(--border); }
+    .wf-mini-avatar { width: 26px; height: 26px; border: 1px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 9px; color: var(--muted); margin-left: -6px; background: var(--bg); }
+    .wf-mini-avatar:first-child { margin-left: 0; }
+    .wf-members-names { font-size: 12px; color: var(--muted); margin-left: 10px; }
+    .wf-invite { margin-left: auto; font-size: 11px; border: 1px solid var(--border); border-radius: 999px; padding: 4px 12px; color: var(--text); letter-spacing: 0.04em; }
+    .wf-act-row { display: flex; align-items: baseline; gap: 8px; padding: 10px 18px; font-size: 12px; }
+    .wf-act-text { color: var(--muted); }
+    .wf-act-text b { color: var(--text); font-weight: 400; }
+    .wf-act-when { margin-left: auto; font-size: 11px; color: var(--muted); white-space: nowrap; }
+
+    /* first run */
+    .wf-ob { display: flex; flex-direction: column; height: 100%; padding: 8px 22px 22px; }
+    .wf-ob-logo { font-size: 17px; color: var(--text); padding: 10px 0 28px; }
+    .wf-ob-title { font-size: 18px; color: var(--text); line-height: 1.5; margin-bottom: 12px; }
+    .wf-ob-body { font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 22px; }
+    .wf-connect-row { display: flex; align-items: center; gap: 14px; padding: 15px 0; border-bottom: 1px solid var(--border); }
+    .wf-connect-ic { width: 30px; height: 30px; border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--muted); flex-shrink: 0; }
+    .wf-connect-label { font-size: 13px; color: var(--text); }
+    .wf-connect-sub { font-size: 11px; color: var(--muted); }
+    .wf-connect-arrow { margin-left: auto; font-size: 15px; color: var(--muted); }
+    .wf-reassure { font-size: 11px; color: var(--muted); line-height: 1.6; margin: 22px 0 0; }
+    .wf-ob-spacer { flex: 1; min-height: 16px; }
+
+    /* ── FOOTER ── */
+    footer { width: 100%; margin-top: 80px; padding-top: 20px; border-top: 1px solid var(--border); display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    footer a { font-size: 14px; color: var(--muted); }
+    footer a:hover { color: var(--text); text-decoration: none; }
+    .theme-toggle { background: none; border: 0; color: var(--text); cursor: pointer; width: 34px; height: 34px; display: flex; align-items: center; justify-content: flex-start; font-size: 1rem; flex-shrink: 0; }
+
+    /* ── A11Y ── */
+    .skip-link { position: absolute; left: 8px; top: -48px; z-index: 10; padding: 8px 16px; border-radius: 999px; background: var(--text); color: var(--bg); font-size: 14px; transition: top 0.15s ease; }
+    .skip-link:focus { top: 8px; text-decoration: none; }
+    a:focus-visible, button:focus-visible, .theme-toggle:focus-visible { outline: 2px dashed var(--accent); outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+
+    /* ── RESPONSIVE ── */
+    @media screen and (max-width: 600px) {
+      body { padding: 52px 24px; }
+      main, footer { max-width: 100%; }
+      .wf-stage { flex-direction: column; align-items: center; gap: 32px; }
+      .wf-notes { width: 100%; }
+    }
+    @media screen and (max-width: 380px) { body { padding: 40px 18px; } }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">skip to content</a>
+
+  <main id="main">
+    <div class="wf-wrap">
+
+      <p class="wf-meta">draft — week 8 · wireframes · phase 3</p>
+      <h1>wireframes</h1>
+      <p class="wf-lede">
+        low- to mid-fidelity — structure and hierarchy over polish. status reads two ways at
+        once: a <strong>fill level</strong> (full / half / empty) that echoes the owduv mark, and
+        the brand's green / amber / red. five screens cover the core of the app — home, item detail,
+        reorder, the shared household, and first-run.
+      </p>
+
+      <div class="section">
+        <div class="section-label">Stock view — the home screen</div>
+        <p class="wf-intro">
+          the screen owduv opens to. it leads with what needs attention, shows a predicted
+          run-out for every item, and keeps reorder out of the way until something is actually low.
+        </p>
+
+        <div class="wf-stage">
+
+          <!-- DEVICE -->
+          <div class="wf-phone" role="img" aria-label="Wireframe of the owduv home screen at iPhone 17 size: a status bar, an app bar with the owduv wordmark and household switcher, a summary reading two running low and one out, a running-low group (dish soap out, paper towels and laundry detergent low) where each row shows a fill-level status, a predicted run-out and a reorder button, a stocked group of seven items showing only status and run-out, an add-item and scan bar, and a bottom navigation pinned to the base of the screen.">
+            <div class="wf-screen">
+
+              <div class="wf-statusbar"><span>9:41</span><span>▢ ▢ ▮</span></div>
+
+              <div class="wf-appbar">
+                <span class="wf-logo">owduv</span>
+                <span class="wf-hh">home ▾</span>
+                <span class="wf-avatar"></span>
+              </div>
+
+              <div class="wf-scroll">
+                <div class="wf-summary">2 running low <span class="q">· 1 out</span></div>
+
+                <div class="wf-group">running low</div>
+
+                <div class="wf-item">
+                  <span class="wf-stat out">○</span>
+                  <span class="wf-item-main"><span class="wf-item-name">Dish soap</span><br><span class="wf-item-cat">kitchen</span></span>
+                  <span class="wf-eta">out</span>
+                  <span class="wf-reorder">reorder</span>
+                </div>
+                <div class="wf-item">
+                  <span class="wf-stat low">◐</span>
+                  <span class="wf-item-main"><span class="wf-item-name">Paper towels</span><br><span class="wf-item-cat">household</span></span>
+                  <span class="wf-eta">~4 days</span>
+                  <span class="wf-reorder">reorder</span>
+                </div>
+                <div class="wf-item">
+                  <span class="wf-stat low">◐</span>
+                  <span class="wf-item-main"><span class="wf-item-name">Laundry detergent</span><br><span class="wf-item-cat">laundry</span></span>
+                  <span class="wf-eta">~6 days</span>
+                  <span class="wf-reorder">reorder</span>
+                </div>
+
+                <div class="wf-group">stocked</div>
+
+                <div class="wf-item">
+                  <span class="wf-stat in">●</span>
+                  <span class="wf-item-main"><span class="wf-item-name">Hand soap</span><br><span class="wf-item-cat">bathroom</span></span>
+                  <span class="wf-eta">~3 weeks</span>
+                </div>
+                <div class="wf-item">
+                  <span class="wf-stat in">●</span>
+                  <span class="wf-item-main"><span class="wf-item-name">Toothpaste</span><br><span class="wf-item-cat">bathroom</span></span>
+                  <span class="wf-eta">~2 weeks</span>
+                </div>
+                <div class="wf-item">
+                  <span class="wf-stat in">●</span>
+                  <span class="wf-item-main"><span class="wf-item-name">Sponges</span><br><span class="wf-item-cat">kitchen</span></span>
+                  <span class="wf-eta">~5 weeks</span>
+                </div>
+                <div class="wf-item">
+                  <span class="wf-stat in">●</span>
+                  <span class="wf-item-main"><span class="wf-item-name">Trash bags</span><br><span class="wf-item-cat">household</span></span>
+                  <span class="wf-eta">~4 weeks</span>
+                </div>
+                <div class="wf-item">
+                  <span class="wf-stat in">●</span>
+                  <span class="wf-item-main"><span class="wf-item-name">Shampoo</span><br><span class="wf-item-cat">bathroom</span></span>
+                  <span class="wf-eta">~7 weeks</span>
+                </div>
+                <div class="wf-item">
+                  <span class="wf-stat in">●</span>
+                  <span class="wf-item-main"><span class="wf-item-name">Dishwasher tabs</span><br><span class="wf-item-cat">kitchen</span></span>
+                  <span class="wf-eta">~2 weeks</span>
+                </div>
+                <div class="wf-item">
+                  <span class="wf-stat in">●</span>
+                  <span class="wf-item-main"><span class="wf-item-name">Razor blades</span><br><span class="wf-item-cat">bathroom</span></span>
+                  <span class="wf-eta">~9 weeks</span>
+                </div>
+
+                <div class="wf-addbar">
+                  <span class="wf-action">+ add item</span>
+                  <span class="wf-action">scan</span>
+                </div>
+              </div>
+
+              <nav class="wf-nav">
+                <span class="on">home</span>
+                <span>shared</span>
+                <span>settings</span>
+              </nav>
+
+            </div>
+          </div>
+
+          <!-- ANNOTATIONS -->
+          <div class="wf-notes">
+            <div class="wf-note"><span class="n">①</span><span>status is a <strong style="color:var(--text);font-weight:400">fill level</strong> — full, half, empty — echoing the owduv mark, carried in the brand's green / amber / red so the list reads at a glance.</span></div>
+            <div class="wf-note"><span class="n">②</span><span>every item carries a predicted run-out (<strong style="color:var(--text);font-weight:400">"~4 days"</strong>), not a fixed schedule — the adaptive cadence made visible.</span></div>
+            <div class="wf-note"><span class="n">③</span><span>reorder only appears on items that are low or out. the stocked group stays quiet until something needs action.</span></div>
+            <div class="wf-note"><span class="n">④</span><span>the list leads with <strong style="color:var(--text);font-weight:400">running low</strong>; everything stocked sits below. attention before inventory.</span></div>
+            <div class="wf-note"><span class="n">⑤</span><span>add / scan are the manual fallbacks — secondary, since most items arrive through purchase history on their own.</span></div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ════ SCREEN 2 — ITEM DETAIL ════ -->
+      <div class="section">
+        <div class="section-label">Item detail — paper towels</div>
+        <p class="wf-intro">
+          tap any item to see why owduv thinks what it thinks — the learned cadence, the predicted
+          run-out, and the purchases behind it. reorder begins here.
+        </p>
+
+        <div class="wf-stage">
+          <div class="wf-phone" role="img" aria-label="Wireframe of the item detail screen for paper towels: a back arrow and options in the app bar; the item name with a low status; a hero line reading runs out in about four days, around April 18; facts listing cadence about every three weeks, last bought March 28, usual quantity two packs; a purchase-history timeline of five evenly spaced buys with a dashed predicted next; a reorder button for two packs and an adjust-pace link; bottom navigation.">
+            <div class="wf-screen">
+              <div class="wf-statusbar"><span>9:41</span><span>▢ ▢ ▮</span></div>
+              <div class="wf-appbar">
+                <span class="wf-back">←</span>
+                <span class="wf-appbar-title">item</span>
+                <span class="wf-more">⋯</span>
+              </div>
+              <div class="wf-scroll">
+                <div class="wf-detail-head">
+                  <div class="wf-detail-name">Paper towels</div>
+                  <div class="wf-detail-status"><span class="wf-stat-sm low">◐</span> running low · household</div>
+                </div>
+                <div class="wf-hero">
+                  <div class="wf-hero-big">runs out in ~4 days</div>
+                  <div class="wf-hero-sub">around apr 18, based on your pace</div>
+                </div>
+                <div class="wf-facts">
+                  <div class="wf-fact"><span class="wf-fact-label">your cadence</span><span class="wf-fact-val">about every 3 weeks</span></div>
+                  <div class="wf-fact"><span class="wf-fact-label">last bought</span><span class="wf-fact-val">mar 28 · 2 packs</span></div>
+                  <div class="wf-fact"><span class="wf-fact-label">usual quantity</span><span class="wf-fact-val">2 packs</span></div>
+                </div>
+                <div class="wf-spark-wrap">
+                  <div class="wf-row-label">purchase history</div>
+                  <svg class="wf-spark" viewBox="0 0 366 58" role="img" xmlns="http://www.w3.org/2000/svg">
+                    <title>Purchase history timeline</title>
+                    <line class="wf-sparkline" x1="8" y1="34" x2="358" y2="34"/>
+                    <line class="wf-spark-pred" x1="276" y1="34" x2="330" y2="34"/>
+                    <circle class="wf-spark-dot" cx="36" cy="34" r="3.5"/>
+                    <circle class="wf-spark-dot" cx="96" cy="34" r="3.5"/>
+                    <circle class="wf-spark-dot" cx="156" cy="34" r="3.5"/>
+                    <circle class="wf-spark-dot" cx="216" cy="34" r="3.5"/>
+                    <circle class="wf-spark-dot" cx="276" cy="34" r="3.5"/>
+                    <line class="wf-spark-now" x1="306" y1="25" x2="306" y2="43"/>
+                    <text class="wf-spark-lbl" x="306" y="54" text-anchor="middle">now</text>
+                    <circle class="wf-spark-proj" cx="336" cy="34" r="5"/>
+                    <text class="wf-spark-lbl-a" x="336" y="54" text-anchor="middle">next</text>
+                  </svg>
+                </div>
+                <div class="wf-spark-cap">five buys, ~3 weeks apart — the dashed mark is the predicted next.</div>
+                <div class="wf-cta">
+                  <a class="wf-btn">reorder · 2 packs</a>
+                  <span class="wf-link">adjust pace</span>
+                </div>
+              </div>
+              <nav class="wf-nav">
+                <span class="on">home</span>
+                <span>shared</span>
+                <span>settings</span>
+              </nav>
+            </div>
+          </div>
+
+          <div class="wf-notes">
+            <div class="wf-note"><span class="n">①</span><span>owduv shows its reasoning — the learned cadence (<strong style="color:var(--text);font-weight:400">every ~3 weeks</strong>), not just an alert. the person can see why a prediction fired.</span></div>
+            <div class="wf-note"><span class="n">②</span><span>the purchase-history timeline is the signal it learns from; the dashed mark is the predicted next buy, continuing the rhythm.</span></div>
+            <div class="wf-note"><span class="n">③</span><span>a suggested quantity and the saved store make reorder one tap from here — this is where the reorder flow begins.</span></div>
+            <div class="wf-note"><span class="n">④</span><span><strong style="color:var(--text);font-weight:400">adjust pace</strong> corrects the model when life changes — moving, more people — the one-tap correction from the capture loop.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════ SCREEN 3 — REORDER SHEET ════ -->
+      <div class="section">
+        <div class="section-label">Reorder — the sheet</div>
+        <p class="wf-intro">
+          the reorder flow on screen. a nudge — or the reorder button — raises a sheet over the
+          stock view, so acting on a prediction never means losing the list.
+        </p>
+
+        <div class="wf-stage">
+          <div class="wf-phone" role="img" aria-label="Wireframe of the reorder sheet: the stock view dimmed behind a scrim, with a bottom sheet titled Reorder for paper towels showing four days left, a quantity stepper set to two with a note you usually buy two, a retailer choice with the saved store selected, a note that owduv hands off a pre-filled cart and checkout happens in the retailer's app, a continue-to-retailer button and a snooze link.">
+            <div class="wf-screen modal">
+              <div class="wf-statusbar"><span>9:41</span><span>▢ ▢ ▮</span></div>
+              <div class="wf-appbar">
+                <span class="wf-logo">owduv</span>
+                <span class="wf-hh">home ▾</span>
+                <span class="wf-avatar"></span>
+              </div>
+              <div class="wf-scroll">
+                <div class="wf-summary">2 running low <span class="q">· 1 out</span></div>
+                <div class="wf-group">running low</div>
+                <div class="wf-item">
+                  <span class="wf-stat out">○</span>
+                  <span class="wf-item-main"><span class="wf-item-name">Dish soap</span><br><span class="wf-item-cat">kitchen</span></span>
+                  <span class="wf-eta">out</span>
+                </div>
+                <div class="wf-item">
+                  <span class="wf-stat low">◐</span>
+                  <span class="wf-item-main"><span class="wf-item-name">Paper towels</span><br><span class="wf-item-cat">household</span></span>
+                  <span class="wf-eta">~4 days</span>
+                </div>
+                <div class="wf-item">
+                  <span class="wf-stat low">◐</span>
+                  <span class="wf-item-main"><span class="wf-item-name">Laundry detergent</span><br><span class="wf-item-cat">laundry</span></span>
+                  <span class="wf-eta">~6 days</span>
+                </div>
+              </div>
+
+              <div class="wf-scrim"></div>
+              <div class="wf-sheet">
+                <div class="wf-grabber"></div>
+                <div class="wf-sheet-title">Reorder</div>
+                <div class="wf-sheet-sub"><span class="wf-stat-sm low">◐</span> Paper towels · ~4 days left</div>
+
+                <div class="wf-row-label">quantity</div>
+                <div class="wf-stepper">
+                  <span class="wf-step-btn">−</span>
+                  <span class="wf-step-val">2</span>
+                  <span class="wf-step-btn">+</span>
+                  <span class="wf-step-note">you usually buy 2</span>
+                </div>
+
+                <div class="wf-row-label">from</div>
+                <div class="wf-radio-row"><span class="wf-radio-dot on"></span><span class="wf-radio-label">[ saved retailer ]</span><span class="wf-radio-sub">saved</span></div>
+                <div class="wf-radio-row"><span class="wf-radio-dot"></span><span class="wf-radio-label">[ another retailer ]</span></div>
+
+                <div class="wf-note-sm">owduv hands off a pre-filled cart — you check out in the retailer's app. it never takes payment.</div>
+
+                <a class="wf-btn">continue to retailer →</a>
+                <span class="wf-link">snooze · remind me later</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="wf-notes">
+            <div class="wf-note"><span class="n">①</span><span>the sheet rises over the stock view — the person acts on a nudge without losing context or leaving the list.</span></div>
+            <div class="wf-note"><span class="n">②</span><span>quantity defaults to the usual buy (<strong style="color:var(--text);font-weight:400">"you usually buy 2"</strong>), editable — a sensible default, never a blank field.</span></div>
+            <div class="wf-note"><span class="n">③</span><span>the retailer is the person's saved store; owduv hands off a pre-filled cart and checkout happens there — it doesn't process payment.</span></div>
+            <div class="wf-note"><span class="n">④</span><span>snooze keeps the loop intact — a dismissed nudge resurfaces, it doesn't vanish.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════ SCREEN 4 — SHARED HOUSEHOLD ════ -->
+      <div class="section">
+        <div class="section-label">Shared household — flat 3</div>
+        <p class="wf-intro">
+          the same list, shared. membership sits up top, every change is attributed, and the status
+          language is identical to the solo view — so there's no second mental model.
+        </p>
+
+        <div class="wf-stage">
+          <div class="wf-phone" role="img" aria-label="Wireframe of the shared household screen for Flat 3: an app bar with the household name; a members row of three avatars labelled you, Sam and Alex with an invite button; a recent-activity list showing Sam reordered dish soap two days ago, Alex added sponges four days ago, and you marked paper towels low five days ago; a shared stock list with status and per-item attribution; bottom navigation with shared selected.">
+            <div class="wf-screen">
+              <div class="wf-statusbar"><span>9:41</span><span>▢ ▢ ▮</span></div>
+              <div class="wf-appbar">
+                <span class="wf-logo">owduv</span>
+                <span class="wf-hh">flat 3 ▾</span>
+                <span class="wf-avatar"></span>
+              </div>
+              <div class="wf-scroll">
+                <div class="wf-members">
+                  <span class="wf-mini-avatar">JN</span>
+                  <span class="wf-mini-avatar">SM</span>
+                  <span class="wf-mini-avatar">AL</span>
+                  <span class="wf-members-names">you, Sam, Alex</span>
+                  <span class="wf-invite">invite</span>
+                </div>
+
+                <div class="wf-group">recent</div>
+                <div class="wf-act-row"><span class="wf-act-text"><b>Sam</b> reordered dish soap</span><span class="wf-act-when">2d</span></div>
+                <div class="wf-act-row"><span class="wf-act-text"><b>Alex</b> added sponges</span><span class="wf-act-when">4d</span></div>
+                <div class="wf-act-row"><span class="wf-act-text"><b>you</b> marked paper towels low</span><span class="wf-act-when">5d</span></div>
+
+                <div class="wf-group">shared stock</div>
+                <div class="wf-item">
+                  <span class="wf-stat low">◐</span>
+                  <span class="wf-item-main"><span class="wf-item-name">Paper towels</span><br><span class="wf-item-cat">household · you · 5d</span></span>
+                  <span class="wf-reorder">reorder</span>
+                </div>
+                <div class="wf-item">
+                  <span class="wf-stat in">●</span>
+                  <span class="wf-item-main"><span class="wf-item-name">Dish soap</span><br><span class="wf-item-cat">kitchen · sam · 2d</span></span>
+                  <span class="wf-eta">~2 weeks</span>
+                </div>
+                <div class="wf-item">
+                  <span class="wf-stat in">●</span>
+                  <span class="wf-item-main"><span class="wf-item-name">Sponges</span><br><span class="wf-item-cat">kitchen · alex · 4d</span></span>
+                  <span class="wf-eta">~5 weeks</span>
+                </div>
+                <div class="wf-item">
+                  <span class="wf-stat in">●</span>
+                  <span class="wf-item-main"><span class="wf-item-name">Hand soap</span><br><span class="wf-item-cat">bathroom</span></span>
+                  <span class="wf-eta">~3 weeks</span>
+                </div>
+                <div class="wf-item">
+                  <span class="wf-stat in">●</span>
+                  <span class="wf-item-main"><span class="wf-item-name">Toilet paper</span><br><span class="wf-item-cat">bathroom</span></span>
+                  <span class="wf-eta">~10 days</span>
+                </div>
+              </div>
+              <nav class="wf-nav">
+                <span>home</span>
+                <span class="on">shared</span>
+                <span>settings</span>
+              </nav>
+            </div>
+          </div>
+
+          <div class="wf-notes">
+            <div class="wf-note"><span class="n">①</span><span>everyone sees one list. membership is shown up top, and <strong style="color:var(--text);font-weight:400">invite</strong> is the entry to the household-share flow.</span></div>
+            <div class="wf-note"><span class="n">②</span><span>each change is attributed — <strong style="color:var(--text);font-weight:400">"sam · 2d"</strong> — so the household shares awareness without anyone reporting in.</span></div>
+            <div class="wf-note"><span class="n">③</span><span>status uses the same fill-level and colour language as the solo view; there's no separate model for shared.</span></div>
+            <div class="wf-note"><span class="n">④</span><span><strong style="color:var(--text);font-weight:400">recent</strong> surfaces what changed since you last looked — what keeps a shared list trustworthy.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════ SCREEN 5 — FIRST RUN / COLD START ════ -->
+      <div class="section">
+        <div class="section-label">First run — cold start</div>
+        <p class="wf-intro">
+          the hard problem for any tracker: being useful before the person has entered anything.
+          owduv reads purchase history they already have — so day one isn't an empty list.
+        </p>
+
+        <div class="wf-stage">
+          <div class="wf-phone" role="img" aria-label="Wireframe of the first-run screen: the owduv wordmark, a headline reading let's learn your pace, body text explaining that connecting where you shop lets owduv read past purchases with no setup list or logging, three connect-a-source rows for email receipts, a retailer, and scan a receipt, a note that processing happens on your device and raw purchases never leave the phone, and a skip link to add items manually.">
+            <div class="wf-screen">
+              <div class="wf-statusbar"><span>9:41</span><span>▢ ▢ ▮</span></div>
+              <div class="wf-ob">
+                <div class="wf-ob-logo">owduv</div>
+                <div class="wf-ob-title">let's learn your pace.</div>
+                <div class="wf-ob-body">connect where you already shop and owduv reads past purchases to learn how fast you go through things — no setup list, no logging.</div>
+
+                <div class="wf-row-label">connect a source</div>
+                <div class="wf-connect-row">
+                  <span class="wf-connect-ic">@</span>
+                  <span><span class="wf-connect-label">Email receipts</span><br><span class="wf-connect-sub">gmail · outlook</span></span>
+                  <span class="wf-connect-arrow">→</span>
+                </div>
+                <div class="wf-connect-row">
+                  <span class="wf-connect-ic">▤</span>
+                  <span><span class="wf-connect-label">A retailer</span><br><span class="wf-connect-sub">amazon · target · …</span></span>
+                  <span class="wf-connect-arrow">→</span>
+                </div>
+                <div class="wf-connect-row">
+                  <span class="wf-connect-ic">⤓</span>
+                  <span><span class="wf-connect-label">Scan a receipt</span><br><span class="wf-connect-sub">one-off</span></span>
+                  <span class="wf-connect-arrow">→</span>
+                </div>
+
+                <div class="wf-reassure">processed on your device — raw purchases never leave your phone.</div>
+
+                <div class="wf-ob-spacer"></div>
+                <span class="wf-link">skip — add items manually</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="wf-notes">
+            <div class="wf-note"><span class="n">①</span><span>the cold-start answer: owduv learns from purchases the person already has, so it's useful on day one without a setup list.</span></div>
+            <div class="wf-note"><span class="n">②</span><span>connecting email or a retailer is the zero-touch intake from the capture flow — the sources do the work, not the user.</span></div>
+            <div class="wf-note"><span class="n">③</span><span>on-device processing is stated up front; the privacy promise is part of the first impression, not buried in settings.</span></div>
+            <div class="wf-note"><span class="n">④</span><span><strong style="color:var(--text);font-weight:400">add manually</strong> stays available for anyone who won't connect a source — the experience degrades gracefully.</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <a href="cuxd211.html">CUXD211</a>
+    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode">
+      <i class="fa-solid fa-moon" aria-hidden="true"></i>
+    </button>
+  </footer>
+  <script src="theme.js"></script>
+
+</body>
+</html>
