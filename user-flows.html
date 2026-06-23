@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>User flows — owduv</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* self-contained: tokens + chrome mirrored so the page renders on its own
+       (preview) and drops straight into the site. diagram classes match captureflow. */
+    @import url("https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:ital,wght@0,300;0,400;1,300&display=swap");
+
+    :root {
+      --bg: #f5f4f0;
+      --text: #1a1a25;
+      --muted: #525256;
+      --border: #e0ddd8;
+      --accent: #7d3410;
+    }
+    [data-theme="dark"] {
+      --bg: #1c1c1c;
+      --text: #f5f4f0;
+      --muted: #c8c2ba;
+      --border: #333;
+      --accent: #f0904e;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    @keyframes fadein {
+      from { opacity: 0; transform: translateY(5px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    body {
+      font-family: "Spline Sans Mono", monospace;
+      font-size: 14px;
+      line-height: 1.85;
+      color: var(--text);
+      background: var(--bg);
+      min-height: 100vh;
+      padding: 80px 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    a { color: var(--text); text-decoration: none; }
+    a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: var(--accent);
+    }
+
+    main { width: 100%; max-width: 720px; }
+    footer { max-width: 720px; }
+
+    .uf-wrap { width: 100%; animation: fadein 0.5s ease 0.1s both; }
+
+    .uf-meta {
+      font-size: 11px;
+      color: var(--muted);
+      font-style: italic;
+      letter-spacing: 0.03em;
+      margin-bottom: 10px;
+    }
+    h1 {
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      margin-bottom: 16px;
+    }
+    h1::after { content: none; }
+
+    .uf-lede {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.85;
+      max-width: 64ch;
+      margin-bottom: 52px;
+    }
+    .uf-lede strong { color: var(--text); font-weight: 400; }
+
+    /* ── SECTION ── */
+    .section { margin-bottom: 56px; }
+    .section:last-child { margin-bottom: 0; }
+    .section-label {
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .cf-intro {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 28px;
+    }
+    .cf-note {
+      font-size: 13px;
+      color: var(--muted);
+      font-style: italic;
+      line-height: 1.75;
+      margin-top: 24px;
+    }
+
+    /* ── CARD ── */
+    .card { border: 1px solid var(--border); padding: 22px 26px; margin-top: 24px; }
+    .card-title { font-size: 14px; color: var(--text); margin-bottom: 8px; }
+    .card-accent .card-title { color: var(--accent); }
+    .card-body { font-size: 13px; color: var(--muted); line-height: 1.8; }
+
+    /* ── FLOW DIAGRAM ── */
+    .map {
+      display: block;
+      width: 100%;
+      max-width: 480px;
+      height: auto;
+      margin: 0 auto;
+    }
+    .m-box  { fill: var(--bg); stroke: var(--border); stroke-width: 1; }
+    .m-box-key { fill: var(--bg); stroke: var(--accent); stroke-width: 1; }
+    .m-t        { fill: var(--text);   font-family: "Spline Sans Mono", monospace; font-size: 12px; letter-spacing: 0.08em; }
+    .m-t-accent { fill: var(--accent); font-family: "Spline Sans Mono", monospace; font-size: 12px; letter-spacing: 0.08em; }
+    .m-sub  { fill: var(--muted); font-family: "Spline Sans Mono", monospace; font-size: 10px; font-style: italic; }
+    .m-arr  { stroke: var(--muted); stroke-width: 1; fill: none; }
+    .m-loop { stroke: var(--muted); stroke-width: 1; fill: none; stroke-dasharray: 4 4; }
+    .m-leg  { fill: var(--muted); font-family: "Spline Sans Mono", monospace; font-size: 11px; }
+
+    /* ── FOOTER ── */
+    footer {
+      width: 100%;
+      margin-top: 80px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    footer a { font-size: 14px; color: var(--muted); }
+    footer a:hover { color: var(--text); text-decoration: none; }
+    .theme-toggle {
+      background: none; border: 0; color: var(--text); cursor: pointer;
+      width: 34px; height: 34px; display: flex; align-items: center;
+      justify-content: flex-start; font-size: 1rem; flex-shrink: 0;
+    }
+
+    /* ── A11Y ── */
+    .skip-link {
+      position: absolute; left: 8px; top: -48px; z-index: 10;
+      padding: 8px 16px; border-radius: 999px;
+      background: var(--text); color: var(--bg); font-size: 14px;
+      transition: top 0.15s ease;
+    }
+    .skip-link:focus { top: 8px; text-decoration: none; }
+    a:focus-visible, button:focus-visible, .theme-toggle:focus-visible {
+      outline: 2px dashed var(--accent); outline-offset: 3px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media screen and (max-width: 600px) {
+      body { padding: 52px 24px; }
+      main, footer { max-width: 100%; }
+    }
+    @media screen and (max-width: 380px) {
+      body { padding: 40px 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">skip to content</a>
+
+  <main id="main">
+    <div class="uf-wrap">
+
+      <p class="uf-meta">draft — week 7 · core user flows · phase 3</p>
+      <h1>user flows</h1>
+      <p class="uf-lede">
+        two core task flows, built on the same premise as the capture loop — owduv does the
+        watching, and the person only acts at the moment of intent. <strong>capture</strong>
+        is documented separately; these are what happens once a prediction fires.
+      </p>
+
+      <!-- ── REORDER ── -->
+      <div class="section">
+        <div class="section-label">Reorder — nudge to done</div>
+        <p class="cf-intro">
+          the conversion path. owduv has already predicted the run-out, so the person's job
+          shrinks to a glance and a confirm. a suggested quantity and a saved retailer mean
+          the whole thing can be three taps.
+        </p>
+
+        <svg class="map" viewBox="0 0 480 560" role="img" xmlns="http://www.w3.org/2000/svg">
+          <title>Reorder flow</title>
+          <desc>A vertical five-step flow: restock nudge (predicted low), review (run-out date and suggested quantity), pick retailer (saved store, one tap), handoff (cart ready, leaves the app), and reordered (logged, refines cadence). A dashed feedback loop runs from reordered back up to the nudge, labelled "feeds the next prediction."</desc>
+          <defs>
+            <marker id="arR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </marker>
+          </defs>
+
+          <rect class="m-box-key" x="125" y="36" width="230" height="54"/>
+          <text class="m-t-accent" x="240" y="60" text-anchor="middle">RESTOCK NUDGE</text>
+          <text class="m-sub" x="240" y="76" text-anchor="middle">predicted low — before empty</text>
+
+          <line class="m-arr" x1="240" y1="90" x2="240" y2="132" marker-end="url(#arR)"/>
+
+          <rect class="m-box" x="125" y="132" width="230" height="54"/>
+          <text class="m-t" x="240" y="156" text-anchor="middle">REVIEW</text>
+          <text class="m-sub" x="240" y="172" text-anchor="middle">run-out date · suggested qty</text>
+
+          <line class="m-arr" x1="240" y1="186" x2="240" y2="228" marker-end="url(#arR)"/>
+
+          <rect class="m-box" x="125" y="228" width="230" height="54"/>
+          <text class="m-t" x="240" y="252" text-anchor="middle">PICK RETAILER</text>
+          <text class="m-sub" x="240" y="268" text-anchor="middle">saved store · one tap</text>
+
+          <line class="m-arr" x1="240" y1="282" x2="240" y2="324" marker-end="url(#arR)"/>
+
+          <rect class="m-box" x="125" y="324" width="230" height="54"/>
+          <text class="m-t" x="240" y="348" text-anchor="middle">HANDOFF</text>
+          <text class="m-sub" x="240" y="364" text-anchor="middle">cart ready — leaves app</text>
+
+          <line class="m-arr" x1="240" y1="378" x2="240" y2="420" marker-end="url(#arR)"/>
+
+          <rect class="m-box-key" x="125" y="420" width="230" height="54"/>
+          <text class="m-t-accent" x="240" y="444" text-anchor="middle">REORDERED</text>
+          <text class="m-sub" x="240" y="460" text-anchor="middle">logged · refines cadence</text>
+
+          <path class="m-loop" d="M355 447 L450 447 L450 63 L359 63" marker-end="url(#arR)"/>
+          <text class="m-leg" transform="rotate(-90 468 255)" x="468" y="255" text-anchor="middle">feeds the next prediction</text>
+
+          <rect class="m-box" x="125" y="520" width="14" height="14"/>
+          <text class="m-leg" x="147" y="531">step</text>
+          <rect class="m-box-key" x="210" y="520" width="14" height="14"/>
+          <text class="m-leg" x="232" y="531">key moment</text>
+          <line class="m-loop" x1="350" y1="527" x2="372" y2="527"/>
+          <text class="m-leg" x="380" y="531">feedback</text>
+        </svg>
+
+        <p class="cf-note">
+          the handoff deliberately leaves the app — owduv doesn't process payment or hold a
+          cart; it hands a pre-filled order to a retailer the person already uses. the confirmed
+          purchase then returns as a fresh signal, sharpening the next prediction rather than
+          resetting it.
+        </p>
+
+        <div class="card card-accent">
+          <div class="card-title">To validate</div>
+          <div class="card-body">
+            whether people trust a suggested quantity they didn't set, and whether leaving the
+            app for checkout breaks the sense that owduv "handled it." the snooze and dismiss
+            paths aren't drawn here — they're the next branch to map.
+          </div>
+        </div>
+      </div>
+
+      <!-- ── HOUSEHOLD SHARING ── -->
+      <div class="section">
+        <div class="section-label">Household sharing — one shared shelf</div>
+        <p class="cf-intro">
+          the multi-person flow. one person sets up the household; everyone else joins with a
+          link. from there the stock view is shared, and anyone's purchase updates what everyone
+          sees — so no single person has to be the designated tracker.
+        </p>
+
+        <svg class="map" viewBox="0 0 480 560" role="img" xmlns="http://www.w3.org/2000/svg">
+          <title>Household sharing flow</title>
+          <desc>A vertical five-step flow with actor labels on the left. Owner: enable sharing (creates a household) and send invite (link or code). Member: join (accepts the invite). Shared: shared view (one list everyone sees) and any purchase syncs (status updates for all). A dashed loop runs from the purchase step back to the shared view, labelled "keeps it current."</desc>
+          <defs>
+            <marker id="arS" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </marker>
+          </defs>
+
+          <text class="m-leg" x="110" y="67" text-anchor="end">owner</text>
+          <text class="m-leg" x="110" y="259" text-anchor="end">member</text>
+          <text class="m-leg" x="110" y="355" text-anchor="end">shared</text>
+
+          <rect class="m-box-key" x="125" y="36" width="230" height="54"/>
+          <text class="m-t-accent" x="240" y="60" text-anchor="middle">ENABLE SHARING</text>
+          <text class="m-sub" x="240" y="76" text-anchor="middle">owner creates a household</text>
+
+          <line class="m-arr" x1="240" y1="90" x2="240" y2="132" marker-end="url(#arS)"/>
+
+          <rect class="m-box" x="125" y="132" width="230" height="54"/>
+          <text class="m-t" x="240" y="156" text-anchor="middle">SEND INVITE</text>
+          <text class="m-sub" x="240" y="172" text-anchor="middle">share a link or code</text>
+
+          <line class="m-arr" x1="240" y1="186" x2="240" y2="228" marker-end="url(#arS)"/>
+
+          <rect class="m-box" x="125" y="228" width="230" height="54"/>
+          <text class="m-t" x="240" y="252" text-anchor="middle">JOIN</text>
+          <text class="m-sub" x="240" y="268" text-anchor="middle">member accepts the invite</text>
+
+          <line class="m-arr" x1="240" y1="282" x2="240" y2="324" marker-end="url(#arS)"/>
+
+          <rect class="m-box-key" x="125" y="324" width="230" height="54"/>
+          <text class="m-t-accent" x="240" y="348" text-anchor="middle">SHARED VIEW</text>
+          <text class="m-sub" x="240" y="364" text-anchor="middle">one list — everyone sees it</text>
+
+          <line class="m-arr" x1="240" y1="378" x2="240" y2="420" marker-end="url(#arS)"/>
+
+          <rect class="m-box" x="125" y="420" width="230" height="54"/>
+          <text class="m-t" x="240" y="444" text-anchor="middle">ANY PURCHASE SYNCS</text>
+          <text class="m-sub" x="240" y="460" text-anchor="middle">status updates for all</text>
+
+          <path class="m-loop" d="M355 447 L440 447 L440 351 L357 351" marker-end="url(#arS)"/>
+          <text class="m-leg" transform="rotate(-90 456 399)" x="456" y="399" text-anchor="middle">keeps it current</text>
+
+          <rect class="m-box" x="125" y="520" width="14" height="14"/>
+          <text class="m-leg" x="147" y="531">step</text>
+          <rect class="m-box-key" x="210" y="520" width="14" height="14"/>
+          <text class="m-leg" x="232" y="531">key moment</text>
+          <text class="m-leg" x="350" y="531">left · who acts</text>
+        </svg>
+
+        <p class="cf-note">
+          joining is kept low-friction — a link or code, no heavy account step — because the
+          coordinator's whole problem is getting other people to take part at all. once joined,
+          the shared view stays current off the same purchase signals, so it never depends on
+          members remembering to log.
+        </p>
+
+        <div class="card card-accent">
+          <div class="card-title">To validate</div>
+          <div class="card-body">
+            whether shared visibility alone settles the fairness friction, or whether households
+            still want explicit assignment ("you're up"). and how a purchase made by a member
+            who isn't the account owner gets attributed cleanly.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <a href="cuxd211.html">CUXD211</a>
+    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode">
+      <i class="fa-solid fa-moon" aria-hidden="true"></i>
+    </button>
+  </footer>
+  <script src="theme.js"></script>
+
+</body>
+</html>
