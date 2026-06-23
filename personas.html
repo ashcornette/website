@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Personas — owduv</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* self-contained: mirrors the current shared system so the page renders
+       correctly on its own (preview) and drops straight into the site */
+    :root {
+      --bg: #f5f4f0;
+      --text: #1a1a25;
+      --muted: #525256;
+      --border: #e0ddd8;
+      --accent: #7d3410;
+    }
+    [data-theme="dark"] {
+      --bg: #1c1c1c;
+      --text: #f5f4f0;
+      --muted: #c8c2ba;
+      --border: #333;
+      --accent: #f0904e;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    @keyframes fadein {
+      from { opacity: 0; transform: translateY(5px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    body {
+      font-family: "Spline Sans Mono", monospace;
+      font-size: 14px;
+      line-height: 1.85;
+      color: var(--text);
+      background: var(--bg);
+      min-height: 100vh;
+      padding: 80px 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    a { color: var(--text); text-decoration: none; }
+    a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: var(--accent);
+    }
+
+    main { width: 100%; max-width: 900px; animation: fadein 0.5s ease 0.1s both; }
+
+    /* ── PAGE HEAD ── */
+    .page-meta {
+      font-size: 11px;
+      color: var(--muted);
+      font-style: italic;
+      letter-spacing: 0.03em;
+      margin-bottom: 10px;
+    }
+    h1 {
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      margin-bottom: 16px;
+    }
+    h1::after { content: none; }   /* no blinking cursor on deliverable pages */
+
+    .intro {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.85;
+      max-width: 66ch;
+      margin-bottom: 10px;
+    }
+    .intro:last-of-type { margin-bottom: 52px; }
+    .intro strong { color: var(--text); font-weight: 400; }
+
+    /* ── PERSONA CARD ── */
+    .persona {
+      border: 1px solid var(--border);
+      padding: 36px 40px;
+      margin-bottom: 32px;
+    }
+    .persona:last-of-type { margin-bottom: 0; }
+
+    .persona-kind {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    h2.persona-name {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .persona-demo {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 24px;
+    }
+    .persona-context {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 28px;
+    }
+    .persona-context strong { color: var(--text); font-weight: 400; }
+
+    .persona-rule { border: 0; border-top: 1px solid var(--border); margin: 0 0 28px; }
+
+    /* paired labelled lists */
+    .persona-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px 40px;
+      margin-bottom: 28px;
+    }
+    h3.mini-label {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .persona-block ul { list-style: none; }
+    .persona-block li {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text);
+      padding-left: 20px;
+      text-indent: -20px;
+      margin-bottom: 7px;
+    }
+    .persona-block li:last-child { margin-bottom: 0; }
+    .persona-block li::before { content: "— "; color: var(--accent); }
+
+    /* quote */
+    .persona-quote {
+      border-left: 2px solid var(--accent);
+      padding-left: 16px;
+      margin: 0 0 24px;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.85;
+    }
+
+    /* to validate */
+    .persona-validate {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .persona-validate .vlabel {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      width: 100%;
+      max-width: 900px;
+      margin-top: 80px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    footer a { font-size: 14px; color: var(--muted); }
+    footer a:hover { color: var(--text); text-decoration: none; }
+
+    .theme-toggle {
+      background: none;
+      border: 0;
+      color: var(--text);
+      cursor: pointer;
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .theme-toggle:focus-visible { outline: 2px dashed var(--accent); outline-offset: 3px; }
+
+    /* ── A11Y ── */
+    .skip-link {
+      position: absolute;
+      left: 8px; top: -48px;
+      z-index: 10;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: var(--text);
+      color: var(--bg);
+      font-size: 14px;
+      transition: top 0.15s ease;
+    }
+    .skip-link:focus { top: 8px; text-decoration: none; }
+    a:focus-visible { outline: 2px dashed var(--accent); outline-offset: 3px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media screen and (max-width: 600px) {
+      body { padding: 52px 24px; }
+      main, footer { max-width: 100%; }
+      .persona { padding: 28px 22px; }
+      .persona-grid { grid-template-columns: 1fr; gap: 26px; }
+    }
+    @media screen and (max-width: 380px) {
+      body { padding: 40px 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">skip to content</a>
+
+  <main id="main">
+
+    <p class="page-meta">draft — week 7 · proto-personas</p>
+    <h1>personas</h1>
+
+    <p class="intro">
+      proto-personas — assumption-based, built from the <strong>value proposition canvas</strong>
+      rather than primary research. they name who owduv is for and the friction it removes.
+    </p>
+    <p class="intro">
+      each carries one half of the differentiation: the primary persona is about
+      <strong>mental load and adaptive timing</strong>; the secondary is about
+      <strong>shared-household coordination</strong>. the assumptions behind them are flagged
+      to validate — interviews replace these guesses with evidence in the research phase.
+    </p>
+
+    <!-- ── PRIMARY ── -->
+    <article class="persona">
+      <div class="persona-kind">primary persona</div>
+      <h2 class="persona-name">Jen — the default restocker</h2>
+      <p class="persona-demo">34 · full-time · two adults + a toddler · moderate tech comfort</p>
+
+      <p class="persona-context">
+        Jen is the one who, by default, notices the hand soap is nearly gone — usually while
+        standing at the sink with wet hands. she keeps a running list in her head, means to
+        write it down, and remembers at the worst possible moment. she's busy, and household
+        upkeep is one more channel of low-grade noise she'd rather <strong>mute</strong>.
+      </p>
+
+      <hr class="persona-rule" />
+
+      <div class="persona-grid">
+        <div class="persona-block">
+          <h3 class="mini-label">goals</h3>
+          <ul>
+            <li>keep the house stocked without holding it all in her head</li>
+            <li>stop the last-minute pharmacy runs</li>
+            <li>spend less attention on upkeep</li>
+          </ul>
+        </div>
+        <div class="persona-block">
+          <h3 class="mini-label">frustrations</h3>
+          <ul>
+            <li>only notices something's out when she reaches for it</li>
+            <li>a subscription box shipped detergent she didn't need yet while the toothpaste ran dry</li>
+            <li>every list app she's tried fell out of use within a week</li>
+          </ul>
+        </div>
+        <div class="persona-block">
+          <h3 class="mini-label">currently uses</h3>
+          <ul>
+            <li>a half-abandoned reminders list</li>
+            <li>memory</li>
+            <li>an Amazon Subscribe &amp; Save she keeps meaning to cancel</li>
+          </ul>
+        </div>
+        <div class="persona-block">
+          <h3 class="mini-label">needs</h3>
+          <ul>
+            <li>something that learns her household's real pace</li>
+            <li>a warning before she runs out — not after</li>
+            <li>no obligation to log every use</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="persona-quote">
+        "i don't want another list to keep up with. i want to just — not run out."
+      </p>
+
+      <p class="persona-validate">
+        <span class="vlabel">to validate</span> — whether "less mental load" lands harder than
+        "save money," and whether she'll trust timing she didn't set herself or needs to see
+        why a prompt fired.
+      </p>
+    </article>
+
+    <!-- ── SECONDARY ── -->
+    <article class="persona">
+      <div class="persona-kind">secondary persona</div>
+      <h2 class="persona-name">Jason — the shared-house coordinator</h2>
+      <p class="persona-demo">27 · shares a flat with two others · high tech comfort · splits a supplies kitty</p>
+
+      <p class="persona-context">
+        Jason lives with two roommates and a shared shelf of things nobody owns. paper towels
+        run out and everyone assumes someone else clocked it. Devin usually ends up being that
+        someone — or buying a third bottle of dish soap because no one knew the other two
+        <strong>existed</strong>.
+      </p>
+
+      <hr class="persona-rule" />
+
+      <div class="persona-grid">
+        <div class="persona-block">
+          <h3 class="mini-label">goals</h3>
+          <ul>
+            <li>coordinate restocking across the household</li>
+            <li>kill the duplicate buys</li>
+            <li>keep the load fair without playing manager</li>
+          </ul>
+        </div>
+        <div class="persona-block">
+          <h3 class="mini-label">frustrations</h3>
+          <ul>
+            <li>no shared view — everyone works off a different mental list</li>
+            <li>duplicate purchases quietly drain the kitty</li>
+            <li>reminders posted to the group chat scroll away by evening</li>
+          </ul>
+        </div>
+        <div class="persona-block">
+          <h3 class="mini-label">currently uses</h3>
+          <ul>
+            <li>a pinned note in the group chat</li>
+            <li>AnyList — tried once, abandoned (only works if everyone updates it)</li>
+            <li>the occasional all-caps "we're out of TP" text</li>
+          </ul>
+        </div>
+        <div class="persona-block">
+          <h3 class="mini-label">needs</h3>
+          <ul>
+            <li>one shared view the whole house sees</li>
+            <li>a list that stays current on its own</li>
+            <li>no dependency on everyone remembering to log</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="persona-quote">
+        "we don't need a chore chart. we need to all be looking at the same shelf."
+      </p>
+
+      <p class="persona-validate">
+        <span class="vlabel">to validate</span> — whether shared visibility alone settles the
+        fairness friction, or whether people still want explicit "you're up" assignment.
+      </p>
+    </article>
+
+  </main>
+
+  <footer>
+    <a href="cuxd211.html">CUXD211</a>
+    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode">
+      <i class="fa-solid fa-moon" aria-hidden="true"></i>
+    </button>
+  </footer>
+
+  <script src="theme.js"></script>
+
+</body>
+</html>
