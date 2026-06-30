@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>owduv — strategy</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .doc-meta {
+      font-size: 12px; color: var(--muted);
+      letter-spacing: 0.08em; text-transform: uppercase;
+      margin-bottom: 44px;
+    }
+
+    .intro { margin-bottom: 48px; }
+    .intro p { font-size: 14px; color: var(--muted); line-height: 1.85; }
+
+    .section ul { list-style: none; margin: 4px 0 0; }
+
+    /* funding ladder — capsule rungs, current position in accent */
+    .ladder { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 20px 0 16px; }
+    .rung {
+      border: 1px solid var(--border); border-radius: 999px;
+      padding: 7px 16px; font-size: 12px; letter-spacing: 0.06em; color: var(--muted);
+    }
+    .rung.here { border-color: var(--accent); color: var(--accent); }
+    .ladder .sep { color: var(--muted); }
+
+    /* proof — flat hairline cells */
+    .metrics {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 12px; margin: 18px 0 0;
+    }
+    .metric { border: 1px solid var(--border); padding: 14px 16px; }
+    .metric .m-name { color: var(--text); font-size: 13px; letter-spacing: 0.02em; margin-bottom: 5px; }
+    .metric .m-proof { color: var(--muted); font-size: 12px; line-height: 1.7; }
+
+    /* severity tag on open assumptions */
+    .tag {
+      display: inline-block; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+      border: 1px solid var(--border); border-radius: 999px; padding: 1px 9px;
+      color: var(--muted); margin-left: 6px; vertical-align: 1px;
+    }
+    .tag.critical { color: var(--accent); border-color: var(--accent); }
+
+    @media screen and (max-width: 600px) {
+      main { max-width: 100%; }
+      footer { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <h1>owduv</h1>
+    <p class="role">strategy · household restocking</p>
+    <p class="doc-meta">week 8 · phase 3 — ux strategy</p>
+
+    <div class="intro">
+      <p>the week-8 lens reads every owduv decision as a strategic bet, not just a design choice. four pillars, each a counter to a way early startups die — held against what owduv has actually shown, and what it still has to prove. the honest version of the strategy names its own gaps. this is that version.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-num">the bet</p>
+      <p>owduv infers how often a household repurchases the everyday things — soap, detergent, coffee — from purchase history, and nudges before the run-out, not after. nothing to log. private, on-device. the whole company rests on two claims: that running out is worth solving, and that cadence is predictable enough to trust. everything below pressure-tests those two.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-num">four strategic pillars</p>
+      <p>each pillar answers a specific failure mode — and carries its own open edge.</p>
+
+      <div class="belief">
+        <h3 class="belief-title">01 · adaptation &amp; flexibility</h3>
+        <p><strong>counters</strong> building the wrong thing and refusing to turn. the wedge is already a pivot — from "track what you own" to "infer cadence from what you buy" — which dissolved the logging friction, the cold-start, and the no-ai tension in a single move. <strong>open edge</strong> — when receipt coverage runs thin, owduv degrades to a one-tap confirm, never back to manual logging.</p>
+      </div>
+
+      <div class="belief">
+        <h3 class="belief-title">02 · product–market fit</h3>
+        <p><strong>counters</strong> scaling before there's proof. three things clear before any growth spend: that "ran out again" is a real ache on non-food consumables, that inferred cadence is accurate enough to be believed, and that people act on the nudge at the moment of intent. the wedge stays narrow — toiletries and cleaning supplies, where fixed-schedule subscriptions and manual lists both miss. <strong>open edge</strong> — that ache may be mild, and "buy a spare" is a free substitute.</p>
+      </div>
+
+      <div class="belief">
+        <h3 class="belief-title">03 · monetization &amp; sustainable growth</h3>
+        <p><strong>counters</strong> overfunding and vanity growth. freemium, with an affiliate cut at the reorder moment. the unit that matters isn't revenue — it's commission per reorder against cost to acquire, and free-to-paid conversion. <strong>open edge</strong> — consumables are low-margin, and in-store reorders earn nothing, so the economics get modelled before they're trusted.</p>
+      </div>
+
+      <div class="belief">
+        <h3 class="belief-title">04 · leadership &amp; competition</h3>
+        <p><strong>counters</strong> having no defensible position. the moat is a switching cost, not a data advantage — the model sharpens to one household, and that history lives in the app — plus a privacy stance the incumbents can't copy for free. <strong>open edge</strong> — amazon already owns the purchase record; the answer to "what happens when they ship this" gets written, not assumed.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section-num">leverage</p>
+      <p>the rule: don't rebuild what already exists. <strong>reuse</strong> — email and receipt parsing, retailer affiliate feeds, on-device ml, app-store distribution. <strong>build only</strong> — the cadence engine itself. every hour spent on a price comparison or a product catalogue is an hour not spent on the one thing owduv is for.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-num">the funding ladder</p>
+      <div class="ladder">
+        <span class="rung here">bootstrap</span>
+        <span class="sep">→</span>
+        <span class="rung here">pre-seed</span>
+        <span class="sep">→</span>
+        <span class="rung">seed</span>
+        <span class="sep">→</span>
+        <span class="rung">venture</span>
+      </div>
+      <p>owduv sits bootstrap to pre-seed: one wedge, proven cheaply. each rung up trades ownership for fuel, and only earns the climb once reorder conversion and retention hold. at this stage the strategy is conceptual — direction, not a revenue model.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-num">proof → week-9 checkpoint</p>
+      <p>the metrics that show the wedge works — leading indicators, not vanity numbers.</p>
+      <div class="metrics">
+        <div class="metric">
+          <div class="m-name">time to first value</div>
+          <div class="m-proof">how fast a new user gets a prediction worth trusting</div>
+        </div>
+        <div class="metric">
+          <div class="m-name">coverage</div>
+          <div class="m-proof">share of a household's consumables owduv can actually see</div>
+        </div>
+        <div class="metric">
+          <div class="m-name">prediction accuracy</div>
+          <div class="m-proof">predicted vs actual repurchase — and the false-alarm rate</div>
+        </div>
+        <div class="metric">
+          <div class="m-name">reorder conversion</div>
+          <div class="m-proof">acts on the nudge, and acts through owduv</div>
+        </div>
+        <div class="metric">
+          <div class="m-name">retention</div>
+          <div class="m-proof">still here at week four, once history has accrued</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section-num">open assumptions</p>
+      <p>ranked by what ends the thesis if it's false. the first one gates the rest.</p>
+
+      <div class="belief">
+        <h3 class="belief-title">coverage<span class="tag critical">critical</span></h3>
+        <p><strong>assumption</strong> — owduv can see enough of a household's consumable buys to learn a cadence. <strong>test</strong> — a four-week diary study: real purchases against what email and receipts would capture. <strong>kill if</strong> — coverage is too thin to predict for the in-store staples the product is built for.</p>
+      </div>
+
+      <div class="belief">
+        <h3 class="belief-title">trust<span class="tag critical">critical</span></h3>
+        <p><strong>assumption</strong> — inferred cadence is accurate enough that people believe the nudge. <strong>test</strong> — backtest predictions on real histories; track the false-alarm rate, not confidence. <strong>kill if</strong> — early predictions miss often enough to break trust before it forms.</p>
+      </div>
+
+      <div class="belief">
+        <h3 class="belief-title">pain<span class="tag">high</span></h3>
+        <p><strong>assumption</strong> — running out is a real, recurring ache. <strong>test</strong> — re-read the phase-2 interviews; is it top-of-mind or a minor gripe? <strong>kill if</strong> — the pain is mild enough that a spare on the shelf already solves it.</p>
+      </div>
+
+      <div class="belief">
+        <h3 class="belief-title">economics<span class="tag">high</span></h3>
+        <p><strong>assumption</strong> — reorders earn more than they cost to acquire. <strong>test</strong> — model commission × realistic frequency × conversion against even a small install cost. <strong>kill if</strong> — lifetime value sits under cost to acquire at plausible numbers.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="pull">the strongest owduv is the one that names what it can't see — and tests it before it builds on it.</p>
+    </div>
+
+  </main>
+
+  <footer>
+    <a href="cuxd211.html">CUXD211</a>
+    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+      <i class="fa-solid fa-moon" aria-hidden="true"></i>
+    </button>
+  </footer>
+  <script src="theme.js"></script>
+
+</body>
+</html>
