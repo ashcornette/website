@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>owduv — mvp → mvbp</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .mv-meta {
+      font-size: 11px;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 40px;
+      letter-spacing: 0.03em;
+    }
+
+    .mv-intro {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 8px;
+      max-width: 640px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .mv-note {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.85;
+      max-width: 620px;
+    }
+
+    .mv-note strong {
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    /* ── TIER SPLIT ── */
+    .tiers {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      margin-bottom: 24px;
+    }
+
+    .tier-name {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .tier-name.plus { color: var(--accent); }
+
+    .tier li {
+      list-style: none;
+      font-size: 14px;
+      color: var(--text);
+      line-height: 2.1;
+    }
+
+    .tier li span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .tier .price {
+      color: var(--accent);
+      margin-top: 6px;
+    }
+
+    /* ── OBJECTIVES ── */
+    .obj {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 8px 32px;
+      margin-bottom: 36px;
+    }
+
+    .obj:last-of-type { margin-bottom: 0; }
+
+    .obj-name {
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 0.03em;
+    }
+
+    .obj-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.85;
+    }
+
+    .obj-thresholds {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-top: 6px;
+    }
+
+    .kill { color: var(--kill); }
+
+    :root { --kill: #a03024; }
+    [data-theme="dark"] { --kill: #e07a6a; }
+
+    /* ── CHECKLIST ── */
+    .ops {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 2.1;
+    }
+
+    .ops span { color: var(--muted); }
+
+    @media screen and (max-width: 640px) {
+      .tiers { grid-template-columns: 1fr; gap: 32px; }
+      .obj { grid-template-columns: 1fr; gap: 4px; }
+      .obj-name { margin-bottom: 2px; }
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <h1>owduv</h1>
+    <p class="role">mvp → mvbp · week 10 · business thinking</p>
+
+    <div class="mv-meta">the mvp proves the prediction works. the mvbp is the smallest owduv someone actually pays for.</div>
+
+    <!-- FRAMING -->
+    <div class="section">
+      <div class="section-label">Where the line goes</div>
+      <p class="mv-intro">the full mechanism is free — capture, inference, prediction. paywalling any part of it would starve the free tier of the data that feeds the model and reduce owduv to the manual trackers it exists to replace. nobody would meet the magic before the paywall. instead, <strong style="color:var(--text)">the cap is the meter</strong> — the free tier runs the whole loop on a limited set of items, and you pay for room, not for the promise to switch on.</p>
+    </div>
+
+    <!-- TIERS -->
+    <div class="section">
+      <div class="section-label">The split</div>
+      <div class="tiers">
+        <div class="tier">
+          <div class="tier-name">free — full loop, metered</div>
+          <ul>
+            <li>email auto-capture <span>included</span></li>
+            <li>depletion inference + notifications</li>
+            <li>reorder links <span>affiliate stays free</span></li>
+            <li>item cap <span>— number under test</span></li>
+            <li>single user</li>
+          </ul>
+        </div>
+        <div class="tier">
+          <div class="tier-name plus">owduv plus — scale</div>
+          <ul>
+            <li>unlimited items</li>
+            <li>shared household sync</li>
+            <li>multi-inbox · multi-retailer</li>
+            <li>full purchase history</li>
+            <li class="price">$1.99 / mo · $14.99 / yr — hypothesis</li>
+          </ul>
+        </div>
+      </div>
+      <p class="mv-note">two structural calls sit inside this split. <strong>affiliate lives on the free side</strong> — it scales with click volume, so the users who never subscribe still generate revenue rather than being locked away from the second stream to protect the first. and <strong>the cap is itself a hypothesis</strong> — households track 15–30 skus, so the cap has to sit under the natural set for the meter to run, but high enough for the prediction to prove itself first. the pilot tests 8 vs 10 vs 12 rather than assuming.</p>
+    </div>
+
+    <!-- OBJECTIVES -->
+    <div class="section">
+      <div class="section-label">Three objectives, each with a kill threshold</div>
+
+      <div class="obj">
+        <div class="obj-name">01 · revenue</div>
+        <div>
+          <div class="obj-body">two instruments, two questions. a fake-door upgrade screen inside the usability prototype validates <em>line placement</em> only — which features people expect to sit behind the pay line. willingness-to-pay gets its own denominator: a priced waitlist page with a card-capture step, because interest is not revenue.</div>
+          <div class="obj-thresholds">pass — ≥3% of waitlist visitors enter a card at $1.99 &nbsp;·&nbsp; <span class="kill">kill — interest without cards → reprice or move the meter</span></div>
+        </div>
+      </div>
+
+      <div class="obj">
+        <div class="obj-name">02 · deliverability</div>
+        <div>
+          <div class="obj-body">a wizard-of-oz pilot, ten households — receipts forwarded to a shared inbox, parsed by hand, reflected in the app. this validates the thing that matters — whether corrections feel like logging — without building the parser first, and it is honest about week-12 scope. the same ten households carry the cap test: different caps assigned across them, watching who hits the meter.</div>
+          <div class="obj-thresholds">pass — ≥80% finish onboarding · ≤1 correction / user / week (the ~95% parse bar the real parser inherits) &nbsp;·&nbsp; <span class="kill">kill — corrections feel like logging → the wedge collapses</span></div>
+        </div>
+      </div>
+
+      <div class="obj">
+        <div class="obj-name">03 · repeatability</div>
+        <div>
+          <div class="obj-body">unit economics on low-margin consumables, with affiliate as the floor. the subscription carries the ceiling; affiliate revenue per free active carries the base — both are measured, neither is assumed.</div>
+          <div class="obj-thresholds">pass — month-2 retention ≥40% · organic cac &lt; $5 against ltv ~$19–36 + affiliate per active &nbsp;·&nbsp; <span class="kill">kill — retention &lt;25% → pain too shallow to sustain a subscription</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRIVACY -->
+    <div class="section">
+      <div class="section-label">The conversion moment carries the positioning</div>
+      <p class="mv-note">the most sensitive permission owduv asks for — inbox access — is granted at free signup, not at upgrade. paying never reads as surrendering more data; upgrade copy sells room, not access. on-device parsing is stated plainly at both moments, because the upgrade screen is where the privacy positioning either holds or reads as bait.</p>
+    </div>
+
+    <!-- OPS -->
+    <div class="section">
+      <div class="section-label">Before charging anyone</div>
+      <div class="ops">
+        app store iap <span>— no custom billing at this scale</span><br>
+        privacy policy <span>— written before the pilot, not after</span><br>
+        single support inbox <span>— &lt;48h response, one person</span><br>
+        one-tap cancel <span>— churn data is only honest if leaving is easy</span><br>
+        export-your-data <span>— the privacy positioning, made structural</span>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <a href="cuxd211.html">CUXD211</a>
+    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+      <i class="fa-solid fa-moon" aria-hidden="true"></i>
+    </button>
+  </footer>
+  <script src="theme.js"></script>
+
+</body>
+</html>
