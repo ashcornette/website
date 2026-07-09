@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ash cornette · project inquiry</title>
+    <meta name="description" content="Project inquiry by Ash Cornette — a short intake that turns what you're making into a clear proposal.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ash cornette · project inquiry">
+    <meta property="og:description" content="A short intake that turns what you're making into a clear proposal.">
+    <meta property="og:url" content="https://ashcornette.com/inquiry.html">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="doc website">
+    <a class="skip-link" href="#main">skip to content</a>
+    <div class="topbar">
+      <a class="pagetitle" href="index.html">Ash<span class="blink" aria-hidden="true">_</span>Cornette</a>
+      <div class="topbar-right">
+        <a class="pill" href="mailto:hello@ashcornette.com">say hello</a>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="toggle dark mode">◐</button>
+      </div>
+    </div>
+
+    <main id="main" tabindex="-1">
+      <header class="intro-hero">
+        <p class="eyebrow">project inquiry</p>
+        <h1 class="lead">First, I get to know the business —<span class="cursor" aria-hidden="true">_</span></h1>
+        <p class="intro">Then I turn what I hear into a clear proposal to get you there. Fill in what applies; skip anything that doesn't — it takes about three minutes.</p>
+      </header>
+      <div id="app"></div>
+    </main>
+
+    <footer class="workfoot">
+      <span>© <span id="yr"></span> Ash Cornette</span>
+      <a href="index.html">← back to work</a>
+    </footer>
+
+<script>
+/* ---- Part 1: General Questions — the intake, in Ash's voice. One page. ---- */
+const QUESTIONS = [
+  { id:'problem', type:'textarea', q:'What problem or opportunity led you here?',
+    placeholder:'A sentence or two is plenty.' },
+
+  { id:'found', type:'single', q:'How did you find me?', options:[
+    {v:'referral', label:'A referral'},
+    {v:'search',   label:'Search'},
+    {v:'social',   label:'Social'},
+    {v:'work',     label:'Saw my work'},
+    {v:'other',    label:'Somewhere else'},
+  ]},
+
+  { id:'services', type:'multi', q:'What are you looking for?', hint:'Pick any that apply.', options:[
+    {v:'ux',      label:'UX & product design'},
+    {v:'web',     label:'Website design & build'},
+    {v:'systems', label:'Design systems & accessibility'},
+    {v:'brand',   label:'Brand & logo'},
+    {v:'other',   label:'Something else'},
+  ]},
+
+  { id:'scope', type:'textarea', q:'What pieces do you need made — and what are they for?',
+    placeholder:'e.g. a portfolio site, a logo and type system, a booking flow…' },
+
+  { id:'stakeholders', type:'text', q:'Who has the final say?',
+    placeholder:'Just you, or a few people?' },
+
+  { id:'timeline', type:'single', q:'What’s the timeline?', options:[
+    {v:'asap', label:'As soon as possible'},
+    {v:'1-3',  label:'1–3 months'},
+    {v:'3-6',  label:'3–6 months'},
+    {v:'flex', label:'Flexible'},
+  ]},
+
+  { id:'budget', type:'single', q:'Budget — a rough range is fine.', options:[
+    {v:'u4',     label:'Under $4k'},
+    {v:'4-7',    label:'$4k–$7k'},
+    {v:'7-10',   label:'$7k–$10k'},
+    {v:'10+',    label:'$10k+'},
+    {v:'unsure', label:'Not sure yet'},
+  ]},
+
+  { id:'outcome', type:'textarea', q:'What does success look like to you?',
+    placeholder:'How you’ll know this worked.' },
+];
+
+const answers = {};   // text: string · single: value · multi: array
+
+/* label lookup for the email */
+function labelFor(id, v){
+  const item = QUESTIONS.find(q => q.id === id);
+  if (!item || !item.options) return v;
+  const opt = item.options.find(o => o.v === v);
+  return opt ? opt.label : v;
+}
+
+/* ---- One control renderer per question ---- */
+function controlHTML(item){
+  if (item.type === 'textarea'){
+    return `<div class="field"><textarea class="in" data-id="${item.id}" rows="4" placeholder="${item.placeholder||''}">${answers[item.id]||''}</textarea></div>`;
+  }
+  if (item.type === 'text'){
+    const val = (answers[item.id]||'').replace(/"/g,'&quot;');
+    return `<div class="field"><input class="in" data-id="${item.id}" type="text" placeholder="${item.placeholder||''}" value="${val}"></div>`;
+  }
+  const chosen = item.type === 'multi' ? (answers[item.id]||[]) : answers[item.id];
+  return `
+    ${item.hint ? `<p class="hint">${item.hint}</p>` : ''}
+    <div class="opts" data-id="${item.id}" data-type="${item.type}" role="group" aria-label="${item.q}">
+      ${item.options.map(o=>{
+        const on = item.type==='multi' ? chosen.includes(o.v) : chosen===o.v;
+        return `<button class="opt" data-v="${o.v}" aria-pressed="${on}"><span>${o.label}</span><span class="arr" aria-hidden="true">${item.type==='multi'?'+':'→'}</span></button>`;
+      }).join('')}
+    </div>`;
+}
+
+function bindControls(scope){
+  scope.querySelectorAll('.in').forEach(inp=>{
+    inp.addEventListener('input', ()=>{ answers[inp.dataset.id] = inp.value; });
+  });
+  scope.querySelectorAll('.opts').forEach(group=>{
+    const id = group.dataset.id, type = group.dataset.type;
+    group.querySelectorAll('.opt').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const v = btn.dataset.v;
+        if (type === 'multi'){
+          const arr = answers[id] || (answers[id] = []);
+          const at = arr.indexOf(v);
+          if (at === -1) arr.push(v); else arr.splice(at,1);
+          btn.setAttribute('aria-pressed', at === -1);
+        } else {
+          answers[id] = v;
+          group.querySelectorAll('.opt').forEach(b=>b.setAttribute('aria-pressed', b===btn));
+        }
+      });
+    });
+  });
+}
+
+/* which questions were actually answered */
+function answered(){
+  return QUESTIONS.filter(item=>{
+    const a = answers[item.id];
+    if (Array.isArray(a)) return a.length > 0;
+    return a && String(a).trim() !== '';
+  });
+}
+
+function answerText(item){
+  const a = answers[item.id];
+  if (Array.isArray(a)) return a.map(v=>labelFor(item.id, v)).join(', ');
+  if (item.options) return labelFor(item.id, a);
+  return String(a).trim();
+}
+
+function buildMailto(){
+  const lines = ['Hi Ash,', '', 'Here’s a bit about my project:', ''];
+  answered().forEach(item=>{
+    lines.push(`- ${item.q}`);
+    lines.push(`  ${answerText(item)}`);
+    lines.push('');
+  });
+  lines.push('Looking forward to next steps.', '', 'Thanks!');
+  return `mailto:hello@ashcornette.com?subject=${encodeURIComponent('Project inquiry')}&body=${encodeURIComponent(lines.join('\r\n'))}`;
+}
+
+/* ---- Render the whole intake, once ---- */
+const app = document.getElementById('app');
+
+function render(){
+  app.innerHTML = `
+    <div class="review">
+      ${QUESTIONS.map(item=>`
+        <div class="review-item">
+          <p class="recap-q">${item.q}</p>
+          ${controlHTML(item)}
+        </div>`).join('')}
+    </div>
+
+    <div class="cta">
+      <p class="lab">Next step</p>
+      <p>Send this over and I’ll turn it into a proposal — scope, timeline, and cost. We start with a one-hour discovery call, in person or over Google Meet.</p>
+      <a class="pill" href="#">Send my answers →</a>
+    </div>`;
+
+  bindControls(app);
+  const send = app.querySelector('.cta a');
+  send.href = buildMailto();
+  send.addEventListener('click', function(){ this.href = buildMailto(); });
+}
+
+render();
+</script>
+
+<script>
+  // theme toggle — inlined (matches index/sean-dawn; no external theme.js in this folder)
+  (function () {
+    var root = document.documentElement;
+    var btn = document.getElementById('themeToggle');
+    btn.addEventListener('click', function () {
+      var cur = root.dataset.theme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); root.dataset.theme = cur === 'dark' ? 'light' : 'dark';
+    });
+  })();
+  // footer year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+  </body>
+</html>

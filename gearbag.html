@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Arc'teryx Gear Bag — the full presentation deck by Ash Cornette. Every slide from the case study, in one view.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ash cornette · arc'teryx gear bag — deck">
+    <meta property="og:description" content="The full Arc'teryx Gear Bag presentation, slide by slide.">
+    <meta property="og:url" content="https://ashcornette.com/gearbag.html">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>ash cornette · arc'teryx gear bag — deck</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="doc gearbag">
+    <a class="skip-link" href="#main">skip to content</a>
+    <div class="topbar">
+      <a class="pagetitle" href="index.html">Ash<span class="blink" aria-hidden="true">_</span>Cornette</a>
+      <div class="topbar-right">
+        <a class="pill" href="mailto:hello@ashcornette.com">say hello</a>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="toggle dark mode">◐</button>
+      </div>
+    </div>
+
+    <main id="main" tabindex="-1">
+      <h1>Arc'teryx Gear Bag</h1>
+      <p class="role">the full presentation deck, slide by slide</p>
+
+      <div class="meta">
+        <span class="status">concept</span>
+        <span>UX research &amp; design</span>
+      </div>
+
+      <p class="deck-intro">Turning a dead-end favourite into an activity-specific planning tool inside the Arc'teryx app. Read the <a href="arcteryx.html">written case study</a> for the full story.</p>
+
+      <div class="deck-grid">
+        <a href="img/gearbag/slide-01.jpg" class="slide"><img src="img/gearbag/slide-01.jpg" alt="Arc'teryx Gear Bag — slide 1" loading="lazy"></a>
+        <a href="img/gearbag/slide-02.jpg" class="slide"><img src="img/gearbag/slide-02.jpg" alt="Arc'teryx Gear Bag — slide 2" loading="lazy"></a>
+        <a href="img/gearbag/slide-03.jpg" class="slide"><img src="img/gearbag/slide-03.jpg" alt="Arc'teryx Gear Bag — slide 3" loading="lazy"></a>
+        <a href="img/gearbag/slide-04.jpg" class="slide"><img src="img/gearbag/slide-04.jpg" alt="Arc'teryx Gear Bag — slide 4" loading="lazy"></a>
+        <a href="img/gearbag/slide-05.jpg" class="slide"><img src="img/gearbag/slide-05.jpg" alt="Arc'teryx Gear Bag — slide 5" loading="lazy"></a>
+        <a href="img/gearbag/slide-06.jpg" class="slide"><img src="img/gearbag/slide-06.jpg" alt="Arc'teryx Gear Bag — slide 6" loading="lazy"></a>
+        <a href="img/gearbag/slide-07.jpg" class="slide"><img src="img/gearbag/slide-07.jpg" alt="Arc'teryx Gear Bag — slide 7" loading="lazy"></a>
+        <a href="img/gearbag/slide-08.jpg" class="slide"><img src="img/gearbag/slide-08.jpg" alt="Arc'teryx Gear Bag — slide 8" loading="lazy"></a>
+        <a href="img/gearbag/slide-09.jpg" class="slide"><img src="img/gearbag/slide-09.jpg" alt="Arc'teryx Gear Bag — slide 9" loading="lazy"></a>
+        <a href="img/gearbag/slide-10.jpg" class="slide"><img src="img/gearbag/slide-10.jpg" alt="Arc'teryx Gear Bag — slide 10" loading="lazy"></a>
+        <a href="img/gearbag/slide-11.jpg" class="slide"><img src="img/gearbag/slide-11.jpg" alt="Arc'teryx Gear Bag — slide 11" loading="lazy"></a>
+        <a href="img/gearbag/slide-12.jpg" class="slide"><img src="img/gearbag/slide-12.jpg" alt="Arc'teryx Gear Bag — slide 12" loading="lazy"></a>
+      </div>
+    </main>
+
+    <footer>
+      <a href="#main">back to top</a>
+      <a href="https://linkedin.com/in/ashcornette" target="_blank" rel="noopener noreferrer">linkedin</a>
+      <span class="local-time" id="localTime">--:--</span>
+    </footer>
+
+    <script>
+      (function () {
+        var root = document.documentElement;
+        document.getElementById('themeToggle').addEventListener('click', function () {
+          var cur = root.dataset.theme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); root.dataset.theme = cur === 'dark' ? 'light' : 'dark';
+        });
+        var el = document.getElementById('localTime');
+        function tick() {
+          el.textContent = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + ' local';
+        }
+        tick(); setInterval(tick, 30000);
+      })();
+    </script>
+  </body>
+</html>

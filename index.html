@@ -3,258 +3,167 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Ash Cornette — UX/UI designer in Vancouver. Designing quiet products for people who move. Available for new projects, summer 2026.">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="ash cornette">
-    <meta property="og:description" content="UX/UI designer in Vancouver. Designing quiet products for people who move.">
-    <meta property="og:url" content="https://ashcornette.com">
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="description" content="Ash Cornette — UX, product, brand, and website design. Vancouver, BC." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="ash cornette" />
+    <meta property="og:description" content="UX, product, brand, and website design. Vancouver, BC." />
+    <meta property="og:url" content="https://ashcornette.com/" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <title>ash cornette</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body class="work">
     <a class="skip-link" href="#main">skip to content</a>
-    <nav class="site-nav" aria-label="Primary">
-      <a href="index.html" class="wordmark">ash</a>
-      <div class="nav-right">
-        <a href="index.html" aria-current="page">home</a>
-        <a href="projects.html">projects</a>
-        <a href="services.html">services</a>
-      </div>
-    </nav>
+
+    <div class="work-shell">
     <main id="main" tabindex="-1">
-      <h1>ash cornette</h1>
-      <p class="role">UX/UI designer · calm tech · movement &amp; wellness</p>
-      <div class="bio">
-        
-        <p>
-          Based in Vancouver, BC. 27 years in breaking —
-          a perspective that shapes everything I design.
-        </p>
-        <p>
-          Performing artist at OURO Collective. Studying UX/UI Design
-          at&nbsp;Emily Carr University. Designing quiet products
-          for&nbsp;people who move.
-        </p>
-      </div>
-
-      <a class="pill" href="mailto:hello@ashcornette.com">let's talk →</a>
-      <p class="avail">available for new projects · summer 2026</p>
-
-      <hr style="border: none; border-top: 1px solid var(--border); margin: 2rem 0;">
-
-      <p class="component-caption">Clear the noise</p>
-      <div class="component-row">
-        <div class="toggle-demo">
-          <label class="toggle">
-            <input type="checkbox" class="toggle-input" />
-            <span class="toggle-track">
-              <span class="toggle-knob"></span>
-            </span>
-            <span class="toggle-label">quiet mode</span>
-          </label>
-          <p class="state-tag toggle-state-tag">Off</p>
-        </div>
-      
-      </div>
-
-      <!-- what I believe -->
-      <div class="section">
-        <h2 class="section-num">what I believe</h2>
-
-        <div class="belief">
-          <h3 class="belief-title"><strong>Quiet is a feature.</strong></h3>
-          <p>Most products compete for attention. The best ones don't — you close them because the job is done.</p>
-        </div>
-
-        <div class="belief">
-          <h3 class="belief-title"><strong>The surface problem is rarely the real one.</strong></h3>
-          <p>The brief is usually a layer over something truer. Research earns the right to change it — I start with the question, but I'm not loyal to it.</p>
-        </div>
-
-        <div class="belief">
-          <h3 class="belief-title"><strong>The hardest moment is the test.</strong></h3>
-          <p>A product proves itself when someone reaches for it depleted, not when they're fresh.</p>
-        </div>
-
-        <div class="belief">
-          <h3 class="belief-title"><strong>Community is continuity.</strong></h3>
-          <p>Getting people in the room is easy; almost nothing is designed for what happens after. The problem isn't connection, it's continuity.</p>
-        </div>
-
-        <div class="belief">
-          <h3 class="belief-title"><strong>The body is context.</strong></h3>
-          <p>Most wellness tech is designed for a sedentary body. A performing artist doesn't need another notification — the real work happens off the screen.</p>
+      <div class="topbar">
+        <h1 class="pagetitle">Ash<span class="blink" aria-hidden="true">_</span>Cornette</h1>
+        <div class="topbar-right">
+          <a class="pill" href="mailto:hello@ashcornette.com">say hello</a>
+          <button class="theme-toggle" id="themeToggle" type="button" aria-label="toggle dark mode">◐</button>
         </div>
       </div>
 
-      <!-- what I'm building toward -->
-      <div class="section">
-        <h2 class="section-num">what I'm building toward</h2>
-        <p>I design for people who move — performers, athletes — and the organizations behind them. The mainstream got it wrong: wellness tech that's loud and addictive.</p>
-        <p>I'm drawn to calm technology — made to be used less, not more. If your success metric is engagement, we'll probably disagree.</p>
-        <p>Target: calm-tech companies, performer-wellness startups, cultural organizations, and studios building intentional tools for movement.</p>
+      <input class="srch" id="q" type="text" placeholder="search work — name, type, tool…" autocomplete="off" aria-label="search work" />
+
+      <div class="chips" id="chips">
+        <button class="chip on" type="button" data-f="all">all</button>
+        <button class="chip" type="button" data-f="websites">websites</button>
+        <button class="chip" type="button" data-f="brand">brand &amp; logo</button>
+        <button class="chip" type="button" data-f="product">product &amp; ux</button>
       </div>
 
+      <div class="ruled">
+      <div class="rows" id="rows">
+
+        <div class="proj" data-t="brand" data-s="complex breaks brand platform breaking archive logo">
+          <button class="proj-head" type="button" aria-expanded="false"><span class="proj-title">Complex Breaks</span><span class="proj-right"><span class="proj-tag">brand · platform</span><span class="proj-tog" aria-hidden="true"></span></span></button>
+          <div class="proj-panel"><div class="proj-inner"><div class="proj-body">
+            <div class="proj-media">
+              <img class="proj-photo" src="img/cambie.png" alt="Complex Breaks" loading="lazy" />
+              <a class="pill" href="https://complexbreaks.com" target="_blank" rel="noopener noreferrer">View →</a>
+            </div>
+            <div class="proj-side">
+              <p class="proj-copy">A breaking-culture archive, brand, and platform I run end to end — documenting jams from inside the circle, on ground I own.</p>
+              <div class="tagcloud"><span class="t">brand identity</span><span class="t">logo</span><span class="t">art direction</span><span class="t">content</span><span class="t">merch</span><span class="t">web</span><span class="t">community</span></div>
+            </div>
+          </div></div></div>
+        </div>
+
+        <div class="proj" data-t="product" data-s="arcteryx gear bag product ux app figma">
+          <button class="proj-head" type="button" aria-expanded="false"><span class="proj-title">Arc'teryx Gear Bag</span><span class="proj-right"><span class="proj-tag">product · ux</span><span class="proj-tog" aria-hidden="true"></span></span></button>
+          <div class="proj-panel"><div class="proj-inner"><div class="proj-body">
+            <div class="proj-media">
+              <img class="proj-photo" src="img/gearbag/slide-01.jpg" alt="Arc'teryx Gear Bag" loading="lazy" />
+              <a class="pill" href="arcteryx.html">View →</a>
+            </div>
+            <div class="proj-side">
+              <p class="proj-copy">Turning a dead-end favourite into a planning tool by adding activity-specific kit bags to the app's highest-intent moment.</p>
+              <div class="tagcloud"><span class="t">ux research</span><span class="t">product design</span><span class="t">app redesign</span><span class="t">figma</span><span class="t">prototyping</span><span class="t">information architecture</span></div>
+            </div>
+          </div></div></div>
+        </div>
+
+        <div class="proj" data-t="product" data-s="designhere ux web app research vancouver">
+          <button class="proj-head" type="button" aria-expanded="false"><span class="proj-title">DesignHere</span><span class="proj-right"><span class="proj-tag">ux · web app</span><span class="proj-tog" aria-hidden="true"></span></span></button>
+          <div class="proj-panel"><div class="proj-inner"><div class="proj-body">
+            <div class="proj-media">
+              <img class="proj-photo" src="img/DesignHere-Demo.png" alt="DesignHere" loading="lazy" />
+              <a class="pill" href="designhere.html">View →</a>
+            </div>
+            <div class="proj-side">
+              <p class="proj-copy">Connecting Vancouver's design community through centralized event discovery, connection tracking, and a low-stakes place to gather.</p>
+              <div class="tagcloud"><span class="t">ux research</span><span class="t">web app</span><span class="t">user interviews</span><span class="t">personas</span><span class="t">prototyping</span><span class="t">community</span></div>
+            </div>
+          </div></div></div>
+        </div>
+
+        <div class="proj" data-t="websites" data-s="ouro collective website events dance">
+          <button class="proj-head" type="button" aria-expanded="false"><span class="proj-title">OURO Collective</span><span class="proj-right"><span class="proj-tag">website · events</span><span class="proj-tog" aria-hidden="true"></span></span></button>
+          <div class="proj-panel"><div class="proj-inner"><div class="proj-body">
+            <div class="proj-media">
+              <img class="proj-photo" src="img/ourocollective.png" alt="OURO Collective" loading="lazy" />
+              <a class="pill" href="https://ourocollective.com" target="_blank" rel="noopener noreferrer">View →</a>
+            </div>
+            <div class="proj-side">
+              <p class="proj-copy">Brand, web presence, and event coordination for a Vancouver dance collective.</p>
+              <div class="tagcloud"><span class="t">website</span><span class="t">branding</span><span class="t">events</span><span class="t">dance</span><span class="t">web design</span></div>
+            </div>
+          </div></div></div>
+        </div>
+
+        <div class="proj" data-t="product" data-s="sean dawn ux mobile app productivity">
+          <button class="proj-head" type="button" aria-expanded="false"><span class="proj-title">Sean Dawn</span><span class="proj-right"><span class="proj-tag">ux · mobile</span><span class="proj-tog" aria-hidden="true"></span></span></button>
+          <div class="proj-panel"><div class="proj-inner"><div class="proj-body">
+            <div class="proj-media">
+              <img class="proj-photo" src="img/daily.png" alt="Sean Dawn" loading="lazy" />
+              <a class="pill" href="sean-dawn.html">View →</a>
+            </div>
+            <div class="proj-side">
+              <p class="proj-copy">A productivity app for overthinkers — built around fewer choices and one screen that changes through the day.</p>
+              <div class="tagcloud"><span class="t">ux</span><span class="t">mobile app</span><span class="t">product design</span><span class="t">research</span><span class="t">prototyping</span><span class="t">wireframes</span></div>
+            </div>
+          </div></div></div>
+        </div>
+
+      </div>
+      <div class="empty" id="empty">no matches — clear the search</div>
+
+      <footer class="workfoot">
+        <span>© <span id="yr"></span> Ash Cornette</span>
+        <a href="inquiry.html">project inquiry →</a>
+      </footer>
+      </div>
     </main>
+    </div>
 
     <script>
-      // ── QUIET MODE ──
-      // Flipping "quiet mode" drops the page's words and resolves the page to its
-      // essence: the "hire me" CTA + the switch, centered in the viewport.
-      const toggleInput    = document.querySelector('.toggle-input');
-      const toggleStateTag = document.querySelector('.toggle-state-tag');
-      const pill           = document.querySelector('.pill');
-      const toggleDemo     = document.querySelector('.toggle-demo');
-      const reducedMotion  = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      (function () {
+        var root = document.documentElement;
+        document.getElementById('themeToggle').addEventListener('click', function () {
+          var cur = root.dataset.theme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); root.dataset.theme = cur === 'dark' ? 'light' : 'dark';
+        });
+        document.getElementById('yr').textContent = new Date().getFullYear();
 
-      let gravityOriginals = null;
-      let quietCluster     = null;
-      let pillAnchor       = null;
-      let toggleAnchor     = null;
+        var chips = document.getElementById('chips'),
+            q = document.getElementById('q'),
+            rowsEl = document.getElementById('rows'),
+            projs = [].slice.call(document.querySelectorAll('#rows .proj')),
+            empty = document.getElementById('empty'),
+            f = 'all';
 
-      function wrapWordsInElement(el) {
-        const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
-        const textNodes = [];
-        let node;
-        while ((node = walker.nextNode())) {
-          if (node.nodeValue.trim()) textNodes.push(node);
-        }
-        textNodes.forEach(textNode => {
-          const parts = textNode.nodeValue.split(/(\s+)/);
-          const frag = document.createDocumentFragment();
-          parts.forEach(part => {
-            if (/^\s+$/.test(part)) {
-              frag.appendChild(document.createTextNode(part));
-            } else if (part) {
-              const span = document.createElement('span');
-              span.className = 'gravity-word';
-              span.style.setProperty('--word-delay', (Math.random() * 0.55).toFixed(3) + 's');
-              span.style.setProperty('--word-duration', (0.55 + Math.random() * 0.45).toFixed(3) + 's');
-              span.style.setProperty('--word-rotate', ((Math.random() - 0.5) * 45).toFixed(1) + 'deg');
-              span.textContent = part;
-              frag.appendChild(span);
-            }
+        function apply() {
+          var t = q.value.trim().toLowerCase(), n = 0;
+          projs.forEach(function (r) {
+            var okF = (f === 'all' || r.dataset.t === f),
+                okS = (!t || r.dataset.s.indexOf(t) > -1),
+                show = okF && okS;
+            r.classList.toggle('hide', !show);
+            if (show) n++;
           });
-          textNode.parentNode.replaceChild(frag, textNode);
+          empty.style.display = n ? 'none' : 'block';
+        }
+
+        chips.addEventListener('click', function (e) {
+          var b = e.target.closest('.chip'); if (!b) return;
+          chips.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('on'); });
+          b.classList.add('on'); f = b.dataset.f; apply();
         });
-      }
+        q.addEventListener('input', apply);
 
-      function activateGravity() {
-        const targets = document.querySelectorAll(
-          'main h1, main .role, main .bio p, .component-caption, ' +
-          'main .section-num, main .belief-title, main .belief p, main .section > p'
-        );
-        gravityOriginals = [];
-        targets.forEach(el => {
-          gravityOriginals.push({ el, html: el.innerHTML });
-          wrapWordsInElement(el);
+        rowsEl.addEventListener('click', function (e) {
+          var head = e.target.closest('.proj-head'); if (!head) return;
+          var p = head.closest('.proj'), open = p.hasAttribute('data-open');
+          projs.forEach(function (x) {
+            x.removeAttribute('data-open');
+            x.querySelector('.proj-head').setAttribute('aria-expanded', 'false');
+          });
+          if (!open) { p.setAttribute('data-open', ''); head.setAttribute('aria-expanded', 'true'); }
         });
-      }
-
-      function deactivateGravity() {
-        if (!gravityOriginals) return;
-        gravityOriginals.forEach(({ el, html }) => { el.innerHTML = html; });
-        gravityOriginals = null;
-      }
-
-      // FLIP-style glide: animate an element from where it just was (firstRect)
-      // to wherever it sits now, so moving it across the DOM reads as travel,
-      // not a teleport. Web Animations API, so nothing lingers inline.
-      function glide(el, firstRect) {
-        if (el._glideAnim) el._glideAnim.cancel();
-        const last = el.getBoundingClientRect();
-        const dx = firstRect.left - last.left;
-        const dy = firstRect.top  - last.top;
-        if (!dx && !dy) return;
-        el._glideAnim = el.animate(
-          [{ transform: `translate(${dx}px, ${dy}px)` }, { transform: 'none' }],
-          { duration: 660, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }
-        );
-      }
-
-      function enterQuiet() {
-        if (quietCluster) return;
-
-        // where the pill + switch sit right now (before anything shifts)
-        const firstPill   = pill.getBoundingClientRect();
-        const firstToggle = toggleDemo.getBoundingClientRect();
-
-        // remember their place in the flow so we can put them back
-        pillAnchor   = { parent: pill.parentNode,       next: pill.nextSibling };
-        toggleAnchor = { parent: toggleDemo.parentNode, next: toggleDemo.nextSibling };
-
-        // drop the words (motion only; reduced motion cross-fades instead)
-        if (!reducedMotion) activateGravity();
-
-        // pull the two things that matter into a viewport-centered cluster
-        quietCluster = document.createElement('div');
-        quietCluster.className = 'quiet-cluster';
-        quietCluster.appendChild(pill);
-        quietCluster.appendChild(toggleDemo);
-        document.body.appendChild(quietCluster);
-
-        document.body.classList.add('quiet');
-
-        if (reducedMotion) {
-          document.body.classList.add('quiet-instant');
-        } else {
-          // glide them from their old spots into the centre
-          glide(pill, firstPill);
-          glide(toggleDemo, firstToggle);
-        }
-      }
-
-      function exitQuiet() {
-        if (!quietCluster) return;
-        const wasInstant = document.body.classList.contains('quiet-instant');
-
-        // where the pill + switch sit now (centred)
-        const firstPill   = pill.getBoundingClientRect();
-        const firstToggle = toggleDemo.getBoundingClientRect();
-
-        // restore the page: words back, elements back to the flow, chrome un-fades
-        deactivateGravity();
-        pillAnchor.parent.insertBefore(pill, pillAnchor.next);
-        toggleAnchor.parent.insertBefore(toggleDemo, toggleAnchor.next);
-        pillAnchor = toggleAnchor = null;
-        quietCluster.remove();
-        quietCluster = null;
-        document.body.classList.remove('quiet', 'quiet-instant');
-
-        // glide them from the centre back to their place in the flow
-        if (!reducedMotion && !wasInstant) {
-          glide(pill, firstPill);
-          glide(toggleDemo, firstToggle);
-        }
-      }
-
-      toggleInput.addEventListener('change', () => {
-        if (toggleInput.checked) {
-          toggleStateTag.textContent = 'On';
-          enterQuiet();
-        } else {
-          toggleStateTag.textContent = 'Off';
-          exitQuiet();
-        }
-      });
-
+      })();
     </script>
-
-    <footer>
-      <a href="index.html">home</a>
-      <a href="projects.html">projects</a>
-      <a href="services.html">services</a>
-      <a href="mailto:hello@ashcornette.com">hello@ashcornette.com</a>
-      <a href="https://linkedin.com/in/ashcornette" target="_blank" rel="noopener noreferrer">linkedin</a>
-      <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      </button>
-      <span class="local-time">vancouver · <span id="local-time">--:--</span></span>
-    </footer>
-    <script src="theme.js"></script>
-    <script src="time.js"></script>
   </body>
 </html>
