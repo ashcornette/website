@@ -1,0 +1,145 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    
+  </defs>
+
+  
+  <rect width="1920" height="1080" fill="#FDF7E7"></rect>
+
+  
+  <text x="64" y="82" font-size="14" font-weight="700" fill="#3517CA" letter-spacing="3" text-transform="uppercase">DATA ANALYSIS</text>
+  <text x="64" y="130" font-size="44" font-weight="900" fill="#000">Affinity Map</text>
+
+  
+  
+  <rect x="64" y="160" width="430" height="44" rx="10" ry="10" fill="#adf086"></rect>
+  <rect x="64" y="180" width="430" height="24" fill="#adf086"></rect>
+  <text x="279" y="190" font-size="16" font-weight="800" fill="#000" text-anchor="middle" letter-spacing="1.5">FRAGMENTED DISCOVERY</text>
+
+  
+  <rect x="64" y="204" width="430" height="340" rx="0" ry="0" fill="#fff" stroke="#E5DFD0" stroke-width="1.5"></rect>
+  <rect x="64" y="530" width="430" height="14" rx="0" ry="0" fill="#fff" stroke="#E5DFD0" stroke-width="1.5"></rect>
+  <rect x="64" y="534" width="430" height="10" rx="10" ry="10" fill="#fff"></rect>
+
+  
+  <rect x="78" y="218" width="402" height="68" rx="6" fill="rgba(173,240,134,0.25)"></rect>
+  <text x="92" y="243" font-size="15" font-weight="600" fill="#000">No single place to find events</text>
+  <text x="92" y="268" font-size="14" font-weight="800" fill="#3d8c1a">8/14 use social platforms</text>
+
+  
+  <rect x="78" y="296" width="402" height="68" rx="6" fill="rgba(173,240,134,0.25)"></rect>
+  <text x="92" y="321" font-size="15" font-weight="600" fill="#000">Check 3–5 platforms, still miss things</text>
+  <text x="92" y="346" font-size="14" font-weight="800" fill="#3d8c1a">8/14 rely on school connections</text>
+
+  
+  <rect x="78" y="374" width="402" height="68" rx="6" fill="rgba(173,240,134,0.25)"></rect>
+  <text x="92" y="399" font-size="15" font-weight="600" fill="#000">Inactive groups, dead links</text>
+  <text x="92" y="424" font-size="14" font-weight="800" fill="#3d8c1a">6/14 attend events &lt;3x/year</text>
+
+  
+  <rect x="78" y="452" width="402" height="52" rx="6" fill="rgba(173,240,134,0.25)"></rect>
+  <text x="92" y="484" font-size="15" font-weight="600" fill="#000">&#34;Look in 10 places to find one thing&#34;</text>
+
+  
+  <rect x="514" y="160" width="430" height="44" rx="10" ry="10" fill="#E53535"></rect>
+  <rect x="514" y="180" width="430" height="24" fill="#E53535"></rect>
+  <text x="729" y="190" font-size="16" font-weight="800" fill="#fff" text-anchor="middle" letter-spacing="1.5">RELATIONSHIP CONTINUITY</text>
+
+  <rect x="514" y="204" width="430" height="340" rx="0" ry="0" fill="#fff" stroke="#E5DFD0" stroke-width="1.5"></rect>
+  <rect x="514" y="534" width="430" height="10" rx="10" ry="10" fill="#fff"></rect>
+
+  <rect x="528" y="218" width="402" height="68" rx="6" fill="rgba(229,53,53,0.08)"></rect>
+  <text x="542" y="243" font-size="15" font-weight="600" fill="#000">Connections fade after events</text>
+  <text x="542" y="268" font-size="14" font-weight="800" fill="#E53535">9/14 — biggest challenge</text>
+
+  <rect x="528" y="296" width="402" height="68" rx="6" fill="rgba(229,53,53,0.08)"></rect>
+  <text x="542" y="321" font-size="15" font-weight="600" fill="#000">No tools for follow-up</text>
+  <text x="542" y="346" font-size="14" font-weight="800" fill="#E53535">71% want tracking features</text>
+
+  <rect x="528" y="374" width="402" height="52" rx="6" fill="rgba(229,53,53,0.08)"></rect>
+  <text x="542" y="406" font-size="15" font-weight="600" fill="#000">Follow-up is manual DMs only</text>
+
+  <rect x="528" y="436" width="402" height="52" rx="6" fill="rgba(229,53,53,0.08)"></rect>
+  <text x="542" y="468" font-size="15" font-weight="600" fill="#000">Organizers follow up one by one</text>
+
+  
+  <rect x="964" y="160" width="430" height="44" rx="10" ry="10" fill="#3517CA"></rect>
+  <rect x="964" y="180" width="430" height="24" fill="#3517CA"></rect>
+  <text x="1179" y="190" font-size="16" font-weight="800" fill="#fff" text-anchor="middle" letter-spacing="1.5">PLATFORM MISMATCH</text>
+
+  <rect x="964" y="204" width="430" height="340" rx="0" ry="0" fill="#fff" stroke="#E5DFD0" stroke-width="1.5"></rect>
+  <rect x="964" y="534" width="430" height="10" rx="10" ry="10" fill="#fff"></rect>
+
+  <rect x="978" y="218" width="402" height="68" rx="6" fill="rgba(53,23,202,0.07)"></rect>
+  <text x="992" y="243" font-size="15" font-weight="600" fill="#000">LinkedIn dominates but feels wrong</text>
+  <text x="992" y="268" font-size="14" font-weight="800" fill="#3517CA">10/14 use it</text>
+
+  <rect x="978" y="296" width="402" height="52" rx="6" fill="rgba(53,23,202,0.07)"></rect>
+  <text x="992" y="328" font-size="15" font-weight="600" fill="#000">&#34;Always have to show my best work&#34;</text>
+
+  <rect x="978" y="358" width="402" height="52" rx="6" fill="rgba(53,23,202,0.07)"></rect>
+  <text x="992" y="390" font-size="15" font-weight="600" fill="#000">Too broad, too public, too competitive</text>
+
+  <rect x="978" y="420" width="402" height="52" rx="6" fill="rgba(53,23,202,0.07)"></rect>
+  <text x="992" y="452" font-size="15" font-weight="600" fill="#000">Want low-stakes, local space</text>
+
+  
+  <rect x="1414" y="160" width="442" height="44" rx="10" ry="10" fill="#F97316"></rect>
+  <rect x="1414" y="180" width="442" height="24" fill="#F97316"></rect>
+  <text x="1635" y="190" font-size="16" font-weight="800" fill="#fff" text-anchor="middle" letter-spacing="1.5">TRUST &amp; LOCAL CURATION</text>
+
+  <rect x="1414" y="204" width="442" height="340" rx="0" ry="0" fill="#fff" stroke="#E5DFD0" stroke-width="1.5"></rect>
+  <rect x="1414" y="534" width="442" height="10" rx="10" ry="10" fill="#fff"></rect>
+
+  <rect x="1428" y="218" width="414" height="68" rx="6" fill="rgba(249,115,22,0.08)"></rect>
+  <text x="1442" y="243" font-size="15" font-weight="600" fill="#000">Want Vancouver-specific, not global</text>
+  <text x="1442" y="268" font-size="14" font-weight="800" fill="#F97316">7/14 want curated events</text>
+
+  <rect x="1428" y="296" width="414" height="68" rx="6" fill="rgba(249,115,22,0.08)"></rect>
+  <text x="1442" y="321" font-size="15" font-weight="600" fill="#000">Transparency &gt; verified profiles</text>
+  <text x="1442" y="346" font-size="14" font-weight="800" fill="#F97316">50% — top trust factor</text>
+
+  <rect x="1428" y="374" width="414" height="52" rx="6" fill="rgba(249,115,22,0.08)"></rect>
+  <text x="1442" y="406" font-size="15" font-weight="600" fill="#000">Eventbrite / Luma serve all industries</text>
+
+  <rect x="1428" y="436" width="414" height="52" rx="6" fill="rgba(249,115,22,0.08)"></rect>
+  <text x="1442" y="468" font-size="15" font-weight="600" fill="#000">Need event context: type, level, cost</text>
+
+  
+  <text x="960" y="580" font-size="15" font-weight="500" fill="#5A5548" text-anchor="middle">Themes mapped from 14 survey responses, 2 interviews, and competitive analysis</text>
+
+  
+  <line x1="279" y1="600" x2="440" y2="640" stroke="#888" stroke-width="1.5" stroke-dasharray="4,4"></line>
+  <line x1="729" y1="600" x2="960" y2="640" stroke="#888" stroke-width="1.5" stroke-dasharray="4,4"></line>
+  <line x1="1179" y1="600" x2="1480" y2="640" stroke="#888" stroke-width="1.5" stroke-dasharray="4,4"></line>
+  <line x1="1635" y1="600" x2="1480" y2="640" stroke="#888" stroke-width="1.5" stroke-dasharray="4,4"></line>
+  <line x1="279" y1="600" x2="440" y2="640" stroke="#888" stroke-width="1.5" stroke-dasharray="4,4"></line>
+
+  
+  <text x="435" y="636" font-size="18" fill="#888">↓</text>
+  <text x="955" y="636" font-size="18" fill="#888">↓</text>
+  <text x="1475" y="636" font-size="18" fill="#888">↓</text>
+
+  
+  
+  <rect x="64" y="660" width="580" height="120" rx="10" fill="rgba(173,240,134,0.2)" stroke="rgba(173,240,134,0.5)" stroke-width="1.5"></rect>
+  <text x="84" y="692" font-size="12" font-weight="800" fill="#3d8c1a" letter-spacing="2">INSIGHT 1</text>
+  <text x="84" y="718" font-size="16" font-weight="600" fill="#000">Users struggle with <tspan font-weight="900">discovering events</tspan> because</text>
+  <text x="84" y="742" font-size="16" font-weight="600" fill="#000">info is fragmented, leading to <tspan font-weight="900">missed opportunities</tspan>.</text>
+
+  
+  <rect x="670" y="660" width="580" height="120" rx="10" fill="rgba(229,53,53,0.08)" stroke="rgba(229,53,53,0.2)" stroke-width="1.5"></rect>
+  <text x="690" y="692" font-size="12" font-weight="800" fill="#E53535" letter-spacing="2">INSIGHT 2</text>
+  <text x="690" y="718" font-size="16" font-weight="600" fill="#000">Users struggle with <tspan font-weight="900">maintaining connections</tspan></text>
+  <text x="690" y="742" font-size="16" font-weight="600" fill="#000">because there are no follow-up tools, leading to <tspan font-weight="900">shallow networks</tspan>.</text>
+
+  
+  <rect x="1276" y="660" width="580" height="120" rx="10" fill="rgba(53,23,202,0.06)" stroke="rgba(53,23,202,0.15)" stroke-width="1.5"></rect>
+  <text x="1296" y="692" font-size="12" font-weight="800" fill="#3517CA" letter-spacing="2">INSIGHT 3</text>
+  <text x="1296" y="718" font-size="16" font-weight="600" fill="#000">Users struggle with <tspan font-weight="900">feeling comfortable</tspan> because</text>
+  <text x="1296" y="742" font-size="16" font-weight="600" fill="#000">platforms are too broad, leading to <tspan font-weight="900">disengagement</tspan>.</text>
+
+  
+  <text x="64" y="1060" font-size="12" fill="#888" letter-spacing="1">DESIGNHERE — UX RESEARCH</text>
+  <text x="1780" y="1060" font-size="12" fill="#888" letter-spacing="1">AFFINITY MAP</text>
+</svg>

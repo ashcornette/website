@@ -1,0 +1,106 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    
+  </defs>
+
+  <rect width="1920" height="1080" fill="#FDF7E7"></rect>
+
+  
+  <text x="72" y="82" font-size="12" font-weight="700" fill="#3517CA" letter-spacing="3">IDEATION</text>
+  <text x="72" y="130" font-size="44" font-weight="900" fill="#000">Reverse Thinking</text>
+  <text x="72" y="168" font-size="18" font-weight="500" fill="#5A5548">We asked: &#34;How would we make it impossible for designers to connect in Vancouver?&#34;</text>
+
+  
+  <text x="72" y="224" font-size="13" font-weight="800" fill="#E53535" letter-spacing="2">BARRIERS WE IDENTIFIED</text>
+
+  
+  <rect x="72" y="244" width="820" height="52" rx="8" fill="rgba(229,53,53,0.08)"></rect>
+  <text x="96" y="262" font-size="20" fill="#E53535" font-weight="800">✕</text>
+  <text x="126" y="276" font-size="16" font-weight="600" fill="#000">Scatter information across dozens of platforms</text>
+
+  
+  <rect x="72" y="306" width="820" height="52" rx="8" fill="rgba(229,53,53,0.08)"></rect>
+  <text x="96" y="324" font-size="20" fill="#E53535" font-weight="800">✕</text>
+  <text x="126" y="338" font-size="16" font-weight="600" fill="#000">Make events impossible to find unless you already know someone</text>
+
+  
+  <rect x="72" y="368" width="820" height="52" rx="8" fill="rgba(229,53,53,0.08)"></rect>
+  <text x="96" y="386" font-size="20" fill="#E53535" font-weight="800">✕</text>
+  <text x="126" y="400" font-size="16" font-weight="600" fill="#000">Provide zero way to follow up after meeting someone</text>
+
+  
+  <rect x="72" y="430" width="820" height="52" rx="8" fill="rgba(229,53,53,0.08)"></rect>
+  <text x="96" y="448" font-size="20" fill="#E53535" font-weight="800">✕</text>
+  <text x="126" y="462" font-size="16" font-weight="600" fill="#000">Create environments where only senior designers feel welcome</text>
+
+  
+  <rect x="72" y="492" width="820" height="52" rx="8" fill="rgba(229,53,53,0.08)"></rect>
+  <text x="96" y="510" font-size="20" fill="#E53535" font-weight="800">✕</text>
+  <text x="126" y="524" font-size="16" font-weight="600" fill="#000">Require everyone to show polished work — no WIPs allowed</text>
+
+  
+  <rect x="72" y="554" width="820" height="52" rx="8" fill="rgba(229,53,53,0.08)"></rect>
+  <text x="96" y="572" font-size="20" fill="#E53535" font-weight="800">✕</text>
+  <text x="126" y="586" font-size="16" font-weight="600" fill="#000">Make every interaction feel transactional and high-stakes</text>
+
+  
+  
+  <line x1="72" y1="672" x2="892" y2="672" stroke="#E5DFD0" stroke-width="1"></line>
+
+  
+  <text x="1000" y="224" font-size="13" font-weight="800" fill="#3517CA" letter-spacing="2">3 CONCEPT DIRECTIONS</text>
+
+  
+  <text x="930" y="420" font-size="48" font-weight="900" fill="#3517CA">→</text>
+
+  
+  <rect x="1000" y="244" width="848" height="160" rx="14" fill="#fff" stroke="#adf086" stroke-width="2"></rect>
+  <rect x="1000" y="244" width="8" height="160" rx="4" fill="#adf086"></rect>
+  <text x="1032" y="276" font-size="13" font-weight="800" fill="#3d8c1a" letter-spacing="1.5">CONCEPT 1</text>
+  <text x="1032" y="310" font-size="24" font-weight="900" fill="#000">Centralized Discovery Feed</text>
+  <text x="1032" y="342" font-size="15" font-weight="500" fill="#5A5548">Fragmented discovery → one place to find everything</text>
+  <text x="1032" y="368" font-size="15" font-weight="500" fill="#5A5548">happening in Vancouver&#39;s design community</text>
+  
+  <rect x="1660" y="260" width="160" height="28" rx="6" fill="rgba(173,240,134,0.3)"></rect>
+  <text x="1740" y="280" font-size="12" font-weight="700" fill="#3d8c1a" text-anchor="middle">Barriers 1 + 2</text>
+
+  
+  <rect x="1000" y="424" width="848" height="160" rx="14" fill="#fff" stroke="#E53535" stroke-width="2"></rect>
+  <rect x="1000" y="424" width="8" height="160" rx="4" fill="#E53535"></rect>
+  <text x="1032" y="456" font-size="13" font-weight="800" fill="#E53535" letter-spacing="1.5">CONCEPT 2</text>
+  <text x="1032" y="490" font-size="24" font-weight="900" fill="#000">Connection Tracker</text>
+  <text x="1032" y="522" font-size="15" font-weight="500" fill="#5A5548">No follow-up tools → lightweight CRM for design</text>
+  <text x="1032" y="548" font-size="15" font-weight="500" fill="#5A5548">connections with reminders and shared context</text>
+  <rect x="1660" y="440" width="160" height="28" rx="6" fill="rgba(229,53,53,0.1)"></rect>
+  <text x="1740" y="460" font-size="12" font-weight="700" fill="#E53535" text-anchor="middle">Barrier 3</text>
+
+  
+  <rect x="1000" y="604" width="848" height="160" rx="14" fill="#fff" stroke="#3517CA" stroke-width="2"></rect>
+  <rect x="1000" y="604" width="8" height="160" rx="4" fill="#3517CA"></rect>
+  <text x="1032" y="636" font-size="13" font-weight="800" fill="#3517CA" letter-spacing="1.5">CONCEPT 3</text>
+  <text x="1032" y="670" font-size="24" font-weight="900" fill="#000">Safe Studio</text>
+  <text x="1032" y="702" font-size="15" font-weight="500" fill="#5A5548">Intimidating spaces → low-stakes local community</text>
+  <text x="1032" y="728" font-size="15" font-weight="500" fill="#5A5548">where WIPs are welcome and pressure is off</text>
+  <rect x="1660" y="620" width="160" height="28" rx="6" fill="rgba(53,23,202,0.08)"></rect>
+  <text x="1740" y="640" font-size="12" font-weight="700" fill="#3517CA" text-anchor="middle">Barriers 4 + 5 + 6</text>
+
+  
+  <rect x="72" y="700" width="820" height="140" rx="14" fill="rgba(53,23,202,0.04)" stroke="rgba(53,23,202,0.1)" stroke-width="1.5"></rect>
+  <text x="96" y="738" font-size="15" font-weight="800" fill="#3517CA" letter-spacing="2">HOW BARRIERS BECAME CONCEPTS</text>
+
+  <rect x="96" y="756" width="16" height="16" rx="4" fill="#adf086"></rect>
+  <text x="124" y="772" font-size="18" font-weight="600" fill="#000">Barriers 1 + 2 (fragmented, hidden events)</text>
+  <text x="620" y="772" font-size="18" font-weight="800" fill="#3d8c1a">→  Centralized Discovery Feed</text>
+
+  <rect x="96" y="788" width="16" height="16" rx="4" fill="#E53535"></rect>
+  <text x="124" y="804" font-size="18" font-weight="600" fill="#000">Barrier 3 (no follow-up tools)</text>
+  <text x="620" y="804" font-size="18" font-weight="800" fill="#E53535">→  Connection Tracker</text>
+
+  <rect x="96" y="820" width="16" height="16" rx="4" fill="#3517CA"></rect>
+  <text x="124" y="836" font-size="18" font-weight="600" fill="#000">Barriers 4 + 5 + 6 (intimidating, high-stakes)</text>
+  <text x="620" y="836" font-size="18" font-weight="800" fill="#3517CA">→  Safe Studio</text>
+
+  
+  <text x="72" y="1060" font-size="12" fill="#888" letter-spacing="1">DESIGNHERE — UX RESEARCH</text>
+  <text x="1700" y="1060" font-size="12" fill="#888" letter-spacing="1">IDEATION METHOD</text>
+</svg>
