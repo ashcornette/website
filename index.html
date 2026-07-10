@@ -58,7 +58,20 @@
           <button class="proj-head" type="button" aria-expanded="false"><span class="proj-title">Arc'teryx Gear Bag</span><span class="proj-right"><span class="proj-tag">product · ux</span><span class="proj-tog" aria-hidden="true"></span></span></button>
           <div class="proj-panel"><div class="proj-inner"><div class="proj-body">
             <div class="proj-media">
-              <img class="proj-photo" src="img/gearbag/slide-01.jpg" alt="Arc'teryx Gear Bag" loading="lazy" />
+              <div class="proj-photo slideshow" role="img" aria-label="Arc'teryx Gear Bag — presentation deck slideshow">
+                <img src="img/gearbag/slide-01.jpg" alt="Arc'teryx Gear Bag deck" class="on">
+                <img src="img/gearbag/slide-02.jpg" alt="" loading="lazy">
+                <img src="img/gearbag/slide-03.jpg" alt="" loading="lazy">
+                <img src="img/gearbag/slide-04.jpg" alt="" loading="lazy">
+                <img src="img/gearbag/slide-05.jpg" alt="" loading="lazy">
+                <img src="img/gearbag/slide-06.jpg" alt="" loading="lazy">
+                <img src="img/gearbag/slide-07.jpg" alt="" loading="lazy">
+                <img src="img/gearbag/slide-08.jpg" alt="" loading="lazy">
+                <img src="img/gearbag/slide-09.jpg" alt="" loading="lazy">
+                <img src="img/gearbag/slide-10.jpg" alt="" loading="lazy">
+                <img src="img/gearbag/slide-11.jpg" alt="" loading="lazy">
+                <img src="img/gearbag/slide-12.jpg" alt="" loading="lazy">
+              </div>
               <a class="pill" href="arcteryx.html">View →</a>
             </div>
             <div class="proj-side">
@@ -72,7 +85,14 @@
           <button class="proj-head" type="button" aria-expanded="false"><span class="proj-title">DesignHere</span><span class="proj-right"><span class="proj-tag">ux · web app</span><span class="proj-tog" aria-hidden="true"></span></span></button>
           <div class="proj-panel"><div class="proj-inner"><div class="proj-body">
             <div class="proj-media">
-              <img class="proj-photo" src="img/DesignHere-Demo.png" alt="DesignHere" loading="lazy" />
+              <div class="proj-photo slideshow" role="img" aria-label="DesignHere — research slideshow">
+                <img src="img/DesignHere-Demo.png" alt="DesignHere research" class="on">
+                <img src="img/DesignHere-Start.png" alt="" loading="lazy">
+                <img src="img/DesignHere-Want.png" alt="" loading="lazy">
+                <img src="img/DesignHere-Validate.png" alt="" loading="lazy">
+                <img src="img/DesignHere-Reverse.png" alt="" loading="lazy">
+                <img src="img/DesignHere-Results.png" alt="" loading="lazy">
+              </div>
               <a class="pill" href="designhere.html">View →</a>
             </div>
             <div class="proj-side">
@@ -100,7 +120,7 @@
           <button class="proj-head" type="button" aria-expanded="false"><span class="proj-title">Sean Dawn</span><span class="proj-right"><span class="proj-tag">ux · mobile</span><span class="proj-tog" aria-hidden="true"></span></span></button>
           <div class="proj-panel"><div class="proj-inner"><div class="proj-body">
             <div class="proj-media">
-              <img class="proj-photo" src="img/daily.png" alt="Sean Dawn" loading="lazy" />
+              <img class="proj-photo pan" src="img/daily.png" alt="Sean Dawn" loading="lazy" />
               <a class="pill" href="sean-dawn.html">View →</a>
             </div>
             <div class="proj-side">
@@ -168,6 +188,22 @@
             var v = p.querySelector('video'); if (v) { v.play().catch(function () {}); }
           }
         });
+
+        // deck slideshows — advance only while their project is open
+        var shows = [].slice.call(document.querySelectorAll('.slideshow'));
+        if (shows.length) {
+          setInterval(function () {
+            shows.forEach(function (ss) {
+              var proj = ss.closest('.proj');
+              if (!proj || !proj.hasAttribute('data-open')) return;
+              var imgs = ss.querySelectorAll('img');
+              var cur = ss.querySelector('img.on') || imgs[0];
+              var i = [].indexOf.call(imgs, cur);
+              cur.classList.remove('on');
+              imgs[(i + 1) % imgs.length].classList.add('on');
+            });
+          }, 2600);
+        }
       })();
     </script>
   </body>
