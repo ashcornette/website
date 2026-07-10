@@ -540,6 +540,15 @@ a.pagetitle:hover { text-decoration: none; }
 .work .proj-side { flex: 1 1 240px; display: flex; flex-direction: column; align-items: flex-end; gap: 16px; padding-top: 2px; }
 .work .proj-copy { font-size: 15px; line-height: 1.65; color: var(--text); max-width: 38ch; text-align: right; margin: 0; }
 .work .tagcloud { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; max-width: 38ch; }
+
+/* deck slideshow — cross-fades through slides while the project is open */
+.work .proj-photo.slideshow { position: relative; overflow: hidden; }
+.work .slideshow img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .6s ease; }
+.work .slideshow img.on { opacity: 1; }
+
+/* slow horizontal pan for wide panoramic feature photos */
+.work .proj-photo.pan { animation: pan-x 16s ease-in-out infinite alternate; }
+@keyframes pan-x { from { object-position: 0% center; } to { object-position: 100% center; } }
 .work .tagcloud .t {
   font-family: var(--sans); font-size: 12px; letter-spacing: 0.02em; color: var(--accent);
   background: var(--tint); padding: 6px 13px; border-radius: 999px; white-space: nowrap;
