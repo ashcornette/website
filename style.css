@@ -572,6 +572,12 @@ a.pagetitle:hover { text-decoration: none; }
   .work .srch { width: 100%; }
   .work .topbar { flex-wrap: wrap; }
   .website .opt { max-width: 100%; }
+  /* keep each project title on one line */
+  .work .proj-title { font-size: clamp(19px, 6.4vw, 30px); white-space: nowrap; }
+  .work .proj-tag { display: none; }
+  /* tighten the stacked photo → copy spacing */
+  .work .proj-body { gap: 14px; }
+  .work .proj-media .pill { margin-bottom: 0; }
 }
 
 @media screen and (max-width: 600px) {
