@@ -44,7 +44,7 @@
           <button class="proj-head" type="button" aria-expanded="false"><span class="proj-title">Complex Breaks</span><span class="proj-right"><span class="proj-tag">brand · platform</span><span class="proj-tog" aria-hidden="true"></span></span></button>
           <div class="proj-panel"><div class="proj-inner"><div class="proj-body">
             <div class="proj-media">
-              <img class="proj-photo" src="img/cambie.png" alt="Complex Breaks" loading="lazy" />
+              <video class="proj-photo" src="img/complexbreaks-walkthrough.mp4" poster="img/complexbreaks-walkthrough-poster.jpg" muted loop playsinline autoplay preload="metadata" aria-label="Complex Breaks website walkthrough"></video>
               <a class="pill" href="https://complexbreaks.com" target="_blank" rel="noopener noreferrer">View →</a>
             </div>
             <div class="proj-side">
@@ -161,8 +161,12 @@
           projs.forEach(function (x) {
             x.removeAttribute('data-open');
             x.querySelector('.proj-head').setAttribute('aria-expanded', 'false');
+            var xv = x.querySelector('video'); if (xv) { xv.pause(); }
           });
-          if (!open) { p.setAttribute('data-open', ''); head.setAttribute('aria-expanded', 'true'); }
+          if (!open) {
+            p.setAttribute('data-open', ''); head.setAttribute('aria-expanded', 'true');
+            var v = p.querySelector('video'); if (v) { v.play().catch(function () {}); }
+          }
         });
       })();
     </script>
