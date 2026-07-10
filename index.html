@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <title>ash cornette</title>
     <link rel="stylesheet" href="style.css" />
+    <script>(function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
   </head>
   <body class="work">
     <a class="skip-link" href="#main">skip to content</a>
@@ -124,7 +125,7 @@
       (function () {
         var root = document.documentElement;
         document.getElementById('themeToggle').addEventListener('click', function () {
-          var cur = root.dataset.theme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); root.dataset.theme = cur === 'dark' ? 'light' : 'dark';
+          var cur = root.dataset.theme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); var next = cur === 'dark' ? 'light' : 'dark'; root.dataset.theme = next; try { localStorage.setItem('theme', next); } catch (e) {}
         });
         document.getElementById('yr').textContent = new Date().getFullYear();
 

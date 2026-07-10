@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="style.css" />
+    <script>(function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
   </head>
   <body class="doc website">
     <a class="skip-link" href="#main">skip to content</a>
@@ -27,7 +28,7 @@
     <main id="main" tabindex="-1">
       <header class="intro-hero">
         <p class="eyebrow">project inquiry</p>
-        <h1 class="lead">First, I get to know the business —<span class="cursor" aria-hidden="true">_</span></h1>
+        <h1 class="lead">First, I get to know the business<span class="cursor" aria-hidden="true">_</span></h1>
         <p class="intro">Then I turn what I hear into a clear proposal to get you there. Fill in what applies; skip anything that doesn't — it takes about three minutes.</p>
       </header>
       <div id="app"></div>
@@ -199,7 +200,7 @@ render();
     var root = document.documentElement;
     var btn = document.getElementById('themeToggle');
     btn.addEventListener('click', function () {
-      var cur = root.dataset.theme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); root.dataset.theme = cur === 'dark' ? 'light' : 'dark';
+      var cur = root.dataset.theme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); var next = cur === 'dark' ? 'light' : 'dark'; root.dataset.theme = next; try { localStorage.setItem('theme', next); } catch (e) {}
     });
   })();
   // footer year

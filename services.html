@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <title>ash cornette · services</title>
     <link rel="stylesheet" href="style.css" />
+    <script>(function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
   </head>
   <body class="doc">
     <a class="skip-link" href="#main">skip to content</a>
@@ -95,23 +96,18 @@
       </div>
     </main>
 
-    <footer>
-      <a href="#main">back to top</a>
-      <a href="https://linkedin.com/in/ashcornette" target="_blank" rel="noopener noreferrer">linkedin</a>
-      <span class="local-time" id="localTime">--:--</span>
+    <footer class="workfoot">
+      <span>© <span id="yr"></span> Ash Cornette</span>
+      <a href="inquiry.html">project inquiry →</a>
     </footer>
 
     <script>
       (function () {
         var root = document.documentElement;
         document.getElementById('themeToggle').addEventListener('click', function () {
-          var cur = root.dataset.theme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); root.dataset.theme = cur === 'dark' ? 'light' : 'dark';
+          var cur = root.dataset.theme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); var next = cur === 'dark' ? 'light' : 'dark'; root.dataset.theme = next; try { localStorage.setItem('theme', next); } catch (e) {}
         });
-        var el = document.getElementById('localTime');
-        function tick() {
-          el.textContent = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + ' local';
-        }
-        tick(); setInterval(tick, 30000);
+        document.getElementById('yr').textContent = new Date().getFullYear();
       })();
     </script>
   </body>
