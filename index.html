@@ -23,7 +23,7 @@
       <div class="topbar">
         <h1 class="pagetitle">Ash<span class="blink" aria-hidden="true">_</span>Cornette</h1>
         <div class="topbar-right">
-          <a class="pill" href="mailto:hello@ashcornette.com">say hello</a>
+          <a class="pill" href="mailto:hello@ashcornette.com" data-contact>say hello</a>
           <button class="theme-toggle" id="themeToggle" type="button" aria-label="toggle dark mode">◐</button>
         </div>
       </div>
@@ -134,8 +134,7 @@
       <div class="empty" id="empty">no matches — clear the search</div>
 
       <footer class="workfoot">
-        <span>© <span id="yr"></span> Ash Cornette</span>
-        <a href="inquiry.html">project inquiry →</a>
+        <span>© <span id="yr"></span></span>
       </footer>
       </div>
     </main>
@@ -155,6 +154,15 @@
             projs = [].slice.call(document.querySelectorAll('#rows .proj')),
             empty = document.getElementById('empty'),
             f = 'all';
+
+        // match the search bar width to the Ash_Cornette title
+        var pageTitle = document.querySelector('.pagetitle');
+        function sizeSearch() {
+          if (pageTitle && q) q.style.width = Math.round(pageTitle.getBoundingClientRect().width) + 'px';
+        }
+        if (document.fonts && document.fonts.ready) { document.fonts.ready.then(sizeSearch); }
+        sizeSearch();
+        window.addEventListener('resize', sizeSearch);
 
         function apply() {
           var t = q.value.trim().toLowerCase(), n = 0;
@@ -206,5 +214,6 @@
         }
       })();
     </script>
+    <script src="contact.js"></script>
   </body>
 </html>
