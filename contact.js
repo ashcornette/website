@@ -28,6 +28,8 @@
   var lastFocus = null;
 
   function positionTo(trigger) {
+    // on small screens the panel is a full-width sheet (styled in CSS); clear inline coords
+    if (window.innerWidth <= 720) { panel.style.top = ''; panel.style.right = ''; return; }
     if (!trigger || !trigger.getBoundingClientRect) return;
     var r = trigger.getBoundingClientRect();
     panel.style.top = Math.round(r.bottom + 10) + 'px';

@@ -625,6 +625,7 @@ a.pagetitle:hover { text-decoration: none; }
   .work .proj-body { gap: 14px; }
   .work .proj-media .pill { margin-bottom: 0; }
   .contact-row { flex-direction: column; gap: 0; }
+  .contact-panel { top: 16px; left: 16px; right: 16px; width: auto; max-height: calc(100vh - 32px); padding: 28px 24px; }
 }
 
 @media screen and (max-width: 600px) {
