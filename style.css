@@ -495,7 +495,7 @@ a.pagetitle:hover { text-decoration: none; }
 .doc .workfoot a:hover { color: var(--text); text-decoration: none; }
 .work .srch {
   width: 50%; min-width: 240px; font-family: var(--sans); font-size: 14px; color: var(--text);
-  background: transparent; border: 1px solid var(--text); border-radius: 12px;
+  background: transparent; border: 2px solid var(--text); border-radius: 24px; corner-shape: squircle;
   padding: 14px 18px; outline: none; margin: 0 0 18px; transition: border-color .2s ease;
 }
 .work .srch:focus { border-color: var(--text); }
@@ -503,7 +503,7 @@ a.pagetitle:hover { text-decoration: none; }
 .work .chips { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 26px; }
 .work .chip {
   font-family: var(--sans); font-size: 12px; letter-spacing: 0.03em; text-transform: lowercase;
-  padding: 8px 16px; border-radius: 12px; background: var(--tint); color: var(--muted);
+  padding: 8px 16px; border-radius: 12px; corner-shape: squircle; background: var(--tint); color: var(--muted);
   cursor: pointer; border: 0; transition: background .2s ease, color .2s ease;
 }
 .work .chip:hover { color: var(--text); }
@@ -535,7 +535,7 @@ a.pagetitle:hover { text-decoration: none; }
 .work .proj-media { flex: 1 1 440px; max-width: 640px; }
 .work .proj-photo {
   width: 100%; aspect-ratio: 16 / 9; object-fit: cover;
-  background: var(--tint); border: 1px solid var(--text); display: block; margin: 0 0 18px;
+  background: var(--tint); border: 0; border-radius: 40px; corner-shape: squircle; display: block; margin: 0 0 18px;
 }
 .work .proj-side { flex: 1 1 240px; display: flex; flex-direction: column; align-items: flex-end; gap: 16px; padding-top: 2px; }
 .work .proj-copy { font-size: 15px; line-height: 1.65; color: var(--text); max-width: 38ch; text-align: right; margin: 0; }
