@@ -493,10 +493,10 @@ a.pagetitle:hover { text-decoration: none; }
 .doc .workfoot {
   display: flex; justify-content: space-between; align-items: center; gap: 20px;
   max-width: var(--col); margin: 64px auto 0; padding: 22px 0 60px; border-top: 1px solid var(--text);
-  background: transparent; font-size: 12px; letter-spacing: 0.04em; color: var(--muted); animation: none;
+  background: transparent; font-size: 12px; letter-spacing: 0.04em; color: var(--text); animation: none;
 }
-.doc .workfoot a { font-size: 12px; letter-spacing: 0.04em; color: var(--muted); }
-.doc .workfoot a:hover { color: var(--text); text-decoration: none; }
+.doc .workfoot a { font-size: 12px; letter-spacing: 0.04em; color: var(--text); transition: color 0.15s ease; }
+.doc .workfoot a:hover { color: var(--muted); text-decoration: none; }
 .work .srch {
   width: 33.333%; min-width: 240px; font-family: var(--sans); font-size: 14px; color: var(--text);
   background: transparent; border: 1px solid var(--frame); border-radius: 16px; corner-shape: squircle;
@@ -521,7 +521,8 @@ a.pagetitle:hover { text-decoration: none; }
   font-family: var(--sans); font-size: clamp(34px, 7vw, 72px); font-weight: 500;
   letter-spacing: -0.03em; line-height: 1.02; transition: transform .3s ease, opacity .3s ease;
 }
-.work .proj:not([data-open]) .proj-title { opacity: 0.5; }
+/* titles sit at full strength; hovering the list dims the others to spotlight the one you're on */
+.work .rows:hover .proj:not(:hover) .proj-title { opacity: 0.45; }
 
 /* accordion toggle — a plus that rotates 45° into a close × when open */
 .work .proj-tog {
@@ -566,10 +567,10 @@ a.pagetitle:hover { text-decoration: none; }
 .work .workfoot {
   display: flex; justify-content: space-between; align-items: center; gap: 20px;
   max-width: none; margin: 64px 0 0; padding: 22px 0 60px;
-  background: transparent; font-size: 12px; letter-spacing: 0.04em; color: var(--muted); animation: none;
+  background: transparent; font-size: 12px; letter-spacing: 0.04em; color: var(--text); animation: none;
 }
-.work .workfoot a { font-size: 12px; letter-spacing: 0.04em; color: var(--muted); }
-.work .workfoot a:hover { color: var(--text); text-decoration: none; }
+.work .workfoot a { font-size: 12px; letter-spacing: 0.04em; color: var(--text); transition: color 0.15s ease; }
+.work .workfoot a:hover { color: var(--muted); text-decoration: none; }
 
 /* ── pop-out contact panel (injected by contact.js) ── */
 .contact-overlay {
@@ -588,6 +589,12 @@ a.pagetitle:hover { text-decoration: none; }
 }
 @keyframes contact-drop {
   from { opacity: 0; transform: translateY(-10px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+/* opens upward when the trigger sits low on the page (e.g. the footer CTA) */
+.contact-panel.up { transform-origin: bottom right; animation-name: contact-rise; }
+@keyframes contact-rise {
+  from { opacity: 0; transform: translateY(10px) scale(0.98); }
   to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 .contact-close {

@@ -29,18 +29,34 @@
 
   function positionTo(trigger) {
     // on small screens the panel is a full-width sheet (styled in CSS); clear inline coords
-    if (window.innerWidth <= 720) { panel.style.top = ''; panel.style.right = ''; return; }
+    if (window.innerWidth <= 720) {
+      panel.style.top = ''; panel.style.right = ''; panel.style.bottom = '';
+      panel.classList.remove('up');
+      return;
+    }
     if (!trigger || !trigger.getBoundingClientRect) return;
     var r = trigger.getBoundingClientRect();
-    panel.style.top = Math.round(r.bottom + 10) + 'px';
+    var h = panel.offsetHeight || 420;
     panel.style.right = Math.round(Math.max(16, window.innerWidth - r.right)) + 'px';
+    if (window.innerHeight - r.bottom < h + 24) {
+      // not enough room below (e.g. the footer CTA) → open upward from the button.
+      // top must be 'auto', not '' — clearing it would fall back to the stylesheet's
+      // top:76px and stretch the panel between top and bottom.
+      panel.classList.add('up');
+      panel.style.top = 'auto';
+      panel.style.bottom = Math.round(Math.max(16, window.innerHeight - r.top + 10)) + 'px';
+    } else {
+      panel.classList.remove('up');
+      panel.style.bottom = 'auto';
+      panel.style.top = Math.round(r.bottom + 10) + 'px';
+    }
   }
   function open(e) {
     if (e) e.preventDefault();
     lastFocus = (e && e.currentTarget) || document.activeElement;
-    positionTo(lastFocus);
-    overlay.hidden = false;
+    overlay.hidden = false;                 // show first so the panel can be measured
     document.documentElement.style.overflow = 'hidden';
+    positionTo(lastFocus);
     var first = form.querySelector('input');
     if (first) first.focus();
     document.addEventListener('keydown', onKey);
