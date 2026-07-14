@@ -3,15 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Arc'teryx Gear Bag — the full presentation deck by Ash Cornette. Every slide from the case study, in one view.">
+    <meta name="description" content="Arc'teryx Gear Bag — the presentation deck by Ash Cornette, slide by slide.">
     <meta property="og:type" content="website">
     <meta property="og:title" content="ash cornette · arc'teryx gear bag — deck">
-    <meta property="og:description" content="The full Arc'teryx Gear Bag presentation, slide by slide.">
+    <meta property="og:description" content="The Arc'teryx Gear Bag presentation, slide by slide.">
     <meta property="og:url" content="https://ashcornette.com/gearbag.html">
+    <meta property="og:image" content="https://ashcornette.com/img/gearbag/slide-01.jpg">
+    <meta property="og:image:alt" content="Work by Ash Cornette — brand, UX, and web design, Vancouver BC.">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://ashcornette.com/gearbag.html">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <title>ash cornette · arc'teryx gear bag — deck</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap">
     <link rel="stylesheet" href="style.css" />
     <script>(function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
   </head>
@@ -20,14 +25,14 @@
     <div class="topbar">
       <a class="pagetitle" href="index.html">Ash<span class="blink" aria-hidden="true">_</span>Cornette</a>
       <div class="topbar-right">
-        <a class="pill" href="mailto:hello@ashcornette.com">say hello</a>
+        <a class="pill" href="mailto:hello@ashcornette.com" data-contact>say hello</a>
         <button class="theme-toggle" id="themeToggle" type="button" aria-label="toggle dark mode">◐</button>
       </div>
     </div>
 
     <main id="main" tabindex="-1">
       <h1>Arc'teryx Gear Bag</h1>
-      <p class="role">the full presentation deck, slide by slide</p>
+      <p class="role">the presentation deck, slide by slide</p>
 
       <div class="meta">
         <span class="status">concept</span>
@@ -53,8 +58,8 @@
     </main>
 
     <footer class="workfoot">
-      <span>© <span id="yr"></span> Ash Cornette</span>
-      <a href="inquiry.html">project inquiry →</a>
+      <span>© <span id="yr"></span></span>
+        <a href="mailto:hello@ashcornette.com" data-contact>say hello</a>
     </footer>
 
     <script>
@@ -66,5 +71,6 @@
         document.getElementById('yr').textContent = new Date().getFullYear();
       })();
     </script>
+    <script src="contact.js"></script>
   </body>
 </html>

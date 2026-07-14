@@ -8,10 +8,15 @@
     <meta property="og:title" content="ash cornette" />
     <meta property="og:description" content="UX, product, brand, and website design. Vancouver, BC." />
     <meta property="og:url" content="https://ashcornette.com/" />
+    <meta property="og:image" content="https://ashcornette.com/img/cambie.jpg">
+    <meta property="og:image:alt" content="Work by Ash Cornette — brand, UX, and web design, Vancouver BC.">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://ashcornette.com/">
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <title>ash cornette</title>
+    <title>Ash Cornette — Brand, UX &amp; Web Design · Vancouver, BC</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap">
     <link rel="stylesheet" href="style.css" />
     <script>(function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
   </head>
@@ -28,32 +33,25 @@
         </div>
       </div>
 
-      <p class="tagline">Brand, UX, Web Design. <span aria-hidden="true">📍</span> Vancouver, BC.</p>
+      <p class="tagline">Brand, UX, Web Design. Vancouver, BC.</p>
 
       <input class="srch" id="q" type="text" placeholder="search work — name, type, tool…" autocomplete="off" aria-label="search work" />
 
       <div class="chips" id="chips">
-        <button class="chip on" type="button" data-f="all">all</button>
-        <button class="chip" type="button" data-f="websites">websites</button>
-        <button class="chip" type="button" data-f="brand">brand &amp; logo</button>
-        <button class="chip" type="button" data-f="product">product &amp; ux</button>
-      </div>
-
-      <div class="banner slideshow" id="banner" role="img" aria-label="Vancouver — street photography">
-        <img src="img/cambie.jpg" alt="The Dominion Building on Cambie Street, Vancouver, shot looking up from the sidewalk." class="on">
-        <img src="img/newtown.jpg" alt="">
-        <img src="img/cordova.jpg" alt="" loading="lazy">
-        <img src="img/carrall.jpg" alt="" loading="lazy">
+        <button class="chip on" type="button" aria-pressed="true" data-f="all">all</button>
+        <button class="chip" type="button" aria-pressed="false" data-f="websites">websites</button>
+        <button class="chip" type="button" aria-pressed="false" data-f="brand">brand &amp; logo</button>
+        <button class="chip" type="button" aria-pressed="false" data-f="product">product &amp; ux</button>
       </div>
 
       <div class="ruled">
       <div class="rows" id="rows">
 
         <div class="proj" data-t="brand" data-s="complex breaks brand platform breaking archive logo">
-          <button class="proj-head" type="button" aria-expanded="false"><span class="proj-title">Complex Breaks</span><span class="proj-tog" aria-hidden="true"></span></button>
-          <div class="proj-panel"><div class="proj-inner"><div class="proj-body">
+          <h2 class="proj-h"><button class="proj-head" type="button" aria-expanded="false" aria-controls="panel-cb"><span class="proj-title">Complex Breaks</span><span class="proj-tog" aria-hidden="true"></span></button></h2>
+          <div class="proj-panel" id="panel-cb"><div class="proj-inner"><div class="proj-body">
             <div class="proj-media">
-              <video class="proj-photo" src="img/complexbreaks-walkthrough.mp4" poster="img/complexbreaks-walkthrough-poster.jpg" muted loop playsinline autoplay preload="metadata" aria-label="Complex Breaks website walkthrough"></video>
+              <video class="proj-photo" src="img/complexbreaks-walkthrough.mp4" poster="img/complexbreaks-walkthrough-poster.jpg" muted loop playsinline preload="metadata" aria-label="Complex Breaks website walkthrough"></video>
               <div class="proj-links">
                 <a class="pill" href="complexbreaks.html">View case study →</a>
                 <a class="proj-alt" href="https://complexbreaks.com" target="_blank" rel="noopener noreferrer">complexbreaks.com ↗</a>
@@ -67,8 +65,8 @@
         </div>
 
         <div class="proj" data-t="product" data-s="arcteryx gear bag product ux app figma">
-          <button class="proj-head" type="button" aria-expanded="false"><span class="proj-title">Arc'teryx Gear Bag</span><span class="proj-tog" aria-hidden="true"></span></button>
-          <div class="proj-panel"><div class="proj-inner"><div class="proj-body">
+          <h2 class="proj-h"><button class="proj-head" type="button" aria-expanded="false" aria-controls="panel-arc"><span class="proj-title">Arc'teryx Gear Bag</span><span class="proj-tog" aria-hidden="true"></span></button></h2>
+          <div class="proj-panel" id="panel-arc"><div class="proj-inner"><div class="proj-body">
             <div class="proj-media">
               <div class="proj-photo slideshow" role="img" aria-label="Arc'teryx Gear Bag — presentation deck slideshow">
                 <img src="img/gearbag/slide-01.jpg" alt="Arc'teryx Gear Bag deck" class="on">
@@ -97,8 +95,8 @@
         </div>
 
         <div class="proj" data-t="product" data-s="designhere ux web app research vancouver">
-          <button class="proj-head" type="button" aria-expanded="false"><span class="proj-title">DesignHere</span><span class="proj-tog" aria-hidden="true"></span></button>
-          <div class="proj-panel"><div class="proj-inner"><div class="proj-body">
+          <h2 class="proj-h"><button class="proj-head" type="button" aria-expanded="false" aria-controls="panel-dh"><span class="proj-title">DesignHere</span><span class="proj-tog" aria-hidden="true"></span></button></h2>
+          <div class="proj-panel" id="panel-dh"><div class="proj-inner"><div class="proj-body">
             <div class="proj-media">
               <div class="proj-photo slideshow" role="img" aria-label="DesignHere — research slideshow">
                 <img src="img/DesignHere-Demo.png" alt="DesignHere research" class="on">
@@ -120,8 +118,8 @@
         </div>
 
         <div class="proj" data-t="websites" data-s="ouro collective website events dance">
-          <button class="proj-head" type="button" aria-expanded="false"><span class="proj-title">OURO Collective</span><span class="proj-tog" aria-hidden="true"></span></button>
-          <div class="proj-panel"><div class="proj-inner"><div class="proj-body">
+          <h2 class="proj-h"><button class="proj-head" type="button" aria-expanded="false" aria-controls="panel-ouro"><span class="proj-title">OURO Collective</span><span class="proj-tog" aria-hidden="true"></span></button></h2>
+          <div class="proj-panel" id="panel-ouro"><div class="proj-inner"><div class="proj-body">
             <div class="proj-media">
               <img class="proj-photo" src="img/ourocollective-hero.png" alt="OURO Collective" />
               <div class="proj-links">
@@ -136,8 +134,8 @@
         </div>
 
         <div class="proj" data-t="product" data-s="sean dawn ux mobile app productivity">
-          <button class="proj-head" type="button" aria-expanded="false"><span class="proj-title">Sean Dawn</span><span class="proj-tog" aria-hidden="true"></span></button>
-          <div class="proj-panel"><div class="proj-inner"><div class="proj-body">
+          <h2 class="proj-h"><button class="proj-head" type="button" aria-expanded="false" aria-controls="panel-sd"><span class="proj-title">Sean Dawn</span><span class="proj-tog" aria-hidden="true"></span></button></h2>
+          <div class="proj-panel" id="panel-sd"><div class="proj-inner"><div class="proj-body">
             <div class="proj-media">
               <img class="proj-photo pan" src="img/daily.png" alt="Sean Dawn" />
               <div class="proj-links">
@@ -152,11 +150,24 @@
         </div>
 
       </div>
-      <div class="empty" id="empty">no matches — clear the search</div>
+      <div class="empty" id="empty" role="status" aria-live="polite">no matches — clear the search</div>
+
+      <!-- sign-off strip: sets place after the work has done its job, not before it -->
+      <div class="banner slideshow" id="banner" role="img" aria-label="Vancouver, BC — street photography by Ash Cornette">
+        <img src="img/cambie.jpg" alt="" class="on" loading="lazy">
+        <img src="img/newtown.jpg" alt="" loading="lazy">
+        <img src="img/cordova.jpg" alt="" loading="lazy">
+        <img src="img/carrall.jpg" alt="" loading="lazy">
+      </div>
+      <p class="banner-cap">Vancouver, BC</p>
 
       <footer class="workfoot">
         <span>© <span id="yr"></span></span>
-        <a href="mailto:hello@ashcornette.com" data-contact>say hello</a>
+        <nav class="workfoot-nav" aria-label="More">
+          <a href="services.html">services</a>
+          <a href="inquiry.html">project inquiry</a>
+          <a href="mailto:hello@ashcornette.com" data-contact>say hello</a>
+        </nav>
       </footer>
       </div>
     </main>
@@ -200,8 +211,8 @@
 
         chips.addEventListener('click', function (e) {
           var b = e.target.closest('.chip'); if (!b) return;
-          chips.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('on'); });
-          b.classList.add('on'); f = b.dataset.f; apply();
+          chips.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('on'); c.setAttribute('aria-pressed', 'false'); });
+          b.classList.add('on'); b.setAttribute('aria-pressed', 'true'); f = b.dataset.f; apply();
         });
         q.addEventListener('input', apply);
 
@@ -219,7 +230,17 @@
           }
         });
 
-        // masthead banner — slow cross-fade, pauses if the viewer prefers reduced motion
+        // open the first project on load — a visitor should see work, not five text titles
+        (function () {
+          var first = projs[0];
+          if (!first) return;
+          first.setAttribute('data-open', '');
+          first.querySelector('.proj-head').setAttribute('aria-expanded', 'true');
+          var v = first.querySelector('video');
+          if (v && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) { v.play().catch(function () {}); }
+        })();
+
+        // sign-off strip — slow cross-fade, holds still if the viewer prefers reduced motion
         var banner = document.getElementById('banner');
         if (banner && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
           var bimgs = banner.querySelectorAll('img');

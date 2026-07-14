@@ -1,4 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap");
+/* Hanken Grotesk is loaded via <link> in each page's <head>, not @import —
+   an @import here can't start until this file has downloaded AND parsed,
+   which serialises the font behind the CSS and wastes the preconnect hints. */
 
 /* ══════════════════════════════════════════════════════════════════════
    ashcornette.com — style.css v3 (consolidated)
@@ -54,7 +56,7 @@
   --border: #262625;
   --tint: #1c1c1b;
   --accent: #cfcecb;
-  --frame: #565652;
+  --frame: #6b6b68;   /* 3.61:1 on --bg — #565652 was 2.62:1 and failed WCAG 1.4.11 for UI borders/focus rings */
   --positive: #7bc07b;
   --negative: #e07a52;
   --phase-indigo: #6b70ad;
@@ -69,7 +71,7 @@
     --border: #262625;
     --tint: #1c1c1b;
     --accent: #cfcecb;
-    --frame: #565652;
+    --frame: #6b6b68;   /* 3.61:1 on --bg — #565652 was 2.62:1 and failed WCAG 1.4.11 for UI borders/focus rings */
     --positive: #7bc07b;
     --negative: #e07a52;
     --phase-indigo: #6b70ad;
@@ -85,6 +87,7 @@ body {
   background: var(--bg);
   min-height: 100vh;
   padding: 0 var(--pad);
+  overflow-x: clip;   /* full-bleed children use 100vw; don't let the scrollbar cause a sideways scroll */
   -webkit-font-smoothing: antialiased;
 }
 
@@ -537,18 +540,59 @@ a.pagetitle:hover { text-decoration: none; }
 .work .proj-tog::after { width: 2px; height: 18px; }
 .work .proj[data-open] .proj-tog { transform: rotate(45deg); }
 .work .proj-head:hover .proj-title { transform: translateX(8px); opacity: 1; }
+/* the heading only wraps the button for semantics — it must not restyle it */
+.work .proj-h { margin: 0; font-size: inherit; font-weight: inherit; letter-spacing: inherit; }
+.work .proj-h::after { content: none; }
 .work .proj-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .4s ease; }
 .work .proj[data-open] .proj-panel { grid-template-rows: 1fr; }
-.work .proj-inner { overflow: hidden; }
+/* visibility:hidden takes the collapsed panel's links out of the tab order —
+   without it, keyboard users tab into invisible zero-height links (WCAG 2.4.7).
+   The delay lets the row finish closing before it disappears. */
+.work .proj-inner { overflow: hidden; visibility: hidden; transition: visibility 0s linear .4s; }
+.work .proj[data-open] .proj-inner { visibility: visible; transition-delay: 0s; }
 .work .proj-body { display: flex; gap: 36px; align-items: flex-start; flex-wrap: wrap; padding: 6px 0 44px; }
 .work .proj-media { flex: 1 1 440px; max-width: 640px; }
 .work .proj-photo {
   width: 100%; aspect-ratio: 16 / 9; object-fit: cover;
   background: var(--tint); border: 1px solid var(--frame); border-radius: 0; display: block; margin: 0 0 18px;
 }
+/* primary pill + quiet secondary link */
+.work .proj-links { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.work .proj-links .pill { margin: 0; }
+.work .proj-alt {
+  font-size: 14px; letter-spacing: 0.01em; color: var(--muted);
+  text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--border);
+  transition: color 0.15s ease, text-decoration-color 0.15s ease; white-space: nowrap;
+}
+/* hover must ADD affordance — the old rule dimmed it to --muted and killed the
+   underline, so reaching for the link made it look more disabled */
+.work .proj-alt:hover { color: var(--text); text-decoration-color: var(--text); }
 .work .proj-side { flex: 1 1 240px; display: flex; flex-direction: column; align-items: flex-end; gap: 16px; padding-top: 2px; }
 .work .proj-copy { font-size: 15px; line-height: 1.65; color: var(--text); max-width: 38ch; text-align: right; margin: 0; }
 .work .tagcloud { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; max-width: 38ch; }
+
+/* sign-off strip — full-bleed slideshow BELOW the work index.
+   Above the rows it pushed every project title past the fold; here it costs nothing. */
+.work .banner {
+  position: relative; overflow: hidden; display: block;
+  aspect-ratio: 64 / 27;   /* 75% of the original 16:9 height */
+  background: var(--tint); border: 0;
+  /* break out of the centred column and the body padding → edge to edge */
+  width: auto; max-width: none;
+  margin: 56px calc(50% - 50vw) 0;
+}
+.work .banner-cap {
+  font-size: 12px; letter-spacing: 0.04em; color: var(--text);
+  margin: 14px 0 0;
+}
+/* higher specificity than `.work .slideshow img` below, which would otherwise
+   win on source order and drag this back to the deck's .6s */
+.work .banner.slideshow img { transition: opacity 1s ease; }
+/* framing — the letterbox crop needs each shot held at its own height */
+.work .banner img:nth-child(1) { object-position: 50% 30%; }  /* cambie  — keep the crown */
+.work .banner img:nth-child(2) { object-position: 50% 42%; }  /* newtown — drop the empty road */
+.work .banner img:nth-child(3) { object-position: 50% 0%; }   /* cordova — peak sits at the frame edge; any lower clips the spire */
+.work .banner img:nth-child(4) { object-position: 50% 30%; }  /* carrall — hold the street sign */
 
 /* deck slideshow — cross-fades through slides while the project is open */
 .work .proj-photo.slideshow { position: relative; overflow: hidden; }
@@ -571,6 +615,7 @@ a.pagetitle:hover { text-decoration: none; }
 }
 .work .workfoot a { font-size: 12px; letter-spacing: 0.04em; color: var(--text); transition: color 0.15s ease; }
 .work .workfoot a:hover { color: var(--muted); text-decoration: none; }
+.work .workfoot-nav { display: flex; gap: 22px; align-items: center; flex-wrap: wrap; }
 
 /* ── pop-out contact panel (injected by contact.js) ── */
 .contact-overlay {
@@ -626,6 +671,8 @@ a.pagetitle:hover { text-decoration: none; }
 @media screen and (max-width: 720px) {
   :root { --pad: 24px; }
   .gearbag .deck-grid { grid-template-columns: 1fr; }
+  /* 32:9 collapses to a useless sliver on a phone — give it back some height */
+  .work .banner { aspect-ratio: 2 / 1; margin-bottom: 24px; }
   .work .srch { display: none; }
   .work .topbar { flex-wrap: wrap; }
   .website .opt { max-width: 100%; }
