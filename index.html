@@ -28,7 +28,7 @@
         </div>
       </div>
 
-      <p class="tagline">Digital Design. Vancouver.</p>
+      <p class="tagline">Brand, UX, Web Design. <span aria-hidden="true">📍</span> Vancouver, BC.</p>
 
       <input class="srch" id="q" type="text" placeholder="search work — name, type, tool…" autocomplete="off" aria-label="search work" />
 
@@ -39,6 +39,13 @@
         <button class="chip" type="button" data-f="product">product &amp; ux</button>
       </div>
 
+      <div class="banner slideshow" id="banner" role="img" aria-label="Vancouver — street photography">
+        <img src="img/cambie.jpg" alt="The Dominion Building on Cambie Street, Vancouver, shot looking up from the sidewalk." class="on">
+        <img src="img/newtown.jpg" alt="">
+        <img src="img/cordova.jpg" alt="" loading="lazy">
+        <img src="img/carrall.jpg" alt="" loading="lazy">
+      </div>
+
       <div class="ruled">
       <div class="rows" id="rows">
 
@@ -47,7 +54,10 @@
           <div class="proj-panel"><div class="proj-inner"><div class="proj-body">
             <div class="proj-media">
               <video class="proj-photo" src="img/complexbreaks-walkthrough.mp4" poster="img/complexbreaks-walkthrough-poster.jpg" muted loop playsinline autoplay preload="metadata" aria-label="Complex Breaks website walkthrough"></video>
-              <a class="pill" href="https://complexbreaks.com" target="_blank" rel="noopener noreferrer">View →</a>
+              <div class="proj-links">
+                <a class="pill" href="complexbreaks.html">View case study →</a>
+                <a class="proj-alt" href="https://complexbreaks.com" target="_blank" rel="noopener noreferrer">complexbreaks.com ↗</a>
+              </div>
             </div>
             <div class="proj-side">
               <p class="proj-copy">A breaking-culture archive, brand, and platform I run end to end — documenting jams from inside the circle, on ground I own.</p>
@@ -74,7 +84,10 @@
                 <img src="img/gearbag/slide-11.jpg" alt="" loading="lazy">
                 <img src="img/gearbag/slide-12.jpg" alt="" loading="lazy">
               </div>
-              <a class="pill" href="arcteryx.html">View →</a>
+              <div class="proj-links">
+                <a class="pill" href="arcteryx.html">View case study →</a>
+                <a class="proj-alt" href="gearbag.html">See the full deck →</a>
+              </div>
             </div>
             <div class="proj-side">
               <p class="proj-copy">Turning a dead-end favourite into a planning tool by adding activity-specific kit bags to the app's highest-intent moment.</p>
@@ -95,7 +108,9 @@
                 <img src="img/DesignHere-Reverse.png" alt="" loading="lazy">
                 <img src="img/DesignHere-Results.png" alt="" loading="lazy">
               </div>
-              <a class="pill" href="designhere.html">View →</a>
+              <div class="proj-links">
+                <a class="pill" href="designhere.html">View case study →</a>
+              </div>
             </div>
             <div class="proj-side">
               <p class="proj-copy">Connecting Vancouver's design community through centralized event discovery, connection tracking, and a low-stakes place to gather.</p>
@@ -109,7 +124,9 @@
           <div class="proj-panel"><div class="proj-inner"><div class="proj-body">
             <div class="proj-media">
               <img class="proj-photo" src="img/ourocollective-hero.png" alt="OURO Collective" />
-              <a class="pill" href="https://ourocollective.com" target="_blank" rel="noopener noreferrer">View →</a>
+              <div class="proj-links">
+                <a class="pill" href="https://ourocollective.com" target="_blank" rel="noopener noreferrer">View site ↗</a>
+              </div>
             </div>
             <div class="proj-side">
               <p class="proj-copy">Brand, web presence, and event coordination for a Vancouver dance collective.</p>
@@ -123,7 +140,9 @@
           <div class="proj-panel"><div class="proj-inner"><div class="proj-body">
             <div class="proj-media">
               <img class="proj-photo pan" src="img/daily.png" alt="Sean Dawn" />
-              <a class="pill" href="sean-dawn.html">View →</a>
+              <div class="proj-links">
+                <a class="pill" href="sean-dawn.html">View case study →</a>
+              </div>
             </div>
             <div class="proj-side">
               <p class="proj-copy">A productivity app for overthinkers — built around fewer choices and one screen that changes through the day.</p>
@@ -199,6 +218,20 @@
             var v = p.querySelector('video'); if (v) { v.play().catch(function () {}); }
           }
         });
+
+        // masthead banner — slow cross-fade, pauses if the viewer prefers reduced motion
+        var banner = document.getElementById('banner');
+        if (banner && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          var bimgs = banner.querySelectorAll('img');
+          if (bimgs.length > 1) {
+            setInterval(function () {
+              var cur = banner.querySelector('img.on') || bimgs[0];
+              var i = [].indexOf.call(bimgs, cur);
+              cur.classList.remove('on');
+              bimgs[(i + 1) % bimgs.length].classList.add('on');
+            }, 5000);
+          }
+        }
 
         // deck slideshows — advance only while their project is open
         var shows = [].slice.call(document.querySelectorAll('.slideshow'));
