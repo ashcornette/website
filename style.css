@@ -407,6 +407,7 @@ a:focus-visible, button:focus-visible, .theme-toggle:focus-visible {
 .gearbag .slide { display: block; border-radius: 10px; overflow: hidden; background: var(--tint); transition: transform 0.25s ease; }
 .gearbag .slide img { display: block; width: 100%; height: auto; }
 .gearbag .slide:hover { transform: translateY(-4px); }
+.gearbag .deck-grid + .pill { margin-top: 44px; }
 
 /* ── 8b. complexbreaks — photo screens are cropped ── */
 .complexbreaks .screens img { aspect-ratio: 4 / 3; object-fit: cover; }
@@ -581,10 +582,6 @@ a.pagetitle:hover { text-decoration: none; }
   width: auto; max-width: none;
   margin: 56px calc(50% - 50vw) 0;
 }
-.work .banner-cap {
-  font-size: 12px; letter-spacing: 0.04em; color: var(--text);
-  margin: 14px 0 0;
-}
 /* higher specificity than `.work .slideshow img` below, which would otherwise
    win on source order and drag this back to the deck's .6s */
 .work .banner.slideshow img { transition: opacity 1s ease; }
@@ -615,7 +612,6 @@ a.pagetitle:hover { text-decoration: none; }
 }
 .work .workfoot a { font-size: 12px; letter-spacing: 0.04em; color: var(--text); transition: color 0.15s ease; }
 .work .workfoot a:hover { color: var(--muted); text-decoration: none; }
-.work .workfoot-nav { display: flex; gap: 22px; align-items: center; flex-wrap: wrap; }
 
 /* ── pop-out contact panel (injected by contact.js) ── */
 .contact-overlay {
