@@ -8,10 +8,15 @@
     <meta property="og:title" content="ash cornette · complex breaks">
     <meta property="og:description" content="Breaking culture archive, brand, and platform — identity, content, merch, and a shipped product running since 2020.">
     <meta property="og:url" content="https://ashcornette.com/complexbreaks.html">
+    <meta property="og:image" content="https://ashcornette.com/img/complexbreaks-walkthrough-poster.jpg">
+    <meta property="og:image:alt" content="Work by Ash Cornette — brand, UX, and web design, Vancouver BC.">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://ashcornette.com/complexbreaks.html">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <title>ash cornette · complex breaks</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap">
     <link rel="stylesheet" href="style.css" />
     <script>(function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
   </head>
@@ -20,7 +25,7 @@
     <div class="topbar">
       <a class="pagetitle" href="index.html">Ash<span class="blink" aria-hidden="true">_</span>Cornette</a>
       <div class="topbar-right">
-        <a class="pill" href="mailto:hello@ashcornette.com">say hello</a>
+        <a class="pill" href="mailto:hello@ashcornette.com" data-contact>say hello</a>
         <button class="theme-toggle" id="themeToggle" type="button" aria-label="toggle dark mode">◐</button>
       </div>
     </div>
@@ -125,12 +130,12 @@
         <img class="closing-img" src="img/complexbreaks-thanks.png" alt="A masked figure in a beanie bowing with hands together under stage light — the site's closing image." loading="lazy">
       </div>
 
-      <a class="pill" href="services.html">say hello →</a>
+      <a class="pill" href="inquiry.html">Start a project inquiry →</a>
     </main>
 
     <footer class="workfoot">
-      <span>© <span id="yr"></span> Ash Cornette</span>
-      <a href="inquiry.html">project inquiry →</a>
+      <span>© <span id="yr"></span></span>
+        <a href="mailto:hello@ashcornette.com" data-contact>say hello</a>
     </footer>
 
     <script>
@@ -145,5 +150,6 @@
       // footer year
       document.getElementById('yr').textContent = new Date().getFullYear();
     </script>
+    <script src="contact.js"></script>
   </body>
 </html>
