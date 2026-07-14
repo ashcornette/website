@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <title>Personas — owduv</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style-project.css" />
   <style>
     /* self-contained: mirrors the current shared system so the page renders
        correctly on its own (preview) and drops straight into the site */
@@ -16,14 +16,7 @@
       --text: #1a1a25;
       --muted: #525256;
       --border: #e0ddd8;
-      --accent: #7d3410;
-    }
-    [data-theme="dark"] {
-      --bg: #1c1c1c;
-      --text: #f5f4f0;
-      --muted: #c8c2ba;
-      --border: #333;
-      --accent: #f0904e;
+      --accent: #146b41;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -34,7 +27,7 @@
     }
 
     body {
-      font-family: "Spline Sans Mono", monospace;
+      font-family: var(--font, "Roboto Flex", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
       font-size: 14px;
       line-height: 1.85;
       color: var(--text);
@@ -184,19 +177,6 @@
     footer a { font-size: 14px; color: var(--muted); }
     footer a:hover { color: var(--text); text-decoration: none; }
 
-    .theme-toggle {
-      background: none;
-      border: 0;
-      color: var(--text);
-      cursor: pointer;
-      width: 34px;
-      height: 34px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
     .theme-toggle:focus-visible { outline: 2px dashed var(--accent); outline-offset: 3px; }
 
     /* ── A11Y ── */
@@ -378,12 +358,8 @@
 
   <footer>
     <a href="cuxd211.html">CUXD211</a>
-    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode">
-      <i class="fa-solid fa-moon" aria-hidden="true"></i>
-    </button>
   </footer>
 
-  <script src="theme.js"></script>
 
 </body>
 </html>

@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <title>Three Fits & MVP — Business of Design</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style-project.css" />
   <style>
     main { max-width: 960px; }
     footer { max-width: 960px; }
@@ -101,7 +101,7 @@
     }
 
     .mvp-col.recommended {
-      background: var(--text);
+      background: var(--accent);
       color: var(--bg);
     }
 
@@ -113,8 +113,10 @@
       display: block;
     }
 
+    /* the badge can't stay accent-on-accent — it would vanish. --bg reads at 5.95:1,
+       and the 10px uppercase tracking already separates it from the name. */
     .mvp-col.recommended .mvp-badge {
-      color: var(--accent);
+      color: var(--bg);
     }
 
     .mvp-name {
@@ -132,9 +134,12 @@
       line-height: 1.75;
     }
 
+    /* 0.75 held up on the old near-black ground (9.27:1) but only reaches 4.11:1 on the
+       accent — the green is far lighter than --text was. 0.85 restores AA at 4.77:1
+       while keeping the body subordinate to the name. */
     .mvp-col.recommended .mvp-body {
       color: var(--bg);
-      opacity: 0.75;
+      opacity: 0.85;
     }
 
     /* ── BML ROW ── */
@@ -289,11 +294,7 @@
 
   <footer>
     <a href="cuxd211.html">CUXD211</a>
-    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-      <i class="fa-solid fa-moon" aria-hidden="true"></i>
-    </button>
   </footer>
-  <script src="theme.js"></script>
 
 </body>
 </html>

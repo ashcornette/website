@@ -6,12 +6,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <title>CUXD211 — Business of Design</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style-project.css" />
   <style>
-    main { max-width: 720px; }
-    footer { max-width: 720px; }
-
     .project-intro {
       margin-bottom: 48px;
     }
@@ -92,13 +88,14 @@
       border: 1px solid var(--border);
       padding: 4px 12px;
       text-decoration: none;
-      transition: border-color 0.15s ease, color 0.15s ease;
+      transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
       white-space: nowrap;
     }
 
     .phase-link:hover {
+      background: var(--accent);
       border-color: var(--accent);
-      color: var(--accent);
+      color: var(--bg);
       text-decoration: none;
     }
 
@@ -109,7 +106,9 @@
       opacity: 0.5;
     }
 
+    /* placeholders must opt out of the fill they'd otherwise inherit from .phase-link:hover */
     .phase-link.pending:hover {
+      background: transparent;
       border-color: var(--border);
       color: var(--muted);
     }
@@ -130,9 +129,6 @@
     .status-ahead  { background: var(--border); }
 
     @media screen and (max-width: 600px) {
-      main { max-width: 100%; }
-      footer { max-width: 100%; }
-
       .phase-list li {
         flex-direction: column;
         gap: 8px;
@@ -186,6 +182,7 @@
           <span class="phase-desc">User interviews, desk research, key insights, refined problem statement, updated BMC.</span>
           <div class="phase-links">
             <a class="phase-link" href="competitive.html">Competitive analysis →</a>
+            <a class="phase-link" href="captureflow.html">Capture flow →</a>
             <a class="phase-link pending">Research plan</a>
             <a class="phase-link pending">Insights</a>
           </div>
@@ -201,10 +198,10 @@
           <span class="phase-title">UX strategy & MVP design</span>
           <span class="phase-desc">Personas, journey mapping, core user flows, feature prioritisation, wireframes.</span>
           <div class="phase-links">
-            <a class="phase-link" href="strategy.html">UX strategy →</a>
             <a class="phase-link" href="brand.html">Brand identity →</a>
             <a class="phase-link" href="personas.html">Personas →</a>
             <a class="phase-link" href="user-flows.html">User flows →</a>
+            <a class="phase-link" href="strategy.html">UX strategy →</a>
             <a class="phase-link" href="wireframes.html">Wireframes →</a>
           </div>
         </div>
@@ -219,9 +216,9 @@
           <span class="phase-title">Prototype, testing & pitch</span>
           <span class="phase-desc">High-fidelity prototype, usability testing, UX rationale, final startup pitch and case study.</span>
           <div class="phase-links">
-            <a class="phase-link" href="mvp.html">MVP →</a>
-            <a class="phase-link" href="cuxd211.html">Prototype →</a>
-            <a class="phase-link" href="cuxd211.html">Case study →</a>
+            <a class="phase-link" href="mvp.html">MVP → MVBP →</a>
+            <a class="phase-link" href="prototype.html">Prototypes →</a>
+            <a class="phase-link pending">Case study</a>
           </div>
         </div>
       </li>
@@ -232,11 +229,7 @@
 
   <footer>
     <a href="cuxd211.html">CUXD211</a>
-    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-      <i class="fa-solid fa-moon" aria-hidden="true"></i>
-    </button>
   </footer>
-  <script src="theme.js"></script>
 
 </body>
 </html>

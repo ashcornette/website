@@ -3,200 +3,116 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <title>Value Proposition Canvas — Ash Cornette</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    /* ── VPC CANVAS LAYOUT ── */
-    main { max-width: 860px; }
-    footer { max-width: 860px; }
-
-    .vpc-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      border: 1px solid var(--border);
-      overflow-x: auto;
-    }
-
-    /* column headers */
-    .vpc-col-header, .vpc-col-header-accent {
-      padding: 12px 20px;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .vpc-col-header-accent {
-      background: var(--text);
-      color: var(--bg);
-      border-right: 1px solid var(--border);
-    }
-
-    .vpc-col-header {
-      color: var(--muted);
-    }
-
-    /* all cells */
-    .vpc-cell, .vpc-cell-accent {
-      padding: 20px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    /* left-column items get a right border */
-    .vpc-grid > *:nth-child(odd):not(.vpc-fit) {
-      border-right: 1px solid var(--border);
-    }
-
-    .vpc-cell-accent {
-      background: var(--text);
-      color: var(--bg);
-    }
-
-    .vpc-cell-accent .label { color: var(--bg); }
-
-    .vpc-cell-sub {
-      font-size: 11px;
-      color: var(--muted);
-      margin-bottom: 12px;
-      font-style: italic;
-    }
-
-    .vpc-cell-accent .vpc-cell-sub {
-      color: var(--bg);
-      opacity: 0.65;
-    }
-
-    .vpc-cell-items {
-      list-style: none;
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.75;
-    }
-
-    .vpc-cell-items li::before { content: "— "; }
-
-    .vpc-cell-accent .vpc-cell-items {
-      color: var(--bg);
-      opacity: 0.85;
-    }
-
-    .vpc-fit {
-      grid-column: 1 / -1;
-      padding: 14px 20px;
-      font-size: 11px;
-      color: var(--muted);
-      font-style: italic;
-      border-bottom: none;
-    }
-
-    @media screen and (max-width: 600px) {
-      main { max-width: 100%; }
-      footer { max-width: 100%; }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Value Proposition Canvas — Business of Design</title>
+  <link rel="stylesheet" href="style-project.css" />
 </head>
 <body>
+
   <main>
-    <p class="role">draft — week 3 · value proposition canvas</p>
+    <div class="vpc-wrap">
+      <p class="vpc-meta">draft — week 1 · value proposition canvas</p>
 
-    <div class="vpc-grid">
+      <div class="vpc-grid">
 
-      <!-- COLUMN HEADERS -->
-      <div class="vpc-col-header-accent">Value map — what you offer</div>
-      <div class="vpc-col-header">Customer profile — who you serve</div>
+        <!-- LEFT — VALUE MAP -->
+        <div class="vpc-side">
 
-      <!-- ROW 1 -->
-      <div class="vpc-cell-accent">
-        <div class="label">Products &amp; services</div>
-        <div class="vpc-cell-sub">What your value proposition is built around</div>
-        <ul class="vpc-cell-items">
-          <li>Household restocking app</li>
-          <li>Depletion pattern tracker</li>
-          <li>Smart low-stock notifications</li>
-          <li>Household sharing feature</li>
-          <li>Retailer reorder links</li>
-        </ul>
+          <div class="vpc-side-label-accent">Value map — what you offer</div>
+
+          <div class="vpc-cell-accent">
+            <div class="vpc-cell-label-accent">Products &amp; services</div>
+            <div class="vpc-cell-sub">What your value proposition is built around</div>
+            <ul class="vpc-cell-items">
+              <li>Household restocking app</li>
+              <li>Depletion pattern tracker</li>
+              <li>Smart low-stock notifications</li>
+              <li>Household sharing feature</li>
+              <li>Retailer reorder links</li>
+            </ul>
+          </div>
+
+          <div class="vpc-cell">
+            <div class="vpc-cell-label">Pain relievers</div>
+            <div class="vpc-cell-sub">How you alleviate customer pains</div>
+            <ul class="vpc-cell-items">
+              <li>Proactive alerts before running out — not after</li>
+              <li>Learns real consumption vs fixed schedules</li>
+              <li>Two-tap logging — minimal effort to maintain</li>
+              <li>Shared household view eliminates communication gaps</li>
+              <li>No AI dependency — works for everyone</li>
+            </ul>
+          </div>
+
+          <div class="vpc-cell">
+            <div class="vpc-cell-label">Gain creators</div>
+            <div class="vpc-cell-sub">How you create customer gains</div>
+            <ul class="vpc-cell-items">
+              <li>Zero mental load — app tracks patterns automatically</li>
+              <li>Smarter restocking than Subscribe &amp; Save</li>
+              <li>One place for the whole household</li>
+              <li>Direct reorder links save time at peak intent</li>
+              <li>Free tier lowers barrier to first value</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- RIGHT — CUSTOMER PROFILE -->
+        <div class="vpc-side">
+
+          <div class="vpc-side-label">Customer profile — who you serve</div>
+
+          <div class="vpc-cell">
+            <div class="vpc-cell-label">Customer jobs</div>
+            <div class="vpc-cell-sub">What they're trying to get done</div>
+            <ul class="vpc-cell-items">
+              <li>Keep household stocked with essentials</li>
+              <li>Avoid last-minute store runs</li>
+              <li>Coordinate restocking across household members</li>
+              <li>Manage household spending without waste</li>
+            </ul>
+          </div>
+
+          <div class="vpc-cell">
+            <div class="vpc-cell-label">Pains</div>
+            <div class="vpc-cell-sub">Bad outcomes, risks, and obstacles</div>
+            <ul class="vpc-cell-items">
+              <li>Running out without warning</li>
+              <li>Fixed delivery schedules don't match real use</li>
+              <li>Manual tracking is too effortful to sustain</li>
+              <li>Household members unaligned on what's needed</li>
+              <li>Only notice the problem when it's too late</li>
+            </ul>
+          </div>
+
+          <div class="vpc-cell">
+            <div class="vpc-cell-label">Gains</div>
+            <div class="vpc-cell-sub">Outcomes and benefits they want</div>
+            <ul class="vpc-cell-items">
+              <li>Never run out of essentials unexpectedly</li>
+              <li>Less mental load around household management</li>
+              <li>Shared visibility across the household</li>
+              <li>Feel organized without extra effort</li>
+              <li>Save time on shopping trips</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- FIT NOTE -->
+        <div class="vpc-fit">
+          fit achieved when pain relievers + gain creators directly address customer jobs, pains, and gains
+        </div>
+
       </div>
-
-      <div class="vpc-cell">
-        <div class="label">Customer jobs</div>
-        <div class="vpc-cell-sub">What they're trying to get done</div>
-        <ul class="vpc-cell-items">
-          <li>Keep household stocked with essentials</li>
-          <li>Avoid last-minute store runs</li>
-          <li>Coordinate restocking across household members</li>
-          <li>Manage household spending without waste</li>
-        </ul>
-      </div>
-
-      <!-- ROW 2 -->
-      <div class="vpc-cell">
-        <div class="label">Pain relievers</div>
-        <div class="vpc-cell-sub">How you alleviate customer pains</div>
-        <ul class="vpc-cell-items">
-          <li>Proactive alerts before running out — not after</li>
-          <li>Learns real consumption vs fixed schedules</li>
-          <li>Two-tap logging — minimal effort to maintain</li>
-          <li>Shared household view eliminates communication gaps</li>
-          <li>No AI dependency — works for everyone</li>
-        </ul>
-      </div>
-
-      <div class="vpc-cell">
-        <div class="label">Pains</div>
-        <div class="vpc-cell-sub">Bad outcomes, risks, and obstacles</div>
-        <ul class="vpc-cell-items">
-          <li>Running out without warning</li>
-          <li>Fixed delivery schedules don't match real use</li>
-          <li>Manual tracking is too effortful to sustain</li>
-          <li>Household members unaligned on what's needed</li>
-          <li>Only notice the problem when it's too late</li>
-        </ul>
-      </div>
-
-      <!-- ROW 3 -->
-      <div class="vpc-cell">
-        <div class="label">Gain creators</div>
-        <div class="vpc-cell-sub">How you create customer gains</div>
-        <ul class="vpc-cell-items">
-          <li>Zero mental load — app tracks patterns automatically</li>
-          <li>Smarter restocking than Subscribe &amp; Save</li>
-          <li>One place for the whole household</li>
-          <li>Direct reorder links save time at peak intent</li>
-          <li>Free tier lowers barrier to first value</li>
-        </ul>
-      </div>
-
-      <div class="vpc-cell">
-        <div class="label">Gains</div>
-        <div class="vpc-cell-sub">Outcomes and benefits they want</div>
-        <ul class="vpc-cell-items">
-          <li>Never run out of essentials unexpectedly</li>
-          <li>Less mental load around household management</li>
-          <li>Shared visibility across the household</li>
-          <li>Feel organized without extra effort</li>
-          <li>Save time on shopping trips</li>
-        </ul>
-      </div>
-
-      <!-- FIT NOTE -->
-      <div class="vpc-fit">
-        fit achieved when pain relievers + gain creators directly address customer jobs, pains, and gains
-      </div>
-
     </div>
   </main>
 
   <footer>
     <a href="cuxd211.html">CUXD211</a>
-    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode">
-      <i class="fa-solid fa-moon" aria-hidden="true"></i>
-    </button>
   </footer>
-  <script src="theme.js"></script>
 
 </body>
 </html>

@@ -3,211 +3,204 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <title>Business Model Canvas</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Business Model Canvas — Business of Design</title>
+  <link rel="stylesheet" href="style-project.css" />
   <style>
-    /* ── BMC CANVAS LAYOUT ── */
-    main { max-width: 1200px; }
-    footer { max-width: 1200px; }
+    /* the canvas is the widest artefact on the site — main and footer move together */
+    :root { --col: 1080px; }
 
-    .bmc-grid {
-      border: 1px solid var(--border);
+    .bmc-key {
       display: flex;
-      flex-direction: column;
-      overflow-x: auto;
-    }
-
-    .bmc-row-main {
-      display: flex;
-      min-width: 600px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .bmc-row-bottom {
-      display: flex;
-      min-width: 600px;
-    }
-
-    .bmc-row-main > *:not(:last-child),
-    .bmc-row-bottom > *:not(:last-child) {
-      border-right: 1px solid var(--border);
-    }
-
-    .bmc-cell, .bmc-cell-accent {
-      flex: 1;
-      padding: 20px;
-    }
-
-    .bmc-cell-accent {
-      background: var(--text);
-      color: var(--bg);
-    }
-
-    .bmc-col {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      border-right: 1px solid var(--border);
-    }
-
-    .bmc-col > .bmc-cell {
-      flex: 1;
-      border-right: none;
-    }
-
-    .bmc-col > .bmc-cell:not(:last-child) {
-      border-bottom: 1px solid var(--border);
-    }
-
-    .bmc-cell-sub {
+      align-items: center;
+      gap: 9px;
       font-size: 11px;
-      color: var(--muted);
-      margin-bottom: 12px;
       font-style: italic;
-    }
-
-    .bmc-cell-accent .label { color: var(--bg); }
-
-    .bmc-cell-accent .bmc-cell-sub {
-      color: var(--bg);
-      opacity: 0.65;
-    }
-
-    .bmc-cell-items {
-      list-style: none;
-      font-size: 13px;
       color: var(--muted);
-      line-height: 1.75;
+      letter-spacing: 0.02em;
+      margin-bottom: 14px;
     }
 
-    .bmc-cell-items li::before { content: "— "; }
-
-    .bmc-cell-accent .bmc-cell-items {
-      color: var(--bg);
-      opacity: 0.85;
+    .bmc-key-bar {
+      width: 2px;
+      height: 13px;
+      background: var(--accent);
+      flex-shrink: 0;
     }
 
-    .bmc-cell-accent .bmc-cell-items li::before { color: var(--bg); }
-
-    @media screen and (max-width: 600px) {
-      main { max-width: 100%; }
-      footer { max-width: 100%; }
+    .bmc-cap {
+      font-size: 12px;
+      color: var(--muted);
+      font-style: italic;
+      line-height: 1.7;
+      max-width: 62ch;
+      margin-top: 14px;
     }
   </style>
 </head>
 <body>
 
   <main>
-    <p class="role">draft — week 2 · strategyzer BMC (9 components)</p>
+    <div class="bmc-wrap">
+      <p class="bmc-meta">draft — week 2 · business model canvas · phase 1 foundations</p>
 
-    <div class="bmc-grid">
-
-      <div class="bmc-row-main">
-
-        <div class="bmc-cell">
-          <div class="label">Key partnerships</div>
-          <div class="bmc-cell-sub">Who helps you succeed?</div>
-          <ul class="bmc-cell-items">
-            <li>Amazon affiliate program</li>
-            <li>Grocery &amp; retail chains</li>
-            <li>Grocery delivery services</li>
-            <li>Product barcode databases</li>
-          </ul>
-        </div>
-
-        <div class="bmc-col">
-          <div class="bmc-cell">
-            <div class="label">Key activities</div>
-            <div class="bmc-cell-sub">What must you do well?</div>
-            <ul class="bmc-cell-items">
-              <li>Build &amp; refine depletion algorithm</li>
-              <li>Design low-friction logging UX</li>
-              <li>Manage retail partnerships</li>
-              <li>Deliver smart notifications</li>
-            </ul>
-          </div>
-          <div class="bmc-cell">
-            <div class="label">Key resources</div>
-            <div class="bmc-cell-sub">What assets do you need?</div>
-            <ul class="bmc-cell-items">
-              <li>Depletion pattern algorithm</li>
-              <li>Household consumption data</li>
-              <li>Mobile app platform</li>
-              <li>Retail affiliate network</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="bmc-cell-accent">
-          <div class="label">Value propositions</div>
-          <div class="bmc-cell-sub">Why customers choose you?</div>
-          <ul class="bmc-cell-items">
-            <li>Know before you run out</li>
-            <li>Learns your real usage patterns</li>
-            <li>Smarter than fixed schedules</li>
-            <li>Shared household awareness</li>
-            <li>Minimal logging effort</li>
-          </ul>
-        </div>
-
-        <div class="bmc-col">
-          <div class="bmc-cell">
-            <div class="label">Customer relationships</div>
-            <div class="bmc-cell-sub">How do you interact?</div>
-            <ul class="bmc-cell-items">
-              <li>Freemium self-serve onboarding</li>
-              <li>Smart push notifications</li>
-              <li>Household invite &amp; sharing</li>
-              <li>Habit-forming logging loop</li>
-            </ul>
-          </div>
-          <div class="bmc-cell">
-            <div class="label">Channels</div>
-            <div class="bmc-cell-sub">How do you reach customers?</div>
-            <ul class="bmc-cell-items">
-              <li>iOS &amp; Android app stores</li>
-              <li>Household sharing / referrals</li>
-              <li>Social media</li>
-              <li>Retail partner promotions</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="bmc-cell">
-          <div class="label">Customer segments</div>
-          <div class="bmc-cell-sub">Who are your customers?</div>
-          <ul class="bmc-cell-items">
-            <li>Households (primary)</li>
-            <li>Roommates &amp; shared living</li>
-            <li>Subscribe &amp; Save users</li>
-            <li>Busy families &amp; individuals</li>
-          </ul>
-        </div>
-
+      <!-- THE MODEL -->
+      <div class="section">
+        <div class="section-label">The model</div>
+        <p>a freemium consumer app. receipts go in, a restock date comes out. two lines of revenue sit on top — a subscription that lifts the item cap, and an affiliate cut taken at the moment someone reorders. the affiliate cut stays free for everyone, because it only pays at volume.</p>
+        <p>revised where phase-2 research broke the week-1 assumptions: manual logging is out, and neither "no AI" nor "private and offline" survives as a wedge — Restock planner already claims both. the learned timing has to carry it alone.</p>
       </div>
 
-      <div class="bmc-row-bottom">
-        <div class="bmc-cell">
-          <div class="label">Cost structure</div>
-          <div class="bmc-cell-sub">What does it cost to operate?</div>
-          <ul class="bmc-cell-items">
-            <li>App development &amp; maintenance</li>
-            <li>Server &amp; cloud infrastructure</li>
-            <li>Marketing &amp; user acquisition</li>
-            <li>Partnership management</li>
-          </ul>
+      <!-- THE CANVAS -->
+      <div class="section">
+        <div class="section-label">The canvas</div>
+        <p class="bmc-key"><span class="bmc-key-bar"></span> the accent marks the two blocks the model turns on — what we promise, and what pays for it</p>
+
+        <div class="bmc-grid">
+
+          <div class="bmc-row-main">
+
+            <!-- KEY PARTNERS -->
+            <div class="bmc-cell">
+              <div class="bmc-cell-label">Key partners</div>
+              <div class="bmc-cell-sub">Who helps you succeed</div>
+              <ul class="bmc-cell-items">
+                <li>Gmail &amp; Apple Mail — inbox access</li>
+                <li>Amazon Associates, grocery affiliates</li>
+                <li>barcode / SKU databases</li>
+                <li>Apple &amp; Google app stores</li>
+              </ul>
+            </div>
+
+            <!-- KEY ACTIVITIES / KEY RESOURCES -->
+            <div class="bmc-col">
+              <div class="bmc-cell">
+                <div class="bmc-cell-label">Key activities</div>
+                <div class="bmc-cell-sub">What you must do well</div>
+                <ul class="bmc-cell-items">
+                  <li>tune the depletion model</li>
+                  <li>maintain receipt parsers</li>
+                  <li>keep capture zero-touch</li>
+                  <li>earn inbox trust</li>
+                </ul>
+              </div>
+
+              <div class="bmc-cell">
+                <div class="bmc-cell-label">Key resources</div>
+                <div class="bmc-cell-sub">What assets you need</div>
+                <ul class="bmc-cell-items">
+                  <li>the cadence model</li>
+                  <li>purchase history per household</li>
+                  <li>parser coverage across retailers</li>
+                  <li>a brand trusted with an inbox</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- VALUE PROPOSITIONS -->
+            <div class="bmc-cell-accent">
+              <div class="bmc-cell-label-accent">Value propositions</div>
+              <div class="bmc-cell-sub">Why customers choose you</div>
+              <ul class="bmc-cell-items">
+                <li>warns you before you run out</li>
+                <li>learns your household's real pace</li>
+                <li>nothing to log — receipts do it</li>
+                <li>raw data stays on the phone</li>
+                <li>one view for the whole household</li>
+              </ul>
+            </div>
+
+            <!-- CUSTOMER RELATIONSHIPS / CHANNELS -->
+            <div class="bmc-col">
+              <div class="bmc-cell">
+                <div class="bmc-cell-label">Customer relationships</div>
+                <div class="bmc-cell-sub">How you interact with customers</div>
+                <ul class="bmc-cell-items">
+                  <li>self-serve, zero-touch</li>
+                  <li>the notification is the relationship</li>
+                  <li>one tap corrects a wrong guess</li>
+                  <li>privacy stated plainly at signup</li>
+                </ul>
+              </div>
+
+              <div class="bmc-cell">
+                <div class="bmc-cell-label">Channels</div>
+                <div class="bmc-cell-sub">How you reach your customers</div>
+                <ul class="bmc-cell-items">
+                  <li>app stores — search &amp; category</li>
+                  <li>landing page + priced waitlist</li>
+                  <li>affiliate links at the reorder</li>
+                  <li>household sharing — word of mouth</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- CUSTOMER SEGMENTS -->
+            <div class="bmc-cell">
+              <div class="bmc-cell-label">Customer segments</div>
+              <div class="bmc-cell-sub">Who you serve</div>
+              <ul class="bmc-cell-items">
+                <li>busy 2–4 person households</li>
+                <li>online buyers — receipts already arrive</li>
+                <li>shared flats coordinating restock</li>
+                <li>not yet: cash shoppers, food &amp; expiry</li>
+              </ul>
+            </div>
+
+          </div>
+
+          <div class="bmc-row-bottom">
+
+            <!-- COST STRUCTURE -->
+            <div class="bmc-cell">
+              <div class="bmc-cell-label">Cost structure</div>
+              <div class="bmc-cell-sub">What it costs to operate</div>
+              <ul class="bmc-cell-items">
+                <li>engineering &amp; design salaries — the dominant line</li>
+                <li>parser maintenance — recurring, not a one-off build</li>
+                <li>app store commission — 15–30% of every subscription</li>
+                <li>paid acquisition — measured against affiliate margin</li>
+                <li>infra stays low by design — inference runs on-device</li>
+              </ul>
+            </div>
+
+            <!-- REVENUE STREAMS -->
+            <div class="bmc-cell-accent">
+              <div class="bmc-cell-label-accent">Revenue streams</div>
+              <div class="bmc-cell-sub">How you make money</div>
+              <ul class="bmc-cell-items">
+                <li>free — full capture, capped at 10 tracked items</li>
+                <li>premium — unlimited items + household sharing</li>
+                <li>£2.99 / month · hypothesis, untested</li>
+                <li>affiliate commission at reorder — free tier included</li>
+                <li>the cap is the meter; the affiliate needs the volume</li>
+              </ul>
+            </div>
+
+          </div>
+
         </div>
-        <div class="bmc-cell">
-          <div class="label">Revenue streams</div>
-          <div class="bmc-cell-sub">How do you make money?</div>
-          <ul class="bmc-cell-items">
-            <li>Freemium → premium subscription (unlimited items, household sharing, analytics)</li>
-            <li>Affiliate fees when users reorder via retailer links</li>
-            <li>Future: brand-sponsored restocking suggestions</li>
-          </ul>
+
+        <p class="bmc-cap">the spine reads left to right — partners and parsers feed the model, the model produces a warning, the warning produces a reorder. the reorder is where the money is, which is why it can't sit behind a paywall.</p>
+      </div>
+
+      <!-- THE MONEY LINE -->
+      <div class="section">
+        <div class="section-label">Where the free / paid line sits</div>
+        <ul class="dash-list">
+          <li>capture is free — the model needs the receipts more than the user needs to pay for them</li>
+          <li>the item cap is the meter — it bites once the app has proved useful, not before</li>
+          <li>affiliate links stay free — a cut of one reorder is worth less than a paywall costs in volume</li>
+          <li>inbox access is asked for at free signup, not at upgrade — the trust conversation happens once, and early</li>
+        </ul>
+      </div>
+
+      <!-- RISK -->
+      <div class="section">
+        <div class="card card-accent">
+          <div class="card-title">The catch — to stress-test in research</div>
+          <div class="card-body">the whole canvas rests on one dependency: inbox access. if Gmail or Apple tighten it, the wedge is gone and we are another manual tracker. two more to probe — receipts miss anything bought in-store with cash, and a purchase interval is only a proxy for depletion: people stockpile, share, and skip. and the price is a guess. the priced waitlist has to set it before the subscription line means anything.</div>
         </div>
       </div>
 
@@ -216,11 +209,7 @@
 
   <footer>
     <a href="cuxd211.html">CUXD211</a>
-    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode">
-      <i class="fa-solid fa-moon" aria-hidden="true"></i>
-    </button>
   </footer>
-  <script src="theme.js"></script>
 
 </body>
 </html>

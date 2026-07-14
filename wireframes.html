@@ -7,28 +7,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <title>Wireframes — owduv</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style-project.css" />
   <style>
     /* self-contained: tokens + chrome mirrored so the page renders standalone and drops in */
-    @import url("https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:ital,wght@0,300;0,400;1,300&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,slnt,wght@8..144,-10..0,300..700&display=swap");
 
     :root {
       --bg: #f5f4f0;
       --text: #1a1a25;
       --muted: #525256;
       --border: #e0ddd8;
-      --accent: #7d3410;
+      --accent: #146b41;
       --st-ok: #1f9d63;
-      --st-low: #e8943c;
-      --st-out: #e0584a;
-    }
-    [data-theme="dark"] {
-      --bg: #1c1c1c;
-      --text: #f5f4f0;
-      --muted: #c8c2ba;
-      --border: #333;
-      --accent: #f0904e;
-      --st-ok: #4fc98a;
       --st-low: #e8943c;
       --st-out: #e0584a;
     }
@@ -38,7 +28,7 @@
     @keyframes fadein { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
     body {
-      font-family: "Spline Sans Mono", monospace;
+      font-family: var(--font, "Roboto Flex", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
       font-size: 14px; line-height: 1.85;
       color: var(--text); background: var(--bg);
       min-height: 100vh; padding: 80px 48px;
@@ -145,8 +135,8 @@
     .wf-spark-now { stroke: var(--muted); stroke-width: 1; }
     .wf-spark-proj { fill: none; stroke: var(--accent); stroke-width: 1.5; stroke-dasharray: 3 2; }
     .wf-spark-pred { fill: none; stroke: var(--accent); stroke-width: 1; stroke-dasharray: 3 3; }
-    .wf-spark-lbl { fill: var(--muted); font-family: "Spline Sans Mono", monospace; font-size: 9px; }
-    .wf-spark-lbl-a { fill: var(--accent); font-family: "Spline Sans Mono", monospace; font-size: 9px; }
+    .wf-spark-lbl { fill: var(--muted); font-family: var(--font, "Roboto Flex", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif); font-size: 9px; }
+    .wf-spark-lbl-a { fill: var(--accent); font-family: var(--font, "Roboto Flex", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif); font-size: 9px; }
     .wf-spark-cap { font-size: 11px; color: var(--muted); padding: 2px 18px 0; font-style: italic; }
     .wf-cta { padding: 18px 18px 8px; }
 
@@ -196,22 +186,37 @@
     footer { width: 100%; margin-top: 80px; padding-top: 20px; border-top: 1px solid var(--border); display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
     footer a { font-size: 14px; color: var(--muted); }
     footer a:hover { color: var(--text); text-decoration: none; }
-    .theme-toggle { background: none; border: 0; color: var(--text); cursor: pointer; width: 34px; height: 34px; display: flex; align-items: center; justify-content: flex-start; font-size: 1rem; flex-shrink: 0; }
 
     /* ── A11Y ── */
     .skip-link { position: absolute; left: 8px; top: -48px; z-index: 10; padding: 8px 16px; border-radius: 999px; background: var(--text); color: var(--bg); font-size: 14px; transition: top 0.15s ease; }
     .skip-link:focus { top: 8px; text-decoration: none; }
-    a:focus-visible, button:focus-visible, .theme-toggle:focus-visible { outline: 2px dashed var(--accent); outline-offset: 3px; }
+    a:focus-visible, button:focus-visible { outline: 2px dashed var(--accent); outline-offset: 3px; }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
 
     /* ── RESPONSIVE ── */
+    /* the device is a spec, not a layout. 402 × 874 IS the iPhone 17 viewport, and the
+       wireframe only tells the truth at those proportions — so below the width where it
+       stops fitting we shrink the whole phone and leave its insides untouched. reflowing
+       the screen would make the wireframe misrepresent the thing it documents.
+
+       device = 402 screen + 24 padding + 3 border = 429px.
+       it overhangs once the page has less than 429px between its gutters, i.e. under 477px.
+
+       zoom (not transform) because zoom shrinks the layout box as well as the pixels —
+       the column keeps flowing and nothing overhangs. transform would scale the render
+       but still reserve the full 429px, so the page would scroll sideways anyway.
+       each step is the largest scale that still fits at the NARROWEST width in its band. */
     @media screen and (max-width: 600px) {
       body { padding: 52px 24px; }
       main, footer { max-width: 100%; }
       .wf-stage { flex-direction: column; align-items: center; gap: 32px; }
       .wf-notes { width: 100%; }
     }
+    @media screen and (max-width: 488px) { .wf-phone { zoom: 0.90; } }   /* 386px device — holds to 447px */
+    @media screen and (max-width: 446px) { .wf-phone { zoom: 0.80; } }   /* 343px device — holds to 404px */
+    @media screen and (max-width: 403px) { .wf-phone { zoom: 0.70; } }   /* 300px device — holds to 349px */
     @media screen and (max-width: 380px) { body { padding: 40px 18px; } }
+    @media screen and (max-width: 348px) { .wf-phone { zoom: 0.60; } }   /* 257px device — holds to 306px */
   </style>
 </head>
 <body>
@@ -614,11 +619,7 @@
 
   <footer>
     <a href="cuxd211.html">CUXD211</a>
-    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode">
-      <i class="fa-solid fa-moon" aria-hidden="true"></i>
-    </button>
   </footer>
-  <script src="theme.js"></script>
 
 </body>
 </html>

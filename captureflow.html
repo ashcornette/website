@@ -6,11 +6,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <title>Capture flow — Business of Design</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style-project.css" />
   <style>
-    main { max-width: 720px; }
-    footer { max-width: 720px; }
 
     .cf-wrap {
       width: 100%;
@@ -43,15 +40,15 @@
     /* ── CAPTURE-FLOW DIAGRAM ── */
     .map { display: block; width: 100%; height: auto; }
 
-    .m-box  { fill: var(--bg); stroke: var(--border); stroke-width: 1; }
-    .m-bar  { fill: var(--accent); }
-    .m-zone { fill: none; stroke: var(--muted); stroke-width: 1; stroke-dasharray: 4 4; }
-    .m-t        { fill: var(--text);   font-family: "Spline Sans Mono", monospace; font-size: 12px; letter-spacing: 0.08em; }
-    .m-t-accent { fill: var(--accent); font-family: "Spline Sans Mono", monospace; font-size: 12px; letter-spacing: 0.08em; }
-    .m-sub  { fill: var(--muted); font-family: "Spline Sans Mono", monospace; font-size: 10px; font-style: italic; }
-    .m-arr  { stroke: var(--muted); stroke-width: 1; fill: none; }
-    .m-loop { stroke: var(--muted); stroke-width: 1; fill: none; stroke-dasharray: 4 4; }
-    .m-leg  { fill: var(--muted); font-family: "Spline Sans Mono", monospace; font-size: 11px; }
+    .m-box  { fill: var(--bg, #f5f4f0); stroke: var(--border, #e0ddd8); stroke-width: 1; }
+    .m-bar  { fill: var(--accent, #146b41); }
+    .m-zone { fill: none; stroke: var(--muted, #525256); stroke-width: 1; stroke-dasharray: 4 4; }
+    .m-t        { fill: var(--text, #1a1a25);   font-family: var(--font, "Roboto Flex", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif); font-size: 12px; letter-spacing: 0.08em; }
+    .m-t-accent { fill: var(--accent, #146b41); font-family: var(--font, "Roboto Flex", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif); font-size: 12px; letter-spacing: 0.08em; }
+    .m-sub  { fill: var(--muted, #525256); font-family: var(--font, "Roboto Flex", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif); font-size: 10px; font-style: italic; }
+    .m-arr  { stroke: var(--muted, #525256); stroke-width: 1; fill: none; }
+    .m-loop { stroke: var(--muted, #525256); stroke-width: 1; fill: none; stroke-dasharray: 4 4; }
+    .m-leg  { fill: var(--muted, #525256); font-family: var(--font, "Roboto Flex", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif); font-size: 11px; }
   </style>
 </head>
 <body>
@@ -145,11 +142,7 @@
 
   <footer>
     <a href="cuxd211.html">CUXD211</a>
-    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-      <i class="fa-solid fa-moon" aria-hidden="true"></i>
-    </button>
   </footer>
-  <script src="theme.js"></script>
 
 </body>
 </html>
