@@ -430,12 +430,13 @@ a:focus-visible, button:focus-visible, .theme-toggle:focus-visible {
   margin: 0 0 22px;
 }
 .website .intro { font-size: var(--fs-md); color: var(--muted); max-width: 60ch; line-height: 1.7; margin: 0; }
-.website .opts { display: flex; flex-direction: column; gap: 8px; }
+/* options mirror .field .in — same face, size, radius, padding and width cap */
+.website .opts { display: flex; flex-direction: column; gap: 8px; max-width: 80%; }
 .website .opt {
-  font-family: var(--mono); font-size: 13px; letter-spacing: 0.02em;
+  font-family: var(--sans); font-size: 15px; line-height: 1.6;
   text-align: left; width: 100%; max-width: none;
-  color: var(--text); background: var(--tint); border: 0;
-  padding: 14px 18px; cursor: pointer; line-height: 1.4;
+  color: var(--text); background: var(--tint); border: 0; border-radius: 10px;
+  padding: 14px 16px; cursor: pointer;
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
   transition: background .15s ease, color .15s ease, transform .1s ease;
 }
@@ -446,7 +447,7 @@ a:focus-visible, button:focus-visible, .theme-toggle:focus-visible {
 .website .opt:hover .arr { opacity: 1; transform: translateX(0); }
 .website .opt[aria-pressed="true"] .arr { color: var(--bg); opacity: 1; transform: translateX(0); }
 .website .lab { font-family: var(--mono); font-size: var(--fs-sm); letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin: 0 0 10px; }
-.website .cta { background: var(--tint); border: 1px solid var(--text); padding: 22px 24px; margin-bottom: 30px; }
+.website .cta { background: var(--tint); border: 1px solid var(--text); border-radius: 10px; padding: 22px 24px; margin-bottom: 30px; }
 .website .cta p { margin: 0 0 16px; max-width: 60ch; color: var(--muted); line-height: 1.7; }
 
 /* intake — text fields, hint, and the recap label */
@@ -454,12 +455,23 @@ a:focus-visible, button:focus-visible, .theme-toggle:focus-visible {
 .website .field { margin: 4px 0 0; }
 .website .field .in {
   font-family: var(--sans); font-size: 15px; line-height: 1.6; color: var(--text);
-  display: block; width: 100%; max-width: none; text-align: left;
+  display: block; width: 100%; max-width: 80%; text-align: left;
   background: var(--tint); border: 0; border-radius: 10px; padding: 14px 16px;
 }
+/* the contact fields already sit inside an 80%-capped grid — capping them
+   again would compound to 64% and break the row */
+.website .contact-grid .field .in { max-width: none; }
 .website .field textarea.in { min-height: 130px; resize: vertical; }
 .website .field .in::placeholder { color: var(--muted); }
 .website .recap-q { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin: 0 0 5px; }
+
+/* intake — contact block: first / last side by side, email full width beneath */
+.website .intake-contact { margin-bottom: 34px; }
+.website .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px; max-width: 80%; }
+.website .contact-grid .review-item:last-child { grid-column: 1 / -1; }
+.website .contact-grid label.recap-q { display: block; }
+.website .intake-err { font-size: var(--fs-sm); color: var(--negative); margin: 10px 0 0; }
+.website .field .in:focus-visible { outline: 2px solid var(--frame); outline-offset: 2px; }
 
 /* intake — full-width single column */
 .website .review { max-width: none; }
@@ -672,6 +684,10 @@ a.pagetitle:hover { text-decoration: none; }
   .work .srch { display: none; }
   .work .topbar { flex-wrap: wrap; }
   .website .opt { max-width: 100%; }
+  .website .opts { max-width: none; }
+  .website .field .in { max-width: none; }
+  /* half a phone screen is unusable — go full width and stack */
+  .website .contact-grid { grid-template-columns: 1fr; max-width: none; }
   /* keep each project title on one line */
   .work .proj-title { font-size: clamp(19px, 6.4vw, 30px); white-space: nowrap; }
   /* tighten the stacked photo → copy spacing */

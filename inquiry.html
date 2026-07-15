@@ -9,9 +9,14 @@
     <meta property="og:title" content="ash cornette · project inquiry">
     <meta property="og:description" content="A short intake that turns what you're making into a clear proposal.">
     <meta property="og:url" content="https://ashcornette.com/inquiry.html">
+    <meta property="og:image" content="https://ashcornette.com/img/cambie.jpg">
+    <meta property="og:image:alt" content="Work by Ash Cornette — brand, UX, and web design, Vancouver BC.">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://ashcornette.com/inquiry.html">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap">
     <link rel="stylesheet" href="style.css" />
     <script>(function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
   </head>
@@ -20,7 +25,7 @@
     <div class="topbar">
       <a class="pagetitle" href="index.html">Ash<span class="blink" aria-hidden="true">_</span>Cornette</a>
       <div class="topbar-right">
-        <a class="pill" href="mailto:hello@ashcornette.com">say hello</a>
+        <a class="pill" href="mailto:hello@ashcornette.com" data-contact>say hello</a>
         <button class="theme-toggle" id="themeToggle" type="button" aria-label="toggle dark mode">◐</button>
       </div>
     </div>
@@ -35,13 +40,19 @@
     </main>
 
     <footer class="workfoot">
-      <span>© <span id="yr"></span> Ash Cornette</span>
+      <span>© <span id="yr"></span></span>
       <a href="index.html">← back to work</a>
     </footer>
 
 <script>
 /* ---- Part 1: General Questions — the intake, in Ash's voice. One page. ---- */
 const QUESTIONS = [
+  /* group:'contact' renders as a compact row at the top and is the only
+     required part — without it an inquiry arrives with no way to reply. */
+  { id:'firstname', type:'text',  group:'contact', required:true, q:'First name', placeholder:'' },
+  { id:'lastname',  type:'text',  group:'contact', required:true, q:'Last name',  placeholder:'' },
+  { id:'email',     type:'email', group:'contact', required:true, q:'Email',      placeholder:'you@company.com' },
+
   { id:'problem', type:'textarea', q:'What problem or opportunity led you here?',
     placeholder:'A sentence or two is plenty.' },
 
@@ -101,9 +112,10 @@ function controlHTML(item){
   if (item.type === 'textarea'){
     return `<div class="field"><textarea class="in" data-id="${item.id}" rows="4" placeholder="${item.placeholder||''}">${answers[item.id]||''}</textarea></div>`;
   }
-  if (item.type === 'text'){
+  if (item.type === 'text' || item.type === 'email'){
     const val = (answers[item.id]||'').replace(/"/g,'&quot;');
-    return `<div class="field"><input class="in" data-id="${item.id}" type="text" placeholder="${item.placeholder||''}" value="${val}"></div>`;
+    const auto = item.id==='firstname' ? 'given-name' : item.id==='lastname' ? 'family-name' : item.id==='email' ? 'email' : 'off';
+    return `<div class="field"><input class="in" data-id="${item.id}" id="f-${item.id}" type="${item.type}" autocomplete="${auto}"${item.required?' required aria-required="true"':''} placeholder="${item.placeholder||''}" value="${val}"></div>`;
   }
   const chosen = item.type === 'multi' ? (answers[item.id]||[]) : answers[item.id];
   return `
@@ -156,23 +168,48 @@ function answerText(item){
 }
 
 function buildMailto(){
-  const lines = ['Hi Ash,', '', 'Here’s a bit about my project:', ''];
-  answered().forEach(item=>{
+  const name  = [(answers.firstname||'').trim(), (answers.lastname||'').trim()].filter(Boolean).join(' ');
+  const email = (answers.email||'').trim();
+
+  const lines = ['Hi Ash,', ''];
+  if (name)  lines.push(`I’m ${name}.`);
+  if (email) lines.push(`You can reach me at ${email}.`);
+  if (name || email) lines.push('');
+  lines.push('Here’s a bit about my project:', '');
+
+  // the contact block is stated above — don't repeat it as Q&A
+  answered().filter(item => item.group !== 'contact').forEach(item=>{
     lines.push(`- ${item.q}`);
     lines.push(`  ${answerText(item)}`);
     lines.push('');
   });
-  lines.push('Looking forward to next steps.', '', 'Thanks!');
-  return `mailto:hello@ashcornette.com?subject=${encodeURIComponent('Project inquiry')}&body=${encodeURIComponent(lines.join('\r\n'))}`;
+  lines.push('Looking forward to next steps.', '', name ? `Thanks!\r\n${name}` : 'Thanks!');
+
+  const subject = name ? `Project inquiry — ${name}` : 'Project inquiry';
+  return `mailto:hello@ashcornette.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\r\n'))}`;
 }
 
 /* ---- Render the whole intake, once ---- */
 const app = document.getElementById('app');
 
+const CONTACT = QUESTIONS.filter(q => q.group === 'contact');
+const REST    = QUESTIONS.filter(q => q.group !== 'contact');
+
 function render(){
   app.innerHTML = `
     <div class="review">
-      ${QUESTIONS.map(item=>`
+      <div class="intake-contact">
+        <div class="contact-grid">
+          ${CONTACT.map(item=>`
+            <div class="review-item">
+              <label class="recap-q" for="f-${item.id}">${item.q}</label>
+              ${controlHTML(item)}
+            </div>`).join('')}
+        </div>
+        <p class="intake-err" id="intakeErr" role="alert" hidden></p>
+      </div>
+
+      ${REST.map(item=>`
         <div class="review-item">
           <p class="recap-q">${item.q}</p>
           ${controlHTML(item)}
@@ -187,8 +224,44 @@ function render(){
 
   bindControls(app);
   const send = app.querySelector('.cta a');
+  const err  = app.querySelector('#intakeErr');
   send.href = buildMailto();
-  send.addEventListener('click', function(){ this.href = buildMailto(); });
+
+  send.addEventListener('click', function(e){
+    // contact details are the one hard requirement — an inquiry with no name
+    // or address is one Ash can receive but never answer
+    const missing = CONTACT.filter(i => !(answers[i.id]||'').trim()).map(i => i.q.toLowerCase());
+    const mail = (answers.email||'').trim();
+    const badEmail = mail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail);
+
+    if (missing.length || badEmail){
+      e.preventDefault();
+      // 1 → "email" · 2 → "last name and email" · 3 → "first name, last name, and email"
+      const list = missing.length < 2 ? missing[0]
+                 : missing.length === 2 ? missing.join(' and ')
+                 : missing.slice(0, -1).join(', ') + ', and ' + missing[missing.length - 1];
+      err.textContent = missing.length
+        ? `Please add your ${list} so I can reply.`
+        : 'That email doesn’t look right — mind checking it?';
+      err.hidden = false;
+      const first = app.querySelector(missing.length ? `#f-${CONTACT.find(i=>!(answers[i.id]||'').trim()).id}` : '#f-email');
+      if (first) first.focus();
+      return;
+    }
+
+    err.hidden = true;
+    this.href = buildMailto();
+    // POST data to Worker (fire-and-forget, doesn't block mailto)
+    const payload = {};
+    QUESTIONS.forEach(function(item){
+      if (answers[item.id] !== undefined) payload[item.id] = answers[item.id];
+    });
+    fetch('https://inquiry-worker.complexash.workers.dev/api/inquiry', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    }).catch(function(){});
+  });
 }
 
 render();
@@ -206,5 +279,6 @@ render();
   // footer year
   document.getElementById('yr').textContent = new Date().getFullYear();
 </script>
+    <script src="contact.js"></script>
   </body>
 </html>
