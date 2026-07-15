@@ -18,6 +18,29 @@
     <title>ash cornette · sean dawn</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap">
     <link rel="stylesheet" href="style.css" />
+    <style>
+      .lofi-show {
+        position: relative; width: 50%; margin: 8px 0 4px;
+        aspect-ratio: 9 / 16; overflow: hidden; background: var(--bg);
+      }
+      .lofi-show img {
+        position: absolute; inset: 0; width: 100%; height: 100%;
+        object-fit: contain; opacity: 0; transition: opacity .5s ease;
+      }
+      .lofi-show img.on { opacity: 1; }
+      .lofi-show .lofi-dots {
+        position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%);
+        display: flex; gap: 6px; z-index: 1;
+      }
+      .lofi-show .lofi-dot {
+        width: 6px; height: 6px; border-radius: 50%;
+        background: var(--muted); opacity: 0.4; transition: opacity .2s ease;
+      }
+      .lofi-show .lofi-dot.on { opacity: 1; background: var(--text); }
+      .lofi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 32px; margin: 8px 0; }
+      .lofi-cell h4 { margin-top: 0; }
+
+    </style>
     <script>(function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;}catch(e){}})();</script>
   </head>
   <body class="doc">
@@ -184,61 +207,75 @@
           <div class="phase"><span class="phase-num">08</span><span class="phase-name">Intention</span><span>set tomorrow, loop</span></div>
         </div>
 
-        <h4>Onboarding</h4>
-        <div class="screens triple">
-          <img src="img/LOFI-OB-01-Ready 1.png" alt="Onboarding step 1: Ready — auto-timer 60s, we make the choice" loading="lazy">
-          <img src="img/LOFI-OB-02-Set 1.png" alt="Onboarding step 2: Set — 3 priorities, that's it" loading="lazy">
-          <img src="img/LOFI-OB-03-Go 1.png" alt="Onboarding step 3: Go — what's the first intention?" loading="lazy">
-        </div>
-        <div class="screens-caption">onboarding — ready, set, go. three screens, under 15 seconds.</div>
+        <div class="lofi-grid">
+          <div class="lofi-cell">
+            <h4>Onboarding</h4>
+            <div class="lofi-show">
+              <img src="img/LOFI-OB-01-Ready 1.png" alt="Onboarding step 1: Ready — auto-timer 60s, we make the choice" class="on" loading="lazy">
+              <img src="img/LOFI-OB-02-Set 1.png" alt="Onboarding step 2: Set — 3 priorities, that's it" loading="lazy">
+              <img src="img/LOFI-OB-03-Go 1.png" alt="Onboarding step 3: Go — what's the first intention?" loading="lazy">
+            </div>
+            <div class="screens-caption">onboarding — ready, set, go. three screens, under 15 seconds.</div>
+          </div>
 
-        <h4>Capture</h4>
-        <div class="screens triple">
-          <img src="img/LOFI-APP-01-Capture 1.png" alt="Capture screen with last night's intention surfaced" loading="lazy">
-          <img src="img/LOFI-APP-01-Capture 2.png" alt="Capture screen — blank input for new thoughts" loading="lazy">
-          <img src="img/LOFI-APP-01-Capture 3.png" alt="Capture screen with keyboard open" loading="lazy">
-        </div>
-        <div class="screens-caption">capture — morning greeting with last night's intention or a blank slate</div>
+          <div class="lofi-cell">
+            <h4>Capture</h4>
+            <div class="lofi-show">
+              <img src="img/LOFI-APP-01-Capture 1.png" alt="Capture screen with last night's intention surfaced" class="on" loading="lazy">
+              <img src="img/LOFI-APP-01-Capture 2.png" alt="Capture screen — blank input for new thoughts" loading="lazy">
+              <img src="img/LOFI-APP-01-Capture 3.png" alt="Capture screen with keyboard open" loading="lazy">
+            </div>
+            <div class="screens-caption">capture — morning greeting with last night's intention or a blank slate</div>
+          </div>
 
-        <h4>Interrupt</h4>
-        <div class="screens">
-          <img src="img/LOFI-APP-02-Interrupt 1.png" alt="Interrupt screen — before you scroll, finish the proposal is still your #1" loading="lazy">
-        </div>
-        <div class="screens-caption">interrupt — before you scroll, your #1 from last night is waiting</div>
+          <div class="lofi-cell">
+            <h4>Interrupt</h4>
+            <div class="lofi-show">
+              <img src="img/LOFI-APP-02-Interrupt 1.png" alt="Interrupt screen — before you scroll, finish the proposal is still your #1" class="on" loading="lazy">
+            </div>
+            <div class="screens-caption">interrupt — before you scroll, your #1 from last night is waiting</div>
+          </div>
 
-        <h4>Prioritize + Start</h4>
-        <div class="screens">
-          <img src="img/LOFI-APP-03-Priority 1.png" alt="Priority screen — finish proposal as top priority" loading="lazy">
-          <img src="img/LOFI-APP-03-Priority 2.png" alt="Priority screen — reordered, email client updates now top" loading="lazy">
-        </div>
-        <div class="screens">
-          <img src="img/LOFI-APP-04-Start 1.png" alt="Start screen — finish the proposal, press and hold to begin" loading="lazy">
-          <img src="img/LOFI-APP-04-Start 2.png" alt="Start screen — email client updates, press and hold to begin" loading="lazy">
-        </div>
-        <div class="screens-caption">prioritize → reorder → commit — auto-selects if you can't decide</div>
+          <div class="lofi-cell">
+            <h4>Prioritize + Start</h4>
+            <div class="lofi-show">
+              <img src="img/LOFI-APP-03-Priority 1.png" alt="Priority screen — finish proposal as top priority" class="on" loading="lazy">
+              <img src="img/LOFI-APP-03-Priority 2.png" alt="Priority screen — reordered, email client updates now top" loading="lazy">
+              <img src="img/LOFI-APP-04-Start 1.png" alt="Start screen — finish the proposal, press and hold to begin" loading="lazy">
+              <img src="img/LOFI-APP-04-Start 2.png" alt="Start screen — email client updates, press and hold to begin" loading="lazy">
+            </div>
+            <div class="screens-caption">prioritize → reorder → commit — auto-selects if you can't decide</div>
+          </div>
 
-        <h4>Focus</h4>
-        <div class="screens">
-          <img src="img/LOFI-APP-05-Focus 1.png" alt="Focus screen — 75 min timer, finish the proposal, nav locked" loading="lazy">
-          <img src="img/LOFI-APP-05-Focus 2.png" alt="Focus screen — email client updates task" loading="lazy">
-        </div>
-        <div class="screens-caption">focus — timer running, nav locked, only options: +10 min, tasks, or done</div>
+          <div class="lofi-cell">
+            <h4>Focus</h4>
+            <div class="lofi-show">
+              <img src="img/LOFI-APP-05-Focus 1.png" alt="Focus screen — 75 min timer, finish the proposal, nav locked" class="on" loading="lazy">
+              <img src="img/LOFI-APP-05-Focus 2.png" alt="Focus screen — email client updates task" loading="lazy">
+            </div>
+            <div class="screens-caption">focus — timer running, nav locked, only options: +10 min, tasks, or done</div>
+          </div>
 
-        <h4>Unwind</h4>
-        <div class="screens triple">
-          <img src="img/LOFI-APP-06-Unwind 1.png" alt="Unwind screen — time to unwind, set your break to 15 min" loading="lazy">
-          <img src="img/LOFI-APP-06-Unwind 2.png" alt="Unwind screen — set your break length before starting" loading="lazy">
-          <img src="img/LOFI-APP-06-Unwind 3.png" alt="Unwind screen — email client updates, set your break time" loading="lazy">
-        </div>
-        <div class="screens-caption">unwind — choose your break length, or skip straight to reflect</div>
+          <div class="lofi-cell">
+            <h4>Unwind</h4>
+            <div class="lofi-show">
+              <img src="img/LOFI-APP-06-Unwind 1.png" alt="Unwind screen — time to unwind, set your break to 15 min" class="on" loading="lazy">
+              <img src="img/LOFI-APP-06-Unwind 2.png" alt="Unwind screen — set your break length before starting" loading="lazy">
+              <img src="img/LOFI-APP-06-Unwind 3.png" alt="Unwind screen — email client updates, set your break time" loading="lazy">
+            </div>
+            <div class="screens-caption">unwind — choose your break length, or skip straight to reflect</div>
+          </div>
 
-        <h4>Reflect</h4>
-        <div class="screens triple">
-          <img src="img/LOFI-APP-07-Reflect 1.png" alt="Reflect screen — how did today feel, weekly dots, tomorrow's intention" loading="lazy">
-          <img src="img/LOFI-APP-07-Reflect 2.png" alt="Reflect screen — keyboard open for tomorrow's intention" loading="lazy">
-          <img src="img/LOFI-APP-07-Reflect 3.png" alt="Reflect screen — share your week via iOS share sheet" loading="lazy">
+          <div class="lofi-cell">
+            <h4>Reflect</h4>
+            <div class="lofi-show">
+              <img src="img/LOFI-APP-07-Reflect 1.png" alt="Reflect screen — how did today feel, weekly dots, tomorrow's intention" class="on" loading="lazy">
+              <img src="img/LOFI-APP-07-Reflect 2.png" alt="Reflect screen — keyboard open for tomorrow's intention" loading="lazy">
+              <img src="img/LOFI-APP-07-Reflect 3.png" alt="Reflect screen — share your week via iOS share sheet" loading="lazy">
+            </div>
+            <div class="screens-caption">reflect — one tap check-in, weekly pattern, share your streak</div>
+          </div>
         </div>
-        <div class="screens-caption">reflect — one tap check-in, weekly pattern, share your streak</div>
 
         <h4>Design principles</h4>
         <p><strong>Fewer choices at the right moment.</strong> Max 3 items on the priority screen. Auto-commit at 60 seconds. The app decides if you don't.</p>
@@ -318,6 +355,31 @@
           var cur = root.dataset.theme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); var next = cur === 'dark' ? 'light' : 'dark'; root.dataset.theme = next; try { localStorage.setItem('theme', next); } catch (e) {}
         });
       })();
+      // lo-fi slideshows
+      var shows = [].slice.call(document.querySelectorAll('.lofi-show'));
+      shows.forEach(function (ss) {
+        var imgs = [].slice.call(ss.querySelectorAll('img'));
+        if (imgs.length < 2) return;
+        var dots = document.createElement('div');
+        dots.className = 'lofi-dots';
+        imgs.forEach(function (img, i) {
+          var d = document.createElement('span');
+          d.className = 'lofi-dot' + (i === 0 ? ' on' : '');
+          dots.appendChild(d);
+        });
+        ss.appendChild(dots);
+        var dotEls = [].slice.call(dots.querySelectorAll('.lofi-dot'));
+        setInterval(function () {
+          var cur = ss.querySelector('img.on') || imgs[0];
+          var idx = imgs.indexOf(cur);
+          cur.classList.remove('on');
+          dotEls[idx].classList.remove('on');
+          var next = (idx + 1) % imgs.length;
+          imgs[next].classList.add('on');
+          dotEls[next].classList.add('on');
+        }, 3200);
+      });
+
       // footer year
       document.getElementById('yr').textContent = new Date().getFullYear();
     </script>
