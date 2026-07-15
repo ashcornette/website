@@ -584,15 +584,14 @@ a.pagetitle:hover { text-decoration: none; }
 .work .proj-copy { font-size: 15px; line-height: 1.65; color: var(--text); max-width: 38ch; text-align: right; margin: 0; }
 .work .tagcloud { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; max-width: 38ch; }
 
-/* sign-off strip — full-bleed slideshow BELOW the work index.
-   Above the rows it pushed every project title past the fold; here it costs nothing. */
+/* sign-off strip — full-bleed slideshow above the work index. */
 .work .banner {
   position: relative; overflow: hidden; display: block;
   aspect-ratio: 32 / 9;   /* 50% of the original 16:9 height */
   background: var(--tint); border: 0;
   /* break out of the centred column and the body padding → edge to edge */
   width: auto; max-width: none;
-  margin: 56px calc(50% - 50vw) 0;
+  margin: 0 calc(50% - 50vw) 40px;
 }
 /* higher specificity than `.work .slideshow img` below, which would otherwise
    win on source order and drag this back to the deck's .6s */
