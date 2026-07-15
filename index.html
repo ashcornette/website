@@ -182,6 +182,11 @@
         });
         document.getElementById('yr').textContent = new Date().getFullYear();
 
+        // play() returns a promise in modern browsers but not everywhere —
+        // calling .catch() on undefined would throw and take the whole script
+        // (theme, filters, accordion) down with it
+        function safePlay(v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+
         var chips = document.getElementById('chips'),
             q = document.getElementById('q'),
             rowsEl = document.getElementById('rows'),
@@ -227,7 +232,7 @@
           });
           if (!open) {
             p.setAttribute('data-open', ''); head.setAttribute('aria-expanded', 'true');
-            var v = p.querySelector('video'); if (v) { v.play().catch(function () {}); }
+            var v = p.querySelector('video'); if (v) { safePlay(v); }
           }
         });
 
@@ -238,7 +243,7 @@
           first.setAttribute('data-open', '');
           first.querySelector('.proj-head').setAttribute('aria-expanded', 'true');
           var v = first.querySelector('video');
-          if (v && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) { v.play().catch(function () {}); }
+          if (v && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) { safePlay(v); }
         })();
 
         // sign-off strip — slow cross-fade, holds still if the viewer prefers reduced motion

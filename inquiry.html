@@ -195,6 +195,13 @@ const app = document.getElementById('app');
 const CONTACT = QUESTIONS.filter(q => q.group === 'contact');
 const REST    = QUESTIONS.filter(q => q.group !== 'contact');
 
+/* wipe every answer and rebuild the form empty */
+function resetForm(){
+  Object.keys(answers).forEach(k => delete answers[k]);
+  render();
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
 function render(){
   app.innerHTML = `
     <div class="review">
@@ -225,7 +232,9 @@ function render(){
   bindControls(app);
   const send = app.querySelector('.cta a');
   const err  = app.querySelector('#intakeErr');
-  send.href = buildMailto();
+  // href stays "#" until the click handler validates and builds it. Setting it
+  // up front left a stale mailto with an empty body on the link, which a
+  // middle-click or ⌘-click would open — bypassing validation entirely.
 
   send.addEventListener('click', function(e){
     // contact details are the one hard requirement — an inquiry with no name
@@ -250,17 +259,30 @@ function render(){
     }
 
     err.hidden = true;
+
+    // The link's own href does the navigating — no preventDefault, no
+    // location assignment. Keeps it a real mailto link: right-click, copy
+    // address, middle-click and open-in-new-tab all behave normally.
     this.href = buildMailto();
-    // POST data to Worker (fire-and-forget, doesn't block mailto)
-    const payload = {};
-    QUESTIONS.forEach(function(item){
-      if (answers[item.id] !== undefined) payload[item.id] = answers[item.id];
+
+    // human labels, not option codes — "$7k–$10k" reads where "7-10" doesn't
+    const payload = { source: 'inquiry' };
+    answered().forEach(function(item){
+      payload[item.id] = item.group === 'contact' ? answers[item.id] : answerText(item);
     });
-    fetch('https://inquiry-worker.complexash.workers.dev/api/inquiry', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    }).catch(function(){});
+
+    // best-effort copy to the Worker (a log, not the delivery path)
+    window.ashPost(payload).catch(function(){});
+
+    // a mailto only opens a draft, so we can't confirm it was sent — which is
+    // why the answers stay put and nothing auto-redirects
+    window.ashAck({
+      title: 'Thank you.',
+      // closing the popup is a deliberate "I'm done here" — send them back to
+      // the work. Only on this page: the contact panel's popup leaves you
+      // wherever you were reading.
+      onClose: function(){ window.location.href = 'index.html'; }
+    });
   });
 }
 
