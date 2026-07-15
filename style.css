@@ -552,7 +552,7 @@ a.pagetitle:hover { text-decoration: none; }
 .work .proj-tog::before { width: 18px; height: 2px; }
 .work .proj-tog::after { width: 2px; height: 18px; }
 .work .proj[data-open] .proj-tog { transform: rotate(45deg); }
-.work .proj-head:hover .proj-title { transform: translateX(8px); opacity: 1; }
+.work .proj-head:hover .proj-title { opacity: 1; }
 /* the heading only wraps the button for semantics — it must not restyle it */
 .work .proj-h { margin: 0; font-size: inherit; font-weight: inherit; letter-spacing: inherit; }
 .work .proj-h::after { content: none; }
