@@ -62,21 +62,7 @@
   --phase-indigo: #6b70ad;
 }
 
-/* default to the visitor's OS theme until they toggle (data-theme="light"/"dark") */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0e0e0e;
-    --text: #f2f2f0;
-    --muted: #9a9a97;
-    --border: #262625;
-    --tint: #1c1c1b;
-    --accent: #cfcecb;
-    --frame: #6b6b68;   /* 3.61:1 on --bg — #565652 was 2.62:1 and failed WCAG 1.4.11 for UI borders/focus rings */
-    --positive: #7bc07b;
-    --negative: #e07a52;
-    --phase-indigo: #6b70ad;
-  }
-}
+/* light is the default — dark only activates when the user toggles (data-theme="dark") */
 
 /* ── 2. BASE + TYPE ── */
 body {
@@ -614,6 +600,8 @@ a.pagetitle:hover { text-decoration: none; }
   font-family: var(--sans); font-size: 12px; letter-spacing: 0.02em; color: var(--accent);
   background: var(--tint); padding: 6px 13px; border-radius: 999px; white-space: nowrap;
 }
+.work .proj { border-top: 1px solid var(--text); }
+.work .proj:last-child { border-bottom: 1px solid var(--text); }
 .work .proj.hide { display: none; }
 .work .empty { font-size: 12px; color: var(--muted); padding-top: 20px; display: none; }
 .work .workfoot {
