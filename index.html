@@ -236,16 +236,6 @@
           }
         });
 
-        // open the first project on load — a visitor should see work, not five text titles
-        (function () {
-          var first = projs[0];
-          if (!first) return;
-          first.setAttribute('data-open', '');
-          first.querySelector('.proj-head').setAttribute('aria-expanded', 'true');
-          var v = first.querySelector('video');
-          if (v && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) { safePlay(v); }
-        })();
-
         // sign-off strip — slow cross-fade, holds still if the viewer prefers reduced motion
         var banner = document.getElementById('banner');
         if (banner && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
