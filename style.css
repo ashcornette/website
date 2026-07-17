@@ -570,7 +570,8 @@ a.pagetitle:hover { text-decoration: none; }
 .work .proj-copy { font-size: 15px; line-height: 1.65; color: var(--text); max-width: 38ch; text-align: right; margin: 0; }
 .work .tagcloud { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; max-width: 38ch; }
 
-/* sign-off strip — full-bleed slideshow above the work index. */
+/* sign-off strip — full-bleed slideshow BELOW the work index.
+   Above the rows it pushed every project title past the fold; here it costs nothing. */
 .work .banner {
   position: relative; overflow: hidden; display: block;
   aspect-ratio: 32 / 9;   /* 50% of the original 16:9 height */
@@ -604,6 +605,31 @@ a.pagetitle:hover { text-decoration: none; }
 .work .proj:last-child { border-bottom: 1px solid var(--text); }
 .work .proj.hide { display: none; }
 .work .empty { font-size: 12px; color: var(--muted); padding-top: 20px; display: none; }
+
+/* social proof line */
+.work .proof {
+  font-size: var(--fs-sm); color: var(--muted); margin: -18px 0 26px;
+  letter-spacing: 0.005em; line-height: 1.5;
+}
+
+/* about section */
+.work .about {
+  margin: 80px 0 0; padding: 48px 0; border-top: 1px solid var(--text);
+}
+.work .about-heading {
+  font-family: var(--sans); font-size: var(--fs-md); font-weight: 500;
+  letter-spacing: 0.02em; text-transform: lowercase; color: var(--muted);
+  margin: 0 0 20px;
+}
+.work .about-body {
+  max-width: 560px;
+}
+.work .about-body p {
+  font-size: var(--fs-base); line-height: 1.6; color: var(--text); margin: 0 0 14px;
+}
+.work .about-body p:last-child { margin-bottom: 24px; }
+.work .about .pill { margin: 0; }
+
 .work .workfoot {
   display: flex; justify-content: space-between; align-items: center; gap: 20px;
   max-width: none; margin: 64px 0 0; padding: 22px 0 60px;
