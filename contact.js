@@ -27,7 +27,7 @@
   overlay.innerHTML =
     '<div class="contact-panel" role="dialog" aria-modal="true" aria-label="Contact">' +
       '<button type="button" class="contact-close" aria-label="Close contact form">×</button>' +
-      '<p class="contact-eyebrow">say hello</p>' +
+      '<p class="contact-eyebrow">get in touch</p>' +
       '<form class="contact-form" novalidate>' +
         '<div class="contact-row">' +
           '<label class="contact-field"><span>your name</span><input type="text" name="name" autocomplete="name"></label>' +
