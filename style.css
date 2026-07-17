@@ -608,16 +608,16 @@ a.pagetitle:hover { text-decoration: none; }
 
 /* social proof line */
 .work .proof {
-  font-size: var(--fs-sm); color: var(--muted); margin: -18px 0 26px;
+  font-size: var(--fs-sm); color: var(--muted); margin: -18px 0 40px;
   letter-spacing: 0.005em; line-height: 1.5;
 }
 
 /* about section */
 .work .about {
-  margin: 80px 0 0; padding: 48px 0; border-top: 1px solid var(--text);
+  margin: 120px 0 0; padding: 56px 0; border-top: 1px solid var(--text);
 }
 .work .about-heading {
-  font-family: var(--sans); font-size: var(--fs-md); font-weight: 500;
+  font-family: var(--sans); font-size: var(--fs-md); font-weight: 400;
   letter-spacing: 0.02em; text-transform: lowercase; color: var(--muted);
   margin: 0 0 20px;
 }
@@ -627,7 +627,7 @@ a.pagetitle:hover { text-decoration: none; }
 .work .about-body p {
   font-size: var(--fs-base); line-height: 1.6; color: var(--text); margin: 0 0 14px;
 }
-.work .about-body p:last-child { margin-bottom: 24px; }
+.work .about-body p:last-child { margin-bottom: 32px; }
 .work .about .pill { margin: 0; }
 
 .work .workfoot {
