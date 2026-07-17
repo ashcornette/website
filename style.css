@@ -614,7 +614,7 @@ a.pagetitle:hover { text-decoration: none; }
 
 /* about section */
 .work .about {
-  margin: 120px 0 0; padding: 56px 0;
+  margin: 60px 0 0; padding: 56px 0;
 }
 .work .about-heading {
   font-family: var(--sans); font-size: var(--fs-h2); font-weight: 500;
@@ -722,6 +722,9 @@ a.pagetitle:hover { text-decoration: none; }
   /* tighten the stacked photo → copy spacing */
   .work .proj-body { gap: 14px; }
   .work .proj-media .pill { margin-bottom: 0; }
+  .work .proof { margin-bottom: 28px; }
+  .work .about { margin: 40px 0 0; padding: 40px 0; }
+  .work .about-body { max-width: none; }
   .contact-row { flex-direction: column; gap: 0; }
   .contact-panel { top: 16px; left: 16px; right: 16px; width: auto; max-height: calc(100vh - 32px); padding: 28px 24px; }
   /* the ack stays centred on phones — the sheet rules above would fight the transform */
