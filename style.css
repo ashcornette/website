@@ -632,7 +632,7 @@ a.pagetitle:hover { text-decoration: none; }
 
 /* definition tooltip */
 .def-wrap { position: relative; display: inline; }
-.def-term { color: var(--text); text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 3px; transition: text-decoration-color 0.15s ease; cursor: default; }
+.work .about-body .def-term { color: var(--text); text-decoration: underline !important; text-decoration-color: var(--border); text-underline-offset: 3px; transition: text-decoration-color 0.15s ease; cursor: default; }
 .def-wrap:hover .def-term { text-decoration-color: var(--text); }
 .def-tip {
   position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%) translateY(3px);
