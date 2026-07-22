@@ -574,7 +574,7 @@ a.pagetitle:hover { text-decoration: none; }
    Above the rows it pushed every project title past the fold; here it costs nothing. */
 .work .banner {
   position: relative; overflow: hidden; display: block;
-  aspect-ratio: 32 / 9;   /* 50% of the original 16:9 height */
+  aspect-ratio: 32 / 12;   /* 1/3 taller than the previous 32:9 */
   background: var(--tint); border: 0;
   width: 100%; max-width: none;
   margin: 0 0 40px;
