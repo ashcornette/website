@@ -576,9 +576,8 @@ a.pagetitle:hover { text-decoration: none; }
   position: relative; overflow: hidden; display: block;
   aspect-ratio: 32 / 9;   /* 50% of the original 16:9 height */
   background: var(--tint); border: 0;
-  /* break out of the centred column and the body padding → edge to edge */
-  width: auto; max-width: none;
-  margin: 0 calc(50% - 50vw) 40px;
+  width: 100%; max-width: none;
+  margin: 0 0 40px;
 }
 /* higher specificity than `.work .slideshow img` below, which would otherwise
    win on source order and drag this back to the deck's .6s */
