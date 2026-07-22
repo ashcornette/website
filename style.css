@@ -630,6 +630,18 @@ a.pagetitle:hover { text-decoration: none; }
 .work .about-body p:last-child { margin-bottom: 32px; }
 .work .about .pill { margin: 0; }
 
+/* definition tooltip */
+.def-wrap { position: relative; display: inline; }
+.def-term { color: var(--text); text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 3px; transition: text-decoration-color 0.15s ease; }
+.def-term:hover { text-decoration-color: var(--text); }
+.def-tip {
+  position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%) translateY(3px);
+  background: var(--text); color: var(--bg); padding: 8px 14px; white-space: nowrap;
+  font-size: var(--fs-sm); line-height: 1.5; letter-spacing: 0.01em;
+  opacity: 0; pointer-events: none; transition: all 0.15s ease; z-index: 10;
+}
+.def-wrap:hover .def-tip { opacity: 1; transform: translateX(-50%) translateY(0); }
+
 .work .workfoot {
   display: flex; justify-content: space-between; align-items: center; gap: 20px;
   max-width: none; margin: 64px 0 0; padding: 22px 0 60px;
