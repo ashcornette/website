@@ -978,17 +978,29 @@ a.show-proj:hover .show-desc,
   text-decoration: none;
 }
 
-/* touch devices — show labels by default since no hover */
+/* touch devices — no scrim, labels sit below media as text */
 @media (hover: none) {
   .work .show-label {
-    background:
-      radial-gradient(circle, rgba(0,0,0,0.4) 1px, transparent 1px);
-    background-size: 4px 4px;
-    background-color: rgba(0,0,0,0.15);
+    position: relative;
+    inset: auto;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: flex-start;
+    gap: 0.5em;
+    background: none;
+    padding: 12px var(--pad) 0;
   }
   .work .show-title,
   .work .show-desc {
     opacity: 1;
+    background: none;
+    padding: 0;
+    border: 0;
+    color: var(--text);
+    text-align: left;
+  }
+  .work .show-desc {
+    color: var(--muted);
   }
 }
 
