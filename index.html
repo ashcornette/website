@@ -209,7 +209,8 @@
           var isExternal = link.startsWith('http');
 
           function renderModal(mediaHtml) {
-            var html = mediaHtml;
+            var html = '<button class="proj-modal-close" aria-label="Close preview">&times;</button>';
+            html += mediaHtml;
             html += '<div class="proj-modal-label">';
             html += '<span class="proj-modal-title">' + title + '</span>';
             if (desc) html += '<span class="proj-modal-desc">' + desc + '</span>';
@@ -220,6 +221,7 @@
             }
             html += '</div>';
             modal.innerHTML = html;
+            modal.querySelector('.proj-modal-close').addEventListener('click', closePreview);
             overlay.classList.add('active');
             document.body.style.overflow = 'hidden';
           }
