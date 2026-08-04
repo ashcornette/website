@@ -87,7 +87,7 @@
         <!-- ── Middle heading ── -->
         <p class="mid-heading">The work is knowing what to leave out.</p>
 
-        <div class="show-proj" data-preview="video" data-src="img/ourocollective-preview.mp4" data-poster="img/ourocollective-preview-poster.jpg" data-title="OURO Collective" data-desc="Web and brand for a dance collective" data-link="https://ourocollective.com" data-no-embed>
+        <div class="show-proj" data-preview="image" data-src="img/ourocollective.png" data-title="OURO Collective" data-desc="Web and brand for a dance collective" data-link="https://ourocollective.com" data-no-embed>
           <div class="show-media">
             <video src="img/ourocollective-preview.mp4" poster="img/ourocollective-preview-poster.jpg" muted loop playsinline preload="metadata" aria-label="OURO Collective website walkthrough"></video>
           </div>
@@ -192,6 +192,9 @@
             var src = el.getAttribute('data-src');
             var poster = el.getAttribute('data-poster') || '';
             return '<video src="' + src + '" poster="' + poster + '" autoplay muted loop playsinline style="width:100%;display:block;background:#000;"></video>';
+          } else if (type === 'image') {
+            var src = el.getAttribute('data-src');
+            return '<img src="' + src + '" alt="" style="width:100%;display:block;">';
           } else if (type === 'figma') {
             var src = el.getAttribute('data-src');
             return '<iframe src="' + src + '" allowfullscreen></iframe>';
