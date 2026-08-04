@@ -49,7 +49,7 @@
       <!-- ── Full-width project sections ── -->
       <div class="showcase" id="showcase">
 
-        <a class="show-proj" href="https://usebarely.com" target="_blank" rel="noopener noreferrer">
+        <div class="show-proj" data-preview="video" data-src="img/barely-notes-demo.mp4" data-poster="img/barely-notes-demo-poster.jpg" data-title="Barely Notes" data-desc="A one-note app shipped to the App Store" data-link="https://usebarely.com">
           <div class="show-media">
             <video src="img/barely-notes-demo.mp4" poster="img/barely-notes-demo-poster.jpg" muted loop playsinline preload="metadata" aria-label="Barely Notes app demo"></video>
           </div>
@@ -58,9 +58,9 @@
             <span class="show-dash">-</span>
             <span class="show-desc">A one-note app shipped to the App Store</span>
           </div>
-        </a>
+        </div>
 
-        <a class="show-proj" href="complexbreaks.html">
+        <div class="show-proj" data-preview="video" data-src="img/complexbreaks/complexbreaks-walkthrough.mp4" data-poster="img/complexbreaks/complexbreaks-walkthrough-poster.jpg" data-title="Complex Breaks" data-desc="Breaking-culture archive, brand, and platform" data-link="complexbreaks.html">
           <div class="show-media">
             <video src="img/complexbreaks/complexbreaks-walkthrough.mp4" poster="img/complexbreaks/complexbreaks-walkthrough-poster.jpg" muted loop playsinline preload="metadata" aria-label="Complex Breaks website walkthrough"></video>
           </div>
@@ -69,25 +69,25 @@
             <span class="show-dash">-</span>
             <span class="show-desc">Breaking-culture archive, brand, and platform</span>
           </div>
-        </a>
+        </div>
 
-        <div class="show-proj show-proj-figma">
+        <div class="show-proj" data-preview="figma" data-src="https://embed.figma.com/proto/0dpj7EkT6vc4ELZLxGzFLL/Gear-Bag?node-id=8-3806&starting-point-node-id=8%3A3806&scaling=scale-down&content-scaling=fixed&embed-host=share" data-title="Arc'teryx Gear Bag" data-desc="Activity-first gear planning for the app" data-link="arcteryx.html">
           <div class="show-media show-media-figma">
             <iframe title="Arc'teryx Gear Bag: interactive Figma prototype"
               src="https://embed.figma.com/proto/0dpj7EkT6vc4ELZLxGzFLL/Gear-Bag?node-id=8-3806&starting-point-node-id=8%3A3806&scaling=scale-down&content-scaling=fixed&embed-host=share"
               allowfullscreen loading="lazy"></iframe>
           </div>
-          <a class="show-label" href="arcteryx.html">
+          <div class="show-label">
             <h2 class="show-title">Arc'teryx Gear Bag</h2>
             <span class="show-dash">-</span>
             <span class="show-desc">Activity-first gear planning for the app</span>
-          </a>
+          </div>
         </div>
 
         <!-- ── Middle heading ── -->
         <p class="mid-heading">The work is knowing what to leave out.</p>
 
-        <a class="show-proj" href="https://ourocollective.com" target="_blank" rel="noopener noreferrer">
+        <div class="show-proj" data-preview="video" data-src="img/ourocollective-preview.mp4" data-poster="img/ourocollective-preview-poster.jpg" data-title="OURO Collective" data-desc="Web and brand for a dance collective" data-link="https://ourocollective.com" data-no-embed>
           <div class="show-media">
             <video src="img/ourocollective-preview.mp4" poster="img/ourocollective-preview-poster.jpg" muted loop playsinline preload="metadata" aria-label="OURO Collective website walkthrough"></video>
           </div>
@@ -96,9 +96,9 @@
             <span class="show-dash">-</span>
             <span class="show-desc">Web and brand for a dance collective</span>
           </div>
-        </a>
+        </div>
 
-        <a class="show-proj" href="sean-dawn.html">
+        <div class="show-proj" data-preview="journey" data-title="Sean Dawn" data-desc="A productivity app for overthinkers" data-link="sean-dawn.html">
           <div class="show-media show-journey">
             <div class="journey"><div class="journey-track">
               <div class="journey-stop"><div class="journey-dot high"></div><div class="journey-time">6:45 AM</div><div class="journey-name">Wake up</div><div class="journey-desc">Has clarity. Knows what to do.</div></div>
@@ -116,7 +116,7 @@
             <span class="show-dash">-</span>
             <span class="show-desc">A productivity app for overthinkers</span>
           </div>
-        </a>
+        </div>
 
       </div>
 
@@ -141,6 +141,11 @@
       </footer>
       </div>
     </main>
+    </div>
+
+    <!-- project preview modal -->
+    <div class="proj-overlay" id="projOverlay">
+      <div class="proj-modal" id="projModal"></div>
     </div>
 
     <script>
@@ -175,6 +180,83 @@
             vids.forEach(function (v) { if (vidsPaused) v.pause(); });
           });
         }
+
+        // project preview modal
+        var overlay = document.getElementById('projOverlay');
+        var modal = document.getElementById('projModal');
+        var projs = [].slice.call(document.querySelectorAll('.show-proj'));
+
+        function buildFallback(el) {
+          var type = el.getAttribute('data-preview');
+          if (type === 'video') {
+            var src = el.getAttribute('data-src');
+            var poster = el.getAttribute('data-poster') || '';
+            return '<video src="' + src + '" poster="' + poster + '" autoplay muted loop playsinline style="width:100%;display:block;background:#000;"></video>';
+          } else if (type === 'figma') {
+            var src = el.getAttribute('data-src');
+            return '<iframe src="' + src + '" allowfullscreen></iframe>';
+          } else if (type === 'journey') {
+            var journey = el.querySelector('.show-journey');
+            if (journey) return '<div style="background:var(--tint);padding:40px 24px 48px;display:flex;align-items:flex-end;justify-content:center;">' + journey.innerHTML + '</div>';
+          }
+          return '';
+        }
+
+        function openPreview(el) {
+          var title = el.getAttribute('data-title') || '';
+          var desc = el.getAttribute('data-desc') || '';
+          var link = el.getAttribute('data-link') || '';
+          var isExternal = link.startsWith('http');
+
+          function renderModal(mediaHtml) {
+            var html = mediaHtml;
+            html += '<div class="proj-modal-label">';
+            html += '<span class="proj-modal-title">' + title + '</span>';
+            if (desc) html += '<span class="proj-modal-desc">' + desc + '</span>';
+            if (link) {
+              var linkText = isExternal ? 'Visit site' : 'View full case study';
+              var target = isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
+              html += '<a class="proj-modal-link" href="' + link + '"' + target + '>' + linkText + ' →</a>';
+            }
+            html += '</div>';
+            modal.innerHTML = html;
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+          }
+
+          var noEmbed = el.hasAttribute('data-no-embed');
+          var target = isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
+
+          if (link && !noEmbed) {
+            renderModal('<a href="' + link + '"' + target + ' style="display:block;"><iframe src="' + link + '" style="pointer-events:none;"></iframe></a>');
+          } else if (link && noEmbed) {
+            renderModal('<a href="' + link + '"' + target + ' style="display:block;">' + buildFallback(el) + '</a>');
+          } else {
+            renderModal(buildFallback(el));
+          }
+        }
+
+        function closePreview() {
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+          setTimeout(function () { modal.innerHTML = ''; }, 300);
+        }
+
+        projs.forEach(function (p) {
+          p.style.cursor = 'pointer';
+          p.addEventListener('click', function (e) {
+            if (e.target.closest('a')) return;
+            openPreview(p);
+          });
+        });
+
+        overlay.addEventListener('click', function (e) {
+          if (e.target === overlay) closePreview();
+        });
+
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && overlay.classList.contains('active')) closePreview();
+        });
       })();
     </script>
     <script src="contact.js"></script>
