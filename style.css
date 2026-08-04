@@ -1049,9 +1049,13 @@ a.pagetitle:hover { text-decoration: none; }
   .work .show-label { flex-direction: column; gap: 2px; }
   .work .show-title { font-size: 12px; }
   .work .show-desc { font-size: 12px; }
-  .proj-modal { width: 94vw; }
+  .proj-modal { width: 96vw; }
+  .proj-modal iframe { height: 65vh; }
+  .proj-modal video { max-height: 50vh; }
   .proj-modal-label { flex-direction: column; gap: 2px; }
-  .proj-modal-link { margin-left: 0; }
+  .proj-modal-title { font-size: 16px; }
+  .proj-modal-desc { font-size: 14px; }
+  .proj-modal-link { font-size: 13px; margin-left: 0; }
   .work .mid-heading { padding: 48px var(--pad); font-size: clamp(20px, 5vw, 32px); }
   .contact-row { flex-direction: column; gap: 0; }
   .contact-panel { top: 16px; left: 16px; right: 16px; width: auto; max-height: calc(100vh - 32px); padding: 28px 24px; }
