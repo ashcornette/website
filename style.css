@@ -96,6 +96,50 @@ main { animation: fadein 0.5s ease 0.1s both; }
 @keyframes fadein { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes cursor-rest { to { opacity: 0; } }
 
+/* page load stagger — hero elements */
+.work .pagetitle,
+.work .tagline,
+.work .intro-line {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: arrive 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+.work .pagetitle { animation-delay: 0.1s; }
+.work .tagline { animation-delay: 0.3s; }
+.work .intro-line { animation-delay: 0.5s; }
+
+@keyframes arrive {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* scroll reveal — hidden until observed */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.25, 0.1, 0.25, 1),
+              transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* reduced motion — skip all animations */
+@media (prefers-reduced-motion: reduce) {
+  .work .pagetitle,
+  .work .tagline,
+  .work .intro-line {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* ── 5. CHROME ── */
 
 /* back link */
@@ -968,6 +1012,11 @@ a.pagetitle:hover { text-decoration: none; }
   max-width: 1400px;
   max-height: 92vh;
   overflow: hidden;
+  transform: scale(0.96);
+  transition: transform 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.proj-overlay.active .proj-modal {
+  transform: scale(1);
 }
 .proj-modal iframe {
   width: 100%;
