@@ -882,7 +882,7 @@ a.pagetitle:hover { text-decoration: none; }
   object-fit: contain;
   display: block;
   background: var(--tint);
-  border: 1px solid var(--border);
+  border: 1px solid var(--text);
 }
 .work .show-media img {
   object-fit: cover;
