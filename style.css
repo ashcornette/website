@@ -879,13 +879,10 @@ a.pagetitle:hover { text-decoration: none; }
 .work .show-media img {
   width: 100%;
   aspect-ratio: 16 / 9;
-  object-fit: contain;
+  object-fit: cover;
   display: block;
   background: var(--tint);
   border: 1px solid var(--text);
-}
-.work .show-media img {
-  object-fit: cover;
 }
 
 /* Figma embed as featured media */
