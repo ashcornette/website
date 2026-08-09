@@ -19,12 +19,12 @@
 
 /* ── 1. TOKENS ── */
 :root {
-  --bg: #f7f7f5;          /* cool near-white */
-  --text: #0e0e0e;        /* true black ink */
-  --muted: #6b6b68;       /* cool gray */
-  --border: #e3e2df;      /* a fill, never a line */
-  --tint: #ecebe8;        /* section wash — one shade off the ground */
-  --accent: #3a3a38;      /* graphite — monochrome, one step off ink */
+  --bg: #f5f5f3;          /* cool near-white */
+  --text: #2a2a28;        /* charcoal — editorial, not harsh */
+  --muted: #8a8a86;       /* quiet gray — clear separation from text */
+  --border: #e8e8e5;      /* subtle fill */
+  --tint: #eeedea;        /* section wash — whisper off the ground */
+  --accent: #5c5c58;      /* midpoint gray — visible for links */
   --frame: var(--text);   /* visible hairline on media/inputs — ink in light, gray in dark */
 
   /* semantic status colors (case studies) */
