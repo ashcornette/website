@@ -51,6 +51,9 @@
 
 
 /* ── 2. BASE + TYPE ── */
+html {
+  overflow-x: hidden;
+}
 body {
   font-family: var(--sans);
   font-size: var(--fs-base);
@@ -59,7 +62,7 @@ body {
   background: var(--bg);
   min-height: 100vh;
   padding: 0 var(--pad);
-  overflow-x: clip;   /* full-bleed children use 100vw; don't let the scrollbar cause a sideways scroll */
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -878,6 +881,7 @@ a.pagetitle:hover { text-decoration: none; }
 .work .show-media video,
 .work .show-media img {
   width: 100%;
+  max-width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
   display: block;
