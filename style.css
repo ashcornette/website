@@ -37,16 +37,16 @@
   --sans: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --mono: var(--sans);
 
-  /* type scale — base 16, others scaled ~1.14x */
-  --fs-xs: 11px;
-  --fs-sm: 12px;
-  --fs-base: 14px;
-  --fs-md: 15px;
-  --fs-h2: clamp(21px, 2.8vw, 32px);
-  --fs-display: clamp(30px, 5vw, 58px);
+  /* type scale */
+  --fs-xs: 12px;
+  --fs-sm: 13px;
+  --fs-base: 16px;
+  --fs-md: 17px;
+  --fs-h2: clamp(24px, 3vw, 36px);
+  --fs-display: clamp(32px, 5vw, 62px);
 
   --col: 1080px;
-  --pad: 48px;
+  --pad: 56px;
 }
 
 
@@ -571,7 +571,7 @@ a.pagetitle:hover { text-decoration: none; }
   text-decoration: none;
 }
 .work .topbar { margin-bottom: 8px; }
-.work .tagline { font-size: var(--fs-base); color: var(--muted); margin: 0 0 26px; letter-spacing: 0.005em; }
+.work .tagline { font-size: var(--fs-base); color: var(--muted); margin: 0 0 32px; letter-spacing: 0.005em; }
 .work .pagetitle { font-size: clamp(32px, 7vw, 70px); }
 .doc { padding-top: 56px; }
 .doc .topbar { max-width: none; margin-inline: auto; margin-bottom: 22px; padding: 0; }
@@ -697,7 +697,7 @@ a.pagetitle:hover { text-decoration: none; }
 
 /* about section */
 .work .about {
-  margin: 36px 0 0; padding: 56px 0; max-width: none;
+  margin: 48px 0 0; padding: 72px 0; max-width: none;
 }
 .work .about-heading {
   font-family: var(--sans); font-size: clamp(32px, 7vw, 70px); font-weight: 500;
@@ -716,7 +716,7 @@ a.pagetitle:hover { text-decoration: none; }
 /* testimonial band: full-width section between about and footer */
 .work .testimonial-band {
   margin: 0 calc(-1 * var(--pad));
-  padding: 48px var(--pad);
+  padding: 64px var(--pad);
   background: var(--tint);
   text-align: center;
   border: 0;
@@ -749,10 +749,10 @@ a.pagetitle:hover { text-decoration: none; }
 
 .work .workfoot {
   display: flex; justify-content: space-between; align-items: center; gap: 20px;
-  max-width: none; margin: 64px 0 0; padding: 22px 0 60px;
-  background: transparent; font-size: 12px; letter-spacing: 0.04em; color: var(--text); animation: none;
+  max-width: none; margin: 80px 0 0; padding: 24px 0 64px;
+  background: transparent; font-size: var(--fs-xs); letter-spacing: 0.04em; color: var(--text); animation: none;
 }
-.work .workfoot a { font-size: 12px; letter-spacing: 0.04em; color: var(--text); transition: color 0.15s ease; }
+.work .workfoot a { font-size: var(--fs-xs); letter-spacing: 0.04em; color: var(--text); transition: color 0.15s ease; }
 .work .workfoot a:hover { color: var(--muted); text-decoration: none; }
 .foot-link { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--muted); }
 .foot-link:hover { text-decoration-color: var(--text); color: var(--text); }
@@ -844,7 +844,7 @@ a.pagetitle:hover { text-decoration: none; }
 .work .intro-line {
   font-size: var(--fs-base);
   color: var(--muted);
-  margin: -18px 0 48px;
+  margin: -22px 0 64px;
   letter-spacing: 0.005em;
   line-height: 1.5;
 }
@@ -857,7 +857,7 @@ a.pagetitle:hover { text-decoration: none; }
 .work .showcase {
   display: flex;
   flex-direction: column;
-  gap: 42px;
+  gap: 64px;
   margin-left: calc(-1 * var(--pad));
   margin-right: calc(-1 * var(--pad));
 }
@@ -936,9 +936,9 @@ a.pagetitle:hover { text-decoration: none; }
   display: flex;
   flex-direction: row;
   align-items: baseline;
-  gap: 0.5em;
+  gap: 0.75em;
   margin: 0;
-  padding: 12px var(--pad);
+  padding: 16px var(--pad) 0;
 }
 .work .show-title {
   font-family: var(--sans);
@@ -959,10 +959,11 @@ a.pagetitle:hover { text-decoration: none; }
 }
 .work .show-link {
   font-family: var(--sans);
-  font-size: var(--fs-base);
+  font-size: var(--fs-sm);
   font-weight: 400;
   color: var(--accent);
   text-decoration: underline;
+  text-underline-offset: 3px;
   margin-left: auto;
 }
 .work .show-link:hover {
@@ -974,13 +975,13 @@ a.pagetitle:hover { text-decoration: none; }
 /* middle heading — personality break between projects */
 .work .mid-heading {
   font-family: var(--sans);
-  font-size: clamp(22px, 4vw, 42px);
+  font-size: clamp(24px, 4vw, 44px);
   font-weight: 300;
   letter-spacing: -0.01em;
   line-height: 1.2;
   color: var(--text);
   text-align: center;
-  padding: 72px var(--pad);
+  padding: 24px var(--pad);
   margin: 0;
 }
 
@@ -1008,10 +1009,11 @@ a.pagetitle:hover { text-decoration: none; }
   .work .about { margin: 40px 0 0; padding: 40px 0; }
   .work .about-body { max-width: none; }
   .cb-two { grid-template-columns: 1fr; }
-  .work .show-label { flex-direction: column; gap: 2px; }
-  .work .show-title { font-size: 12px; }
-  .work .show-desc { font-size: 12px; }
-  .work .mid-heading { padding: 48px var(--pad); font-size: clamp(20px, 5vw, 32px); }
+  .work .show-label { flex-direction: column; gap: 4px; }
+  .work .show-title { font-size: 14px; }
+  .work .show-desc { font-size: 14px; }
+  .work .show-link { margin-left: 0; font-size: 12px; }
+  .work .mid-heading { padding: 16px var(--pad); font-size: clamp(20px, 5vw, 32px); }
   .contact-row { flex-direction: column; gap: 0; }
   .contact-panel { top: 16px; left: 16px; right: 16px; width: auto; max-height: calc(100vh - 32px); padding: 28px 24px; }
   /* the ack stays centred on phones — the sheet rules above would fight the transform */
