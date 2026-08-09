@@ -884,6 +884,9 @@ a.pagetitle:hover { text-decoration: none; }
   background: var(--tint);
   border: 0;
 }
+.work .show-media img {
+  object-fit: cover;
+}
 
 /* Figma embed as featured media */
 .work .show-media-figma {
