@@ -1020,17 +1020,17 @@ a.pagetitle:hover { text-decoration: none; }
 .proj-modal img {
   width: 100%;
   display: block;
+  flex-shrink: 1;
   min-height: 0;
-  flex: 1 1 auto;
   object-fit: contain;
-  overflow: hidden;
 }
 .proj-overlay.active .proj-modal {
   transform: scale(1);
 }
 .proj-modal iframe {
   width: 100%;
-  flex: 1 1 auto;
+  height: 82vh;
+  flex-shrink: 1;
   min-height: 0;
   border: 0;
   display: block;
@@ -1038,7 +1038,7 @@ a.pagetitle:hover { text-decoration: none; }
 }
 .proj-modal video {
   width: 100%;
-  flex: 1 1 auto;
+  flex-shrink: 1;
   min-height: 0;
   display: block;
   background: #000;
