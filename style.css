@@ -895,6 +895,7 @@ a.pagetitle:hover { text-decoration: none; }
   justify-content: center;
   align-items: center;
   aspect-ratio: 16 / 9;
+  border: 1px solid var(--text);
 }
 .work .show-media-figma iframe {
   height: 90%;
