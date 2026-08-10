@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Arc'teryx Gear Bag: UX case study by Ash Cornette. Turning a dead-end favourite into an activity-specific planning tool within the Arc'teryx app.">
+    <meta name="description" content="Arc'teryx Gear Bag: UX case study by Ash Cornette. Redesigned the favourite modal to turn a dead-end save into activity-specific gear planning.">
     <meta property="og:type" content="website">
     <meta property="og:title" content="ash cornette · arc'teryx gear bag">
-    <meta property="og:description" content="Turning a dead-end favourite into an activity-specific planning tool within the Arc'teryx app.">
+    <meta property="og:description" content="Redesigned the favourite modal to turn a dead-end save into activity-specific gear planning.">
     <meta property="og:url" content="https://ashcornette.com/arcteryx.html">
     <meta property="og:image" content="https://ashcornette.com/img/gearbag/slide-01.jpg">
     <meta property="og:image:alt" content="Work by Ash Cornette: brand, UX, and web design, Vancouver BC.">
@@ -31,10 +31,10 @@
     <main id="main" tabindex="-1">
       <div class="case-nav">
         <a href="index.html" class="back-link">← back</a>
-        <div class="case-tags"><span class="t">ux research</span><span class="t">product design</span><span class="t">app redesign</span><span class="t">figma</span><span class="t">prototyping</span><span class="t">information architecture</span></div>
+        <div class="case-tags"><span class="t">ux research</span><span class="t">product design</span><span class="t">app redesign</span><span class="t">figma</span><span class="t">prototyping</span></div>
       </div>
-      <h1>Arc'teryx Gear Bag</h1>
-      <p class="role">turning a dead-end favourite into a planning tool</p>
+      <h1>The app skips the question</h1>
+      <p class="role">Redesigned Arc'teryx's favourite modal to turn a dead-end save into activity-specific gear planning.</p>
 
       <div class="meta">
         <span class="status">concept</span>
@@ -43,106 +43,52 @@
         <span>Emily Carr University</span>
       </div>
 
-      <!-- 01 ── THE SPARK ── -->
+      <!-- 01 ── PROBLEM ── -->
       <div class="section">
-        <div class="section-num">01: the question</div>
-        <p>Arc'teryx is built on obsessive precision in-store. Walk into the Vancouver flagship and a staff member will ask what you're doing: alpine day, ski tour, climbing: and build a layering recommendation around the answer. That's the brand experience.</p>
-        <p>The app skips the question. You favourite a product. A modal pops up: <em>"Has been successfully added to your favourites."</em> One CTA: <strong>View Favourites</strong>. You go to a generic pile and the trail ends.</p>
-        <div class="pull">The favourite modal is the highest-intent moment in the entire app: and the current design wastes it.</div>
-        <p>That observation became the hinge of the entire redesign. Everything else followed from it.</p>
-        <p><strong>Problem statement:</strong> Arc'teryx's in-store experience is built around activity-specific layering systems, but the app treats every save as a generic favourite: wasting the highest-intent moment in the funnel and giving people no reason to return between purchases.</p>
-
-        <h4>How might we…</h4>
-        <ul>
-          <li>give online shoppers the same activity context an in-store associate provides?</li>
-          <li>turn an infrequently-opened app into a planning tool people open between trips?</li>
-          <li>reframe the favourite modal as a beginning instead of an end?</li>
-        </ul>
-      </div>
-
-      <!-- 02 ── RESEARCH ── -->
-      <div class="section">
-        <div class="section-num">02: research</div>
-        <h3>Mapping the gap</h3>
-        <p>I compared the Arc'teryx app to five competitors in the premium outdoor space: Patagonia, The North Face, MEC, Salomon, and Kuiu: to understand the feature space and where the gap sat. The picture was lopsided.</p>
-
+        <div class="section-num">01: problem</div>
+        <p>Walk into the Vancouver flagship and a staff member asks what you're doing: alpine day, ski tour, climbing. They build a layering recommendation around the answer. That's the brand experience.</p>
+        <p>The app skips it. You favourite a product, a modal says <em>"successfully added,"</em> and you land in a generic pile. Trail ends.</p>
+        <div class="pull">The favourite modal is the highest-intent moment in the entire app, and the current design wastes it.</div>
         <div class="stats">
-          <div class="stat-item"><span class="stat-val">5 of 12</span> core features supported: tied for the fewest in the&nbsp;set</div>
+          <div class="stat-item"><span class="stat-val">5 of 12</span> core features supported: tied for fewest in the competitive&nbsp;set</div>
           <div class="stat-item"><span class="stat-val">0 of 5</span> competitors offer activity-specific saved&nbsp;kits</div>
-          <div class="stat-item"><span class="stat-val">1 unique</span> in-app warranty claims: only on&nbsp;Arc'teryx</div>
-          <div class="stat-item"><span class="stat-val">3 channels</span> Main, Outlet, ReGEAR live in separate&nbsp;places</div>
-        </div>
-
-        <h4>Three problems came up everywhere</h4>
-        <p>Across review threads and forum posts, the same complaints surfaced:</p>
-        <ul>
-          <li>Navigation feels like a website wedged into a phone. It wasn't built for mobile.</li>
-          <li>Sizing varies by activity and layer system, but the size chart doesn't reflect that.</li>
-          <li>Outlet, ReGEAR, and the main store live in three separate places.</li>
-        </ul>
-
-        <h4>The middle of nowhere</h4>
-        <p>Arc'teryx as a brand layers context. <strong>Brand → activity → kit → product.</strong> Each layer gives meaning to the one inside it. The app skips straight to the middle. A favourite without an activity context, without a bag, without a connection to the system it lives in.</p>
-      </div>
-
-      <!-- 03 ── DESIGN PROCESS ── -->
-      <div class="section">
-        <div class="section-num">03: design process</div>
-        <h3>From observation to move</h3>
-        <div class="steps">
-          <div class="step"><div class="step-num">01</div><div class="step-title">Competitive review</div><div class="step-desc">Mapped feature parity across five competitors and identified the unique gap: no premium outdoor app offers activity-specific saved kits.</div></div>
-          <div class="step"><div class="step-num">02</div><div class="step-title">IA audit</div><div class="step-desc">Audited the app's navigation tree. Found the favourite modal isolated from the system around it: a high-intent moment routed to a low-intent surface.</div></div>
-          <div class="step"><div class="step-num">03</div><div class="step-title">Concept exploration</div><div class="step-desc">Sketched five variants of the modal. The activity-CTA pattern won immediately: fewest taps, clearest intent, no new screen.</div></div>
-          <div class="step"><div class="step-num">04</div><div class="step-title">Visual exploration</div><div class="step-desc">Designed in Arc'teryx's existing visual language: URW DIN, minimal black on white, dark filled buttons. The change should feel like the app the user already has.</div></div>
-          <div class="step"><div class="step-num">05</div><div class="step-title">Mid-fi mockups</div><div class="step-desc">Built the modal and the gear bag tab in Figma. Stayed on platform conventions to keep the change quiet.</div></div>
-          <div class="step"><div class="step-num">06</div><div class="step-title">CTA refinement</div><div class="step-desc">Iterated on label and ordering. "Add to Trail" beat "Save to Trail": committed verb, planning posture, no extra word.</div></div>
-        </div>
-
-        <h4>The key move</h4>
-        <p>The redesign rests on one decision. Replace the dead-end favourites CTA with three activity-specific CTAs. <strong>View Favourites</strong> stays. <strong>Add to Trail</strong>, <strong>Add to Climb</strong>, and <strong>Add to Ski &amp; Snowboard</strong> join it.</p>
-        <p>Same modal. Same product. Same heart tap. But the next surface is no longer a generic pile: it's a planning bag for a specific trip.</p>
-
-        <h4>The journey</h4>
-        <p>Five beats from product page to packed bag.</p>
-        <div class="phases">
-          <div class="phase"><span class="phase-num">01</span><span class="phase-name">Browse</span><span>explore or shop for gear</span></div>
-          <div class="phase"><span class="phase-num">02</span><span class="phase-name">Discover</span><span>view product details</span></div>
-          <div class="phase"><span class="phase-num">03</span><span class="phase-name">Save</span><span>tap heart → modal CTAs</span></div>
-          <div class="phase"><span class="phase-num">04</span><span class="phase-name">Organize</span><span>item added to gear bag</span></div>
-          <div class="phase"><span class="phase-num">05</span><span class="phase-name">Plan</span><span>review bag for adventure</span></div>
         </div>
       </div>
 
-      <!-- 04 ── THE SOLUTION ── -->
+      <!-- 02 ── STRATEGY ── -->
       <div class="section">
-        <div class="section-num">04: the solution</div>
-        <h3>Three bags, one hinge</h3>
+        <div class="section-num">02: strategy</div>
+        <p>The in-store experience layers context: brand → activity → kit → product. The app skips to the middle. A favourite without an activity, without a bag, without a system.</p>
+        <p>One decision fixed it. Replace the dead-end CTA with three activity-specific ones. <strong>View Favourites</strong> stays. <strong>Add to Trail</strong>, <strong>Add to Climb</strong>, and <strong>Add to Ski &amp; Snowboard</strong> join it. Same modal. Same heart tap. Different destination.</p>
+      </div>
 
-        <h4>The modal</h4>
-        <p>The central design move is right here. One modal, before and after.</p>
+      <!-- 03 ── THE SOLUTION ── -->
+      <div class="section">
+        <div class="section-num">03: the solution</div>
+
+        <h3>The modal</h3>
         <figure>
           <img src="img/arcteryx-change.webp" alt="Current vs new: the favourite modal gains three activity CTAs: Add to Trail, Add to Climb, Add to Ski & Snowboard: beneath the existing View Favourites, tied to the heart-tap on the product page." loading="lazy">
           <figcaption>current vs new: the favourite modal, redesigned</figcaption>
         </figure>
-        <p>Three new CTAs, sorted by activity. Tap one and the product joins that gear bag: you've started planning a trip without realising you started.</p>
+        <p>Three new CTAs sorted by activity. Tap one and the product joins that gear bag. You've started planning a trip without realising you started.</p>
 
-        <h4>The gear bag</h4>
-        <p>Each CTA routes into a bag the user can review before a trip. The bag lives one tap away inside the Explore tab: alongside Favourites and My Feed, which stay where they are.</p>
+        <h3>The gear bag</h3>
         <figure>
           <img src="img/arcteryx-gearbag.webp" alt="The Explore tab with a new Gear Bag section added beside Favourites and My Feed, showing Trail and Climb activity bags. Navigation flow: shop, explore, plan." loading="lazy">
           <figcaption>the gear bag lives in Explore: shop › explore › plan</figcaption>
         </figure>
+        <p>Each CTA routes into a bag the user can review before a trip. One tap away inside the Explore tab, alongside Favourites and My Feed.</p>
 
-        <h4>See it in motion</h4>
-        <p>The whole point is the loop, so here it is: click through the live prototype, from the heart-tap to a filled gear bag.</p>
+        <h3>Prototype</h3>
         <div class="proto-embed">
           <iframe title="Arc'teryx Gear Bag: interactive Figma prototype"
             src="https://embed.figma.com/proto/0dpj7EkT6vc4ELZLxGzFLL/Gear-Bag?node-id=8-3806&starting-point-node-id=8%3A3806&scaling=scale-down&content-scaling=fixed&embed-host=share"
             allowfullscreen loading="lazy"></iframe>
         </div>
-        <p class="proto-cap">interactive prototype: tap through it (heart-tap → activity CTA → gear bag)</p>
+        <p class="proto-cap">tap through it: heart-tap → activity CTA → gear bag</p>
 
-        <h4>Before / after</h4>
+        <h3>Before / after</h3>
         <div class="compare">
           <div class="compare-header"><span>before</span><span>after</span></div>
           <div class="compare-row"><span>One CTA: View Favourites</span><span>Four CTAs: favourites + three activities</span></div>
@@ -153,41 +99,25 @@
         </div>
       </div>
 
-      <!-- 05 ── OUTCOMES ── -->
+      <!-- 04 ── OUTCOMES ── -->
       <div class="section">
-        <div class="section-num">05: outcomes</div>
-        <h3>What this would open up</h3>
+        <div class="section-num">04: outcomes</div>
         <ul>
-          <li>A wasted high-intent moment converted into a planning action, with no extra taps.</li>
-          <li>An infrequently-opened app given a reason to be opened between purchases: checking the trail bag before a trip, organizing the climb bag for the season.</li>
-          <li>Cross-sell reframed quietly. Users aren't shown more things to buy. They're shown what's missing from their bag.</li>
+          <li>A wasted high-intent moment converted into a planning action, no extra taps.</li>
+          <li>An infrequently-opened app given a reason to open between purchases.</li>
+          <li>Cross-sell reframed quietly: you're not buying a jacket, you're filling a slot in your kit.</li>
         </ul>
-        <div class="pull">The cross-sell writes itself: but quietly. You're not buying a jacket. You're filling a slot in your alpine kit.</div>
       </div>
 
-      <!-- 06 ── REFLECTION ── -->
+      <!-- 05 ── LESSONS ── -->
       <div class="section">
-        <div class="section-num">06: reflection</div>
-        <h3>What's next, what I'd change</h3>
-
-        <h4>Next steps</h4>
-        <ul>
-          <li>User research interviews with outdoor enthusiasts at three commitment levels: casual, intermediate, alpine.</li>
-          <li>Usability testing on the redesigned modal flow specifically.</li>
-          <li>"Create Custom Bag" for trip-specific lists that fall outside the three default activities.</li>
-          <li>Hi-fi prototype with actual product imagery.</li>
-          <li>Kit total + "Add All to Cart" from inside the gear bag.</li>
-          <li>Heuristic evaluation: current app vs redesign, side by side.</li>
-        </ul>
-
-        <h4>The assumption risk</h4>
-        <p>The redesign rests on one observation about the favourite modal. That's a strong wedge but also a risky one: if the modal isn't actually the highest-intent moment for most users, the whole concept loses its grounding. A diary study with 5–8 outdoor enthusiasts would test the assumption directly: where do people hesitate, where do they save, where do they bail.</p>
-
-        <h4>The taxonomy question</h4>
-        <p>Trail / Climb / Ski &amp; Snowboard maps to Arc'teryx's marketing categories, but people build mixed kits: a hike that ends at a crag, a ski tour that starts with an approach. The "Create Custom Bag" stretch goal exists for that reason, but it should probably ship on Day 1.</p>
-
-        <h4>What this taught me</h4>
-        <p>The favourite modal already existed. The heart tap already existed. Activity-specific kit-building was already happening in-store. None of those needed to be invented. The gap was between them, and closing it took three CTAs and one new tab.</p>
+        <div class="section-num">05: lessons</div>
+        <h4>Tools work only if the moment is right</h4>
+        <p>The modal already existed. The heart tap already existed. Activity kits were already happening in-store. The gap was between them. Closing it took three CTAs and one new tab.</p>
+        <h4>The assumption is the risk</h4>
+        <p>The whole redesign rests on one observation. If the favourite modal isn't actually the highest-intent moment for most users, the concept loses its grounding. A diary study with 5–8 outdoor enthusiasts would test it directly.</p>
+        <h4>Ship the edge case on Day 1</h4>
+        <p>Trail / Climb / Ski maps to Arc'teryx's marketing categories, but people build mixed kits. The custom bag can't be a stretch goal.</p>
       </div>
 
       <a class="pill" href="inquiry.html">Inquire</a>
@@ -195,14 +125,9 @@
 
     <footer class="workfoot">
       <a class="pagetitle" href="index.html">Ash Cornette</a>
-        <a class="topbar-link" href="inquiry.html">Inquire</a>
+      <a class="topbar-link" href="inquiry.html">Inquire</a>
     </footer>
 
-    <script>
-      })();
-      // footer year
-      document.getElementById('yr').textContent = new Date().getFullYear();
-    </script>
     <script src="contact.js"></script>
   </body>
 </html>
