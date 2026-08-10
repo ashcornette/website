@@ -385,6 +385,11 @@ a:focus-visible, button:focus-visible {
 .doc .compare-row span:first-child { color: var(--muted); }
 .doc .compare-row span:last-child { color: var(--text); }
 
+.doc .show-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 24px 0; }
+.doc .show-grid figure { margin: 0; }
+.doc .show-grid img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border: 1px solid var(--text); }
+@media (max-width: 600px) { .doc .show-grid { grid-template-columns: repeat(2, 1fr); } }
+
 /* reflect pills + dots */
 .doc .reflect { display: flex; gap: 12px; margin: 20px 0; flex-wrap: wrap; }
 .doc .reflect-pill { font-family: var(--mono); font-size: 12px; padding: 6px 16px; border-radius: 0; background: var(--tint); color: var(--muted); cursor: default; }
