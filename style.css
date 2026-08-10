@@ -249,6 +249,9 @@ a:focus-visible, button:focus-visible {
 .doc .section p strong { color: var(--text); font-weight: 500; }
 .doc .section p em { font-style: italic; }
 .doc > a.pill { margin-top: 48px; }
+.doc .testimonial-band { margin: 48px 0; padding: 48px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.doc .testimonial-band p { font-size: var(--fs-base); font-style: italic; color: var(--text); line-height: 1.6; margin: 0 auto 8px; max-width: 52ch; }
+.doc .testimonial-band cite { font-size: var(--fs-sm); color: var(--muted); font-style: normal; }
 .doc .section a:not(.pill) { color: var(--accent); }
 .doc .section ul { list-style: none; font-size: var(--fs-base); color: var(--muted); line-height: 1.75; margin-bottom: 14px; }
 .doc .section ul li { padding: 3px 0; }
