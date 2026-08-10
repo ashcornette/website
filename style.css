@@ -385,6 +385,11 @@ a:focus-visible, button:focus-visible {
 .doc .compare-row span:first-child { color: var(--muted); }
 .doc .compare-row span:last-child { color: var(--text); }
 
+.doc .logo-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 24px 0; align-items: center; max-width: 480px; }
+.doc .logo-compare figure { margin: 0; text-align: center; }
+.doc .logo-compare img { max-height: 120px; width: auto; }
+.doc .logo-compare figcaption { margin-top: 8px; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+
 .doc .show-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 24px 0; }
 .doc .show-grid figure { margin: 0; }
 .doc .show-grid img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border: 1px solid var(--text); }
