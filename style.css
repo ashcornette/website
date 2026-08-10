@@ -935,6 +935,22 @@ a.pagetitle:hover { text-decoration: none; }
 .work .journey-name { font-size: 12px; color: var(--text); margin-bottom: 2px; }
 .work .journey-desc { font-size: 10px; color: var(--muted); line-height: 1.4; }
 
+/* side-by-side pair — 2-col on desktop, stacked on mobile */
+.work .show-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  padding: 0 var(--pad);
+}
+.work .show-pair .show-label {
+  padding-left: 0;
+  padding-right: 0;
+}
+.work .show-pair .show-media img,
+.work .show-pair .show-media video {
+  aspect-ratio: 4 / 3;
+}
+
 /* labels sit below media as text */
 .work .show-label {
   position: relative;
@@ -1014,6 +1030,10 @@ a.pagetitle:hover { text-decoration: none; }
   .work .about { margin: 40px 0 0; padding: 40px 0; }
   .work .about-body { max-width: none; }
   .cb-two { grid-template-columns: 1fr; }
+  .work .show-pair { grid-template-columns: 1fr; gap: 48px; padding: 0; }
+  .work .show-pair .show-media img,
+  .work .show-pair .show-media video { aspect-ratio: 16 / 9; }
+  .work .show-pair .show-label { padding-left: var(--pad); padding-right: var(--pad); }
   .work .show-label { flex-direction: column; gap: 4px; }
   .work .show-title { font-size: 14px; }
   .work .show-desc { font-size: 14px; }
