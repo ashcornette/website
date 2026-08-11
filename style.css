@@ -732,7 +732,7 @@ a.pagetitle:hover { text-decoration: none; }
 /* about section */
 .work .about {
   margin: 48px calc(-1 * var(--pad)) 0; padding: 72px var(--pad); max-width: none;
-  border-top: 1px solid var(--text);
+  border-top: 1px solid var(--border);
 }
 .work .about-cols {
   display: grid; grid-template-columns: 2fr 1fr; gap: 64px;
