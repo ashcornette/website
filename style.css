@@ -806,6 +806,9 @@ a.pagetitle:hover { text-decoration: none; }
 .work .workfoot a:hover { color: var(--muted); text-decoration: none; }
 .foot-link { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--muted); }
 .foot-link:hover { text-decoration-color: var(--text); color: var(--text); }
+.foot-right {
+  display: flex; align-items: center; gap: 16px;
+}
 .scroll-top {
   font-size: 20px;
   color: var(--text);
