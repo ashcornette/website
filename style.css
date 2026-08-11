@@ -606,7 +606,7 @@ a.pagetitle:hover { text-decoration: none; }
 }
 .work .topbar { margin-bottom: 8px; }
 .work .tagline { font-size: var(--fs-base); color: var(--muted); margin: 0 0 32px; letter-spacing: 0.005em; }
-.work .pagetitle { font-size: clamp(32px, 7vw, 70px); }
+.work .pagetitle { font-size: clamp(40px, 9vw, 90px); }
 .doc { padding-top: 56px; }
 .doc .topbar { max-width: none; margin-inline: auto; margin-bottom: 22px; padding: 0; }
 .doc main { max-width: none; }
