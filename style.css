@@ -413,7 +413,7 @@ a:focus-visible, button:focus-visible {
 
 .doc .show-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 24px 0; }
 .doc .show-grid figure { margin: 0; }
-.doc .show-grid img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border: 1px solid var(--text); }
+.doc .show-grid img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border: 1px solid var(--border); }
 @media (max-width: 600px) { .doc .show-grid { grid-template-columns: repeat(2, 1fr); } }
 
 /* reflect pills + dots */
@@ -929,7 +929,7 @@ a.pagetitle:hover { text-decoration: none; }
   object-fit: cover;
   display: block;
   background: var(--tint);
-  border: 1px solid var(--text);
+  border: 1px solid var(--border);
 }
 
 /* Figma embed as featured media */
@@ -939,7 +939,7 @@ a.pagetitle:hover { text-decoration: none; }
   justify-content: center;
   align-items: center;
   aspect-ratio: 16 / 9;
-  border: 1px solid var(--text);
+  border: 1px solid var(--border);
 }
 .work .show-media-figma iframe {
   height: 90%;
