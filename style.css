@@ -86,7 +86,7 @@ h1 {
   letter-spacing: 0.01em;
   margin-bottom: 6px;
 }
-h2 { font-size: var(--fs-h2); font-weight: 300; letter-spacing: -0.005em; }
+h2 { font-size: var(--fs-h2); font-weight: 400; letter-spacing: -0.005em; }
 
 /* ── 3. LAYOUT — centered columns inside a padded body ── */
 main { max-width: var(--col); margin-inline: auto; }
@@ -218,7 +218,7 @@ a:focus-visible, button:focus-visible {
       Applies to projects, services, and every case study.
    ══════════════════════════════════════════════════════════════════════ */
 .doc main { max-width: none; }
-.doc h1 { margin-bottom: 8px; font-weight: 500; }
+.doc h1 { margin-bottom: 8px; font-weight: 600; }
 .doc h1::after { content: none; }
 .doc .page-role { color: var(--muted); font-style: italic; margin-bottom: 44px; }
 
@@ -241,7 +241,7 @@ a:focus-visible, button:focus-visible {
 /* section frame */
 .doc .section { margin-bottom: 72px; }
 .doc .section-num { font-family: var(--mono); font-size: 12px; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
-.doc .section h3 { font-size: var(--fs-h2); font-weight: 300; letter-spacing: -0.005em; margin-bottom: 20px; }
+.doc .section h3 { font-size: var(--fs-h2); font-weight: 500; letter-spacing: -0.005em; margin-bottom: 20px; }
 .doc .section h3::after { content: none; }
 .doc .section h4 { font-family: var(--mono); font-size: 12px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-top: 36px; margin-bottom: 12px; }
 .doc .section p { font-size: var(--fs-base); color: var(--muted); line-height: 1.75; margin-bottom: 14px; max-width: 62ch; }
@@ -734,7 +734,7 @@ a.pagetitle:hover { text-decoration: none; }
   margin: 48px 0 0; padding: 72px 0; max-width: none;
 }
 .work .about-heading {
-  font-family: var(--sans); font-size: clamp(32px, 7vw, 70px); font-weight: 500;
+  font-family: var(--sans); font-size: clamp(32px, 7vw, 70px); font-weight: 600;
   letter-spacing: -0.03em; line-height: 1.02; color: var(--text);
   margin: 0 0 20px;
 }
@@ -884,7 +884,7 @@ a.pagetitle:hover { text-decoration: none; }
 }
 .work .intro-line strong {
   color: var(--text);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 /* showcase container — full viewport width */
@@ -1028,7 +1028,7 @@ a.pagetitle:hover { text-decoration: none; }
 .work .mid-heading {
   font-family: var(--sans);
   font-size: clamp(24px, 4vw, 44px);
-  font-weight: 300;
+  font-weight: 500;
   letter-spacing: -0.01em;
   line-height: 1.2;
   color: var(--text);
