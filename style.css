@@ -218,7 +218,7 @@ a:focus-visible, button:focus-visible {
       Applies to projects, services, and every case study.
    ══════════════════════════════════════════════════════════════════════ */
 .doc main { max-width: none; }
-.doc h1 { margin-bottom: 8px; font-weight: 600; }
+.doc h1 { margin-bottom: 8px; font-weight: 600; font-size: clamp(32px, 5vw, 56px); letter-spacing: -0.02em; }
 .doc h1::after { content: none; }
 .doc .page-role { color: var(--muted); font-style: italic; margin-bottom: 44px; }
 
