@@ -731,7 +731,8 @@ a.pagetitle:hover { text-decoration: none; }
 
 /* about section */
 .work .about {
-  margin: 48px 0 0; padding: 72px 0; max-width: none;
+  margin: 48px calc(-1 * var(--pad)) 0; padding: 72px var(--pad); max-width: none;
+  background: var(--tint);
 }
 .work .about-heading {
   font-family: var(--sans); font-size: clamp(32px, 7vw, 70px); font-weight: 600;
