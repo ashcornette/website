@@ -761,7 +761,7 @@ a.pagetitle:hover { text-decoration: none; }
 .work .availability { font-size: var(--fs-sm); color: var(--muted); margin-top: 20px; letter-spacing: 0.01em; }
 /* testimonial band: full-width section between about and footer */
 .work .testimonial-band {
-  margin: 0 calc(-1 * var(--pad));
+  margin: 72px calc(-1 * var(--pad)) 0;
   padding: 64px var(--pad);
   background: var(--tint);
   text-align: center;
