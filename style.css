@@ -734,20 +734,31 @@ a.pagetitle:hover { text-decoration: none; }
   margin: 48px calc(-1 * var(--pad)) 0; padding: 72px var(--pad); max-width: none;
   background: var(--tint);
 }
+.work .about-cols {
+  display: grid; grid-template-columns: 2fr 1fr; gap: 64px;
+}
 .work .about-heading {
-  font-family: var(--sans); font-size: clamp(32px, 7vw, 70px); font-weight: 600;
-  letter-spacing: -0.03em; line-height: 1.02; color: var(--text);
+  font-family: var(--sans); font-size: clamp(24px, 4vw, 36px); font-weight: 600;
+  letter-spacing: -0.02em; line-height: 1.1; color: var(--text);
+  margin: 0 0 20px;
+}
+.work .about-subheading {
+  font-family: var(--sans); font-size: clamp(24px, 4vw, 36px); font-weight: 600;
+  letter-spacing: -0.02em; line-height: 1.1; color: var(--text);
   margin: 0 0 20px;
 }
 .work .about-body {
-  max-width: 60ch;
+  max-width: none;
 }
 .work .about-body p {
   font-size: var(--fs-base); line-height: 1.6; color: var(--text); margin: 0 0 14px;
 }
-.work .about-body p:last-child { margin-bottom: 32px; }
+.work .about-body p:last-child { margin-bottom: 0; }
 .work .about .pill { margin: 0; }
-.work .availability { font-size: var(--fs-sm); color: var(--muted); margin-top: 14px; letter-spacing: 0.01em; }
+.work .about-services {
+  font-size: var(--fs-base); line-height: 1.6; color: var(--text); margin: 0;
+}
+.work .availability { font-size: var(--fs-sm); color: var(--muted); margin-top: 20px; letter-spacing: 0.01em; }
 /* testimonial band: full-width section between about and footer */
 .work .testimonial-band {
   margin: 0 calc(-1 * var(--pad));
@@ -1060,6 +1071,7 @@ a.pagetitle:hover { text-decoration: none; }
   .work .proj-media .pill { margin-bottom: 0; }
   .work .proof { margin-bottom: 28px; }
   .work .about { margin: 40px 0 0; padding: 40px 0; }
+  .work .about-cols { grid-template-columns: 1fr; gap: 40px; }
   .work .about-body { max-width: none; }
   .cb-two { grid-template-columns: 1fr; }
   .work .show-pair { grid-template-columns: 1fr; gap: 48px; padding: 0; }
