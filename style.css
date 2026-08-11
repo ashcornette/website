@@ -594,14 +594,18 @@ a.pagetitle:hover { text-decoration: none; }
 .topbar-link {
   font-family: var(--sans);
   font-weight: 600;
-  font-size: var(--fs-base);
-  color: var(--text);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: color 0.2s ease;
+  font-size: var(--fs-sm);
+  letter-spacing: 0.03em;
+  color: var(--bg);
+  background: var(--text);
+  padding: 8px 18px;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 .topbar-link:hover {
-  color: var(--muted);
+  background: transparent;
+  color: var(--text);
+  outline: 1px solid var(--text);
   text-decoration: none;
 }
 .work .topbar { margin-bottom: 8px; }
