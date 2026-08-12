@@ -408,10 +408,10 @@ a:focus-visible, button:focus-visible {
 
 /* compare before/after */
 .doc .compare { margin: 24px 0; background: var(--tint); padding: 8px 22px; }
-.doc .compare-header { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 12px 0 8px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+.doc .compare-header { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 12px 0 8px; font-family: var(--mono); font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; }
 .doc .compare-header span:first-child { color: var(--muted); }
 .doc .compare-header span:last-child { color: var(--accent); }
-.doc .compare-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 8px 0; font-size: 12px; }
+.doc .compare-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 8px 0; font-size: var(--fs-base); }
 .doc .compare-row span:first-child { color: var(--muted); }
 .doc .compare-row span:last-child { color: var(--text); }
 
