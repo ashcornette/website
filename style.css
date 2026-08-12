@@ -40,8 +40,8 @@
   /* type scale */
   --fs-xs: 12px;
   --fs-sm: 13px;
-  --fs-base: 16px;
-  --fs-md: 17px;
+  --fs-base: clamp(16px, 1.1vw, 19px);
+  --fs-md: clamp(17px, 1.2vw, 20px);
   --fs-h2: clamp(24px, 3vw, 36px);
   --fs-display: clamp(32px, 5vw, 62px);
 
