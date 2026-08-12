@@ -38,8 +38,8 @@
   --mono: var(--sans);
 
   /* type scale */
-  --fs-xs: 12px;
-  --fs-sm: 13px;
+  --fs-xs: clamp(12px, 0.85vw, 14px);
+  --fs-sm: clamp(13px, 0.9vw, 15px);
   --fs-base: clamp(16px, 1.1vw, 19px);
   --fs-md: clamp(17px, 1.2vw, 20px);
   --fs-h2: clamp(24px, 3vw, 36px);
@@ -625,7 +625,7 @@ a.pagetitle:hover { text-decoration: none; }
   max-width: none; margin: 64px auto 0; padding: 22px 0 60px; border-top: none;
   background: transparent; font-size: 12px; letter-spacing: 0.04em; color: var(--text); animation: none;
 }
-.doc .workfoot a { font-size: 12px; letter-spacing: -0.01em; color: var(--text); transition: color 0.15s ease; }
+.doc .workfoot a { font-size: var(--fs-sm); letter-spacing: -0.01em; color: var(--text); transition: color 0.15s ease; }
 .doc .workfoot a:hover { color: var(--muted); text-decoration: none; }
 .work .srch {
   width: 33.333%; min-width: 240px; font-family: var(--sans); font-size: 14px; color: var(--text);
@@ -807,7 +807,7 @@ a.pagetitle:hover { text-decoration: none; }
   max-width: none; margin: 80px 0 0; padding: 24px 0 64px;
   background: transparent; font-size: var(--fs-xs); letter-spacing: 0.04em; color: var(--text); animation: none;
 }
-.work .workfoot a { font-size: var(--fs-xs); letter-spacing: 0.04em; color: var(--text); transition: color 0.15s ease; }
+.work .workfoot a { font-size: var(--fs-sm); letter-spacing: 0.04em; color: var(--text); transition: color 0.15s ease; }
 .work .workfoot a:hover { color: var(--muted); text-decoration: none; }
 .foot-link { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--muted); }
 .foot-link:hover { text-decoration-color: var(--text); color: var(--text); }
