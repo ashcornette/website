@@ -286,7 +286,7 @@ a:focus-visible, button:focus-visible {
 
 /* stats */
 .doc .stats { background: var(--tint); padding: 22px 24px; margin: 24px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 18px 28px; }
-.doc .stat-item { font-size: 13px; color: var(--muted); line-height: 1.55; }
+.doc .stat-item { font-size: var(--fs-base); color: var(--muted); line-height: 1.55; }
 .doc .stat-val { font-family: var(--mono); color: var(--accent); font-weight: 400; display: block; margin-bottom: 2px; }
 
 /* pull quote (shared — home + doc pages) */
