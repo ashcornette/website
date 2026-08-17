@@ -757,7 +757,7 @@ a.pagetitle:hover { text-decoration: none; }
   margin: 0 0 20px;
 }
 .work .about-body {
-  max-width: 48ch;
+  max-width: none;
 }
 .work .about-body p {
   font-size: var(--fs-base); line-height: 1.6; color: var(--text); margin: 0 0 14px;
