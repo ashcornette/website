@@ -157,7 +157,7 @@ main { animation: fadein 0.5s ease 0.1s both; }
 .doc .case-nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
 .doc .case-nav .back-link { margin-bottom: 0; }
 .doc .case-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
-.doc .case-tags .t { font-size: 12px; letter-spacing: 0.02em; color: var(--accent); background: var(--tint); padding: 6px 13px; border-radius: 0; white-space: nowrap; }
+.doc .case-tags .t { font-size: 12px; letter-spacing: 0.02em; color: var(--accent); background: var(--tint); padding: 6px 13px; border-radius: 980px; white-space: nowrap; }
 
 /* pill — the one capsule that keeps an edge */
 .pill {
@@ -168,13 +168,12 @@ main { animation: fadein 0.5s ease 0.1s both; }
   line-height: 1.2;
   letter-spacing: 0.03em;
   padding: 8px 20px;
-  border-radius: 0;
+  border-radius: 980px;
   border: 1px solid var(--text);
   background: var(--text);
   color: var(--bg);
   cursor: pointer;
-  display: block;
-  width: fit-content;
+  display: inline-block;
   margin-bottom: 32px;   /* always leave air beneath the pill */
   transition: background 0.15s ease, color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
 }
@@ -221,7 +220,14 @@ a:focus-visible, button:focus-visible {
    7. .doc — content pages + case-study kit
       Applies to projects, services, and every case study.
    ══════════════════════════════════════════════════════════════════════ */
-.doc main { max-width: none; }
+.doc main { max-width: 680px; margin-left: auto; margin-right: auto; text-align: center; }
+.doc .section, .doc .case-nav, .doc .meta { text-align: center; }
+.doc .section p { margin-left: auto; margin-right: auto; }
+.doc .section ul { text-align: left; display: inline-block; }
+.doc .screens, .doc .screens.triple { margin-left: auto; margin-right: auto; }
+.doc figure { margin-left: auto; margin-right: auto; }
+.doc .compare { margin-left: auto; margin-right: auto; }
+.doc .case-nav { text-align: left; }
 .doc h1 { margin-bottom: 8px; font-weight: 600; font-size: clamp(32px, 5vw, 56px); letter-spacing: -0.02em; }
 .doc h1::after { content: none; }
 .doc .page-role { color: var(--muted); font-style: italic; margin-bottom: 44px; }
@@ -252,7 +258,7 @@ a:focus-visible, button:focus-visible {
 .doc .section p:last-child { margin-bottom: 0; }
 .doc .section p strong { color: var(--text); font-weight: 500; }
 .doc .section p em { font-style: italic; }
-.doc > a.pill { margin-top: 48px; }
+.doc > a.pill { margin-top: 48px; margin-left: auto; margin-right: auto; }
 .doc .testimonial-band {
   margin: 48px calc(-1 * var(--pad));
   padding: 64px var(--pad);
@@ -276,7 +282,7 @@ a:focus-visible, button:focus-visible {
 .doc .section a:not(.pill) { color: var(--accent); }
 .doc .section ul { list-style: none; font-size: var(--fs-base); color: var(--muted); line-height: 1.75; margin-bottom: 14px; }
 .doc .section ul li { padding: 3px 0; }
-.doc .section ul li::before { content: "— "; color: var(--accent); }
+.doc .section ul li::before { content: "· "; color: var(--accent); }
 
 /* meta row */
 .doc .meta { font-family: var(--mono); font-size: 12px; color: var(--muted); margin-bottom: 52px; line-height: 1.9; }
@@ -301,7 +307,7 @@ a:focus-visible, button:focus-visible {
 .doc .persona-val { color: var(--text); }
 .doc .persona-quote { font-size: 13px; font-style: italic; color: var(--text); padding-top: 16px; margin-top: 8px; line-height: 1.65; }
 .doc .persona-traits { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
-.doc .persona-trait { font-family: var(--mono); font-size: 11px; color: var(--muted); background: var(--bg); padding: 3px 12px; border-radius: 0; letter-spacing: 0.02em; }
+.doc .persona-trait { font-family: var(--mono); font-size: 11px; color: var(--muted); background: var(--bg); padding: 3px 12px; border-radius: 980px; letter-spacing: 0.02em; }
 .doc .persona-mini { background: var(--tint); padding: 18px 20px; margin: 12px 0; }
 .doc .persona-mini .persona-header { margin-bottom: 8px; }
 .doc .persona-mini-name { font-size: 14px; color: var(--text); margin-bottom: 8px; }
@@ -380,7 +386,7 @@ a:focus-visible, button:focus-visible {
 .doc .next-desc { color: var(--muted); line-height: 1.65; font-size: 12px; }
 
 /* screens (screenshots) */
-.doc .screens { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 28px 0 8px; max-width: 680px; }
+.doc .screens { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 28px auto 8px; max-width: 680px; }
 .doc .screens.triple { grid-template-columns: 1fr 1fr 1fr; max-width: 900px; }
 .doc .screens img { width: 100%; height: auto; display: block; border-radius: 0; background: var(--tint); border: 1px solid var(--border); }
 .doc .screens-caption { font-family: var(--mono); font-size: 11px; color: var(--muted); margin: 0 0 4px; letter-spacing: 0.02em; }
@@ -399,6 +405,8 @@ a:focus-visible, button:focus-visible {
   gap: 12px;
   padding: 0 var(--gutter, 0px);
   width: max-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 .app-gallery-track img {
   height: 480px;
@@ -432,7 +440,7 @@ a:focus-visible, button:focus-visible {
 @media screen and (max-width: 560px) { .doc .section .proto-cap { white-space: normal; } }
 
 /* compare before/after */
-.doc .compare { margin: 24px 0; background: var(--tint); padding: 8px 22px; }
+.doc .compare { margin: 24px auto; background: var(--tint); padding: 8px 22px; text-align: left; }
 .doc .compare-header { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 12px 0 8px; font-family: var(--mono); font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; }
 .doc .compare-header span:first-child { color: var(--muted); }
 .doc .compare-header span:last-child { color: var(--accent); }
@@ -452,7 +460,7 @@ a:focus-visible, button:focus-visible {
 
 /* reflect pills + dots */
 .doc .reflect { display: flex; gap: 12px; margin: 20px 0; flex-wrap: wrap; }
-.doc .reflect-pill { font-family: var(--mono); font-size: 12px; padding: 6px 16px; border-radius: 0; background: var(--tint); color: var(--muted); cursor: default; }
+.doc .reflect-pill { font-family: var(--mono); font-size: 12px; padding: 6px 16px; border-radius: 980px; background: var(--tint); color: var(--muted); cursor: default; }
 .doc .reflect-pill.moved { color: var(--positive); }
 .doc .reflect-pill.mixed { color: var(--accent); }
 .doc .reflect-pill.spun { color: var(--negative); }
@@ -626,16 +634,21 @@ a.pagetitle:hover { text-decoration: none; }
 .topbar-right { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
 .topbar .pill { margin-bottom: 0; }
 .topbar-link {
-  font-family: var(--sans);
-  font-weight: 600;
-  font-size: clamp(18px, 2.5vw, 24px);
-  color: var(--text);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: color 0.2s ease;
+  font-family: var(--mono);
+  font-weight: 400;
+  font-size: var(--fs-base);
+  letter-spacing: 0.03em;
+  color: var(--bg);
+  background: var(--text);
+  border: 1px solid var(--text);
+  text-decoration: none;
+  padding: 6px 18px;
+  border-radius: 980px;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 .topbar-link:hover {
-  color: var(--muted);
+  background: transparent;
+  color: var(--text);
   text-decoration: none;
 }
 .work .topbar { margin-bottom: 8px; }
