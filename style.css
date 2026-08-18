@@ -220,21 +220,8 @@ a:focus-visible, button:focus-visible {
    7. .doc — content pages + case-study kit
       Applies to projects, services, and every case study.
    ══════════════════════════════════════════════════════════════════════ */
-.doc main { max-width: 680px; margin-left: auto; margin-right: auto; text-align: center; }
-.doc-left,
-.doc-left main,
-.doc-left main *{
-  text-align: left !important;
-}
-.doc-left .pill { margin-left: 0; margin-right: auto; display: block; width: fit-content; }
-.doc-left figure { margin-left: 0; }
-.doc-left .screens { margin-left: 0; }
-.doc .section, .doc .case-nav, .doc .meta { text-align: center; }
-.doc .section p { margin-left: auto; margin-right: auto; }
-.doc .section ul { text-align: left; display: inline-block; }
-.doc .screens, .doc .screens.triple { margin-left: auto; margin-right: auto; }
-.doc figure { margin-left: auto; margin-right: auto; }
-.doc .compare { margin-left: auto; margin-right: auto; }
+.doc main { max-width: 768px; margin-left: auto; margin-right: auto; text-align: left; }
+.doc .pill { display: block; width: fit-content; }
 .doc .case-nav { text-align: left; }
 .doc h1 { margin-bottom: 8px; font-weight: 600; font-size: clamp(32px, 5vw, 56px); letter-spacing: -0.02em; }
 .doc h1::after { content: none; }
@@ -262,7 +249,7 @@ a:focus-visible, button:focus-visible {
 .doc .section h3 { font-size: var(--fs-h2); font-weight: 500; letter-spacing: -0.005em; margin-bottom: 20px; }
 .doc .section h3::after { content: none; }
 .doc .section h4 { font-family: var(--mono); font-size: 12px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-top: 36px; margin-bottom: 12px; }
-.doc .section p { font-size: var(--fs-base); color: var(--muted); line-height: 1.75; margin-bottom: 14px; max-width: 62ch; }
+.doc .section p { font-size: var(--fs-base); color: var(--muted); line-height: 1.75; margin-bottom: 14px; }
 .doc .section p:last-child { margin-bottom: 0; }
 .doc .section p strong { color: var(--text); font-weight: 500; }
 .doc .section p em { font-style: italic; }
@@ -630,13 +617,54 @@ a:focus-visible, button:focus-visible {
 }
 
 /* ── 8e. .work — the filterable work index (home) ── */
-.work { padding-top: 56px; }
+.work { padding-top: 120px; }
 .work .work-shell { max-width: none; margin-inline: auto; }
 .work main { max-width: none; margin-inline: 0; }
 .work .ruled { padding-top: 8px; }
 /* shared page header — index (big) + doc pages (compact wordmark) */
-.topbar { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--bg);
+  padding: 12px 24px;
+  border-radius: 0;
+  transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              right 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              padding 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              border-radius 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              background 0.3s ease,
+              box-shadow 0.3s ease;
+}
+.topbar.scrolled {
+  left: calc(50% - 240px);
+  right: calc(50% - 240px);
+  border-radius: 980px;
+  padding: 8px 24px;
+  background: rgba(255, 255, 255, 0.35);
+  -webkit-backdrop-filter: saturate(200%) blur(30px);
+  backdrop-filter: saturate(200%) blur(30px);
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.04), 0 0 0 0.5px rgba(255, 255, 255, 0.5) inset;
+  gap: 16px;
+}
+.topbar.scrolled .pagetitle { font-size: 14px; }
+.topbar.scrolled .topbar-link { font-size: 13px; }
+.topbar.scrolled .hamburger { display: none; }
+.topbar.scrolled .topbar-right { display: flex !important; position: static; inset: auto; background: none; padding: 0; gap: 14px; opacity: 1; pointer-events: auto; flex-direction: row; }
 .pagetitle { font-family: var(--sans); font-weight: 600; letter-spacing: -0.03em; line-height: 1.02; color: var(--text); margin: 0; text-decoration: none; }
+.cursor {
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
 .pagetitle::after { content: none; }
 a.pagetitle:hover { text-decoration: none; }
 .topbar-right { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
@@ -651,7 +679,27 @@ a.pagetitle:hover { text-decoration: none; }
   line-height: 1;
 }
 @media screen and (max-width: 600px) {
-  .hamburger { display: block; z-index: 1010; position: relative; }
+  .topbar,
+  .topbar.scrolled {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    border-radius: 0 !important;
+    padding: 12px 16px !important;
+    background: var(--bg) !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+  .hamburger {
+    display: block;
+    position: fixed;
+    top: 12px;
+    right: 16px;
+    z-index: 1010;
+  }
   .topbar-right {
     position: fixed;
     inset: 0;
@@ -659,8 +707,8 @@ a.pagetitle:hover { text-decoration: none; }
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: 80px 32px 40px;
-    gap: 24px;
+    padding: 72px 32px 40px;
+    gap: 8px;
     z-index: 1005;
     border-radius: 0;
     box-shadow: none;
@@ -675,15 +723,31 @@ a.pagetitle:hover { text-decoration: none; }
     pointer-events: auto;
   }
   .topbar-right .topbar-link {
-    font-size: clamp(28px, 6vw, 40px) !important;
+    font-size: clamp(20px, 4vw, 28px) !important;
     font-weight: 500 !important;
     color: var(--text) !important;
     background: none !important;
     border: none !important;
-    padding: 0 !important;
+    padding: 12px 0 !important;
     pointer-events: auto !important;
     position: relative;
     z-index: 1006;
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .topbar-right .topbar-link::after {
+    content: '›';
+    font-size: 1.2em;
+    font-weight: 300;
+    color: var(--text);
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .topbar-right .topbar-link:hover::after {
+    opacity: 1;
+    transform: translateX(4px);
   }
   .topbar { position: relative; }
 }
@@ -730,13 +794,14 @@ a.pagetitle:hover { text-decoration: none; }
 .topbar-right .topbar-link:hover {
   color: var(--muted);
 }
-.work .topbar { margin-bottom: 8px; }
+.work .topbar { margin-bottom: 0; }
 .work .tagline { font-size: var(--fs-base); color: var(--muted); margin: 0 0 32px; letter-spacing: 0.005em; }
-.work .pagetitle { font-size: clamp(48px, 12vw, 140px); }
-.doc { padding-top: 56px; }
-.doc .topbar { max-width: none; margin-inline: auto; margin-bottom: 22px; padding: 0; }
-.doc main { max-width: none; }
-.doc .pagetitle { font-size: clamp(32px, 7vw, 70px); }
+.work .pagetitle { font-size: clamp(14px, 2vw, 18px); }
+.work .hero-title { font-family: var(--sans); font-size: clamp(32px, 5vw, 56px); font-weight: 600; letter-spacing: -0.02em; text-align: left; margin: 0 0 8px; color: var(--text); }
+.doc { padding-top: 120px; }
+.doc .topbar { max-width: none; margin-inline: auto; margin-bottom: 22px; }
+.doc main { max-width: 768px; }
+.doc .pagetitle { font-size: clamp(14px, 2vw, 18px); }
 .doc .workfoot {
   display: flex; justify-content: space-between; align-items: center; gap: 20px;
   max-width: none; margin: 64px auto 0; padding: 22px 0 60px; border-top: none;
@@ -857,7 +922,7 @@ a.pagetitle:hover { text-decoration: none; }
 
 /* about section */
 .work .about {
-  margin: 48px auto 0; padding: 72px 0; max-width: 72vw;
+  margin: 48px auto 0; padding: 72px 0; max-width: 1100px;
   border-top: none;
 }
 .work .about-cols {
@@ -887,11 +952,39 @@ a.pagetitle:hover { text-decoration: none; }
 .work .availability { font-size: var(--fs-sm); color: var(--muted); margin-top: 20px; letter-spacing: 0.01em; }
 /* testimonial band: full-width section between about and footer */
 .work .testimonial-band {
-  margin: 72px calc(-1 * var(--pad)) 0;
-  padding: 64px var(--pad);
-  background: var(--tint);
+  margin: 72px auto 0;
+  padding: 64px 48px;
+  max-width: 1100px;
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.45);
+  -webkit-backdrop-filter: saturate(200%) blur(30px);
+  backdrop-filter: saturate(200%) blur(30px);
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.04), 0 0 0 0.5px rgba(255, 255, 255, 0.5) inset;
   text-align: center;
   border: 0;
+  border-radius: 13.5px;
+}
+.work .testimonial-band::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  background: url('img/ourocollective/ourologo.webp') no-repeat center / contain;
+  opacity: 0.03;
+  z-index: -1;
+}
+.work .testimonial-band::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(42, 42, 40, 0.15), transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(42, 42, 40, 0.12), transparent 50%);
+  z-index: -2;
 }
 .work .testimonial-band p {
   font-size: var(--fs-base);
@@ -1036,12 +1129,12 @@ a.pagetitle:hover { text-decoration: none; }
   font-weight: 600;
 }
 
-/* showcase container — golden ratio width */
+/* showcase container */
 .work .showcase {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  max-width: 72vw;
+  max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -1052,7 +1145,11 @@ a.pagetitle:hover { text-decoration: none; }
   display: block;
   overflow: hidden;
   border-radius: 13.5px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid transparent;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.show-proj:hover {
+  border-color: var(--text);
 }
 .show-proj:hover {
   transform: translateY(-4px);
@@ -1077,7 +1174,7 @@ a.pagetitle:hover { text-decoration: none; }
   object-fit: cover;
   display: block;
   background: var(--tint);
-  border: 1px solid var(--border);
+  border: none;
 }
 
 /* Figma embed as featured media */
@@ -1087,7 +1184,7 @@ a.pagetitle:hover { text-decoration: none; }
   justify-content: center;
   align-items: center;
   aspect-ratio: 16 / 9;
-  border: 1px solid var(--border);
+  border: none;
 }
 .work .show-media-figma iframe {
   height: 90%;

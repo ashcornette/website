@@ -34,18 +34,20 @@
   <body class="work">
     <a class="skip-link" href="#main">skip to content</a>
 
-    <div class="work-shell">
-    <main id="main" tabindex="-1">
-      <div class="topbar">
-        <h1 class="pagetitle">Ash Cornette</h1>
-        <button class="hamburger" id="menuToggle" type="button" aria-label="toggle menu">☰</button>
-        <div class="topbar-right" id="topbarMenu">
+    <div class="topbar">
+      <a class="pagetitle" href="index.html">Ash<span class="cursor">_</span></a>
+      <button class="hamburger" id="menuToggle" type="button" aria-label="toggle menu">☰</button>
+      <div class="topbar-right" id="topbarMenu">
         <a class="topbar-link" href="about.html">About</a>
         <a class="topbar-link" href="inquiry.html">Inquire</a>
         <a class="topbar-link" href="mailto:hello@ashcornette.com">Contact</a>
       </div>
-      </div>
+    </div>
 
+    <div class="work-shell">
+    <main id="main" tabindex="-1">
+
+      <h1 class="hero-title">Ash Cornette</h1>
       <p class="tagline">Brand &amp; Product Design. From strategy to shipping. Vancouver, BC.</p>
       <p class="intro-line">9 years in tech operations. Now designing digital products.</p>
 
@@ -54,11 +56,13 @@
 
         <div class="show-hero-row">
           <div class="show-proj show-hero-main reveal">
-            <a class="show-media" href="barelynotes.html">
-              <video src="img/barely-notes-demo.mp4" poster="img/barely-notes-demo-poster.jpg" muted loop playsinline preload="metadata" aria-label="Barely Notes app demo"></video>
+            <a class="show-media show-media-figma" href="arcteryx.html">
+              <iframe title="Arc'teryx Gear Bag: interactive Figma prototype"
+                src="https://embed.figma.com/proto/0dpj7EkT6vc4ELZLxGzFLL/Gear-Bag?node-id=8-3806&starting-point-node-id=8%3A3806&scaling=scale-down&content-scaling=fixed&embed-host=share"
+                allowfullscreen loading="lazy"></iframe>
             </a>
             <div class="show-label">
-              <h2 class="show-title">Barely Notes</h2>
+              <h2 class="show-title">Arc'teryx Gear Bag</h2>
             </div>
           </div>
 
@@ -84,13 +88,11 @@
         </div>
 
         <div class="show-proj reveal">
-          <a class="show-media show-media-figma" href="arcteryx.html">
-            <iframe title="Arc'teryx Gear Bag: interactive Figma prototype"
-              src="https://embed.figma.com/proto/0dpj7EkT6vc4ELZLxGzFLL/Gear-Bag?node-id=8-3806&starting-point-node-id=8%3A3806&scaling=scale-down&content-scaling=fixed&embed-host=share"
-              allowfullscreen loading="lazy"></iframe>
+          <a class="show-media" href="barelynotes.html">
+            <video src="img/barely-notes-demo.mp4" poster="img/barely-notes-demo-poster.jpg" muted loop playsinline preload="metadata" aria-label="Barely Notes app demo"></video>
           </a>
           <div class="show-label">
-            <h2 class="show-title">Arc'teryx Gear Bag</h2>
+            <h2 class="show-title">Barely Notes</h2>
           </div>
         </div>
 
@@ -183,6 +185,17 @@
   function closeMenu(){menu.classList.remove("open");btn.textContent="☰";}
   function openMenu(){menu.classList.add("open");btn.textContent="✕";}
   btn.addEventListener("click",function(e){e.stopPropagation();menu.classList.contains("open")?closeMenu():openMenu();});
+})();
+</script>
+<script>
+(function(){
+  var bar=document.querySelector(".topbar");
+  if(!bar)return;
+  var threshold=60;
+  window.addEventListener("scroll",function(){
+    if(window.scrollY>threshold){bar.classList.add("scrolled");}
+    else{bar.classList.remove("scrolled");}
+  },{passive:true});
 })();
 </script>
 </body>

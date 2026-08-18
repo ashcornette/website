@@ -22,7 +22,7 @@
   <body class="doc website">
     <a class="skip-link" href="#main">skip to content</a>
     <div class="topbar">
-      <a class="pagetitle" href="index.html">Ash Cornette</a>
+      <a class="pagetitle" href="index.html">Ash<span class="cursor">_</span></a>
     </div>
 
     <main id="main" tabindex="-1">
@@ -220,6 +220,17 @@ render();
   function closeMenu(){menu.classList.remove("open");btn.textContent="☰";}
   function openMenu(){menu.classList.add("open");btn.textContent="✕";}
   btn.addEventListener("click",function(e){e.stopPropagation();menu.classList.contains("open")?closeMenu():openMenu();});
+})();
+</script>
+<script>
+(function(){
+  var bar=document.querySelector(".topbar");
+  if(!bar)return;
+  var threshold=60;
+  window.addEventListener("scroll",function(){
+    if(window.scrollY>threshold){bar.classList.add("scrolled");}
+    else{bar.classList.remove("scrolled");}
+  },{passive:true});
 })();
 </script>
 </body>
