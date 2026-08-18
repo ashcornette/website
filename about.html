@@ -22,24 +22,24 @@
       .about-page { padding: 0 var(--pad, 56px); }
       .about-page h1 { font-size: var(--fs-h2, clamp(24px, 3vw, 36px)); font-weight: 600; letter-spacing: -0.02em; margin-bottom: 32px; }
       .about-page .bio { margin-bottom: 48px; }
-      .about-page .bio p { font-size: var(--fs-base, 16px); line-height: 1.6; margin-bottom: 16px; }
+      .about-page .bio p { font-size: var(--fs-base, 16px); line-height: 1.6; margin-bottom: 16px; text-align: left; margin-left: 0; margin-right: 0; max-width: none; }
       .about-page hr { display: none; }
       .about-page h2 { font-size: var(--fs-h2, clamp(24px, 3vw, 36px)); font-weight: 500; margin-bottom: 24px; }
       .doc .about-page .section h3 { font-size: var(--fs-base, 16px); font-weight: 600; margin-bottom: 8px; margin-top: 32px; }
       .doc .about-page .section h3:first-of-type { margin-top: 0; }
-      .about-page .section { margin-bottom: 48px; }
-      .about-page .section p { font-size: 14px; line-height: 1.6; margin-bottom: 8px; color: var(--text, #2a2a28); }
+      .about-page .section { margin-bottom: 48px; text-align: left; }
+      .about-page .section p { font-size: 14px; line-height: 1.6; margin-bottom: 8px; color: var(--text, #2a2a28); text-align: left; margin-left: 0; margin-right: 0; max-width: none; }
       .about-page .section .muted { color: var(--muted, #8a8a86); }
       .about-page ul { list-style: none; padding: 0; margin: 0 0 16px 0; }
       .doc .about-page .section ul { font-size: 14px; }
-      .doc .about-page .section ul li { font-size: 14px; line-height: 1.6; margin-bottom: 4px; }
+      .doc .about-page .section ul li { font-size: 14px; line-height: 1.6; margin-bottom: 4px; text-align: left; color: var(--text, #2a2a28); }
       .doc .about-page .section ul li::before { content: none; }
       .about-page .projects-list { margin-top: 16px; }
       .about-page .projects-list li { color: var(--muted, #8a8a86); }
       .about-page .titles { margin-top: 16px; }
       .about-page .titles li { font-size: 14px; color: var(--text, #2a2a28); }
-      .about-page .inquire-cta { text-align: center; margin-top: 48px; }
-      .about-page .inquire-cta .pill { display: inline-block; font-size: 24px; padding: 14px 40px; }
+      .about-page .inquire-cta { text-align: left; margin-top: 48px; }
+      .about-page .inquire-cta .pill { display: block; width: fit-content; font-size: 24px; padding: 14px 40px; }
       @media (max-width: 720px) {
         .about-page { padding: 0 var(--pad, 24px); }
       }
