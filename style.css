@@ -634,6 +634,17 @@ a.pagetitle:hover { text-decoration: none; }
 .topbar-right { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
 .topbar .pill { margin-bottom: 0; }
 .topbar-link {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: var(--fs-base);
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.topbar-link:hover {
+  color: var(--text);
+}
+.topbar-right .topbar-link {
   font-family: var(--mono);
   font-weight: 400;
   font-size: var(--fs-base);
@@ -641,15 +652,13 @@ a.pagetitle:hover { text-decoration: none; }
   color: var(--bg);
   background: var(--text);
   border: 1px solid var(--text);
-  text-decoration: none;
   padding: 6px 18px;
   border-radius: 980px;
   transition: background 0.15s ease, color 0.15s ease;
 }
-.topbar-link:hover {
+.topbar-right .topbar-link:hover {
   background: transparent;
   color: var(--text);
-  text-decoration: none;
 }
 .work .topbar { margin-bottom: 8px; }
 .work .tagline { font-size: var(--fs-base); color: var(--muted); margin: 0 0 32px; letter-spacing: 0.005em; }
