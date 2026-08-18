@@ -644,6 +644,15 @@ a.pagetitle:hover { text-decoration: none; }
 .topbar-link:hover {
   color: var(--text);
 }
+.foot-social {
+  font-size: var(--fs-sm);
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.foot-social:hover {
+  color: var(--text);
+}
 .topbar-right .topbar-link {
   font-family: var(--mono);
   font-weight: 400;
