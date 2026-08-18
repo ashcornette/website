@@ -386,6 +386,30 @@ a:focus-visible, button:focus-visible {
 .doc .screens-caption { font-family: var(--mono); font-size: 11px; color: var(--muted); margin: 0 0 4px; letter-spacing: 0.02em; }
 .doc .closing-img { width: 100%; height: auto; display: block; border-radius: 0; background: var(--tint); margin-top: 1.5rem; }
 
+/* app store gallery */
+.app-gallery {
+  margin: 2rem calc(-1 * var(--gutter, 0px)) 2.5rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.app-gallery::-webkit-scrollbar { display: none; }
+.app-gallery-track {
+  display: flex;
+  gap: 12px;
+  padding: 0 var(--gutter, 0px);
+  width: max-content;
+}
+.app-gallery-track img {
+  height: 480px;
+  width: auto;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+@media screen and (max-width: 600px) {
+  .app-gallery-track img { height: 360px; }
+}
+
 /* figure / embedded svg */
 .doc figure { margin: 28px 0; }
 .doc figure img { width: 100%; height: auto; display: block; border-radius: 0; background: var(--tint); border: 1px solid var(--border); }
