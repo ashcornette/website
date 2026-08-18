@@ -23,11 +23,11 @@
     <a class="skip-link" href="#main">skip to content</a>
     <div class="topbar">
       <a class="pagetitle" href="index.html">Ash Cornette</a>
-      <div class="topbar-right">
-      <span class="foot-right">
-        <a class="foot-social" href="https://www.linkedin.com/in/ashcornette/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a class="foot-social" href="https://instagram.com/complexash" target="_blank" rel="noopener noreferrer">Instagram</a>
-      </span>
+        <button class="hamburger" id="menuToggle" type="button" aria-label="toggle menu">☰</button>
+        <div class="topbar-right" id="topbarMenu">
+        <a class="topbar-link" href="about.html">About</a>
+        <a class="topbar-link" href="inquiry.html">Inquire</a>
+        <a class="topbar-link" href="mailto:hello@ashcornette.com">Contact</a>
       </div>
     </div>
 
@@ -76,5 +76,16 @@
       })();
     </script>
     <script src="contact.js"></script>
-  </body>
+  <script>
+(function(){
+  var btn=document.getElementById("menuToggle");
+  var menu=document.getElementById("topbarMenu");
+  
+  if(!btn||!menu) return;
+  function closeMenu(){menu.classList.remove("open");btn.textContent="☰";}
+  function openMenu(){menu.classList.add("open");btn.textContent="✕";}
+  btn.addEventListener("click",function(e){e.stopPropagation();menu.classList.contains("open")?closeMenu():openMenu();});
+})();
+</script>
+</body>
 </html>

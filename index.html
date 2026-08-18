@@ -38,9 +38,12 @@
     <main id="main" tabindex="-1">
       <div class="topbar">
         <h1 class="pagetitle">Ash Cornette</h1>
-        <div class="topbar-right">
-          <a class="topbar-link" href="inquiry.html">Inquire</a>
-        </div>
+        <button class="hamburger" id="menuToggle" type="button" aria-label="toggle menu">☰</button>
+        <div class="topbar-right" id="topbarMenu">
+        <a class="topbar-link" href="about.html">About</a>
+        <a class="topbar-link" href="inquiry.html">Inquire</a>
+        <a class="topbar-link" href="mailto:hello@ashcornette.com">Contact</a>
+      </div>
       </div>
 
       <p class="tagline">Brand &amp; Product Design. From strategy to shipping. Vancouver, BC.</p>
@@ -49,37 +52,33 @@
       <!-- ── Full-width project sections ── -->
       <div class="showcase" id="showcase">
 
-        <div class="show-proj reveal">
-          <a class="show-media" href="barelynotes.html">
-            <video src="img/barely-notes-demo.mp4" poster="img/barely-notes-demo-poster.jpg" muted loop playsinline preload="metadata" aria-label="Barely Notes app demo"></video>
-          </a>
-          <div class="show-label">
-            <h2 class="show-title">Barely Notes</h2>
-            <span class="show-desc">Designed, built, and shipped a one-note app in six weeks</span>
-            <a class="show-link" href="barelynotes.html">Link</a>
-          </div>
-        </div>
-
-        <div class="show-pair">
-          <div class="show-proj reveal">
-            <a class="show-media" href="complexbreaks.html">
-              <img src="img/complexbreaks/complexbreaks-elephant-graveyard.jpeg" alt="Complex Breaks — Elephant Graveyard jam" loading="lazy">
+        <div class="show-hero-row">
+          <div class="show-proj show-hero-main reveal">
+            <a class="show-media" href="barelynotes.html">
+              <video src="img/barely-notes-demo.mp4" poster="img/barely-notes-demo-poster.jpg" muted loop playsinline preload="metadata" aria-label="Barely Notes app demo"></video>
             </a>
             <div class="show-label">
-              <h2 class="show-title">Complex Breaks</h2>
-              <span class="show-desc">Brand, merch, and platform I've run solo since 2020</span>
-              <a class="show-link" href="complexbreaks.html">Link</a>
+              <h2 class="show-title">Barely Notes</h2>
             </div>
           </div>
 
-          <div class="show-proj reveal">
-            <a class="show-media" href="ourocollective.html">
-              <img src="img/ourocollective/ouro-preview.jpg" alt="OURO Collective — contemporary dance performance" loading="lazy">
-            </a>
-            <div class="show-label">
-              <h2 class="show-title">OURO Collective</h2>
-              <span class="show-desc">Cut years of content into one focused site and brand</span>
-              <a class="show-link" href="ourocollective.html">Link</a>
+          <div class="show-hero-side">
+            <div class="show-proj reveal">
+              <a class="show-media" href="complexbreaks.html">
+                <img src="img/complexbreaks/complexbreaks-elephant-graveyard.jpeg" alt="Complex Breaks — Elephant Graveyard jam" loading="lazy">
+              </a>
+              <div class="show-label">
+                <h2 class="show-title">Complex Breaks</h2>
+              </div>
+            </div>
+
+            <div class="show-proj reveal">
+              <a class="show-media" href="ourocollective.html">
+                <img src="img/ourocollective/ouro-preview.jpg" alt="OURO Collective — contemporary dance performance" loading="lazy">
+              </a>
+              <div class="show-label">
+                <h2 class="show-title">OURO Collective</h2>
+              </div>
             </div>
           </div>
         </div>
@@ -92,8 +91,6 @@
           </a>
           <div class="show-label">
             <h2 class="show-title">Arc'teryx Gear Bag</h2>
-            <span class="show-desc">Replaced category browsing with activity-first gear planning</span>
-            <a class="show-link" href="arcteryx.html">Link</a>
           </div>
         </div>
 
@@ -114,7 +111,7 @@
       </blockquote>
 
       <footer class="workfoot">
-        <span>© <span id="yr"></span> · <a class="foot-link" href="inquiry.html">Inquire</a></span>
+        <span>© <span id="yr"></span></span>
         <span class="foot-right">
           <a class="foot-social" href="https://www.linkedin.com/in/ashcornette/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a class="foot-social" href="https://instagram.com/complexash" target="_blank" rel="noopener noreferrer">Instagram</a>
@@ -177,5 +174,16 @@
       })();
     </script>
     <script src="contact.js"></script>
-  </body>
+  <script>
+(function(){
+  var btn=document.getElementById("menuToggle");
+  var menu=document.getElementById("topbarMenu");
+  
+  if(!btn||!menu) return;
+  function closeMenu(){menu.classList.remove("open");btn.textContent="☰";}
+  function openMenu(){menu.classList.add("open");btn.textContent="✕";}
+  btn.addEventListener("click",function(e){e.stopPropagation();menu.classList.contains("open")?closeMenu():openMenu();});
+})();
+</script>
+</body>
 </html>
