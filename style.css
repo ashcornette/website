@@ -659,6 +659,7 @@ a.pagetitle:hover { text-decoration: none; }
 .topbar-right .topbar-link:hover {
   background: transparent;
   color: var(--text);
+  text-decoration: none;
 }
 .work .topbar { margin-bottom: 8px; }
 .work .tagline { font-size: var(--fs-base); color: var(--muted); margin: 0 0 32px; letter-spacing: 0.005em; }
