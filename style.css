@@ -154,9 +154,9 @@ main { animation: fadein 0.5s ease 0.1s both; }
 .back-link:hover { color: var(--text); text-decoration: none; }
 
 /* case-study top row — back link + this project's tags */
-.doc .case-nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
+.doc .case-nav { display: flex; align-items: center; justify-content: flex-start; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
 .doc .case-nav .back-link { margin-bottom: 0; }
-.doc .case-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+.doc .case-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-start; }
 .doc .case-tags .t { font-size: 12px; letter-spacing: 0.02em; color: var(--accent); background: var(--tint); padding: 6px 13px; border-radius: 980px; white-space: nowrap; }
 
 /* pill — the one capsule that keeps an edge */
