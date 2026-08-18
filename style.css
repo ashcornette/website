@@ -291,15 +291,15 @@ a:focus-visible, button:focus-visible {
 .doc .meta .status, .doc .meta .status a { color: var(--accent); }
 
 /* stats */
-.doc .stats { background: var(--tint); padding: 22px 24px; margin: 24px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 18px 28px; }
+.doc .stats { background: var(--tint); padding: 22px 24px; margin: 24px auto; display: grid; grid-template-columns: 1fr 1fr; gap: 18px 28px; border-radius: 13.5px; }
 .doc .stat-item { font-size: var(--fs-base); color: var(--muted); line-height: 1.55; }
 .doc .stat-val { font-family: var(--mono); color: var(--accent); font-weight: 400; display: block; margin-bottom: 2px; }
 
 /* pull quote (shared — home + doc pages) */
-.pull { background: var(--tint); padding: 22px 26px; margin: 30px 0; font-size: var(--fs-md); font-style: italic; color: var(--text); line-height: 1.6; }
+.pull { background: var(--tint); padding: 22px 26px; margin: 30px auto; font-size: var(--fs-md); font-style: italic; color: var(--text); line-height: 1.6; border-radius: 13.5px; }
 
 /* persona */
-.doc .persona { background: var(--tint); padding: 24px; margin: 30px 0; }
+.doc .persona { background: var(--tint); padding: 24px; margin: 30px auto; border-radius: 13.5px; }
 .doc .persona-header { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
 .doc .persona-name { font-size: 15px; color: var(--text); margin-bottom: 14px; }
 .doc .persona-grid { display: grid; grid-template-columns: auto 1fr; gap: 6px 18px; font-size: 12px; margin-bottom: 18px; }
@@ -308,14 +308,14 @@ a:focus-visible, button:focus-visible {
 .doc .persona-quote { font-size: 13px; font-style: italic; color: var(--text); padding-top: 16px; margin-top: 8px; line-height: 1.65; }
 .doc .persona-traits { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
 .doc .persona-trait { font-family: var(--mono); font-size: 11px; color: var(--muted); background: var(--bg); padding: 3px 12px; border-radius: 980px; letter-spacing: 0.02em; }
-.doc .persona-mini { background: var(--tint); padding: 18px 20px; margin: 12px 0; }
+.doc .persona-mini { background: var(--tint); padding: 18px 20px; margin: 12px 0; border-radius: 13.5px; }
 .doc .persona-mini .persona-header { margin-bottom: 8px; }
 .doc .persona-mini-name { font-size: 14px; color: var(--text); margin-bottom: 8px; }
 .doc .persona-mini-quote { font-size: 12px; font-style: italic; color: var(--muted); line-height: 1.7; }
 
 /* goals grid */
 .doc .goals-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 26px 0; }
-.doc .goals-col { background: var(--tint); padding: 20px; }
+.doc .goals-col { background: var(--tint); padding: 20px; border-radius: 13.5px; }
 .doc .goals-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 14px; }
 .doc .goals-label.good { color: var(--positive); }
 .doc .goals-label.bad { color: var(--accent); }
@@ -440,7 +440,7 @@ a:focus-visible, button:focus-visible {
 @media screen and (max-width: 560px) { .doc .section .proto-cap { white-space: normal; } }
 
 /* compare before/after */
-.doc .compare { margin: 24px auto; background: var(--tint); padding: 8px 22px; text-align: left; }
+.doc .compare { margin: 24px auto; background: var(--tint); padding: 8px 22px; text-align: left; border-radius: 13.5px; }
 .doc .compare-header { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 12px 0 8px; font-family: var(--mono); font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; }
 .doc .compare-header span:first-child { color: var(--muted); }
 .doc .compare-header span:last-child { color: var(--accent); }
