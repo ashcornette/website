@@ -405,6 +405,7 @@ a:focus-visible, button:focus-visible {
   width: auto;
   border-radius: 12px;
   flex-shrink: 0;
+  border: 1px solid #000;
 }
 @media screen and (max-width: 600px) {
   .app-gallery-track img { height: 360px; }
