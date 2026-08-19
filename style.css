@@ -681,8 +681,10 @@ a:focus-visible, button:focus-visible {
 }
 .topbar.scrolled .pagetitle { font-size: 14px; }
 .topbar.scrolled .topbar-link { font-size: 13px; }
-.topbar.scrolled .hamburger { display: none; }
-.topbar.scrolled .topbar-right { display: flex !important; position: static; inset: auto; background: none; padding: 0; gap: 14px; opacity: 1; pointer-events: auto; flex-direction: row; }
+@media screen and (min-width: 601px) {
+  .topbar.scrolled .hamburger { display: none; }
+  .topbar.scrolled .topbar-right { display: flex !important; position: static; inset: auto; background: none; padding: 0; gap: 14px; opacity: 1; pointer-events: auto; flex-direction: row; }
+}
 .pagetitle { font-family: var(--sans); font-weight: 600; letter-spacing: -0.03em; line-height: 1.02; color: var(--text); margin: 0; text-decoration: none; }
 .cursor {
   animation: blink 1s step-end infinite;
