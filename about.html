@@ -21,8 +21,12 @@
     <style>
       .about-page { padding: 0; }
       .about-header { display: flex; align-items: center; justify-content: center; gap: 40px; margin-bottom: 32px; }
-      .about-header h1 { margin-bottom: 0; }
+      .about-header h1 { margin-bottom: 0; white-space: nowrap; }
       .profile-photo { width: 240px; height: 240px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+      @media (max-width: 600px) {
+        .about-header { flex-direction: column; gap: 20px; }
+        .profile-photo { width: 160px; height: 160px; }
+      }
       .about-page .section p a { text-decoration: underline; text-underline-offset: 3px; }
       .competitions-row {
         display: grid;
