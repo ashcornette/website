@@ -698,7 +698,7 @@ a.pagetitle:hover { text-decoration: none; }
   display: none;
   background: none;
   border: none;
-  font-size: 20px;
+  font-size: 28px;
   color: var(--text);
   cursor: pointer;
   padding: 0;
