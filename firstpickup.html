@@ -68,11 +68,27 @@
           <div class="compare-row"><span>Community</span><span>An r/vancouver thread asking how to move Marketplace furniture without a car. Five unrelated workarounds for one job.</span></div>
           <div class="compare-row"><span>Competitive</span><span>Lugg, Dolly, and Roadie (none in Canada). TaskRabbit. Local van-booking apps. Sharetown and Kaiyo as business-model references.</span></div>
         </div>
-        <div class="stats">
-          <div class="stat-item"><span class="stat-val">4 of 4</span> ranked pickup and delivery the worst part of buying or selling secondhand</div>
-          <div class="stat-item"><span class="stat-val">4 of 4</span> chose a delivery and pickup service as the most appealing feature</div>
-          <div class="stat-item"><span class="stat-val">4 of 4</span> said they would not hire help to move something heavy</div>
-          <div class="stat-item"><span class="stat-val">1 of 4</span> has ever paid for pickup help, and paid under twenty dollars</div>
+        <div class="survey-bars">
+          <div class="survey-bar" data-fill="100">
+            <div class="survey-bar-label">4 of 4</div>
+            <div class="survey-bar-track"><div class="survey-bar-fill"></div></div>
+            <div class="survey-bar-desc">ranked pickup and delivery the worst part of buying or selling secondhand</div>
+          </div>
+          <div class="survey-bar" data-fill="100">
+            <div class="survey-bar-label">4 of 4</div>
+            <div class="survey-bar-track"><div class="survey-bar-fill"></div></div>
+            <div class="survey-bar-desc">chose a delivery and pickup service as the most appealing feature</div>
+          </div>
+          <div class="survey-bar" data-fill="100">
+            <div class="survey-bar-label">4 of 4</div>
+            <div class="survey-bar-track"><div class="survey-bar-fill"></div></div>
+            <div class="survey-bar-desc">said they would not hire help to move something heavy</div>
+          </div>
+          <div class="survey-bar" data-fill="25">
+            <div class="survey-bar-label">1 of 4</div>
+            <div class="survey-bar-track"><div class="survey-bar-fill"></div></div>
+            <div class="survey-bar-desc">has ever paid for pickup help, and paid under twenty dollars</div>
+          </div>
         </div>
         <p>Strong stated demand. Almost no revealed demand. That disagreement is the finding the whole project turns on.</p>
         <div class="pull">"I don't know a reputable company that offers affordable help."</div>
@@ -394,6 +410,45 @@
     transition: opacity 0.6s ease;
   }
   .flow-anim-screen.active { opacity: 1; }
+
+  /* Survey bars */
+  .survey-bars {
+    margin: 28px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .survey-bar-label {
+    font-family: var(--sans);
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .survey-bar-track {
+    width: 100%;
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+  .survey-bar-fill {
+    height: 100%;
+    width: 0;
+    background: var(--text);
+    border-radius: 3px;
+    transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .survey-bar.visible .survey-bar-fill {
+    width: var(--fill);
+  }
+  .survey-bar-desc {
+    font-size: var(--fs-base);
+    color: var(--muted);
+    line-height: 1.5;
+  }
   .flow-anim-dots {
     display: flex;
     justify-content: center;
@@ -410,6 +465,21 @@
   }
   .flow-anim-dot.active { background: var(--text); }
 </style>
+<script>
+(function(){
+  var bars = document.querySelectorAll('.survey-bar');
+  if (!bars.length) return;
+  bars.forEach(function(bar) {
+    bar.style.setProperty('--fill', bar.dataset.fill + '%');
+  });
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.3 });
+  bars.forEach(function(bar) { obs.observe(bar); });
+})();
+</script>
 <script>
 (function(){
   var screens = document.querySelectorAll('.flow-anim-screen');
