@@ -383,7 +383,8 @@ a:focus-visible, button:focus-visible {
 /* screens (screenshots) */
 .doc .screens { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 28px auto 8px; max-width: 680px; }
 .doc .screens.triple { grid-template-columns: 1fr 1fr 1fr; max-width: 900px; }
-.doc .screens img { width: 100%; height: auto; display: block; border-radius: 0; background: var(--tint); border: 1px solid var(--border); }
+.doc .screens img,
+.doc .screens video { width: 100%; height: auto; display: block; border-radius: 0; background: var(--tint); border: 1px solid var(--border); }
 .doc .screens-caption { font-family: var(--mono); font-size: 11px; color: var(--muted); margin: 0 0 4px; letter-spacing: 0.02em; }
 .doc .closing-img { width: 100%; height: auto; display: block; border-radius: 0; background: var(--tint); margin-top: 1.5rem; }
 
