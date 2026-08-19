@@ -23,7 +23,7 @@
     <a class="skip-link" href="#main">skip to content</a>
     <div class="topbar">
       <a class="pagetitle" href="index.html">Ash<span class="cursor">_</span></a>
-        <button class="hamburger" id="menuToggle" type="button" aria-label="toggle menu">☰</button>
+        <button class="hamburger" id="menuToggle" type="button" aria-label="toggle menu">=</button>
         <div class="topbar-right" id="topbarMenu">
         <a class="topbar-link" href="about.html">About</a>
         <a class="topbar-link" href="inquiry.html">Inquire</a>
@@ -163,7 +163,7 @@
   var menu=document.getElementById("topbarMenu");
   
   if(!btn||!menu) return;
-  function closeMenu(){menu.classList.remove("open");btn.textContent="☰";}
+  function closeMenu(){menu.classList.remove("open");btn.textContent="=";}
   function openMenu(){menu.classList.add("open");btn.textContent="✕";}
   btn.addEventListener("click",function(e){e.stopPropagation();menu.classList.contains("open")?closeMenu():openMenu();});
 })();
