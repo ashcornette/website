@@ -171,8 +171,8 @@
   var menu=document.getElementById("topbarMenu");
   
   if(!btn||!menu) return;
-  function closeMenu(){menu.classList.remove("open");document.body.style.overflow="";btn.textContent="=";}
-  function openMenu(){menu.classList.add("open");document.body.style.overflow="hidden";btn.textContent="✕";}
+  function closeMenu(){menu.classList.remove("open");document.body.style.overflow="";document.documentElement.style.overflow="";document.body.style.position="";document.body.style.width="";btn.textContent="=";}
+  function openMenu(){menu.classList.add("open");document.body.style.overflow="hidden";document.documentElement.style.overflow="hidden";document.body.style.position="fixed";document.body.style.width="100%";btn.textContent="✕";}
   btn.addEventListener("click",function(e){e.stopPropagation();menu.classList.contains("open")?closeMenu():openMenu();});
 })();
 </script>
