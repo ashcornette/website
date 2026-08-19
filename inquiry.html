@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#eeedea" />
+    <meta name="theme-color" content="#eeedea" id="themeColor" />
     <title>ash cornette · project inquiry</title>
     <meta name="description" content="Project inquiry by Ash Cornette. A short intake that turns what you're making into a clear proposal.">
     <meta property="og:type" content="website">
@@ -220,7 +220,7 @@ render();
   
   if(!btn||!menu) return;
   function closeMenu(){menu.classList.remove("open");document.body.style.overflow="";document.documentElement.style.overflow="";document.body.style.position="";document.body.style.width="";btn.textContent="=";}
-  function openMenu(){menu.classList.add("open");document.body.style.overflow="hidden";document.documentElement.style.overflow="hidden";document.body.style.position="fixed";document.body.style.width="100%";btn.textContent="✕";}
+  function openMenu(){menu.classList.add("open");document.body.style.overflow="hidden";document.documentElement.style.overflow="hidden";document.body.style.position="fixed";document.body.style.width="100%";var tc=document.getElementById("themeColor");if(tc)tc.content="#eeedea";btn.textContent="✕";}
   btn.addEventListener("click",function(e){e.stopPropagation();menu.classList.contains("open")?closeMenu():openMenu();});
 })();
 </script>
