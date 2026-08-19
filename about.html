@@ -256,8 +256,8 @@
   var menu=document.getElementById("topbarMenu");
   
   if(!btn||!menu) return;
-  function closeMenu(){menu.classList.remove("open");btn.textContent="=";}
-  function openMenu(){menu.classList.add("open");btn.textContent="✕";}
+  function closeMenu(){menu.classList.remove("open");document.body.style.overflow="";btn.textContent="=";}
+  function openMenu(){menu.classList.add("open");document.body.style.overflow="hidden";btn.textContent="✕";}
   btn.addEventListener("click",function(e){e.stopPropagation();menu.classList.contains("open")?closeMenu():openMenu();});
 })();
 </script>
