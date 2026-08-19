@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="First Pickup: UX case study by Ash Cornette. Route-matched pickup for bulky secondhand deals in Metro Vancouver.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ash cornette · first pickup">
+    <meta property="og:description" content="Route-matched pickup for bulky secondhand deals in Metro Vancouver.">
+    <meta property="og:url" content="https://ashcornette.com/firstpickup.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://ashcornette.com/firstpickup.html">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>ash cornette · first pickup</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="doc">
+    <a class="skip-link" href="#main">skip to content</a>
+    <div class="topbar">
+      <a class="pagetitle" href="index.html">Ash<span class="cursor">_</span></a>
+        <button class="hamburger" id="menuToggle" type="button" aria-label="toggle menu">=</button>
+        <div class="topbar-right" id="topbarMenu">
+        <a class="topbar-link" href="about.html">About</a>
+        <a class="topbar-link" href="inquiry.html">Inquire</a>
+        <a class="topbar-link" href="mailto:hello@ashcornette.com">Contact</a>
+      </div>
+    </div>
+
+    <main id="main" tabindex="-1">
+      <div class="case-nav">
+        <a href="index.html" class="back-link">&larr; back</a>
+        <div class="case-tags"><span class="t">UX research</span><span class="t">product design</span><span class="t">iOS</span><span class="t">pitch deck</span><span class="t">concept</span></div>
+      </div>
+      <h1>Pickup is where secondhand deals fall apart</h1>
+      <p class="role">A UX case study on route-matched pickup for bulky secondhand deals in Metro Vancouver. Team project with Sean.</p>
+
+      <div class="meta">
+        <span>UX research &amp; product design</span>
+        <span>CUXD 214 · Emily Carr University of Art + Design</span>
+        <span>2026</span>
+      </div>
+
+      <!-- 01 ── PROBLEM ── -->
+      <div class="section">
+        <div class="section-num">01: problem</div>
+        <p>People across Metro Vancouver buy and sell bulky things on Facebook Marketplace constantly. When the item is a couch, a desk, or a fridge, moving it from their place to yours is the part nobody has a plan for.</p>
+        <div class="pull">How might we make handing off a bulky-item pickup feel as safe and affordable as asking a friend?</div>
+        <div class="stats">
+          <div class="stat-item"><span class="stat-val">No truck</span> A couch does not fit in a Civic. People rent from Home Depot, book Modo, or wait on a friend.</div>
+          <div class="stat-item"><span class="stat-val">No time</span> Coordinating pickup eats evenings and weekends. Then the other person stops replying.</div>
+          <div class="stat-item"><span class="stat-val">Too much work</span> Stairs, lifting, straps, a rental booking. Plenty of people just skip the deal.</div>
+        </div>
+      </div>
+
+      <!-- 02 ── RESEARCH ── -->
+      <div class="section">
+        <div class="section-num">02: research</div>
+        <p>Four methods: survey, interviews, community research, and competitive scan. Six survey responses, four qualified after screening for people who had bought or sold secondhand in the past year.</p>
+        <div class="compare">
+          <div class="compare-header"><span>method</span><span>what it was</span></div>
+          <div class="compare-row"><span>Survey</span><span>Typeform, distributed through r/vancouver, campus channels, and local buy-and-sell groups. Questions anchored to the last real transaction.</span></div>
+          <div class="compare-row"><span>Interviews</span><span>Three walk-me-through conversations about the last bulky buy or sale, the worst experience, and the moment they backed out of a deal.</span></div>
+          <div class="compare-row"><span>Community</span><span>An r/vancouver thread asking how to move Marketplace furniture without a car. Five unrelated workarounds for one job.</span></div>
+          <div class="compare-row"><span>Competitive</span><span>Lugg, Dolly, and Roadie (none in Canada). TaskRabbit. Local van-booking apps. Sharetown and Kaiyo as business-model references.</span></div>
+        </div>
+        <div class="stats">
+          <div class="stat-item"><span class="stat-val">4 of 4</span> ranked pickup and delivery the worst part of buying or selling secondhand</div>
+          <div class="stat-item"><span class="stat-val">4 of 4</span> chose a delivery and pickup service as the most appealing feature</div>
+          <div class="stat-item"><span class="stat-val">4 of 4</span> said they would not hire help to move something heavy</div>
+          <div class="stat-item"><span class="stat-val">1 of 4</span> has ever paid for pickup help, and paid under twenty dollars</div>
+        </div>
+        <p>Strong stated demand. Almost no revealed demand. That disagreement is the finding the whole project turns on.</p>
+        <div class="pull">"I don't know a reputable company that offers affordable help."</div>
+        <div class="pull">"I would ask people I know first."</div>
+        <div class="pull">"Cost."</div>
+        <p>Three different objections: trust, a free default that already works, and price. A paid service has to beat all three at once.</p>
+      </div>
+
+      <!-- 03 ── THE PIVOT ── -->
+      <div class="section">
+        <div class="section-num">03: the pivot</div>
+        <p>The project started as Payments Pending, built around escrow. Research moved us upstream, to pickup, trust, and who is already on the road.</p>
+        <div class="pull">0 of 4 chose escrow. All four picked pickup and delivery. On a question where selecting it cost them nothing, not one person did.</div>
+        <div class="stats">
+          <div class="stat-item"><span class="stat-val">Logistics first</span> For bulky items, pickup was the top friction by a distance. Escrow became interesting later, not the thing anybody was stuck on.</div>
+          <div class="stat-item"><span class="stat-val">Money gets simpler</span> Three of four use e-transfer day to day. Over $150, three of four switch to cash. People get more analog as the stakes rise.</div>
+          <div class="stat-item"><span class="stat-val">Ride the trip</span> Someone is already headed that way. Matching a haul to a trip that is happening anyway keeps the fee low enough to matter.</div>
+        </div>
+        <p>So Payments Pending became <strong>First Pickup</strong>, and the money moved out of the product. Item payment stays between buyer and seller on whatever channel they already use. We charge for the haul and nothing else.</p>
+      </div>
+
+      <!-- 04 ── PERSONAS ── -->
+      <div class="section">
+        <div class="section-num">04: personas</div>
+        <p>Three roles. One handoff. One persona per user flow. Every trait traces to a survey respondent, an interview, or the community research.</p>
+        <div class="screens triple">
+          <figure>
+            <img src="img/firstpickup/Persona%20-%20Lai%20-%20buying.png" alt="Persona: Lai, 27, buyer in East Vancouver" loading="lazy">
+            <figcaption>Lai · buying</figcaption>
+          </figure>
+          <figure>
+            <img src="img/firstpickup/Persona%20-%20Mei%20-%20selling.png" alt="Persona: Mei, 31, seller in Mount Pleasant" loading="lazy">
+            <figcaption>Mei · selling</figcaption>
+          </figure>
+          <figure>
+            <img src="img/firstpickup/Persona%20-%20set.png" alt="Persona: Jason, 34, transporter in Surrey" loading="lazy">
+            <figcaption>Jason · transporter</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- 05 ── DESIGN PROCESS ── -->
+      <div class="section">
+        <div class="section-num">05: design process</div>
+        <p>Everything upstream of the wireframes lived on one FigJam board: the service swimlane, the SWOT, the r/vancouver thread, and the first pass at personas.</p>
+        <figure>
+          <img src="img/firstpickup/fp-figjam.png" alt="FigJam working board with flows, SWOT, community research, and persona evolution" loading="lazy">
+          <figcaption>working board: flows, SWOT, community research, and the first persona pass</figcaption>
+        </figure>
+        <div class="compare">
+          <div class="compare-header"><span>stage</span><span>what happened</span></div>
+          <div class="compare-row"><span>Flows</span><span>Mapped Lai, Mei, and Jason in FigJam before any screens existed, first as a swimlane of activity, then as three role flows.</span></div>
+          <div class="compare-row"><span>Low fidelity</span><span>Paper and rough frames testing one question: can the request be three steps? Two generations of wires.</span></div>
+          <div class="compare-row"><span>Mid fidelity</span><span>Layout, hierarchy, and the request sequence. The flat-rate size picker replaced a quote form here.</span></div>
+          <div class="compare-row"><span>Design system</span><span>Five core colours, an iOS-native type ramp, hairline cards, 44pt minimum targets, documented as a brand guide.</span></div>
+          <div class="compare-row"><span>Prototype</span><span>Sean built the full high fidelity flow: three roles, empty states, error states, confirmation dialogs, and Dynamic Island states.</span></div>
+        </div>
+      </div>
+
+      <!-- 06 ── DESIGN SOLUTION ── -->
+      <div class="section">
+        <div class="section-num">06: design solution</div>
+
+        <h3>Onboarding</h3>
+        <div class="screens triple">
+          <figure>
+            <img src="img/firstpickup/onboarding.gif" alt="First Pickup onboarding flow animation" loading="lazy">
+            <figcaption>onboarding flow</figcaption>
+          </figure>
+          <figure>
+            <img src="img/firstpickup/Onboarding%20-%20What%20it%20is.png" alt="Onboarding: what First Pickup is" loading="lazy">
+            <figcaption>what it is</figcaption>
+          </figure>
+          <figure>
+            <img src="img/firstpickup/Onboarding%20-%20How%20it%20works.png" alt="Onboarding: how it works" loading="lazy">
+            <figcaption>how it works</figcaption>
+          </figure>
+        </div>
+
+        <h3>Requesting a haul</h3>
+        <div class="screens">
+          <figure>
+            <img src="img/firstpickup/Request%20-%20Buying%20-%20What.png" alt="Request flow: what are you moving?" loading="lazy">
+            <figcaption>what</figcaption>
+          </figure>
+          <figure>
+            <img src="img/firstpickup/Request%20-%20Where%20-%20Buying.png" alt="Request flow: pickup and dropoff locations" loading="lazy">
+            <figcaption>where</figcaption>
+          </figure>
+        </div>
+        <div class="screens">
+          <figure>
+            <img src="img/firstpickup/Matches.png" alt="Matched transporters list" loading="lazy">
+            <figcaption>matches</figcaption>
+          </figure>
+          <figure>
+            <img src="img/firstpickup/Confirm.png" alt="Confirm booking with transporter" loading="lazy">
+            <figcaption>confirm</figcaption>
+          </figure>
+        </div>
+        <p>Size is a three-way choice with the price on the button: $15 small, $35 medium, $65 large. The Confirm screen states plainly that the fee covers the haul only and the item is paid for in person.</p>
+
+        <h3>Driving a route</h3>
+        <div class="screens triple">
+          <figure>
+            <img src="img/firstpickup/transporting.gif" alt="Transporter flow animation" loading="lazy">
+            <figcaption>transporter flow</figcaption>
+          </figure>
+          <figure>
+            <img src="img/firstpickup/Transporter%20-%20Job%20offer.png" alt="Transporter job offer" loading="lazy">
+            <figcaption>job offer</figcaption>
+          </figure>
+          <figure>
+            <img src="img/firstpickup/Transporter%20-%20Job%20complete.png" alt="Job complete confirmation" loading="lazy">
+            <figcaption>done</figcaption>
+          </figure>
+        </div>
+        <p>Jason sets a home zone and his regular corridors first, then receives jobs that fit them. The offer states earnings before he accepts: $28 of the $35. Route matching is what keeps the fee low enough to compete with a friend who works for free.</p>
+
+        <h3>Trust without escrow</h3>
+        <div class="screens">
+          <figure>
+            <img src="img/firstpickup/Camera%20-%20Pickup.png" alt="Photo check-in at pickup" loading="lazy">
+            <figcaption>photo check-in</figcaption>
+          </figure>
+          <figure>
+            <img src="img/firstpickup/Live%20Activity%20-%20Customer.png" alt="Live Activity tracking on lock screen" loading="lazy">
+            <figcaption>live activity</figcaption>
+          </figure>
+        </div>
+        <p>Photo check-in at both ends of the job, ratings, and in-app chat. It came out of the safety finding directly: people already bring a friend and inspect before paying, so the design gives them evidence rather than reassurance.</p>
+
+        <div class="stats">
+          <div class="stat-item"><span class="stat-val">$15 / $35 / $65</span> flat haul by size. Small is a box or a scooter load, medium a chair or a bike, large a couch or a dresser.</div>
+          <div class="stat-item"><span class="stat-val">$28</span> of a $35 medium haul goes to the transporter, roughly 80%, earned on a trip they were making anyway.</div>
+          <div class="stat-item"><span class="stat-val">$7</span> platform share, covering processing, support, and the match. Item money never enters the app.</div>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE PROTOTYPE -->
+      <div class="section">
+        <div class="section-num">interactive prototype</div>
+        <p>Click through the full flow: request a haul, get matched, confirm, and track the delivery.</p>
+        <div class="proto-embed">
+          <iframe title="First Pickup: interactive Figma prototype"
+            src="https://embed.figma.com/proto/pFNtzfsKHOnEfhT6dGtcvN/First-Pickup?node-id=13-3&starting-point-node-id=13%3A3&scaling=scale-down&content-scaling=fixed&embed-host=share"
+            allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <!-- ANIMATED FLOW -->
+      <div class="section">
+        <div class="section-num">request flow</div>
+        <p>Five screens, one haul. From size to match to booked.</p>
+        <div class="flow-anim">
+          <div class="flow-anim-track">
+            <img src="img/firstpickup/Request%20-%20Buying%20-%20What.png" alt="Step 1: What are you moving?" class="flow-anim-screen active">
+            <img src="img/firstpickup/Request%20-%20Where%20-%20Buying.png" alt="Step 2: Pickup and dropoff" class="flow-anim-screen">
+            <img src="img/firstpickup/Matches.png" alt="Step 3: Matched transporters" class="flow-anim-screen">
+            <img src="img/firstpickup/Confirm.png" alt="Step 4: Confirm booking" class="flow-anim-screen">
+            <img src="img/firstpickup/Booked.png" alt="Step 5: Booked" class="flow-anim-screen">
+          </div>
+          <div class="flow-anim-dots"></div>
+        </div>
+      </div>
+
+      <!-- 07 ── WIREFRAMES ── -->
+      <div class="section">
+        <div class="section-num">07: wireframes</div>
+        <p>Three generations of the same request. Each generation changed one structural idea. None of them were restyles, and each change traces back to something the research told us.</p>
+        <div class="screens triple">
+          <figure>
+            <img src="img/firstpickup/wireframes/Cust%20-%20New%20request.png" alt="Wireframe: customer new request" loading="lazy">
+            <figcaption>new request</figcaption>
+          </figure>
+          <figure>
+            <img src="img/firstpickup/wireframes/Cust%20-%20Map%20request.png" alt="Wireframe: map request" loading="lazy">
+            <figcaption>map request</figcaption>
+          </figure>
+          <figure>
+            <img src="img/firstpickup/wireframes/Cust%20-%20Matches.png" alt="Wireframe: matches" loading="lazy">
+            <figcaption>matches</figcaption>
+          </figure>
+        </div>
+        <div class="screens triple">
+          <figure>
+            <img src="img/firstpickup/wireframes/Trans%20-%20Requests.png" alt="Wireframe: transporter requests" loading="lazy">
+            <figcaption>transporter requests</figcaption>
+          </figure>
+          <figure>
+            <img src="img/firstpickup/wireframes/Trans%20-%20Job.png" alt="Wireframe: transporter job" loading="lazy">
+            <figcaption>transporter job</figcaption>
+          </figure>
+          <figure>
+            <img src="img/firstpickup/wireframes/Trans%20-%20Service%20area.png" alt="Wireframe: service area" loading="lazy">
+            <figcaption>service area</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- 08 ── TESTING ── -->
+      <div class="section">
+        <div class="section-num">08: testing</div>
+        <p>Structured walkthroughs with the team and with peers, aimed at finding broken paths, missing screens, and confusing first-run moments. Then five structured sessions with people outside the team.</p>
+        <div class="compare">
+          <div class="compare-header"><span>what broke</span><span>what changed</span></div>
+          <div class="compare-row"><span>Onboarding</span><span>Role choice was fuzzy. We split customer and transporter onboarding and made the home mode follow that choice.</span></div>
+          <div class="compare-row"><span>Empty states</span><span>A first-run Getting home looked unfinished. We added empty homes for no haul yet, no active haul, and no nearby match.</span></div>
+          <div class="compare-row"><span>Error states</span><span>Failed payment and the cancel and skip confirmations were missing. Walkthroughs stalled there. We added all four.</span></div>
+          <div class="compare-row"><span>Missing pages</span><span>Help, history, and rating had no home. They do now.</span></div>
+        </div>
+      </div>
+
+      <!-- 09 ── OUTCOMES ── -->
+      <div class="section">
+        <div class="section-num">09: outcomes</div>
+        <p>Nothing has shipped, so there is no market outcome to report and this document does not invent one. We have a business case sized to test the open question. Funding the operation comes after that.</p>
+        <div class="stats">
+          <div class="stat-item"><span class="stat-val">$9M</span> Metro Vancouver serviceable market for bulky hauls, built bottom-up from roughly $130M of peer-to-peer resale</div>
+          <div class="stat-item"><span class="stat-val">$270K</span> first-year gross transaction value target across two or three corridors</div>
+          <div class="stat-item"><span class="stat-val">$250K</span> build estimate, three to six months, for a two-sided app with payments and an admin tool</div>
+        </div>
+      </div>
+
+      <!-- 10 ── LESSONS ── -->
+      <div class="section">
+        <div class="section-num">10: lessons</div>
+        <h4>We named the wrong problem, and the name recorded it</h4>
+        <p>Payments Pending was an answer, not a question. Escrow appeared in our first how-might-we before we had spoken to a single person, and four people later not one of them wanted it.</p>
+        <h4>Stated demand and paid demand are different quantities</h4>
+        <p>Everyone in our survey said pickup was the worst part. Everyone said they would like a service that fixed it. Nobody would pay for it, and one person had ever paid anything at all.</p>
+        <h4>We researched one side of a two-sided market</h4>
+        <p>Every survey question addressed customers. Jason exists because the business model needs him to, and his persona card says so in red. In a marketplace, supply is not a supporting character.</p>
+        <h4>Order the methods properly</h4>
+        <p>We wrote a survey before running interviews, which meant the questions were built on guesses about what mattered. Interviews first would have told us escrow was dead before we spent a question on it.</p>
+      </div>
+
+      <!-- MY CONTRIBUTION -->
+      <div class="section">
+        <div class="section-num">my contribution</div>
+        <div class="stats">
+          <div class="stat-item"><span class="stat-val">What I owned</span> Customer research: the survey instrument, the community and competitive analysis, and the market sizing. Low and mid fidelity design. The design system, the brand, and the investor deck.</div>
+          <div class="stat-item"><span class="stat-val">Shared with Sean</span> Sean and I worked out the service workflow and the three user flows together. Sean built the high fidelity prototype and ran two of the three user interviews.</div>
+        </div>
+      </div>
+
+      <!-- DECK -->
+      <div class="section">
+        <div class="section-num">pitch deck</div>
+        <p><a href="img/firstpickup/First-Pickup-case-study.pdf" target="_blank" rel="noopener noreferrer">View full case study PDF &rarr;</a></p>
+        <div class="screens triple">
+          <figure>
+            <img src="img/firstpickup/deck/01%20-%20Title.png" alt="Pitch deck: title slide" loading="lazy">
+          </figure>
+          <figure>
+            <img src="img/firstpickup/deck/02%20-%20Market.png" alt="Pitch deck: market" loading="lazy">
+          </figure>
+          <figure>
+            <img src="img/firstpickup/deck/03%20-%20Problem.png" alt="Pitch deck: problem" loading="lazy">
+          </figure>
+        </div>
+        <div class="screens triple">
+          <figure>
+            <img src="img/firstpickup/deck/04%20-%20Insight.png" alt="Pitch deck: insight" loading="lazy">
+          </figure>
+          <figure>
+            <img src="img/firstpickup/deck/05%20-%20Product.png" alt="Pitch deck: product" loading="lazy">
+          </figure>
+          <figure>
+            <img src="img/firstpickup/deck/06%20-%20Request%20flow.png" alt="Pitch deck: request flow" loading="lazy">
+          </figure>
+        </div>
+        <div class="screens triple">
+          <figure>
+            <img src="img/firstpickup/deck/07%20-%20Transporter.png" alt="Pitch deck: transporter" loading="lazy">
+          </figure>
+          <figure>
+            <img src="img/firstpickup/deck/08%20-%20Competition.png" alt="Pitch deck: competition" loading="lazy">
+          </figure>
+          <figure>
+            <img src="img/firstpickup/deck/09%20-%20Business%20model.png" alt="Pitch deck: business model" loading="lazy">
+          </figure>
+        </div>
+      </div>
+
+      <a class="pill" href="inquiry.html">Inquire</a>
+    </main>
+
+    <footer class="workfoot">
+      <a class="pagetitle" href="index.html">Ash Cornette</a>
+      <span class="foot-right">
+        <a class="foot-social" href="https://www.linkedin.com/in/ashcornette/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a class="foot-social" href="https://instagram.com/complexash" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="#main" class="scroll-top" aria-label="scroll to top">&uarr;</a>
+      </span>
+    </footer>
+
+    <style>
+  .flow-anim {
+    max-width: 320px;
+    margin: 28px auto;
+    position: relative;
+  }
+  .flow-anim-track {
+    position: relative;
+    aspect-ratio: 9 / 19.5;
+    overflow: hidden;
+    border-radius: 13.5px;
+    border: 1px solid var(--border);
+    background: var(--tint);
+  }
+  .flow-anim-screen {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+  .flow-anim-screen.active { opacity: 1; }
+  .flow-anim-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .flow-anim-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border);
+    transition: background 0.3s ease;
+    cursor: pointer;
+  }
+  .flow-anim-dot.active { background: var(--text); }
+</style>
+<script>
+(function(){
+  var screens = document.querySelectorAll('.flow-anim-screen');
+  var dotsContainer = document.querySelector('.flow-anim-dots');
+  if (!screens.length || !dotsContainer) return;
+  var current = 0;
+  var dots = [];
+  screens.forEach(function(_, i) {
+    var dot = document.createElement('span');
+    dot.className = 'flow-anim-dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', function() { goTo(i); });
+    dotsContainer.appendChild(dot);
+    dots.push(dot);
+  });
+  function goTo(index) {
+    screens[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = index;
+    screens[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+  setInterval(function() {
+    goTo((current + 1) % screens.length);
+  }, 3000);
+})();
+</script>
+<script>
+(function(){
+  var btn=document.getElementById("menuToggle");
+  var menu=document.getElementById("topbarMenu");
+  if(!btn||!menu) return;
+  function closeMenu(){menu.classList.remove("open");btn.textContent="=";}
+  function openMenu(){menu.classList.add("open");btn.textContent="\u2715";}
+  btn.addEventListener("click",function(e){e.stopPropagation();menu.classList.contains("open")?closeMenu():openMenu();});
+})();
+</script>
+<script>
+(function(){
+  var bar=document.querySelector(".topbar");
+  if(!bar)return;
+  var threshold=60;
+  window.addEventListener("scroll",function(){
+    if(window.scrollY>threshold){bar.classList.add("scrolled");}
+    else{bar.classList.remove("scrolled");}
+  },{passive:true});
+})();
+</script>
+  </body>
+</html>
