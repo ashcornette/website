@@ -741,14 +741,19 @@ a.pagetitle:hover { text-decoration: none; }
     border-radius: 0;
     box-shadow: none;
     margin: 0;
-    display: flex;
+    display: none;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .topbar-right.open {
+    display: flex;
     opacity: 1;
     pointer-events: auto;
+    animation: menuFadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  @keyframes menuFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
   .topbar-right .topbar-link {
     font-size: clamp(20px, 4vw, 28px) !important;
