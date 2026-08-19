@@ -785,9 +785,9 @@ a.pagetitle:hover { text-decoration: none; }
     bottom: auto;
     height: 50vh;
     border-bottom: 1px solid var(--text);
-    background: rgba(255, 255, 255, 0.45);
-    -webkit-backdrop-filter: saturate(200%) blur(30px);
-    backdrop-filter: saturate(200%) blur(30px);
+    background: rgba(238, 237, 234, 0.92);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
