@@ -822,12 +822,12 @@ a.pagetitle:hover { text-decoration: none; }
 }
 .work .topbar { margin-bottom: 0; }
 .work .tagline { font-size: var(--fs-base); color: var(--muted); margin: 0 auto 32px; letter-spacing: 0.005em; max-width: 1100px; }
-.work .pagetitle { font-size: clamp(14px, 2vw, 18px); }
+.work .pagetitle { font-size: clamp(28px, 3vw, 28px); }
 .work .hero-title { font-family: var(--sans); font-size: clamp(32px, 5vw, 56px); font-weight: 600; letter-spacing: -0.02em; text-align: left; margin: 0 auto 8px; color: var(--text); max-width: 1100px; }
 .doc { padding-top: 120px; }
 .doc .topbar { max-width: none; margin-inline: auto; margin-bottom: 22px; }
 .doc main { max-width: 768px; }
-.doc .pagetitle { font-size: clamp(14px, 2vw, 18px); }
+.doc .pagetitle { font-size: clamp(28px, 3vw, 28px); }
 .doc .workfoot {
   display: flex; justify-content: space-between; align-items: center; gap: 20px;
   max-width: 768px; margin: 64px auto 0; padding: 22px 0 60px; border-top: none;
