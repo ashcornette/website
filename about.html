@@ -20,19 +20,91 @@
     <link rel="stylesheet" href="style.css" />
     <style>
       .about-page { padding: 0; }
-      .about-page h1 { font-size: var(--fs-h2, clamp(24px, 3vw, 36px)); font-weight: 600; letter-spacing: -0.02em; margin-bottom: 32px; }
+      .about-header { display: flex; align-items: center; justify-content: center; gap: 40px; margin-bottom: 32px; }
+      .about-header h1 { margin-bottom: 0; }
+      .profile-photo { width: 240px; height: 240px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+      .about-page .section p a { text-decoration: underline; text-underline-offset: 3px; }
+      .competitions-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        align-items: start;
+        margin-top: 16px;
+      }
+      .scatter-gallery {
+        position: relative;
+        width: 100%;
+        height: 360px;
+      }
+      .scatter-img {
+        position: absolute;
+        left: var(--x);
+        top: var(--y);
+        width: var(--w);
+        border-radius: 6px;
+        box-shadow: 0 3px 14px rgba(0,0,0,0.12);
+        transform: rotate(var(--r));
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+        cursor: pointer;
+        z-index: 1;
+        object-fit: cover;
+      }
+      .scatter-img:hover {
+        transform: rotate(0deg) scale(1.06);
+        box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        z-index: 10;
+      }
+      .lightbox {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(255,255,255,0.4);
+        -webkit-backdrop-filter: saturate(180%) blur(24px);
+        backdrop-filter: saturate(180%) blur(24px);
+        z-index: 2000;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+        cursor: pointer;
+      }
+      .lightbox.open { display: flex; }
+      .lightbox img {
+        max-width: 90vw;
+        max-height: 90vh;
+        object-fit: contain;
+        border-radius: 8px;
+      }
+      .lightbox-close {
+        position: fixed;
+        top: 20px;
+        right: 28px;
+        font-size: 36px;
+        color: var(--text, #2a2a28);
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 2001;
+      }
+      @media (max-width: 600px) {
+        .competitions-row { grid-template-columns: 1fr; }
+        .scatter-gallery { height: 300px; margin-top: 24px; }
+      }
+      .about-page h1 { font-size: clamp(32px, 5vw, 56px); font-weight: 600; letter-spacing: -0.02em; margin-bottom: 32px; }
       .about-page .bio { margin-bottom: 48px; }
       .about-page .bio p { font-size: var(--fs-base, 16px); line-height: 1.6; margin-bottom: 16px; text-align: left; margin-left: 0; margin-right: 0; max-width: none; }
       .about-page hr { display: none; }
-      .about-page h2 { font-size: var(--fs-h2, clamp(24px, 3vw, 36px)); font-weight: 500; margin-bottom: 24px; }
+      .about-page h2 { font-size: clamp(24px, 4vw, 36px); font-weight: 600; letter-spacing: -0.02em; margin-bottom: 24px; }
       .doc .about-page .section h3 { font-size: var(--fs-base, 16px); font-weight: 600; margin-bottom: 8px; margin-top: 32px; }
       .doc .about-page .section h3:first-of-type { margin-top: 0; }
       .about-page .section { margin-bottom: 48px; text-align: left; }
-      .about-page .section p { font-size: 14px; line-height: 1.6; margin-bottom: 8px; color: var(--text, #2a2a28); text-align: left; margin-left: 0; margin-right: 0; max-width: none; }
+      .about-page .section p { font-size: var(--fs-base, 16px); line-height: 1.6; margin-bottom: 8px; color: var(--text, #2a2a28); text-align: left; margin-left: 0; margin-right: 0; max-width: none; }
       .about-page .section .muted { color: var(--muted, #8a8a86); }
       .about-page ul { list-style: none; padding: 0; margin: 0 0 16px 0; }
-      .doc .about-page .section ul { font-size: 14px; }
-      .doc .about-page .section ul li { font-size: 14px; line-height: 1.6; margin-bottom: 4px; text-align: left; color: var(--text, #2a2a28); }
+      .doc .about-page .section ul { font-size: var(--fs-base, 16px); }
+      .doc .about-page .section ul li { font-size: var(--fs-base, 16px); line-height: 1.6; margin-bottom: 8px; text-align: left; color: var(--text, #2a2a28); }
       .doc .about-page .section ul li::before { content: none; }
       .about-page .projects-list { margin-top: 16px; }
       .about-page .projects-list li { color: var(--muted, #8a8a86); }
@@ -59,18 +131,25 @@
 
     <main id="main" tabindex="-1">
       <div class="about-page">
-        <h1>About</h1>
+        <div class="about-header">
+          <img src="img/profile.jpg" alt="Ash Cornette" class="profile-photo">
+          <h1>Who is Ash?</h1>
+        </div>
 
         <div class="bio">
-          <p>Ash Cornette approaches product and brand design through a distinct, multidimensional framework to solve complex problems, understanding human behavior, and business needs. His professional foundation sits at the intersection of technical operations, business strategy, and deep user empathy. Having spent nearly a decade directing IT infrastructure at ACC-Tech and driving proactive client strategy at Bank of America, Ash brings a wealth of industry experience that he leverages into his design practice. He possesses a sharp understanding of core business objectives, technical architecture, risk management, and user friction points, allowing him to listen to stakeholders, uncover genuine user needs, and translate intricate systems into elegant, scalable digital solutions.</p>
-          <p>Ash earned his UX/UI Design Certification from Emily Carr University of Art + Design. His experience ranges from strategic brand positioning, foundational user research, information architecture, and interactive prototyping to complete developed and shipped products.</p>
-          <p>Adding a unique edge to his design practice, Ash is an internationally competitive street dancer and performing artist with the OURO Collective and partnering with studios like <a href="https://www.tangibleinteraction.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">Tangible Interaction</a>. Securing major championship titles across North America and performing on stage for global brands such as Cirque du Soleil, Leica Geosystems, and Takashi Murakami taught him rigorous discipline, spatial awareness, rapid adaptation, and real-time collaboration under high pressure. Whether architecting digital products, formulating brand identities, or directing live movement, his target remains consistent: frictionless execution, intentional craft, and high emotional impact.</p>
+          <p>Ash Cornette approaches <strong><em>product and brand design</em></strong> through a distinct, multidimensional framework.</p>
+          <p>His goal is to solve complex problems, understanding human behavior, and business needs. His professional foundation sits at the intersection of technical operations, business strategy, and <strong><em>deep user empathy</em></strong>.</p>
+          <p>Having spent nearly a decade directing IT infrastructure at ACC-Tech and driving proactive client strategy at Bank of America, Ash brings a wealth of industry experience that he leverages into his design practice. He possesses a sharp understanding of core business objectives, technical architecture, risk management, and <strong><em>user friction points</em></strong>, allowing him to listen to stakeholders, uncover genuine user needs, and translate intricate systems into <strong><em>elegant, scalable digital solutions</em></strong>.</p>
+          <p>Ash earned his <strong><em>UX/UI Design Certification</em></strong> from Emily Carr University of Art + Design. His experience ranges from <strong><em>strategic brand positioning</em></strong>, foundational <strong><em>user research</em></strong>, <strong><em>information architecture</em></strong>, and <strong><em>interactive prototyping</em></strong> to complete developed and <strong><em>shipped products</em></strong>.</p>
+          <p>Adding a unique edge to his design practice, Ash is an internationally competitive street dancer and performing artist with the OURO Collective and partnering with studios like <strong><a href="https://www.tangibleinteraction.com/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">Tangible Interaction</a></strong>. Securing major championship titles across North America and performing on stage for global brands such as Cirque du Soleil, Leica Geosystems, and Takashi Murakami taught him <strong><em>rigorous discipline</em></strong>, spatial awareness, <strong><em>rapid adaptation</em></strong>, and <strong><em>real-time collaboration under high pressure</em></strong>. Whether architecting digital products, formulating brand identities, or directing live movement, his target remains consistent:</p>
+          <div class="pull">Frictionless execution, intentional craft, and high emotional impact.</div>
         </div>
 
         <hr>
 
         <div class="section">
-          <h2>Product &amp; UX/UI Design (Emily Carr UX/UI Design Certified)</h2>
+          <h2>Product &amp; UX/UI Design</h2>
+          <h3>UX/UI Design Certification | Emily Carr University of Art + Design (2026)</h3>
           <ul>
             <li>Human-Centered Research &amp; Strategy: Translating user behaviors, pain points, and feedback into actionable user flows, wireframes, and interactive prototypes.</li>
             <li>Design Systems &amp; Visual Craft: Designing accessible, scalable UI kits and brand visual systems that align with brand identities and modern UI standards.</li>
@@ -79,16 +158,14 @@
         </div>
 
         <div class="section">
-          <h2>Design Recognition</h2>
-          <ul>
-            <li>2026 Barely Notes App</li>
-            <li>2026 FLUI Event Participant</li>
-            <li>2026 Service Design Jam Participant</li>
-          </ul>
+          <h3>Design Recognition</h3>
+          <p style="margin-top:0"><strong><a href="https://usebarely.com" target="_blank" rel="noopener noreferrer">Barely Notes</a> | Shipped iOS App (2026)</strong><br>Designed, built, and shipped a minimalist one-note app for iOS in six weeks. Solo. Live on the App Store.</p>
+          <p style="margin-top:24px"><strong><a href="https://fluidesignjam.com/" target="_blank" rel="noopener noreferrer">FLUI</a> | Event Participant (2026)</strong><br>Participated in FLUI, a design event exploring fluid interaction and emerging interface patterns.</p>
+          <p style="margin-top:24px"><strong><a href="https://www.instagram.com/vancouverservicejam/" target="_blank" rel="noopener noreferrer">Service Design Jam</a> | Participant (2026)</strong><br>Collaborated on rapid service design prototyping during a weekend jam session.</p>
         </div>
 
         <div class="section">
-          <h2>Operations, Tech &amp; Client Relationship Strategy</h2>
+          <h2>Tech Operations &amp; Client Strategy</h2>
           <h3>Relationship Manager | Bank of America (2016–2018)</h3>
           <p>Managed proactive client engagement, financial products, and risk compliance while educating users on self-service digital platforms.</p>
           <h3>Operations Manager | ACC-Tech (2006–2015)</h3>
@@ -98,19 +175,36 @@
         </div>
 
         <div class="section">
-          <h2>Elite Creative Discipline &amp; Recognition</h2>
+          <h2>Creative Discipline &amp; Recognition</h2>
           <h3>OURO Collective | Featured Performing Artist (2021–Present)</h3>
           <p>Main-stage productions (7y98D, SOTTO 51) at premier institutions including the Vancouver Art Gallery, Polygon Art Gallery, Roundhouse Performance Centre, Fall for Dance North (Toronto), and La Serre (Montreal).</p>
+          <div style="display:flex;gap:12px;margin-top:16px;">
+            <video src="img/ourocollective/tree.mp4" autoplay loop muted playsinline preload="metadata" aria-label="OURO Collective performance" style="width:50%;border-radius:8px;object-fit:cover;"></video>
+            <video src="img/ourocollective/loop.mp4" autoplay loop muted playsinline preload="metadata" aria-label="OURO Collective performance" style="width:50%;border-radius:8px;object-fit:cover;"></video>
+          </div>
           <h3>Commercial Brands &amp; Film</h3>
           <p>Featured dancer for Cirque du Soleil (L'Oreal), Leica Geosystems, Takashi Murakami, and MyMochi.</p>
-          <h3 style="margin-bottom:4px">Competitions</h3>
-          <ul class="titles" style="margin-top:0">
-            <li>Elephant Graveyard Anniversary (2024): Winner (San Francisco, CA)</li>
-            <li>Vancouver Street Dance Festival: Winner (2018) | Judge (2016)</li>
-            <li>Portland Top2Bottom: Winner (2017) | Finalist (2018)</li>
-            <li>Northwest Sweet 16: Winner (2013, 2016) | Finalist (2025)</li>
-            <li>Massive Monkees Anniversary: Winner (2015) | Finalist (2016)</li>
-          </ul>
+          <figure>
+            <video src="img/complexbreaks/breakgif.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Street dance performance reel" style="width:100%;border-radius:8px;margin-top:16px;"></video>
+          </figure>
+          <div style="margin-top:48px"></div>
+          <div class="competitions-row">
+            <div class="competitions-list">
+              <h3>Competitions</h3>
+              <p><strong>Elephant Graveyard | San Francisco (2024)</strong><br>Winner</p>
+              <p style="margin-top:24px"><strong>Vancouver Street Dance Festival | Vancouver (2018)</strong><br>Winner. Judge (2016).</p>
+              <p style="margin-top:24px"><strong>Portland Top2Bottom | Portland (2017)</strong><br>Winner. Finalist (2018).</p>
+              <p style="margin-top:24px"><strong>Northwest Sweet 16 | Seattle (2013, 2016)</strong><br>Winner. Finalist (2025).</p>
+              <p style="margin-top:24px"><strong>Massive Monkees Anniversary | Seattle (2015)</strong><br>Winner. Finalist (2016).</p>
+            </div>
+            <div class="scatter-gallery">
+              <img src="img/complexbreaks/complexbreaks-elephant-graveyard.jpeg" alt="Elephant Graveyard battle" class="scatter-img" style="--r:-3deg; --x:0%; --y:0%; --w:60%;">
+              <img src="img/complexbreaks/complexbreaks-newbirth-2025.jpeg" alt="Crew photo" class="scatter-img" style="--r:4deg; --x:45%; --y:-8%; --w:45%;">
+              <img src="img/complexbreaks/joatweb.jpeg" alt="Battle performance" class="scatter-img" style="--r:-2deg; --x:5%; --y:40%; --w:55%;">
+              <img src="img/complexbreaks/mmbanner.jpg" alt="Massive Monkees footwork battle" class="scatter-img" style="--r:5deg; --x:48%; --y:32%; --w:48%;">
+              <img src="img/complexbreaks/ouroroundhouse.JPG" alt="OURO Collective at Roundhouse" class="scatter-img" style="--r:-4deg; --x:20%; --y:65%; --w:50%;">
+            </div>
+          </div>
         </div>
 
         <div class="inquire-cta">
@@ -119,6 +213,11 @@
 
       </div>
     </main>
+
+    <div class="lightbox" id="lightbox">
+      <img src="" alt="" id="lightboxImg">
+      <button class="lightbox-close" id="lightboxClose">&times;</button>
+    </div>
 
     <footer class="workfoot">
       <a class="pagetitle" href="index.html">Ash Cornette</a>
@@ -131,6 +230,23 @@
 
     <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
   <script>
+(function(){
+  var lb=document.getElementById("lightbox");
+  var lbImg=document.getElementById("lightboxImg");
+  var lbClose=document.getElementById("lightboxClose");
+  if(!lb)return;
+  document.querySelectorAll(".scatter-img").forEach(function(img){
+    img.addEventListener("click",function(){
+      lbImg.src=img.src;
+      lbImg.alt=img.alt;
+      lb.classList.add("open");
+    });
+  });
+  lbClose.addEventListener("click",function(){lb.classList.remove("open");});
+  lb.addEventListener("click",function(e){if(e.target===lb)lb.classList.remove("open");});
+})();
+</script>
+<script>
 (function(){
   var btn=document.getElementById("menuToggle");
   var menu=document.getElementById("topbarMenu");
