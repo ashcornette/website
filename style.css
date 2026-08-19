@@ -679,9 +679,9 @@ a:focus-visible, button:focus-visible {
   box-shadow: 0 1px 12px rgba(0, 0, 0, 0.04), 0 0 0 0.5px rgba(255, 255, 255, 0.5) inset;
   gap: 16px;
 }
-.topbar.scrolled .pagetitle { font-size: 14px; }
-.topbar.scrolled .topbar-link { font-size: 13px; }
 @media screen and (min-width: 601px) {
+  .topbar.scrolled .pagetitle { font-size: 14px; }
+  .topbar.scrolled .topbar-link { font-size: 13px; }
   .topbar.scrolled .hamburger { display: none; }
   .topbar.scrolled .topbar-right { display: flex !important; position: static; inset: auto; background: none; padding: 0; gap: 14px; opacity: 1; pointer-events: auto; flex-direction: row; }
 }
