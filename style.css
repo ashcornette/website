@@ -757,7 +757,7 @@ a.pagetitle:hover { text-decoration: none; }
     background: none !important;
     border: none !important;
     padding: 12px 0 !important;
-    pointer-events: auto !important;
+    pointer-events: inherit !important;
     position: relative;
     z-index: 1006;
     display: flex !important;
