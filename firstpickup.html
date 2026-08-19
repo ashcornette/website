@@ -135,7 +135,7 @@
         <div class="section-num">05: design process</div>
         <p>Everything upstream of the wireframes lived on one FigJam board: the service swimlane, the SWOT, the r/vancouver thread, and the first pass at personas.</p>
         <figure>
-          <img src="img/firstpickup/fp-figjam.png" alt="FigJam working board with flows, SWOT, community research, and persona evolution" loading="lazy">
+          <img src="img/firstpickup/fp-figjam.png" alt="FigJam working board with flows, SWOT, community research, and persona evolution" loading="lazy" class="lightbox-trigger" style="cursor:pointer;">
           <figcaption>working board: flows, SWOT, community research, and the first persona pass</figcaption>
         </figure>
         <div class="compare">
@@ -377,6 +377,11 @@
       <a class="pill" href="inquiry.html">Inquire</a>
     </main>
 
+    <div class="lightbox" id="lightbox" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(255,255,255,0.4);-webkit-backdrop-filter:saturate(180%) blur(24px);backdrop-filter:saturate(180%) blur(24px);z-index:2000;justify-content:center;align-items:center;padding:40px;cursor:pointer;">
+      <img src="" alt="" id="lightboxImg" style="max-width:90vw;max-height:90vh;object-fit:contain;border-radius:8px;">
+      <button id="lightboxClose" style="position:fixed;top:20px;right:28px;font-size:36px;color:var(--text);background:none;border:none;cursor:pointer;z-index:2001;">&times;</button>
+    </div>
+
     <footer class="workfoot">
       <a class="pagetitle" href="index.html">Ash Cornette</a>
       <span class="foot-right">
@@ -465,6 +470,23 @@
   }
   .flow-anim-dot.active { background: var(--text); }
 </style>
+<script>
+(function(){
+  var lb=document.getElementById("lightbox");
+  var lbImg=document.getElementById("lightboxImg");
+  var lbClose=document.getElementById("lightboxClose");
+  if(!lb)return;
+  document.querySelectorAll(".lightbox-trigger").forEach(function(img){
+    img.addEventListener("click",function(){
+      lbImg.src=img.src;
+      lbImg.alt=img.alt;
+      lb.style.display="flex";
+    });
+  });
+  lbClose.addEventListener("click",function(){lb.style.display="none";});
+  lb.addEventListener("click",function(e){if(e.target===lb)lb.style.display="none";});
+})();
+</script>
 <script>
 (function(){
   var bars = document.querySelectorAll('.survey-bar');
