@@ -181,7 +181,7 @@
 (function(){
   var bar=document.querySelector(".topbar");
   if(!bar)return;
-  var threshold=60;
+  var threshold=60;if(window.innerWidth<=600)return;
   window.addEventListener("scroll",function(){
     if(window.scrollY>threshold){bar.classList.add("scrolled");}
     else{bar.classList.remove("scrolled");}
