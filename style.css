@@ -782,9 +782,8 @@ a.pagetitle:hover { text-decoration: none; }
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
+    bottom: auto;
+    height: 50vh;
     background: rgba(255, 255, 255, 0.45);
     -webkit-backdrop-filter: saturate(200%) blur(30px);
     backdrop-filter: saturate(200%) blur(30px);
