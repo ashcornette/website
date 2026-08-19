@@ -729,7 +729,9 @@ a.pagetitle:hover { text-decoration: none; }
   .topbar-right {
     position: fixed;
     inset: 0;
-    background: var(--bg);
+    background: rgba(255, 255, 255, 0.45);
+    -webkit-backdrop-filter: saturate(200%) blur(30px);
+    backdrop-filter: saturate(200%) blur(30px);
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
