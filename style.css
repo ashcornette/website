@@ -1369,6 +1369,16 @@ a.pagetitle:hover { text-decoration: none; }
 }
 @media screen and (max-width: 600px) {
   .show-hero-row { grid-template-columns: 1fr; }
+  .show-hero-main .show-media video,
+  .show-hero-main .show-media img,
+  .show-hero-side .show-media img,
+  .show-hero-side .show-media video,
+  .work .show-media video,
+  .work .show-media img {
+    aspect-ratio: 16 / 9 !important;
+    height: auto !important;
+    object-fit: cover;
+  }
 }
 
 .work .show-pair {
