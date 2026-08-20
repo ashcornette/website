@@ -69,3 +69,40 @@
 
   update();
 })();
+
+/* section reveal — case study pages */
+(function(){
+  var sections = [].slice.call(document.querySelectorAll('.doc .section, .doc .case-nav, .doc .meta, .doc .stats, .doc .app-gallery, .doc .gallery-nav, .doc .testimonial-band, .doc > .pill, .doc > .role, .doc > h1, .doc > p.role'));
+  if (!sections.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    sections.forEach(function(el) { el.classList.add('s-visible'); });
+    return;
+  }
+  sections.forEach(function(el) { el.classList.add('s-reveal'); });
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('s-visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  sections.forEach(function(el) { obs.observe(el); });
+})();
+
+/* cb-gallery reveal — Complex Breaks asset images */
+(function(){
+  var rows = [].slice.call(document.querySelectorAll('.cb-gallery .cb-row'));
+  if (!rows.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    return;
+  }
+  rows.forEach(function(row) { row.classList.add('cb-reveal'); });
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('cb-visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+  rows.forEach(function(row) { obs.observe(row); });
+})();
