@@ -148,6 +148,30 @@ main { max-width: var(--col); margin-inline: auto; animation: fadein 0.5s ease 0
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
+/* scroll-triggered showcase projects (below fold) */
+.work .show-proj.scroll-reveal {
+  animation: none;
+  opacity: 0;
+  transform: translateY(60px) scale(0.94);
+  transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.work .show-proj.scroll-reveal .show-label {
+  animation: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s,
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+}
+.work .show-proj.scroll-reveal.in-view {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.work .show-proj.scroll-reveal.in-view .show-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* scroll reveal — hidden until observed */
 .reveal {
   opacity: 0;
@@ -176,10 +200,13 @@ main { max-width: var(--col); margin-inline: auto; animation: fadein 0.5s ease 0
     transition: none;
   }
   .work .show-proj,
-  .work .show-proj .show-label {
+  .work .show-proj .show-label,
+  .work .show-proj.scroll-reveal,
+  .work .show-proj.scroll-reveal .show-label {
     opacity: 1;
     transform: none;
     animation: none;
+    transition: none;
   }
 }
 
