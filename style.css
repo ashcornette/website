@@ -107,7 +107,8 @@ main { animation: fadein 0.5s ease 0.1s both; }
 /* page load stagger — hero elements */
 .work .pagetitle,
 .work .tagline,
-.work .intro-line {
+.work .intro-line,
+.work .hero-tags {
   opacity: 0;
   transform: translateY(24px);
   animation: arrive 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
@@ -115,6 +116,7 @@ main { animation: fadein 0.5s ease 0.1s both; }
 .work .pagetitle { animation-delay: 0.1s; }
 .work .tagline { animation-delay: 0.3s; }
 .work .intro-line { animation-delay: 0.5s; }
+.work .hero-tags { animation-delay: 0.7s; }
 
 @keyframes arrive {
   to { opacity: 1; transform: translateY(0); }
@@ -136,7 +138,8 @@ main { animation: fadein 0.5s ease 0.1s both; }
 @media (prefers-reduced-motion: reduce) {
   .work .pagetitle,
   .work .tagline,
-  .work .intro-line {
+  .work .intro-line,
+  .work .hero-tags {
     opacity: 1;
     transform: none;
     animation: none;
@@ -1286,6 +1289,13 @@ a.pagetitle:hover { text-decoration: none; }
 .work .intro-line strong {
   color: var(--text);
   font-weight: 600;
+}
+
+/* hero tags — inline on desktop, stacked on mobile */
+.work .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; max-width: 1100px; margin: -48px auto 64px; }
+.work .hero-tags .t { font-size: 12px; letter-spacing: 0.02em; color: var(--accent); background: var(--tint); padding: 6px 13px; border-radius: 980px; white-space: nowrap; }
+@media screen and (max-width: 600px) {
+  .work .hero-tags { flex-direction: column; align-items: flex-start; }
 }
 
 /* showcase container */
