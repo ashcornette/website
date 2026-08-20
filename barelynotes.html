@@ -39,7 +39,7 @@
         <div class="case-tags"><span class="t">product design</span><span class="t">iOS</span><span class="t">SwiftUI</span><span class="t">design systems</span><span class="t">shipped</span></div>
       </div>
       <h1>One note was the whole product</h1>
-      <p class="role">Designed, built, and shipped a one-note app for iOS in six weeks. Solo. No team, no client, no handoff.</p>
+      <p class="role"><strong><em>Designed, built, and shipped</em></strong> a one-note app for iOS in six weeks. Solo. No team, no client, no handoff.</p>
 
       <div class="meta">
         <span class="status">shipped · <a href="https://apps.apple.com/us/app/barely-notes/id6796440918" class="status" target="_blank" rel="noopener noreferrer">live on the App Store</a></span>
@@ -50,8 +50,28 @@
 
       <a class="pill" href="https://usebarely.com" target="_blank" rel="noopener noreferrer">usebarely.com ↗</a>
 
-      <div class="app-gallery">
-        <div class="app-gallery-track">
+      <div class="stats" style="grid-template-columns:1fr 1fr 1fr 1fr;">
+        <div class="stat-item"><span class="stat-val">Timeline</span> July 2026<br>6 weeks</div>
+        <div class="stat-item"><span class="stat-val">Skills</span>
+          <ul style="list-style:none;padding:0;margin:4px 0 0;">
+            <li>· Product design</li>
+            <li>· iOS development</li>
+            <li>· Design systems</li>
+            <li>· Accessibility</li>
+          </ul>
+        </div>
+        <div class="stat-item"><span class="stat-val">Team</span> Solo</div>
+        <div class="stat-item"><span class="stat-val">Tools</span>
+          <ul style="list-style:none;padding:0;margin:4px 0 0;">
+            <li>· Xcode</li>
+            <li>· SwiftUI</li>
+            <li>· Figma</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="app-gallery" id="appGallery">
+        <div class="app-gallery-track" id="galleryTrack">
           <img src="img/barelynotes/Screenshot%2001%20%E2%80%94%20one%20note..png" alt="App Store screenshot: one note. barely more." loading="lazy">
           <img src="img/barelynotes/Screenshot%2002%20%E2%80%94%20no%20folders.%20no%20tags..png" alt="App Store screenshot: no folders. no tags. just write." loading="lazy">
           <img src="img/barelynotes/Screenshot%2003%20%E2%80%94%20shifts%20with%20you..png" alt="App Store screenshot: shifts with you through the day." loading="lazy">
@@ -60,19 +80,23 @@
           <img src="img/barelynotes/Screenshot%2007%20%E2%80%94%20archive%20when%20done..png" alt="App Store screenshot: archive when done. your week surfaces back." loading="lazy">
         </div>
       </div>
+      <div class="gallery-nav">
+        <button class="gallery-arrow gallery-left" id="galleryLeft" aria-label="scroll left"></button>
+        <button class="gallery-arrow gallery-right" id="galleryRight" aria-label="scroll right"></button>
+      </div>
 
       <!-- 01 ── PROBLEM ── -->
       <div class="section">
         <div class="section-num">01: problem</div>
         <p>Notes apps compete on features. Folders, tags, databases, backlinks, AI summaries. Bear has nested tags. Notion has 50+ block types. Apple Notes keeps adding drawing tools, scans, tables, shared folders.</p>
-        <p>Every app in the category assumes that more organization means more clarity. But most people open a notes app to write one thing down, and the interface makes them think about where to put it first.</p>
+        <p>Every app in the category assumes that more organization means more clarity. But most people open a notes app to write one thing down, and the interface makes them <strong><em>think about where to put it first</em></strong>.</p>
         <div class="pull">The problem wasn't a missing feature. It was 100 features in the way of one.</div>
       </div>
 
       <!-- 02 ── STRATEGY ── -->
       <div class="section">
         <div class="section-num">02: strategy</div>
-        <p>Instead of competing on features, remove them. One note. No folders. No tags. No second note until the first is archived. The constraint is the product.</p>
+        <p>Instead of competing on features, remove them. One note. No folders. No tags. No second note until the first is archived. <strong><em>The constraint is the product.</em></strong></p>
         <p>Three layers, each one barely enough:</p>
         <ul>
           <li><strong>One note.</strong> Open the app, start writing. Archive when done. Blank slate.</li>
@@ -100,7 +124,7 @@
             <figcaption>bottom bar: archive, share, delete</figcaption>
           </figure>
         </div>
-        <p>No title field. No formatting toolbar. Tap and write. Camera and Done sit above the keyboard. The bottom bar appears when the keyboard dismisses: archive, share, delete. All three disabled when the note is empty.</p>
+        <p>No title field. No formatting toolbar. <strong><em>Tap and write.</em></strong> Camera and Done sit above the keyboard. The bottom bar appears when the keyboard dismisses: archive, share, delete. All three <strong><em>disabled when the note is empty</em></strong>.</p>
 
         <h3>Time-aware themes</h3>
         <div class="screens">
@@ -113,7 +137,7 @@
             <figcaption>settings</figcaption>
           </figure>
         </div>
-        <p>Automatic mode shifts the palette through the day. Manual override locks a tone. Five premium Bokashi themes (Japanese colour gradients) open up with a one-time purchase. Each theme changes the app icon to match.</p>
+        <p><strong><em>Automatic mode</em></strong> shifts the palette through the day. Manual override locks a tone. Five premium <strong><em>Bokashi themes</em></strong> (Japanese colour gradients) open up with a <strong><em>one-time purchase</em></strong>. Each theme changes the <strong><em>app icon</em></strong> to match.</p>
 
         <h3>Widgets and Live Activity</h3>
         <div class="screens">
@@ -126,7 +150,7 @@
             <figcaption>home screen widgets</figcaption>
           </figure>
         </div>
-        <p>Three home screen sizes, three lock screen formats, and a Live Activity on the Dynamic Island. Your note is visible without opening the app. Every keystroke syncs in real time.</p>
+        <p>Three <strong><em>home screen</em></strong> sizes, three <strong><em>lock screen</em></strong> formats, and a <strong><em>Live Activity</em></strong> on the Dynamic Island. Your note is visible without opening the app. Every keystroke <strong><em>syncs in real time</em></strong>.</p>
 
         <h3>Onboarding</h3>
         <div class="screens triple">
@@ -143,7 +167,7 @@
             <figcaption>barely enough.</figcaption>
           </figure>
         </div>
-        <p>Three swipeable screens that double as the pitch: one note, archive when done, barely enough. Shown once, resettable from settings.</p>
+        <p>Three <strong><em>swipeable screens</em></strong> that double as the pitch: one note, archive when done, barely enough. Shown once, <strong><em>resettable from settings</em></strong>.</p>
 
         <h3>Demo</h3>
         <div class="proto-embed wide">
@@ -192,6 +216,17 @@
       </span>
     </footer>
 
+    <script>
+(function(){
+  var track = document.getElementById('galleryTrack');
+  var left = document.getElementById('galleryLeft');
+  var right = document.getElementById('galleryRight');
+  if(!track||!left||!right) return;
+  var scrollAmt = 300;
+  left.addEventListener('click', function(){ track.parentElement.scrollBy({left:-scrollAmt,behavior:'smooth'}); });
+  right.addEventListener('click', function(){ track.parentElement.scrollBy({left:scrollAmt,behavior:'smooth'}); });
+})();
+</script>
     <script src="contact.js"></script>
   <script>
 (function(){
