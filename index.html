@@ -52,13 +52,13 @@
       <h1 class="hero-title">Ash Cornette</h1>
       <p class="tagline">Brand &amp; Product Design. Vancouver, BC.</p>
       <p class="intro-line">From strategy to shipping.</p>
-      <div class="hero-tags"><span class="t">Brand</span><span class="t">Product Design</span><span class="t">Product Strategy</span><span class="hero-tags-break"></span><span class="t">UX/UI Research</span><span class="t">Website</span></div>
+      <div class="hero-tags"><button class="t" data-filter="brand">Brand</button><button class="t" data-filter="product-design">Product Design</button><button class="t" data-filter="product-strategy">Product Strategy</button><span class="hero-tags-break"></span><button class="t" data-filter="ux-research">UX/UI Research</button><button class="t" data-filter="website">Website</button></div>
 
       <!-- ── Full-width project sections ── -->
       <div class="showcase" id="showcase">
 
         <div class="show-hero-row">
-          <div class="show-proj show-hero-main reveal">
+          <div class="show-proj show-hero-main reveal" data-tags="ux-research product-design product-strategy">
             <a class="show-media show-media-figma" href="arcteryx.html">
               <iframe title="Arc'teryx Gear Bag: interactive Figma prototype"
                 src="https://embed.figma.com/proto/0dpj7EkT6vc4ELZLxGzFLL/Gear-Bag?node-id=8-3806&starting-point-node-id=8%3A3806&scaling=scale-down&content-scaling=fixed&embed-host=share"
@@ -70,7 +70,7 @@
           </div>
 
           <div class="show-hero-side">
-            <div class="show-proj reveal">
+            <div class="show-proj reveal" data-tags="brand website product-strategy">
               <a class="show-media" href="complexbreaks.html">
                 <img src="img/complexbreaks/complexbreaks-elephant-graveyard.jpeg" alt="Complex Breaks — Elephant Graveyard jam" loading="lazy">
               </a>
@@ -79,7 +79,7 @@
               </div>
             </div>
 
-            <div class="show-proj reveal">
+            <div class="show-proj reveal" data-tags="brand website product-strategy">
               <a class="show-media" href="ourocollective.html">
                 <img src="img/ourocollective/ouro-preview.jpg" alt="OURO Collective — contemporary dance performance" loading="lazy">
               </a>
@@ -90,7 +90,7 @@
           </div>
         </div>
 
-        <div class="show-proj reveal">
+        <div class="show-proj reveal" data-tags="brand product-design product-strategy">
           <a class="show-media" href="barelynotes.html">
             <video src="img/barely-notes-demo.mp4" poster="img/barely-notes-demo-poster.jpg" muted loop playsinline preload="metadata" aria-label="Barely Notes app demo"></video>
           </a>
@@ -99,7 +99,7 @@
           </div>
         </div>
 
-        <div class="show-proj reveal">
+        <div class="show-proj reveal" data-tags="ux-research product-design product-strategy">
           <a class="show-media" href="firstpickup.html">
             <img src="img/firstpickup/deck/05%20-%20Product.png" alt="First Pickup — Match the haul to the route" loading="lazy">
           </a>
@@ -208,6 +208,33 @@
     if(window.scrollY>threshold){bar.classList.add("scrolled");}
     else{bar.classList.remove("scrolled");}
   },{passive:true});
+})();
+</script>
+<script>
+(function(){
+  var showcase=document.getElementById('showcase');
+  var buttons=[].slice.call(document.querySelectorAll('.hero-tags .t'));
+  var projs=[].slice.call(showcase.querySelectorAll('.show-proj'));
+  var active=null;
+  buttons.forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var filter=btn.getAttribute('data-filter');
+      if(active===filter){
+        active=null;
+        buttons.forEach(function(b){b.classList.remove('active');});
+        showcase.classList.remove('filtered');
+        projs.forEach(function(p){p.classList.remove('filter-hidden');});
+      } else {
+        active=filter;
+        buttons.forEach(function(b){b.classList.toggle('active',b.getAttribute('data-filter')===filter);});
+        showcase.classList.add('filtered');
+        projs.forEach(function(p){
+          var tags=p.getAttribute('data-tags')||'';
+          p.classList.toggle('filter-hidden',tags.indexOf(filter)===-1);
+        });
+      }
+    });
+  });
 })();
 </script>
 </body>
