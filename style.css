@@ -428,9 +428,9 @@ a:focus-visible, button:focus-visible {
 .overview-asset img,
 .overview-asset video {
   opacity: 0;
-  transform: scale(1.08);
-  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(1.12);
+  transition: opacity 2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .s-visible .overview-asset img,
 .s-visible .overview-asset video {
