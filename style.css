@@ -1380,9 +1380,15 @@ a.pagetitle:hover { text-decoration: none; }
 .testimonial-next::after { transform: rotate(45deg); margin-right: 3px; }
 .testimonial-arrow:hover { background: var(--text); }
 .testimonial-arrow:hover::after { border-color: var(--bg); }
+@media (max-width: 1024px) {
+  .testimonial-track { padding: 48px 32px; min-height: 180px; }
+  .testimonial-slide p { font-size: clamp(15px, 2.5vw, 18px); line-height: 1.7; }
+}
 @media (max-width: 600px) {
   .testimonial-carousel { gap: 8px; }
-  .testimonial-track { padding: 40px 24px; }
+  .testimonial-track { padding: 36px 20px; min-height: 200px; }
+  .testimonial-slide p { font-size: 15px; line-height: 1.7; max-width: 100%; }
+  .testimonial-slide cite { font-size: 13px; }
   .testimonial-arrow { width: 32px; height: 32px; }
   .testimonial-arrow::after { width: 8px; height: 8px; }
 }
