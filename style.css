@@ -549,6 +549,7 @@ a:focus-visible, button:focus-visible {
   border-radius: 13.5px;
   text-align: center;
 }
+.doc main > .pull { border: 1px solid var(--text); }
 .pull::after {
   content: '';
   position: absolute;
