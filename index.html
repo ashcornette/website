@@ -122,10 +122,20 @@
         </div>
       </section>
 
-      <blockquote class="testimonial-band reveal">
-        <p>"We had years of content and no clear direction. Ash gathered what mattered, cut the rest, and it connected."</p>
-        <cite>OURO Collective</cite>
-      </blockquote>
+      <div class="testimonial-carousel reveal" id="testimonialCarousel">
+        <button class="testimonial-arrow testimonial-prev" id="testimonialPrev" aria-label="previous quote"></button>
+        <div class="testimonial-track">
+          <blockquote class="testimonial-slide active">
+            <p>"We had years of content and no clear direction. Ash gathered what mattered, cut the rest, and it connected."</p>
+            <cite>OURO Collective</cite>
+          </blockquote>
+          <blockquote class="testimonial-slide">
+            <p>"The Favorite option on the Arc'teryx app doesn't serve anything. Most of the time I just tell people to go to the website."</p>
+            <cite>Arc'teryx employee</cite>
+          </blockquote>
+        </div>
+        <button class="testimonial-arrow testimonial-next" id="testimonialNext" aria-label="next quote"></button>
+      </div>
 
       <a class="pill reveal" href="inquiry.html" style="display:block;width:fit-content;margin:48px auto 0;">Get in touch</a>
 
@@ -219,6 +229,35 @@
       }
     });
   });
+})();
+</script>
+<script>
+(function(){
+  var slides = [].slice.call(document.querySelectorAll('.testimonial-slide'));
+  var prev = document.getElementById('testimonialPrev');
+  var next = document.getElementById('testimonialNext');
+  if (slides.length < 2 || !prev || !next) return;
+  var current = 0;
+  var timer;
+
+  function goTo(i) {
+    slides[current].classList.remove('active');
+    current = (i + slides.length) % slides.length;
+    slides[current].classList.add('active');
+  }
+
+  function startAuto() {
+    timer = setInterval(function() { goTo(current + 1); }, 8000);
+  }
+
+  function resetAuto() {
+    clearInterval(timer);
+    startAuto();
+  }
+
+  prev.addEventListener('click', function() { goTo(current - 1); resetAuto(); });
+  next.addEventListener('click', function() { goTo(current + 1); resetAuto(); });
+  startAuto();
 })();
 </script>
 </body>
