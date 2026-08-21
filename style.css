@@ -1673,6 +1673,15 @@ a.pagetitle:hover { text-decoration: none; }
 .work .show-proj:hover .show-label {
   background: linear-gradient(transparent, rgba(0,0,0,0.85));
 }
+@media (max-width: 1024px) {
+  .work .show-desc {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .work .show-label {
+    background: linear-gradient(transparent, rgba(0,0,0,0.7)) !important;
+  }
+}
 .work .show-tags .t {
   font-size: 11px;
   padding: 3px 10px;
