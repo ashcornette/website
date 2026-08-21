@@ -428,14 +428,14 @@ a:focus-visible, button:focus-visible {
 .overview-asset img,
 .overview-asset video {
   opacity: 0;
-  transform: scale(1.12);
+  transform: translateX(40px);
   transition: opacity 2s cubic-bezier(0.16, 1, 0.3, 1),
               transform 2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .s-visible .overview-asset img,
 .s-visible .overview-asset video {
   opacity: 1;
-  transform: scale(1);
+  transform: translateX(0);
 }
 @media (prefers-reduced-motion: reduce) {
   .overview-asset img,
