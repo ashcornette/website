@@ -52,7 +52,7 @@
       <h1 class="hero-title">Ash Cornette</h1>
       <p class="tagline">Brand &amp; Product Design. Vancouver, BC.</p>
       <p class="intro-line">From strategy to shipped product.</p>
-      <div class="hero-tags"><button class="t" data-filter="brand">Brand</button><button class="t" data-filter="product-design">Product Design</button><button class="t" data-filter="product-strategy">Product Strategy</button><span class="hero-tags-break"></span><button class="t" data-filter="ux-research">UX/UI Research</button><button class="t" data-filter="website">Website</button></div>
+      <div class="hero-tags"><button class="t active" data-filter="all">All</button><button class="t" data-filter="brand">Brand</button><button class="t" data-filter="product-design">Product Design</button><button class="t" data-filter="product-strategy">Product Strategy</button><span class="hero-tags-break"></span><button class="t" data-filter="ux-research">UX/UI Research</button><button class="t" data-filter="website">Website</button></div>
 
       <!-- ── Full-width project sections ── -->
       <div class="showcase" id="showcase">
@@ -218,9 +218,10 @@
   buttons.forEach(function(btn){
     btn.addEventListener('click',function(){
       var filter=btn.getAttribute('data-filter');
-      if(active===filter){
+      if(active===filter || filter==='all'){
         active=null;
         buttons.forEach(function(b){b.classList.remove('active');});
+        buttons[0].classList.add('active');
         showcase.classList.remove('filtered');
         projs.forEach(function(p){p.classList.remove('filter-hidden');});
       } else {
