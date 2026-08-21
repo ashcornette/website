@@ -425,6 +425,26 @@ a:focus-visible, button:focus-visible {
   align-items: start;
 }
 .overview-split .overview-text p { max-width: 100% !important; }
+.overview-asset img,
+.overview-asset video {
+  opacity: 0;
+  transform: scale(1.08);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.s-visible .overview-asset img,
+.s-visible .overview-asset video {
+  opacity: 1;
+  transform: scale(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .overview-asset img,
+  .overview-asset video {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
 @media (max-width: 768px) {
   .overview-split { grid-template-columns: 1fr; }
 }
