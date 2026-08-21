@@ -434,6 +434,7 @@ a:focus-visible, button:focus-visible {
 .doc .section h3::after { content: none; }
 .doc .section h4 { font-family: var(--mono); font-size: 12px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text); margin-top: 36px; margin-bottom: 12px; }
 .doc .section p { font-size: var(--fs-base); color: var(--text); line-height: 1.75; margin-bottom: 14px; max-width: 50%; }
+@media (max-width: 1024px) { .doc .section p { max-width: 75%; } }
 @media (max-width: 768px) { .doc .section p { max-width: 100%; } }
 .doc .section p:last-child { margin-bottom: 0; }
 .doc .section p strong { color: var(--text); font-weight: 500; }
@@ -489,6 +490,7 @@ a:focus-visible, button:focus-visible {
 }
 .doc .section a:not(.pill) { color: var(--accent); }
 .doc .section ul { list-style: none; font-size: var(--fs-base); color: var(--text); line-height: 1.75; margin-bottom: 14px; max-width: 50%; }
+@media (max-width: 1024px) { .doc .section ul { max-width: 75%; } }
 @media (max-width: 768px) { .doc .section ul { max-width: 100%; } }
 .doc .section ul li { padding: 3px 0; }
 .doc .section ul li::before { content: "· "; color: var(--accent); }
@@ -830,6 +832,17 @@ a:focus-visible, button:focus-visible {
 }
 .deck-stack:hover .deck-slide {
   box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+.deck-stack.deck-pulse .deck-slide:last-child {
+  animation: deckPulse 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s;
+}
+@keyframes deckPulse {
+  0% { transform: rotate(var(--r)) translateY(calc(var(--i) * -3px)) scale(1); }
+  30% { transform: rotate(var(--r)) translateY(calc(var(--i) * -3px - 6px)) scale(1.03); box-shadow: 0 8px 24px rgba(0,0,0,0.18); }
+  100% { transform: rotate(var(--r)) translateY(calc(var(--i) * -3px)) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .deck-stack.deck-pulse .deck-slide:last-child { animation: none; }
 }
 @media (max-width: 768px) {
   .deck-stack { width: 80%; }

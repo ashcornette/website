@@ -125,6 +125,21 @@
   projs.forEach(function(el) { obs.observe(el); });
 })();
 
+/* deck stack pulse — signals clickability */
+(function(){
+  var decks = [].slice.call(document.querySelectorAll('.deck-stack'));
+  if (!decks.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('deck-pulse');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  decks.forEach(function(d) { obs.observe(d); });
+})();
+
 /* cb-gallery reveal — Complex Breaks asset images */
 (function(){
   var rows = [].slice.call(document.querySelectorAll('.cb-gallery .cb-row'));
