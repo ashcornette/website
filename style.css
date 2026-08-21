@@ -969,7 +969,7 @@ a:focus-visible, button:focus-visible {
 .website .opt {
   font-family: var(--sans); font-size: 15px; line-height: 1.6;
   text-align: left; width: 100%; max-width: none;
-  color: var(--text); background: var(--tint); border: 0; border-radius: 0;
+  color: var(--text); background: var(--tint); border: 1px solid var(--text); border-radius: 0;
   padding: 14px 16px; cursor: pointer;
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
   transition: background .15s ease, color .15s ease, transform .1s ease;
