@@ -833,6 +833,21 @@ a:focus-visible, button:focus-visible {
 .deck-stack:hover .deck-slide {
   box-shadow: 0 4px 16px rgba(0,0,0,0.15);
 }
+.deck-label {
+  position: absolute;
+  bottom: -32px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+.deck-stack:hover .deck-label {
+  color: var(--text);
+}
 .deck-stack.deck-pulse .deck-slide:last-child {
   animation: deckPulse 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s;
 }
