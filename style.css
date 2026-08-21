@@ -990,7 +990,7 @@ a:focus-visible, button:focus-visible {
 .website .field .in {
   font-family: var(--sans); font-size: 15px; line-height: 1.6; color: var(--text);
   display: block; width: 100%; max-width: none; text-align: left; margin-inline: auto;
-  background: var(--tint); border: 0; border-radius: 0; padding: 14px 16px;
+  background: var(--tint); border: 1px solid var(--text); border-radius: 0; padding: 14px 16px;
 }
 /* the contact fields already sit inside an 80%-capped grid — capping them
    again would compound to 64% and break the row */
