@@ -192,6 +192,13 @@ function render(){
   const send = app.querySelector('.cta a');
   send.href = buildMailto();
   send.addEventListener('click', function(e){
+    // Validate: at least one question answered
+    if (answered().length === 0) {
+      e.preventDefault();
+      var first = app.querySelector('.opt, .in');
+      if (first) first.focus();
+      return;
+    }
     this.href = buildMailto();
     // POST data to Worker (fire-and-forget, doesn't block mailto)
     const payload = {};
@@ -203,6 +210,12 @@ function render(){
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
     }).catch(function(){});
+    // Show confirmation
+    if (window.ashAck) {
+      setTimeout(function(){
+        window.ashAck({ title: 'Thank you.', body: 'I will get back to you within 48 hours.' });
+      }, 300);
+    }
   });
 }
 
