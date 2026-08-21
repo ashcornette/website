@@ -25,9 +25,9 @@
       <a class="pagetitle" href="index.html">Ash<span class="cursor">_</span></a>
         <button class="hamburger" id="menuToggle" type="button" aria-label="toggle menu">=</button>
         <div class="topbar-right" id="topbarMenu">
-        <a class="topbar-link" href="about.html"><svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="5.5" r="2.8"/><path d="M2.5 14.5c0-3 2.5-4.5 5.5-4.5s5.5 1.5 5.5 4.5"/></svg>About</a>
-        <a class="topbar-link" href="inquiry.html"><svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9.5 2.5L13.5 6.5 5.5 14.5H1.5V10.5z"/><path d="M8 4l4 4"/></svg>Inquire</a>
-        <a class="topbar-link" href="mailto:hello@ashcornette.com"><svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1.5" y="3.5" width="13" height="9" rx="1.5"/><path d="M1.5 3.5L8 9l6.5-5.5"/></svg>Contact</a>
+        <a class="topbar-link" href="about.html">About</a>
+        <a class="topbar-link" href="inquiry.html">Inquire</a>
+        <a class="topbar-link" href="mailto:hello@ashcornette.com">Contact</a>
       </div>
     </div>
 
@@ -68,9 +68,9 @@
         </div>
       </div>
 
-      <!-- 01 ── PROBLEM ── -->
+      <!-- OVERVIEW -->
       <div class="section">
-        <div class="section-num">01: problem</div>
+        <div class="section-num">Overview</div>
         <p>People across Metro Vancouver buy and sell bulky things on Facebook Marketplace constantly. When the item is a couch, a desk, or a fridge, moving it from their place to yours is the part nobody has a plan for.</p>
         <div class="pull">How might we make handing off a bulky-item pickup feel as safe and affordable as asking a friend?</div>
         <div class="stats">
@@ -80,9 +80,15 @@
         </div>
       </div>
 
-      <!-- 02 ── RESEARCH ── -->
+      <!-- GOAL -->
       <div class="section">
-        <div class="section-num">02: research</div>
+        <div class="section-num">Goal</div>
+        <p>Make handing off a bulky-item pickup feel as <strong><em>safe and affordable</em></strong> as asking a friend, by matching hauls to trips already happening.</p>
+      </div>
+
+      <!-- WHAT WE HEARD -->
+      <div class="section">
+        <div class="section-num">What We Heard</div>
         <p>Four methods: <strong><em>survey</em></strong>, <strong><em>interviews</em></strong>, <strong><em>community research</em></strong>, and <strong><em>competitive scan</em></strong>. Six survey responses, four qualified after screening for people who had bought or sold secondhand in the past year.</p>
         <div class="compare">
           <div class="compare-header"><span>method</span><span>what it was</span></div>
@@ -120,9 +126,9 @@
         <p>Three different objections: trust, a free default that already works, and price. A paid service has to beat all three at once.</p>
       </div>
 
-      <!-- 03 ── THE PIVOT ── -->
+      <!-- PAYMENTS OUT, PICKUP IN -->
       <div class="section">
-        <div class="section-num">03: the pivot</div>
+        <div class="section-num">Payments Out, Pickup In</div>
         <p>The project started as Payments Pending, built around escrow. Research moved us upstream, to pickup, trust, and who is already on the road.</p>
         <div class="pull">0 of 4 chose escrow. All four picked pickup and delivery. On a question where selecting it cost them nothing, not one person did.</div>
         <div class="stats">
@@ -133,9 +139,11 @@
         <p>So Payments Pending became <strong>First Pickup</strong>, and the money moved out of the product. Item payment stays between buyer and seller on whatever channel they already use. We charge for the haul and nothing else.</p>
       </div>
 
-      <!-- 04 ── PERSONAS ── -->
+      <!-- FROM RESEARCH TO SCREENS -->
       <div class="section">
-        <div class="section-num">04: personas</div>
+        <div class="section-num">From Research to Screens</div>
+
+        <h3>Personas</h3>
         <p>Three roles. One handoff. <strong><em>One persona per user flow</em></strong>. Every trait traces to a survey respondent, an interview, or the community research.</p>
         <div class="screens triple">
           <figure>
@@ -151,11 +159,8 @@
             <figcaption>Jason · transporter</figcaption>
           </figure>
         </div>
-      </div>
 
-      <!-- 05 ── DESIGN PROCESS ── -->
-      <div class="section">
-        <div class="section-num">05: design process</div>
+        <h3>Working board</h3>
         <p>Everything upstream of the wireframes lived on one <strong><em>FigJam board</em></strong>: the <strong><em>service swimlane</em></strong>, the SWOT, the r/vancouver thread, and the first pass at <strong><em>personas</em></strong>.</p>
         <figure>
           <img src="img/firstpickup/fp-figjam.png" alt="FigJam working board with flows, SWOT, community research, and persona evolution" loading="lazy" class="lightbox-trigger" style="cursor:pointer;border:1px solid var(--text);border-radius:8px;">
@@ -169,11 +174,42 @@
           <div class="compare-row"><span>Design system</span><span>Five core colours, an iOS-native type ramp, hairline cards, 44pt minimum targets, documented as a brand guide.</span></div>
           <div class="compare-row"><span>Prototype</span><span>Sean built the full high fidelity flow: three roles, empty states, error states, confirmation dialogs, and Dynamic Island states.</span></div>
         </div>
+
+        <h3>Wireframes</h3>
+        <p>Three generations of the same request. Each generation changed one <strong><em>structural idea</em></strong>. None of them were restyles, and each change <strong><em>traces back to something the research told us</em></strong>.</p>
+        <div class="screens triple">
+          <figure>
+            <img src="img/firstpickup/wireframes/Cust%20-%20New%20request.png" alt="Wireframe: customer new request" loading="lazy">
+            <figcaption>new request</figcaption>
+          </figure>
+          <figure>
+            <img src="img/firstpickup/wireframes/Cust%20-%20Map%20request.png" alt="Wireframe: map request" loading="lazy">
+            <figcaption>map request</figcaption>
+          </figure>
+          <figure>
+            <img src="img/firstpickup/wireframes/Cust%20-%20Matches.png" alt="Wireframe: matches" loading="lazy">
+            <figcaption>matches</figcaption>
+          </figure>
+        </div>
+        <div class="screens triple">
+          <figure>
+            <img src="img/firstpickup/wireframes/Trans%20-%20Requests.png" alt="Wireframe: transporter requests" loading="lazy">
+            <figcaption>transporter requests</figcaption>
+          </figure>
+          <figure>
+            <img src="img/firstpickup/wireframes/Trans%20-%20Job.png" alt="Wireframe: transporter job" loading="lazy">
+            <figcaption>transporter job</figcaption>
+          </figure>
+          <figure>
+            <img src="img/firstpickup/wireframes/Trans%20-%20Service%20area.png" alt="Wireframe: service area" loading="lazy">
+            <figcaption>service area</figcaption>
+          </figure>
+        </div>
       </div>
 
-      <!-- 06 ── DESIGN SOLUTION ── -->
+      <!-- THE FLOWS -->
       <div class="section">
-        <div class="section-num">06: design solution</div>
+        <div class="section-num">The Flows</div>
 
         <h3>Onboarding</h3>
         <p>The first screen asks whether you are buying, selling, or driving. Everything after that follows the choice. Customer <strong><em>onboarding</em></strong> explains the <strong><em>flat fee</em></strong> and the <strong><em>photo check</em></strong>. Transporter onboarding walks through <strong><em>routes, vehicles, and how earnings work</em></strong>.</p>
@@ -252,20 +288,15 @@
         </div>
       </div>
 
-      <!-- INTERACTIVE PROTOTYPE -->
-      <div class="section">
-        <div class="section-num">interactive prototype</div>
+      <h3>Interactive prototype</h3>
         <p>Click through the full flow: request a haul, get matched, confirm, and track the delivery.</p>
         <div class="proto-embed">
           <iframe title="First Pickup: interactive Figma prototype"
             src="https://embed.figma.com/proto/pFNtzfsKHOnEfhT6dGtcvN/First-Pickup?node-id=13-3&starting-point-node-id=13%3A3&scaling=scale-down&content-scaling=fixed&embed-host=share"
             allowfullscreen loading="lazy"></iframe>
         </div>
-      </div>
 
-      <!-- ANIMATED FLOW -->
-      <div class="section">
-        <div class="section-num">request flow</div>
+        <h3>Request flow</h3>
         <p>Five screens, one haul. From size to match to booked.</p>
         <div class="flow-anim">
           <div class="flow-anim-track">
@@ -279,43 +310,9 @@
         </div>
       </div>
 
-      <!-- 07 ── WIREFRAMES ── -->
+      <!-- WHAT BROKE, WHAT CHANGED -->
       <div class="section">
-        <div class="section-num">07: wireframes</div>
-        <p>Three generations of the same request. Each generation changed one <strong><em>structural idea</em></strong>. None of them were restyles, and each change <strong><em>traces back to something the research told us</em></strong>.</p>
-        <div class="screens triple">
-          <figure>
-            <img src="img/firstpickup/wireframes/Cust%20-%20New%20request.png" alt="Wireframe: customer new request" loading="lazy">
-            <figcaption>new request</figcaption>
-          </figure>
-          <figure>
-            <img src="img/firstpickup/wireframes/Cust%20-%20Map%20request.png" alt="Wireframe: map request" loading="lazy">
-            <figcaption>map request</figcaption>
-          </figure>
-          <figure>
-            <img src="img/firstpickup/wireframes/Cust%20-%20Matches.png" alt="Wireframe: matches" loading="lazy">
-            <figcaption>matches</figcaption>
-          </figure>
-        </div>
-        <div class="screens triple">
-          <figure>
-            <img src="img/firstpickup/wireframes/Trans%20-%20Requests.png" alt="Wireframe: transporter requests" loading="lazy">
-            <figcaption>transporter requests</figcaption>
-          </figure>
-          <figure>
-            <img src="img/firstpickup/wireframes/Trans%20-%20Job.png" alt="Wireframe: transporter job" loading="lazy">
-            <figcaption>transporter job</figcaption>
-          </figure>
-          <figure>
-            <img src="img/firstpickup/wireframes/Trans%20-%20Service%20area.png" alt="Wireframe: service area" loading="lazy">
-            <figcaption>service area</figcaption>
-          </figure>
-        </div>
-      </div>
-
-      <!-- 08 ── TESTING ── -->
-      <div class="section">
-        <div class="section-num">08: testing</div>
+        <div class="section-num">What Broke, What Changed</div>
         <p><strong><em>Structured walkthroughs</em></strong> with the team and with peers, aimed at finding <strong><em>broken paths, missing screens, and confusing first-run moments</em></strong>. Then five <strong><em>structured sessions</em></strong> with people outside the team.</p>
         <div class="compare">
           <div class="compare-header"><span>what broke</span><span>what changed</span></div>
@@ -324,25 +321,18 @@
           <div class="compare-row"><span>Error states</span><span>Failed payment and the cancel and skip confirmations were missing. Walkthroughs stalled there. We added all four.</span></div>
           <div class="compare-row"><span>Missing pages</span><span>Help, history, and rating had no home. They do now.</span></div>
         </div>
-      </div>
 
-      <!-- 09 ── OUTCOMES ── -->
-      <div class="section">
-        <div class="section-num">09: outcomes</div>
+        <h3>Outcomes</h3>
         <p>Nothing has shipped, so there is no market outcome to report and this document does not invent one. We have a business case sized to test the open question. Funding the operation comes after that.</p>
 
         <div id="pieChart" style="display:flex;justify-content:center;margin:32px 0;">
           <svg viewBox="0 0 200 200" width="240" height="240" style="transform:rotate(-90deg);">
-            <!-- SAM: $9M — largest segment -->
             <circle class="pie-seg" cx="100" cy="100" r="80" fill="none" stroke="#2E9BDF" stroke-width="28"
               stroke-dasharray="0 502.65" data-dash="453.6 48.4" data-offset="0"/>
-            <!-- SOM: $270K — small segment -->
             <circle class="pie-seg" cx="100" cy="100" r="80" fill="none" stroke="#1F6B61" stroke-width="28"
               stroke-dasharray="0 502.65" data-dash="30.1 471.9" data-offset="-453.6"/>
-            <!-- BUILD: $250K — small segment -->
             <circle class="pie-seg" cx="100" cy="100" r="80" fill="none" stroke="#1A1A1A" stroke-width="28"
               stroke-dasharray="0 502.65" data-dash="18.3 483.7" data-offset="-483.7" opacity="0.3"/>
-            <!-- Center label -->
             <text class="pie-label" x="100" y="96" text-anchor="middle" font-size="14" font-weight="600" fill="var(--text)" style="transform:rotate(90deg);transform-origin:100px 100px;opacity:0;">$9.5M</text>
             <text class="pie-label" x="100" y="114" text-anchor="middle" font-size="9" fill="var(--muted)" style="transform:rotate(90deg);transform-origin:100px 100px;opacity:0;">total market scope</text>
           </svg>
@@ -358,11 +348,8 @@
           <div class="stat-item"><span class="stat-val" style="color:#1F6B61;">$270K <small style="font-weight:400;font-size:0.5em;opacity:0.6;">SOM</small></span> first-year gross transaction value target across two or three corridors</div>
           <div class="stat-item"><span class="stat-val">$250K <small style="font-weight:400;font-size:0.5em;opacity:0.6;">BUILD</small></span> build estimate, three to six months, for a two-sided app with payments and an admin tool</div>
         </div>
-      </div>
 
-      <!-- 10 ── LESSONS ── -->
-      <div class="section">
-        <div class="section-num">10: lessons</div>
+        <h3>Lessons</h3>
         <h4>We named the wrong problem, and the name recorded it</h4>
         <p>Payments Pending was an answer, not a question. Escrow appeared in our first how-might-we before we had spoken to a single person, and four people later not one of them wanted it.</p>
         <h4>Stated demand and paid demand are different quantities</h4>
@@ -371,53 +358,18 @@
         <p>Every survey question addressed customers. Jason exists because the business model needs him to, and his persona card says so in red. In a marketplace, supply is not a supporting character.</p>
         <h4>Order the methods properly</h4>
         <p>We wrote a survey before running interviews, which meant the questions were built on guesses about what mattered. Interviews first would have told us escrow was dead before we spent a question on it.</p>
-      </div>
 
-      <!-- MY CONTRIBUTION -->
-      <div class="section">
-        <div class="section-num">my contribution</div>
-        <div class="stats">
-          <div class="stat-item"><span class="stat-val">What I owned</span> Customer research: the survey instrument, the community and competitive analysis, and the market sizing. Low and mid fidelity design. The design system, the brand, and the investor deck.</div>
-          <div class="stat-item"><span class="stat-val">Shared with Sean</span> Sean and I worked out the service workflow and the three user flows together. Sean built the high fidelity prototype and ran two of the three user interviews.</div>
-        </div>
-      </div>
-
-      <!-- DECK -->
-      <div class="section">
-        <div class="section-num">pitch deck</div>
-        <p><a href="img/firstpickup/First-Pickup-case-study.pdf" target="_blank" rel="noopener noreferrer">View full case study PDF &rarr;</a></p>
-        <div class="screens triple screens-bare">
-          <figure>
-            <img src="img/firstpickup/deck/01%20-%20Title.png" alt="Pitch deck: title slide" loading="lazy">
-          </figure>
-          <figure>
-            <img src="img/firstpickup/deck/02%20-%20Market.png" alt="Pitch deck: market" loading="lazy">
-          </figure>
-          <figure>
-            <img src="img/firstpickup/deck/03%20-%20Problem.png" alt="Pitch deck: problem" loading="lazy">
-          </figure>
-        </div>
-        <div class="screens triple screens-bare">
-          <figure>
-            <img src="img/firstpickup/deck/04%20-%20Insight.png" alt="Pitch deck: insight" loading="lazy">
-          </figure>
-          <figure>
-            <img src="img/firstpickup/deck/05%20-%20Product.png" alt="Pitch deck: product" loading="lazy">
-          </figure>
-          <figure>
-            <img src="img/firstpickup/deck/06%20-%20Request%20flow.png" alt="Pitch deck: request flow" loading="lazy">
-          </figure>
-        </div>
-        <div class="screens triple screens-bare">
-          <figure>
-            <img src="img/firstpickup/deck/07%20-%20Transporter.png" alt="Pitch deck: transporter" loading="lazy">
-          </figure>
-          <figure>
-            <img src="img/firstpickup/deck/08%20-%20Competition.png" alt="Pitch deck: competition" loading="lazy">
-          </figure>
-          <figure>
-            <img src="img/firstpickup/deck/09%20-%20Business%20model.png" alt="Pitch deck: business model" loading="lazy">
-          </figure>
+        <h3>Pitch deck</h3>
+        <div class="deck-stack" id="deckStack">
+          <img src="img/firstpickup/deck/09%20-%20Business%20model.png" alt="Pitch deck: business model" loading="lazy" class="deck-slide" style="--i:0; --r:1.5deg;">
+          <img src="img/firstpickup/deck/08%20-%20Competition.png" alt="Pitch deck: competition" loading="lazy" class="deck-slide" style="--i:1; --r:-2deg;">
+          <img src="img/firstpickup/deck/07%20-%20Transporter.png" alt="Pitch deck: transporter" loading="lazy" class="deck-slide" style="--i:2; --r:1deg;">
+          <img src="img/firstpickup/deck/06%20-%20Request%20flow.png" alt="Pitch deck: request flow" loading="lazy" class="deck-slide" style="--i:3; --r:-1.5deg;">
+          <img src="img/firstpickup/deck/05%20-%20Product.png" alt="Pitch deck: product" loading="lazy" class="deck-slide" style="--i:4; --r:2deg;">
+          <img src="img/firstpickup/deck/04%20-%20Insight.png" alt="Pitch deck: insight" loading="lazy" class="deck-slide" style="--i:5; --r:-1deg;">
+          <img src="img/firstpickup/deck/03%20-%20Problem.png" alt="Pitch deck: problem" loading="lazy" class="deck-slide" style="--i:6; --r:1.5deg;">
+          <img src="img/firstpickup/deck/02%20-%20Market.png" alt="Pitch deck: market" loading="lazy" class="deck-slide" style="--i:7; --r:-2deg;">
+          <img src="img/firstpickup/deck/01%20-%20Title.png" alt="Pitch deck: title slide" loading="lazy" class="deck-slide" style="--i:8; --r:0.5deg;">
         </div>
       </div>
 
@@ -498,7 +450,7 @@
   }
   .survey-bar-desc {
     font-size: var(--fs-base);
-    color: var(--muted);
+    color: var(--text);
     line-height: 1.5;
   }
   .flow-anim-dots {
@@ -573,6 +525,15 @@
   setInterval(function() {
     goTo((current + 1) % screens.length);
   }, 3000);
+})();
+</script>
+<script>
+(function(){
+  var stack = document.getElementById('deckStack');
+  if (!stack) return;
+  stack.addEventListener('click', function() {
+    window.open('img/firstpickup/First-Pickup-case-study.pdf', '_blank');
+  });
 })();
 </script>
 <script src="main.js"></script>

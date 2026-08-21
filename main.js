@@ -89,6 +89,24 @@
   sections.forEach(function(el) { obs.observe(el); });
 })();
 
+/* figure zoom reveal — each figure animates independently on scroll */
+(function(){
+  var figs = [].slice.call(document.querySelectorAll('.doc figure'));
+  if (!figs.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    figs.forEach(function(f) { f.classList.add('fig-visible'); });
+    return;
+  }
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('fig-visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+  figs.forEach(function(f) { obs.observe(f); });
+})();
+
 /* scroll-reveal showcase projects (homepage below fold) */
 (function(){
   var projs = [].slice.call(document.querySelectorAll('.show-proj.scroll-reveal'));

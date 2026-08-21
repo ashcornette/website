@@ -116,7 +116,7 @@
     if (!msg || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       err.textContent = !msg ? 'Add a message first.'
                       : !email ? 'Add your email so I can reply.'
-                      : 'That email doesn’t look right — mind checking it?';
+                      : ‘That email does not look right. Mind checking it?’;
       err.hidden = false;
       (!msg ? form.elements['message'] : form.elements['email']).focus();
       return;
