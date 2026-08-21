@@ -1172,6 +1172,47 @@ a.pagetitle:hover { text-decoration: none; }
   margin: 48px auto 0; padding: 72px 0; max-width: 1100px;
   border-top: none;
 }
+/* about section reveal — staggered children */
+.work .about.reveal .about-heading {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.work .about.reveal .about-body p:first-child {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s,
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+}
+.work .about.reveal .about-body p:nth-child(2) {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s,
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s;
+}
+.work .about.reveal .about-link {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.65s,
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.65s;
+}
+.work .about.visible .about-heading,
+.work .about.visible .about-body p:first-child,
+.work .about.visible .about-body p:nth-child(2),
+.work .about.visible .about-link {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .work .about.reveal .about-heading,
+  .work .about.reveal .about-body p,
+  .work .about.reveal .about-link {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
 .work .about-heading {
   font-family: var(--sans); font-size: clamp(24px, 4vw, 36px); font-weight: 600;
   letter-spacing: -0.02em; line-height: 1.1; color: var(--text);
