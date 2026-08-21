@@ -1005,7 +1005,7 @@ a:focus-visible, button:focus-visible {
 .website .contact-grid .review-item:last-child { grid-column: 1 / -1; }
 .website .contact-grid label.recap-q { display: block; }
 .website .intake-err { font-size: var(--fs-sm); color: var(--negative); margin: 10px 0 0; }
-.website .field .in:focus-visible { outline: 2px solid var(--frame); outline-offset: 2px; }
+.website .field .in:focus-visible { outline: none; }
 
 /* intake — full-width single column */
 .website .review { max-width: none; }
