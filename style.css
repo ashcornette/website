@@ -1657,6 +1657,22 @@ a.pagetitle:hover { text-decoration: none; }
   gap: 6px;
   margin-top: 6px;
 }
+.work .show-desc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.9);
+  margin: 4px 0 6px;
+  line-height: 1.4;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.work .show-proj:hover .show-desc {
+  opacity: 1;
+  transform: translateY(0);
+}
+.work .show-proj:hover .show-label {
+  background: linear-gradient(transparent, rgba(0,0,0,0.85));
+}
 .work .show-tags .t {
   font-size: 11px;
   padding: 3px 10px;
