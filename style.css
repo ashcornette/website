@@ -1068,6 +1068,50 @@ a:focus-visible, button:focus-visible {
   text-transform: none; letter-spacing: 0; color: var(--text); margin-bottom: 12px;
 }
 
+/* ── 8d. .firstpickup — green hero band + green section labels ── */
+.doc .case-hero {
+  background: #1F6B61;
+  margin: 0 calc(-1 * var(--pad)) 0;
+  padding: 48px var(--pad) 52px;
+}
+.doc .case-hero .case-hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.doc .case-hero h1 { color: #f0f0ee; }
+.doc .case-hero .role { color: rgba(240,240,238,0.85); max-width: 100%; }
+.doc .case-hero .role strong { color: #f0f0ee; }
+.doc .case-hero .meta { color: rgba(240,240,238,0.55); }
+.doc .case-hero .meta span::after { color: rgba(240,240,238,0.3); }
+.doc .case-hero .case-nav .back-link {
+  background: #f0f0ee;
+  color: #1F6B61;
+  border-color: #f0f0ee;
+}
+.doc .case-hero .case-nav .back-link:hover {
+  background: transparent;
+  color: #f0f0ee;
+  border-color: rgba(240,240,238,0.5);
+}
+.doc .case-hero .case-tags .t {
+  background: rgba(240,240,238,0.12);
+  color: rgba(240,240,238,0.7);
+}
+.doc .case-hero .stats {
+  background: var(--bg);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  box-shadow: none;
+  border: none;
+}
+.doc .case-hero .stats::after { display: none; }
+.doc .case-hero .stat-item { color: var(--text); }
+.doc .case-hero .stat-val { color: var(--accent); }
+.doc .case-hero .stat-item ul li { color: var(--text); }
+.doc .case-hero .stat-item ul li::before { color: var(--accent); }
+
+.firstpickup .section-num { color: #1F6B61; }
+
 /* ── 8e. .work — the filterable work index (home) ── */
 .work { padding-top: 120px; }
 .work .work-shell { max-width: none; margin-inline: auto; }
