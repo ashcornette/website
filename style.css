@@ -1465,7 +1465,8 @@ a.pagetitle:hover { text-decoration: none; }
 }
 @media (max-width: 600px) {
   .testimonial-carousel { gap: 8px; }
-  .testimonial-track { padding: 36px 20px; min-height: 200px; }
+  .testimonial-track { padding: 40px 28px; min-height: 220px; }
+  .testimonial-slide { padding: 0 8px; }
   .testimonial-slide p { font-size: 15px; line-height: 1.7; max-width: 100%; }
   .testimonial-slide cite { font-size: 13px; }
   .testimonial-arrow { width: 32px; height: 32px; }
