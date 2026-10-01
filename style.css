@@ -62,7 +62,6 @@ body {
   background: var(--bg);
   min-height: 100vh;
   padding: 0 var(--pad);
-  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -1126,7 +1125,7 @@ a:focus-visible, button:focus-visible {
   background: var(--bg);
   padding: 20px 40px;
   border-radius: 0;
-  will-change: left, right, top, padding, border-radius, background, box-shadow;
+  will-change: transform;
 }
 .topbar.scrolled {
   left: calc(50% - 240px);
