@@ -157,3 +157,15 @@
   }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
   rows.forEach(function(row) { obs.observe(row); });
 })();
+
+/* smooth scroll only for anchor links (not browser restore) */
+(function(){
+  document.addEventListener('click', function(e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var target = document.querySelector(a.getAttribute('href'));
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: 'smooth' });
+  });
+})();

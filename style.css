@@ -52,12 +52,7 @@
 
 /* ── 2. BASE + TYPE ── */
 html {
-  overflow-x: hidden;
-  scroll-behavior: smooth;
   background: var(--bg);
-}
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
 }
 body {
   font-family: var(--sans);
@@ -1017,8 +1012,8 @@ a:focus-visible, button:focus-visible {
 .website .opt {
   font-family: var(--sans); font-size: 15px; line-height: 1.6;
   text-align: left; width: 100%; max-width: none;
-  color: var(--text); background: var(--tint); border: 1px solid var(--text); border-radius: 0;
-  padding: 14px 16px; cursor: pointer;
+  color: var(--text); background: var(--tint); border: 1px solid var(--text); border-radius: 980px;
+  padding: 14px 20px; cursor: pointer;
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
   transition: background .15s ease, color .15s ease, transform .1s ease;
 }
@@ -1038,12 +1033,12 @@ a:focus-visible, button:focus-visible {
 .website .field .in {
   font-family: var(--sans); font-size: 15px; line-height: 1.6; color: var(--text);
   display: block; width: 100%; max-width: none; text-align: left; margin-inline: auto;
-  background: var(--tint); border: 1px solid var(--text); border-radius: 0; padding: 14px 16px;
+  background: var(--tint); border: 1px solid var(--text); border-radius: 980px; padding: 14px 20px;
 }
 /* the contact fields already sit inside an 80%-capped grid — capping them
    again would compound to 64% and break the row */
 .website .contact-grid .field .in { max-width: none; }
-.website .field textarea.in { min-height: 130px; resize: vertical; }
+.website .field textarea.in { min-height: 130px; resize: vertical; border-radius: 20px; }
 .website .field .in::placeholder { color: var(--muted); }
 .website .recap-q { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin: 0 0 5px; }
 
