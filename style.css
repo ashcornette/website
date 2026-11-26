@@ -1716,9 +1716,10 @@ a.pagetitle:hover { text-decoration: none; }
 .work .hero-tags .t.active { color: var(--bg); }
 .hero-tags-break { display: none; }
 @media screen and (max-width: 600px) {
-  .work .hero-tags { flex-wrap: wrap; border-radius: 18px; }
-  .work .hero-tags .slider { border-radius: 18px; }
-  .hero-tags-break { display: block; width: 100%; height: 0; }
+  .work .hero-tags { justify-content: center; }
+  .work .hero-tags-pill { border-radius: 980px; }
+  .work .hero-tags .t { font-size: 12px; padding: 6px 12px; }
+  .work .hero-tags .slider { border-radius: 980px; }
 }
 
 /* filtered showcase — flatten hero row into simple grid */
