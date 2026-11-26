@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#eeedea" id="themeColor" />
+    <meta name="description" content="Barely Spent: case study by Ash Cornette. A minimalist spending tracker — one number, barely more.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ash cornette · barely spent">
+    <meta property="og:description" content="One number. Today's total. That's it.">
+    <meta property="og:url" content="https://ashcornette.com/barelyspent">
+    <meta property="og:image" content="https://ashcornette.com/img/barelyspent/hero.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://ashcornette.com/barelyspent">
+    <link rel="icon" href="img/profile.jpg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="img/profile.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>ash cornette · barely spent</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="doc">
+    <a class="skip-link" href="#main">skip to content</a>
+    <div class="topbar">
+      <a class="pagetitle" href="index.html">Ash<span class="cursor">_</span></a>
+      <button class="hamburger" id="menuToggle" type="button" aria-label="toggle menu">=</button>
+      <div class="topbar-right" id="topbarMenu">
+        <a class="topbar-link" href="https://usebarely.com" target="_blank" rel="noopener noreferrer">Apps</a>
+        <a class="topbar-link" href="about.html">Bio</a>
+        <a class="topbar-link" href="mailto:hello@ashcornette.com">Contact</a>
+      </div>
+    </div>
+
+    <nav class="case-aside" id="caseAside" role="navigation" aria-label="Section navigation"><ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#goal">Goal</a></li>
+      <li><a href="#constraint">The Constraint</a></li>
+      <li><a href="#shipped">What Shipped</a></li>
+      <li><a href="#outcomes">Outcomes</a></li>
+      <li><a href="#lessons">Lessons</a></li>
+    </ul></nav>
+
+    <main id="main" tabindex="-1">
+      <div class="case-nav">
+        <a href="barely.html" class="back-link" aria-label="back">Back</a>
+        <div class="case-tags"><span class="t">Product Design</span><span class="t">Product Strategy</span></div>
+      </div>
+      <h1>One Number</h1>
+      <p class="role"><strong><em>Designed, built, and shipped</em></strong> a spending tracker that shows one number: today's total. No categories, no budgets, no bank connections.</p>
+
+      <div class="meta">
+        <span class="status">shipped · <a href="https://apps.apple.com/us/app/barely-spent/id6809992782" class="status" target="_blank" rel="noopener noreferrer">live on the App Store</a></span>
+        <span>Product design & development</span>
+        <span>SwiftUI · iOS</span>
+        <span>2026</span>
+      </div>
+
+      <div class="cta-row top">
+        <a class="pill"  href="barely.html">← barely suite</a>
+        <a class="pill"  href="https://apps.apple.com/us/app/barely-spent/id6809992782" target="_blank" rel="noopener noreferrer">Download Free ↗</a>
+      </div>
+
+      <div class="stats" style="grid-template-columns:1fr 1fr 1fr 1fr;">
+        <div class="stat-item"><span class="stat-val">Timeline</span> Aug 2026<br>4 weeks</div>
+        <div class="stat-item"><span class="stat-val">Skills</span>
+          <ul style="list-style:none;padding:0;margin:4px 0 0;">
+            <li>· Product design</li>
+            <li>· iOS development</li>
+            <li>· Design systems</li>
+            <li>· Accessibility</li>
+          </ul>
+        </div>
+        <div class="stat-item"><span class="stat-val">Team</span> Solo</div>
+        <div class="stat-item"><span class="stat-val">Tools</span>
+          <ul style="list-style:none;padding:0;margin:4px 0 0;">
+            <li>· Xcode</li>
+            <li>· SwiftUI</li>
+            <li>· Figma</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- OVERVIEW -->
+      <div class="section">
+        <div class="section-num" id="overview">Overview</div>
+        <p>Spending trackers want to be your financial advisor. They connect to your bank, categorize every transaction into buckets you'll never check, set budgets you'll ignore by the 15th, graph trends that look impressive in screenshots but mean nothing on a Tuesday when you just want to know if you can afford lunch.</p>
+        <p>Most people don't need a financial advisor. They need a mirror. <strong><em>"How much did I spend today?"</em></strong> That's the question. One number answers it.</p>
+        <div class="pull">The problem wasn't tracking spending. It was making spending visible without making it complicated.</div>
+      </div>
+
+      <!-- GOAL -->
+      <div class="section">
+        <div class="section-num" id="goal">Goal</div>
+        <p>Design, build, and ship a spending tracker that shows <strong><em>one number</em></strong>. Tap to add an expense. See the total go up. That's the entire interaction. Prove that awareness is enough.</p>
+      </div>
+
+      <!-- THE CONSTRAINT -->
+      <div class="section">
+        <div class="section-num" id="constraint">The Constraint</div>
+        <p>No categories. No budgets. No bank connections. No graphs. No monthly summaries. <strong><em>Just today's number.</em></strong></p>
+        <p>Three layers, each one barely enough:</p>
+        <ul>
+          <li><strong>One number.</strong> Today's total, front and center. Tap to add. Number goes up. That's it.</li>
+          <li><strong>Keypad.</strong> Custom keypad with large touch targets. Tap an amount, tap add. Under 3 seconds.</li>
+          <li><strong>This week.</strong> Seven days of history. Swipe to see yesterday. Everything older fades away.</li>
+        </ul>
+      </div>
+
+      <!-- WHAT SHIPPED -->
+      <div class="section">
+        <div class="section-num" id="shipped">What Shipped</div>
+
+        <h3>One number</h3>
+        <div class="app-gallery" id="appGallery">
+          <div class="app-gallery-track" id="galleryTrack">
+            <img src="img/barelyspent/Screenshot%2001%20%E2%80%94%20one%20number..png" alt="App Store screenshot: one number. barely more." loading="lazy">
+            <img src="img/barelyspent/Screenshot%2002%20%E2%80%94%20no%20judgment..png" alt="App Store screenshot: no judgment. just awareness." loading="lazy">
+            <img src="img/barelyspent/Screenshot%2003%20%E2%80%94%20tap.%20add.%20done..png" alt="App Store screenshot: tap. add. done." loading="lazy">
+            <img src="img/barelyspent/Screenshot%2004%20%E2%80%94%2010%20themes..png" alt="App Store screenshot: 10 themes." loading="lazy">
+            <img src="img/barelyspent/Screenshot%2005%20%E2%80%94%20your%20number%2C%20everywhere..png" alt="App Store screenshot: your number, everywhere." loading="lazy">
+            <img src="img/barelyspent/Screenshot%2006%20%E2%80%94%20barely%20enough..png" alt="App Store screenshot: barely enough." loading="lazy">
+            <img src="img/barelyspent/Screenshot%2007%20%E2%80%94%20your%20week..png" alt="App Store screenshot: your week." loading="lazy">
+          </div>
+        </div>
+        <div class="gallery-nav">
+          <button class="gallery-arrow gallery-left" id="galleryLeft" aria-label="scroll left"></button>
+          <button class="gallery-arrow gallery-right" id="galleryRight" aria-label="scroll right"></button>
+        </div>
+        <p>Open the app. See today's total. Tap the plus button to add an expense. <strong><em>Custom keypad</em></strong> with large buttons, inline validation, per-entry cap of $99,999.99. Tap add. Number animates up. Done.</p>
+      </div>
+
+      <div class="section">
+        <h3>Tap to delete</h3>
+        <div class="screens">
+          <figure>
+            <img src="img/barelyspent/Screenshot%2003%20%E2%80%94%20tap.%20add.%20done..png" alt="Barely Spent keypad with add button" loading="lazy">
+            <figcaption>tap. add. done.</figcaption>
+          </figure>
+          <figure>
+            <img src="img/barelyspent/Screenshot%2007%20%E2%80%94%20your%20week..png" alt="Barely Spent weekly view showing daily totals" loading="lazy">
+            <figcaption>your week at a glance</figcaption>
+          </figure>
+        </div>
+        <p>Made a mistake? Tap the amount in today's ledger. <strong><em>Swipe to delete.</em></strong> No confirmation for small amounts. Over $500 gets a dialog. The ledger is a list, not a database.</p>
+      </div>
+
+      <div class="section">
+        <h3>Bokashi themes</h3>
+        <div class="screens">
+          <figure>
+            <img src="img/barelyspent/Screenshot%2004%20%E2%80%94%2010%20themes..png" alt="Barely Spent theme picker showing 10 Bokashi colour themes" loading="lazy">
+            <figcaption>10 themes, same design language as Notes and Said</figcaption>
+          </figure>
+        </div>
+        <p>Same <strong><em>Bokashi colour gradients</em></strong> as Notes. Same time-aware shifting. Same app icon switching. You know these apps are siblings the moment you open one after the other.</p>
+      </div>
+
+      <div class="section">
+        <h3>Three layouts</h3>
+        <p>Three layouts: portrait, sideways with the phone rotated, and the <strong><em>iPhone Duo book layout</em></strong> where the Duo's two-page spread puts today's ledger on the left and the keypad on the right, like an open chequebook.</p>
+      </div>
+
+      <div class="section">
+        <h3>Widgets</h3>
+        <div class="screens">
+          <figure>
+            <img src="img/barelyspent/Screenshot%2005%20%E2%80%94%20your%20number%2C%20everywhere..png" alt="Barely Spent widgets showing today's total on the home screen" loading="lazy">
+            <figcaption>your number, everywhere</figcaption>
+          </figure>
+        </div>
+        <p>Home screen widget shows today's total with <strong><em>animated number transitions</em></strong>. Glance at your home screen to see where you're at. No need to open the app.</p>
+      </div>
+
+
+      <!-- OUTCOMES -->
+      <div class="section">
+        <div class="section-num" id="outcomes">Outcomes</div>
+        <div class="compare">
+          <div class="compare-header"><span>scope</span><span>detail</span></div>
+          <div class="compare-row"><span>Timeline</span><span>Four weeks, start to App Store</span></div>
+          <div class="compare-row"><span>Role</span><span>Solo: design, SwiftUI, submission</span></div>
+          <div class="compare-row"><span>Platform</span><span>iOS 26, SwiftUI, SwiftData</span></div>
+          <div class="compare-row"><span>Shipped</span><span>Custom keypad, tap-to-delete, widgets, weekly view, 3 layouts</span></div>
+          <div class="compare-row"><span>Accessibility</span><span>WCAG AAA, 48pt+ targets, VoiceOver labels</span></div>
+          <div class="compare-row"><span>Price</span><span>Free + $3.99 Pro. No subscription.</span></div>
+        </div>
+      </div>
+
+      <!-- LESSONS -->
+      <div class="section">
+        <div class="section-num" id="lessons">Lessons</div>
+        <h4>Categories were the first thing cut</h4>
+        <p>Tested with categories. Users spent more time asking "is coffee food or entertainment?" than tracking anything. Removing the question made the app 3 seconds faster per entry, which turned out to be the difference between using it and not.</p>
+
+        <div class="pull">If the keypad feels right, the app feels right.</div>
+
+        <h4>The keypad is the product</h4>
+        <p>Most of the design time went into the keypad. Button sizes, spacing, the add animation, the per-entry cap, inline validation. Everything else is secondary.</p>
+        <h4>Awareness changes behaviour</h4>
+        <p>Three testers reported spending less after a week. Not because the app told them to. Because seeing the number made them pause before the second coffee. The intervention is the visibility, not a budget.</p>
+      </div>
+
+      <div class="pull">One number. That's enough.</div>
+
+      <div class="cta-row">
+        <a class="pill"  href="https://apps.apple.com/us/app/barely-spent/id6809992782" target="_blank" rel="noopener noreferrer">Download Free ↗</a>
+        <a class="pill"  href="barely.html">← barely suite</a>
+      </div>
+      <a href="barelysaid.html" class="next-project"><div><div class="next-project-label">Next project</div><div class="next-project-title">Barely Said</div></div><span class="next-project-arrow">→</span></a>
+    </main>
+
+    <footer class="workfoot">
+      <a class="pagetitle" href="index.html">Ash Cornette</a>
+      <span class="foot-right">
+        <a class="foot-social" href="https://usebarely.com" target="_blank" rel="noopener noreferrer">Apps</a>
+        <a class="foot-social" href="https://instagram.com/complexash" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a class="foot-social" href="https://www.linkedin.com/in/ashcornette/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="#main" class="scroll-top" aria-label="scroll to top">↑</a>
+      </span>
+    </footer>
+
+    <script>
+(function(){
+  var track = document.getElementById('galleryTrack');
+  var left = document.getElementById('galleryLeft');
+  var right = document.getElementById('galleryRight');
+  if(!track||!left||!right) return;
+  var scrollAmt = 300;
+  left.addEventListener('click', function(){ track.parentElement.scrollBy({left:-scrollAmt,behavior:'smooth'}); });
+  right.addEventListener('click', function(){ track.parentElement.scrollBy({left:scrollAmt,behavior:'smooth'}); });
+})();
+</script>
+    <script src="contact.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

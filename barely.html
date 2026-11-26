@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#eeedea" id="themeColor" />
+    <meta name="description" content="Barely Suite: three iOS apps designed, built, and shipped solo. Product design case study — SwiftUI, design systems, accessibility, WCAG AAA. By Ash Cornette.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ash Cornette — Barely Suite: iOS Product Design Case Study">
+    <meta property="og:description" content="Three iOS apps designed, built, and shipped solo. SwiftUI, design systems, accessibility.">
+    <meta property="og:url" content="https://ashcornette.com/barely">
+    <meta property="og:image" content="https://ashcornette.com/img/barely-notes-demo-poster.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://ashcornette.com/barely">
+    <link rel="icon" href="img/profile.jpg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="img/profile.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>ash cornette · barely suite</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap">
+    <link rel="stylesheet" href="style.css" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Barely Suite",
+      "description": "Three minimalist iOS apps: Notes, Spent, Said. Each does one thing. Designed, built, and shipped solo.",
+      "creator": { "@type": "Person", "name": "Ash Cornette", "url": "https://ashcornette.com" },
+      "operatingSystem": "iOS",
+      "applicationCategory": "ProductivityApplication",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "keywords": ["Product Design", "iOS", "SwiftUI", "Design Systems", "Accessibility", "UX Design", "UI Design"]
+    }
+    </script>
+    <style>
+      /* only styles the site kit doesn't already cover */
+      .app-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin: 2rem 0 3rem; }
+      @media (max-width: 768px) { .app-cards { grid-template-columns: 1fr; } }
+
+      .app-card {
+        background: var(--tint); border: 1px solid var(--border); border-radius: 18px; overflow: hidden;
+        text-decoration: none; color: var(--text);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .app-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.10); text-decoration: none; }
+
+      .app-card-visual { background: var(--border); padding: 20px 16px 0; display: flex; justify-content: center; overflow: hidden; }
+      .app-card-visual img { height: 200px; width: auto; border-radius: 6px 6px 0 0; display: block; border: none; }
+
+      .app-card-body { padding: 20px; }
+      .app-card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+      .app-card-header img { width: 40px; height: 40px; border-radius: 9px; }
+      .app-card-name { font-size: var(--fs-md); font-weight: 600; }
+      .app-card-tagline { font-size: var(--fs-xs); color: var(--muted); }
+      .app-card-desc { font-size: var(--fs-sm); line-height: 1.6; margin-bottom: 12px; }
+      .app-card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--border); font-size: var(--fs-xs); }
+      .app-card-meta { color: var(--muted); }
+      .app-card-cta { font-weight: 500; color: var(--text); }
+    </style>
+  </head>
+  <body class="doc">
+    <a class="skip-link" href="#main">skip to content</a>
+    <div class="topbar">
+      <a class="pagetitle" href="index.html">Ash<span class="cursor">_</span></a>
+      <button class="hamburger" id="menuToggle" type="button" aria-label="toggle menu">=</button>
+      <div class="topbar-right" id="topbarMenu">
+        <a class="topbar-link" href="https://usebarely.com" target="_blank" rel="noopener noreferrer">Apps</a>
+        <a class="topbar-link" href="about.html">Bio</a>
+        <a class="topbar-link" href="mailto:hello@ashcornette.com">Contact</a>
+      </div>
+    </div>
+
+    <nav class="case-aside" id="caseAside" role="navigation" aria-label="Section navigation"><ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#design">Design Language</a></li>
+      <li><a href="#bundle">The Bundle</a></li>
+      <li><a href="#learned">What I Learned</a></li>
+    </ul></nav>
+
+    <main id="main" tabindex="-1">
+      <div class="case-nav">
+        <a href="index.html" class="back-link" aria-label="back">Back</a>
+        <div class="case-tags"><span class="t">Product Design</span><span class="t">Product Strategy</span><span class="t">iOS Development</span></div>
+      </div>
+      <h1>Three Apps, One Rule</h1>
+      <p class="role"><strong><em>Designed, built, and shipped</em></strong> three iOS apps in five months. Each does one thing. Notes, Spent, Said.</p>
+
+      <div class="meta">
+        <span class="status">shipped · <a href="https://usebarely.com" class="status" target="_blank" rel="noopener noreferrer">all 3 live on the App Store</a></span>
+        <span>Product design & development</span>
+        <span>SwiftUI · iOS · macOS</span>
+        <span>July – Oct 2026</span>
+      </div>
+
+      <div class="cta-row">
+        <a class="pill" href="https://usebarely.com" target="_blank" rel="noopener noreferrer">usebarely.com ↗</a>
+      </div>
+
+      <div class="stats" style="grid-template-columns:1fr 1fr 1fr 1fr;">
+        <div class="stat-item"><span class="stat-val">Timeline</span> July – Oct 2026<br>5 months</div>
+        <div class="stat-item"><span class="stat-val">Apps</span> 3 shipped<br>Notes · Spent · Said</div>
+        <div class="stat-item"><span class="stat-val">Team</span> Solo</div>
+        <div class="stat-item"><span class="stat-val">Price</span> Free + one-time Pro<br>$6.99 suite bundle</div>
+      </div>
+
+      <!-- THE APPS -->
+      <div class="app-cards" id="apps">
+          <a href="barelynotes.html" class="app-card">
+            <div class="app-card-visual">
+              
+<img loading="lazy" src="img/barely/card-notes.png" alt="Barely Notes checklist on iPhone">
+
+            </div>
+            <div class="app-card-body">
+              <div class="app-card-header">
+                
+<img loading="lazy" src="img/barely/icon-notes.png" alt="Barely Notes icon">
+
+                <div><div class="app-card-name">Notes</div><div class="app-card-tagline">one note. barely more.</div></div>
+              </div>
+              <div class="app-card-desc">One note at a time. No folders, no tags. Time-aware themes shift through the day.</div>
+              <div class="app-card-footer"><span class="app-card-meta">July 2026</span><span class="app-card-cta">Case study →</span></div>
+            </div>
+          </a>
+          <a href="barelyspent.html" class="app-card">
+            <div class="app-card-visual">
+              
+<img loading="lazy" src="img/barely/card-spent.png" alt="Barely Spent keypad showing $40.48 on iPhone">
+
+            </div>
+            <div class="app-card-body">
+              <div class="app-card-header">
+                
+<img loading="lazy" src="img/barely/icon-spent.png" alt="Barely Spent icon">
+
+                <div><div class="app-card-name">Spent</div><div class="app-card-tagline">one number. barely more.</div></div>
+              </div>
+              <div class="app-card-desc">Today's total. Tap to add, see the number go up. No categories, no budgets.</div>
+              <div class="app-card-footer"><span class="app-card-meta">Sep 2026</span><span class="app-card-cta">Case study →</span></div>
+            </div>
+          </a>
+          <a href="barelysaid.html" class="app-card">
+            <div class="app-card-visual">
+              
+<img loading="lazy" src="img/barely/card-said.png" alt="Barely Said week view with calendar on iPhone">
+
+            </div>
+            <div class="app-card-body">
+              <div class="app-card-header">
+                
+<img loading="lazy" src="img/barely/icon-said.png" alt="Barely Said icon">
+
+                <div><div class="app-card-name">Said</div><div class="app-card-tagline">one line. barely more.</div></div>
+              </div>
+              <div class="app-card-desc">One sentence per day. Pick an emoji, write one line. A calendar of honest days.</div>
+              <div class="app-card-footer"><span class="app-card-meta">Oct 2026</span><span class="app-card-cta">Case study →</span></div>
+            </div>
+          </a>
+        </div>
+
+      <!-- OVERVIEW -->
+      <div class="section">
+        <div class="section-num" id="overview">Overview</div>
+        <p>Each app started with the same question: <em>what if we removed everything except the one thing that matters?</em></p>
+        <p>Notes apps compete on folders. Spending trackers compete on categories. Journals compete on prompts. Every app in every category assumes more structure means more clarity.</p>
+        <div class="pull">The constraint isn't a limitation. It's the product.</div>
+        <p>No app in the suite will get a second core feature. If a new idea needs a new surface, it becomes a new app.</p>
+      </div>
+
+      <!-- DESIGN LANGUAGE -->
+      <div class="section">
+        <div class="section-num" id="design">Design Language</div>
+        <div class="screens triple">
+          <figure>
+            
+<img src="img/barelynotes/theme-picker.jpg" alt="Barely Notes theme picker showing Bokashi gradients" loading="lazy">
+
+            <figcaption>Notes themes</figcaption>
+          </figure>
+          <figure>
+            
+<img src="img/barelyspent/Screenshot%2004%20%E2%80%94%2010%20themes..png" alt="Barely Spent theme picker" loading="lazy">
+
+            <figcaption>Spent themes</figcaption>
+          </figure>
+          <figure>
+            
+<img src="img/barelysaid/Said_Screenshot_04_%E2%80%94_11_themes.jpg" alt="Barely Said theme picker" loading="lazy">
+
+            <figcaption>Said themes</figcaption>
+          </figure>
+        </div>
+        <p>All three share <strong><em>Bokashi themes</em></strong> (Japanese colour gradients), time-aware colour shifting, the same settings structure, and the same accessibility standards. They look like siblings, not clones.</p>
+      </div>
+
+      <!-- BUNDLE -->
+      <div class="section">
+        <div class="section-num" id="bundle">The Bundle</div>
+        <p>Each app is free with a one-time Pro purchase. Or get all three with <strong><em>one $6.99 purchase</em></strong>. No subscriptions.</p>
+        <div class="compare">
+          <div class="compare-header"><span>app</span><span>price</span></div>
+          <div class="compare-row"><span>Notes</span><span>Free + $3.99 Bokashi themes</span></div>
+          <div class="compare-row"><span>Spent</span><span>Free + $3.99 Pro</span></div>
+          <div class="compare-row"><span>Said</span><span>Free + $4.99 Pro</span></div>
+          <div class="compare-row"><span>Suite bundle</span><span>$6.99 — all three, forever</span></div>
+        </div>
+      </div>
+
+      <!-- OUTCOMES -->
+      <div class="section">
+        <div class="section-num" id="learned">What I Learned</div>
+        <p>Building three apps solo in five months taught me that <strong><em>scope is a design decision</em></strong>. The hardest part wasn't building. It was saying no to good ideas that would make the apps worse.</p>
+        <div class="pull">Drawing tools in Notes. Categories in Spent. Streaks in Said. All tested well. All broke the product.</div>
+      </div>
+
+      <div class="cta-row">
+        <a class="pill" href="https://usebarely.com" target="_blank" rel="noopener noreferrer">usebarely.com ↗</a>
+        <a class="pill" href="https://apps.apple.com/us/app/barely-notes/id6796440918" target="_blank" rel="noopener noreferrer">Notes ↗</a>
+        <a class="pill" href="https://apps.apple.com/us/app/barely-spent/id6809992782" target="_blank" rel="noopener noreferrer">Spent ↗</a>
+        <a class="pill" href="https://apps.apple.com/us/app/barely-said/id6817988905" target="_blank" rel="noopener noreferrer">Said ↗</a>
+      </div>
+      <a href="arcteryx.html" class="next-project"><div><div class="next-project-label">Next project</div><div class="next-project-title">Arc'teryx Gear Bag</div></div><span class="next-project-arrow">→</span></a>
+    </main>
+
+    <footer class="workfoot">
+      <a class="pagetitle" href="index.html">Ash Cornette</a>
+      <span class="foot-right">
+        <a class="foot-social" href="https://usebarely.com" target="_blank" rel="noopener noreferrer">Apps</a>
+        <a class="foot-social" href="https://instagram.com/complexash" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a class="foot-social" href="https://www.linkedin.com/in/ashcornette/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="#main" class="scroll-top" aria-label="scroll to top">↑</a>
+      </span>
+    </footer>
+
+    <script src="contact.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

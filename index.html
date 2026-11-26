@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#eeedea" id="themeColor" />
-    <meta name="description" content="Ash Cornette: Brand & Product Designer in Vancouver, BC. A decade in tech ops, AI-assisted workflows, from strategy to shipped product." />
+    <meta name="description" content="Ash Cornette: UX/UI Designer & Product Designer in Vancouver, BC. Case studies in iOS development, SwiftUI, design systems, and accessibility. From strategy to shipped product." />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="ash cornette" />
+    <meta property="og:title" content="Ash Cornette — UX/UI Designer & Product Designer Portfolio" />
     <meta property="og:description" content="Brand & Product Designer in Vancouver, BC. A decade in tech ops, AI-assisted workflows, from strategy to shipped product." />
     <meta property="og:url" content="https://ashcornette.com/" />
     <meta property="og:image" content="https://ashcornette.com/img/cambie.jpg">
@@ -17,7 +17,7 @@
     <link rel="apple-touch-icon" href="img/profile.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <title>Ash Cornette: Brand, UX &amp; Web Design · Vancouver, BC</title>
+    <title>Ash Cornette — UX/UI Designer & Product Designer Portfolio · Vancouver, BC</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap">
     <link rel="stylesheet" href="style.css" />
     <script type="application/ld+json">
@@ -52,16 +52,31 @@
       <h1 class="hero-title">Ash Cornette</h1>
       <p class="tagline">Brand &amp; Product Design. Vancouver, BC.</p>
       <p class="intro-line">From strategy to shipped product.</p>
-      <div class="hero-tags"><button class="t active" data-filter="all">All</button><button class="t" data-filter="brand">Brand</button><button class="t" data-filter="product-design">Product Design</button><button class="t" data-filter="product-strategy">Product Strategy</button><span class="hero-tags-break"></span><button class="t" data-filter="ux-research">UX/UI Research</button><button class="t" data-filter="website">Website</button></div>
+      <div class="hero-tags"><div class="hero-tags-pill" id="heroTags"><span class="slider" id="tagSlider"></span><button class="t active" data-filter="all">All</button><button class="t" data-filter="brand">Brand</button><button class="t" data-filter="product-design">Product Design</button><button class="t" data-filter="product-strategy">Product Strategy</button><button class="t" data-filter="ux-research">UX/UI Research</button><button class="t" data-filter="website">Website</button></div></div>
 
-      <!-- ── Full-width project sections ── -->
+      <!-- ── Apple-style feature grid ── -->
       <div class="showcase" id="showcase">
 
-        <div class="show-hero-row">
+        <!-- Hero — full width -->
+        <div class="show-card">
+          <div class="show-proj show-feature-hero" data-tags="brand product-design product-strategy">
+            <a class="show-media" href="barely.html">
+              <video src="img/barely-notes-demo.mp4" poster="img/barely-notes-demo-poster.jpg" muted loop playsinline preload="metadata" aria-label="Barely Suite"></video>
+            </a>
+            <div class="show-label">
+              <h2 class="show-title">Barely Suite</h2>
+              <p class="show-desc">Three apps, one philosophy. Notes, Spent, Said.</p>
+            </div>
+          </div>
+          <div class="show-tags"><span class="t">Brand</span><span class="t">Product Design</span><span class="t">Product Strategy</span></div>
+        </div>
+
+        <!-- 2-up row -->
+        <div class="show-grid-row">
           <div class="show-card">
-            <div class="show-proj show-hero-main" data-tags="ux-research product-design product-strategy">
+            <div class="show-proj" data-tags="ux-research product-design product-strategy">
               <a class="show-media" href="arcteryx.html">
-                <video src="img/gearbag/flow.mp4" muted loop playsinline preload="metadata" aria-label="Arc'teryx Gear Bag: UX concept redesigning the favourite modal into activity-specific gear planning"></video>
+                <video src="img/gearbag/flow.mp4" muted loop playsinline preload="metadata" aria-label="Arc'teryx Gear Bag"></video>
               </a>
               <div class="show-label">
                 <h2 class="show-title">Arc'teryx Gear Bag</h2>
@@ -71,59 +86,47 @@
             <div class="show-tags"><span class="t">UX/UI Research</span><span class="t">Product Design</span><span class="t">Product Strategy</span></div>
           </div>
 
-          <div class="show-hero-side">
-            <div class="show-card">
-              <div class="show-proj" data-tags="brand website product-strategy">
-                <a class="show-media" href="complexbreaks.html">
-                  <img src="img/complexbreaks/complexbreaks-elephant-graveyard.jpeg" alt="Complex Breaks: brand, merch, and content platform for breaking culture, run solo since 2020" loading="lazy">
-                </a>
-                <div class="show-label">
-                  <h2 class="show-title">Complex Breaks</h2>
-                  <p class="show-desc">Brand, merch, and content platform for breaking culture</p>
-                </div>
+          <div class="show-card">
+            <div class="show-proj" data-tags="ux-research product-design product-strategy">
+              <a class="show-media" href="firstpickup.html">
+                <img src="img/firstpickup/deck/05%20-%20Product.png" alt="First Pickup" loading="lazy">
+              </a>
+              <div class="show-label">
+                <h2 class="show-title">First Pickup</h2>
+                <p class="show-desc">Route-matched pickup for bulky secondhand deals</p>
               </div>
-              <div class="show-tags"><span class="t">Brand</span><span class="t">Website</span><span class="t">Product Strategy</span></div>
             </div>
-
-            <div class="show-card">
-              <div class="show-proj" data-tags="brand website product-strategy">
-                <a class="show-media" href="ourocollective.html">
-                  <img src="img/ourocollective/ouro-preview.jpg" alt="OURO Collective: brand and web redesign consolidating nine years of content into one focused site" loading="lazy">
-                </a>
-                <div class="show-label">
-                  <h2 class="show-title">OURO Collective</h2>
-                  <p class="show-desc">Consolidated nine years of content into one focused site</p>
-                </div>
-              </div>
-              <div class="show-tags"><span class="t">Brand</span><span class="t">Website</span><span class="t">Product Strategy</span></div>
-            </div>
+            <div class="show-tags"><span class="t">UX/UI Research</span><span class="t">Product Design</span><span class="t">Product Strategy</span></div>
           </div>
         </div>
 
-        <div class="show-card scroll-reveal">
-          <div class="show-proj" data-tags="brand product-design product-strategy">
-            <a class="show-media" href="barelynotes.html">
-              <video src="img/barely-notes-demo.mp4" poster="img/barely-notes-demo-poster.jpg" muted loop playsinline preload="metadata" aria-label="Barely Notes: minimalist one-note iOS app designed, built, and shipped in six weeks"></video>
-            </a>
-            <div class="show-label">
-              <h2 class="show-title">Barely Notes</h2>
-              <p class="show-desc">A one-note iOS app designed, built, and shipped in six weeks</p>
+        <!-- 2-up row -->
+        <div class="show-grid-row">
+          <div class="show-card">
+            <div class="show-proj" data-tags="brand website product-strategy">
+              <a class="show-media" href="complexbreaks.html">
+                <img src="img/complexbreaks/complexbreaks-elephant-graveyard.jpeg" alt="Complex Breaks" loading="lazy">
+              </a>
+              <div class="show-label">
+                <h2 class="show-title">Complex Breaks</h2>
+                <p class="show-desc">Brand, merch, and content platform for breaking culture</p>
+              </div>
             </div>
+            <div class="show-tags"><span class="t">Brand</span><span class="t">Website</span><span class="t">Product Strategy</span></div>
           </div>
-          <div class="show-tags"><span class="t">Brand</span><span class="t">Product Design</span><span class="t">Product Strategy</span></div>
-        </div>
 
-        <div class="show-card scroll-reveal">
-          <div class="show-proj" data-tags="ux-research product-design product-strategy">
-            <a class="show-media" href="firstpickup.html">
-              <img src="img/firstpickup/deck/05%20-%20Product.png" alt="First Pickup: UX case study on route-matched pickup for bulky secondhand deals in Metro Vancouver" loading="lazy">
-            </a>
-            <div class="show-label">
-              <h2 class="show-title">First Pickup</h2>
-              <p class="show-desc">Route-matched pickup for bulky secondhand deals</p>
+          <div class="show-card">
+            <div class="show-proj" data-tags="brand website product-strategy">
+              <a class="show-media" href="ourocollective.html">
+                <img src="img/ourocollective/ouro-preview.jpg" alt="OURO Collective" loading="lazy">
+              </a>
+              <div class="show-label">
+                <h2 class="show-title">OURO Collective</h2>
+                <p class="show-desc">Consolidated nine years of content into one focused site</p>
+              </div>
             </div>
+            <div class="show-tags"><span class="t">Brand</span><span class="t">Website</span><span class="t">Product Strategy</span></div>
           </div>
-          <div class="show-tags"><span class="t">UX/UI Research</span><span class="t">Product Design</span><span class="t">Product Strategy</span></div>
         </div>
 
       </div>
@@ -133,7 +136,7 @@
         <div class="about-body">
           <p>Systems thinking. Agile execution.</p>
           <p><strong><em>Product and brand designer</em></strong> backed by tech operations and over two decades in street dance. I bring <strong><em>operational discipline</em></strong> to every project, integrating AI workflows to <strong><em>accelerate product delivery</em></strong>.</p>
-          <a class="about-link" href="about.html" style="display:inline-block;margin-top:12px;font-size:var(--fs-sm);color:var(--accent);">Read full story →</a>
+          <a class="about-link" href="about.html">Read full story →</a>
         </div>
       </section>
 
@@ -220,34 +223,7 @@
     </script>
     <script src="contact.js"></script>
 <script src="main.js"></script>
-<script>
-(function(){
-  var showcase=document.getElementById('showcase');
-  var buttons=[].slice.call(document.querySelectorAll('.hero-tags .t'));
-  var projs=[].slice.call(showcase.querySelectorAll('.show-proj[data-tags]'));
-  var active=null;
-  buttons.forEach(function(btn){
-    btn.addEventListener('click',function(){
-      var filter=btn.getAttribute('data-filter');
-      if(active===filter || filter==='all'){
-        active=null;
-        buttons.forEach(function(b){b.classList.remove('active');});
-        buttons[0].classList.add('active');
-        showcase.classList.remove('filtered');
-        projs.forEach(function(p){(p.closest('.show-card')||p).classList.remove('filter-hidden');});
-      } else {
-        active=filter;
-        buttons.forEach(function(b){b.classList.toggle('active',b.getAttribute('data-filter')===filter);});
-        showcase.classList.add('filtered');
-        projs.forEach(function(p){
-          var tags=p.getAttribute('data-tags')||'';
-          (p.closest('.show-card')||p).classList.toggle('filter-hidden',tags.indexOf(filter)===-1);
-        });
-      }
-    });
-  });
-})();
-</script>
+<!-- filter JS moved to main.js -->
 <script>
 (function(){
   var slides = [].slice.call(document.querySelectorAll('.testimonial-slide'));

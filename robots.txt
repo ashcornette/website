@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Sitemap: https://ashcornette.com/sitemap.xml
+
+# Dead pages
+Disallow: /designhere.html
+Disallow: /sean-dawn.html
+Disallow: /index-backup.html
+Disallow: /japangradients.html

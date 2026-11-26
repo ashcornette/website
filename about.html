@@ -20,13 +20,25 @@
     <title>ash cornette · bio</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap">
     <link rel="stylesheet" href="style.css" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ash Cornette",
+      "url": "https://ashcornette.com",
+      "jobTitle": "UX/UI Designer & Product Designer",
+      "address": { "@type": "PostalAddress", "addressLocality": "Vancouver", "addressRegion": "BC", "addressCountry": "CA" },
+      "sameAs": ["https://www.linkedin.com/in/ashcornette/", "https://instagram.com/complexash"],
+      "knowsAbout": ["UX Design", "UI Design", "Product Design", "iOS Development", "SwiftUI", "Design Systems", "Accessibility", "WCAG"]
+    }
+    </script>
     <style>
       .about-page { padding: 0; }
-      .about-header { display: flex; align-items: center; justify-content: center; gap: 40px; margin-bottom: 32px; }
-      .about-header h1 { margin-bottom: 0; white-space: nowrap; }
-      .profile-photo { width: 240px; height: 240px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+      .about-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; min-height: 240px; }
+      .about-header h1 { margin: 0; padding: 0; line-height: 1; }
+      .profile-photo { width: 240px; height: 240px; border-radius: 22%; object-fit: cover; flex-shrink: 0; }
       @media (max-width: 600px) {
-        .about-header { flex-direction: column; gap: 20px; }
+        .about-header { flex-direction: column; gap: 24px; align-items: center; }
         .profile-photo { width: 160px; height: 160px; }
       }
       .about-page .section p a { text-decoration: underline; text-underline-offset: 3px; }
@@ -105,7 +117,14 @@
       .about-page h2 { font-size: clamp(24px, 4vw, 36px); font-weight: 600; letter-spacing: -0.02em; margin-bottom: 24px; }
       .doc .about-page .section h3 { font-size: var(--fs-base, 16px); font-weight: 600; margin-bottom: 8px; margin-top: 32px; }
       .doc .about-page .section h3:first-of-type { margin-top: 0; }
-      .about-page .section { margin-bottom: 48px; text-align: left; }
+      .about-page .section {
+        display: block;
+        grid-template-columns: none;
+        margin-bottom: 24px;
+        text-align: left;
+        padding: 32px;
+      }
+      .about-page .section > * { grid-column: auto; }
       .about-page .section p { font-size: var(--fs-base, 16px); line-height: 1.6; margin-bottom: 8px; color: var(--text, #2a2a28); text-align: left; margin-left: 0; margin-right: 0; max-width: none; }
       .about-page .section .muted { color: var(--muted, #8a8a86); }
       .about-page ul { list-style: none; padding: 0; margin: 0 0 16px 0; }
@@ -138,7 +157,9 @@
     <main id="main" tabindex="-1">
       <div class="about-page">
         <div class="about-header">
-          <img src="img/profile.jpg" alt="Ash Cornette" class="profile-photo">
+          
+<img src="img/profile.jpg" alt="Ash Cornette" class="profile-photo">
+
           <h1>Who is Ash?</h1>
         </div>
 
@@ -200,18 +221,28 @@
           <div class="competitions-row">
             <div class="competitions-list">
               <h3>Competitions</h3>
-              <p><strong>Elephant Graveyard | San Francisco (2024)</strong><br>Winner</p>
-              <p style="margin-top:24px"><strong>Vancouver Street Dance Festival | Vancouver (2018)</strong><br>Winner. Judge (2016).</p>
-              <p style="margin-top:24px"><strong>Portland Top2Bottom | Portland (2017)</strong><br>Winner. Finalist (2018).</p>
-              <p style="margin-top:24px"><strong>Northwest Sweet 16 | Seattle (2013, 2016)</strong><br>Winner. Finalist (2025).</p>
-              <p style="margin-top:24px"><strong>Massive Monkees Anniversary | Seattle (2015)</strong><br>Winner. Finalist (2016).</p>
+              <p><strong>Elephant Graveyard</strong> · San Francisco (2024)</p>
+              <p><strong>Vancouver Street Dance Festival</strong> · Vancouver (2018)</p>
+              <p><strong>Portland Top2Bottom</strong> · Portland (2017)</p>
+              <p><strong>Northwest Sweet 16</strong> · Seattle (2013, 2016)</p>
+              <p><strong>Massive Monkees Anniversary</strong> · Seattle (2015)</p>
             </div>
             <div class="scatter-gallery">
-              <img src="img/complexbreaks/complexbreaks-elephant-graveyard.jpeg" alt="Elephant Graveyard battle" class="scatter-img" style="--r:-3deg; --x:0%; --y:0%; --w:60%;">
-              <img src="img/complexbreaks/complexbreaks-newbirth-2025.jpeg" alt="Crew photo" class="scatter-img" style="--r:4deg; --x:45%; --y:-8%; --w:45%;">
-              <img src="img/complexbreaks/joatweb.jpeg" alt="Battle performance" class="scatter-img" style="--r:-2deg; --x:5%; --y:40%; --w:55%;">
-              <img src="img/complexbreaks/mmbanner.jpg" alt="Massive Monkees footwork battle" class="scatter-img" style="--r:5deg; --x:48%; --y:32%; --w:48%;">
-              <img src="img/complexbreaks/ouroroundhouse.JPG" alt="OURO Collective at Roundhouse" class="scatter-img" style="--r:-4deg; --x:20%; --y:65%; --w:50%;">
+              
+<img src="img/complexbreaks/complexbreaks-elephant-graveyard.jpeg" alt="Elephant Graveyard battle" class="scatter-img" style="--r:-3deg; --x:0%; --y:0%; --w:60%;">
+
+              
+<img src="img/complexbreaks/complexbreaks-newbirth-2025.jpeg" alt="Crew photo" class="scatter-img" style="--r:4deg; --x:45%; --y:-8%; --w:45%;">
+
+              
+<img src="img/complexbreaks/joatweb.jpeg" alt="Battle performance" class="scatter-img" style="--r:-2deg; --x:5%; --y:40%; --w:55%;">
+
+              
+<img src="img/complexbreaks/mmbanner.jpg" alt="Massive Monkees footwork battle" class="scatter-img" style="--r:5deg; --x:48%; --y:32%; --w:48%;">
+
+              
+<img src="img/complexbreaks/ouroroundhouse.JPG" alt="OURO Collective at Roundhouse" class="scatter-img" style="--r:-4deg; --x:20%; --y:65%; --w:50%;">
+
             </div>
           </div>
         </div>
@@ -224,7 +255,9 @@
     </main>
 
     <div class="lightbox" id="lightbox">
-      <img src="" alt="" id="lightboxImg">
+      
+<img src="" alt="" id="lightboxImg">
+
       <button class="lightbox-close" id="lightboxClose">&times;</button>
     </div>
 

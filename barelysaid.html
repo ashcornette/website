@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#eeedea" id="themeColor" />
+    <meta name="description" content="Barely Said: case study by Ash Cornette. A one-line journal — one sentence per day, barely more.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ash cornette · barely said">
+    <meta property="og:description" content="One line. One day. That's your journal.">
+    <meta property="og:url" content="https://ashcornette.com/barelysaid">
+    <meta property="og:image" content="https://ashcornette.com/img/barelysaid/hero.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://ashcornette.com/barelysaid">
+    <link rel="icon" href="img/profile.jpg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="img/profile.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>ash cornette · barely said</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="doc">
+    <a class="skip-link" href="#main">skip to content</a>
+    <div class="topbar">
+      <a class="pagetitle" href="index.html">Ash<span class="cursor">_</span></a>
+      <button class="hamburger" id="menuToggle" type="button" aria-label="toggle menu">=</button>
+      <div class="topbar-right" id="topbarMenu">
+        <a class="topbar-link" href="https://usebarely.com" target="_blank" rel="noopener noreferrer">Apps</a>
+        <a class="topbar-link" href="about.html">Bio</a>
+        <a class="topbar-link" href="mailto:hello@ashcornette.com">Contact</a>
+      </div>
+    </div>
+
+    <nav class="case-aside" id="caseAside" role="navigation" aria-label="Section navigation"><ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#goal">Goal</a></li>
+      <li><a href="#constraint">The Constraint</a></li>
+      <li><a href="#shipped">What Shipped</a></li>
+      <li><a href="#outcomes">Outcomes</a></li>
+      <li><a href="#lessons">Lessons</a></li>
+    </ul></nav>
+
+    <main id="main" tabindex="-1">
+      <div class="case-nav">
+        <a href="barely.html" class="back-link" aria-label="back">Back</a>
+        <div class="case-tags"><span class="t">Product Design</span><span class="t">Product Strategy</span></div>
+      </div>
+      <h1>One Line</h1>
+      <p class="role"><strong><em>Designed, built, and shipped</em></strong> a one-line journal for iOS. One sentence per day. No prompts, no streaks, no guilt.</p>
+
+      <div class="meta">
+        <span class="status">shipped · <a href="https://apps.apple.com/us/app/barely-said/id6817988905" class="status" target="_blank" rel="noopener noreferrer">live on the App Store</a></span>
+        <span>Product design & development</span>
+        <span>SwiftUI · iOS</span>
+        <span>2026</span>
+      </div>
+
+      <div class="cta-row top">
+        <a class="pill"  href="barely.html">← barely suite</a>
+        <a class="pill"  href="https://apps.apple.com/us/app/barely-said/id6817988905" target="_blank" rel="noopener noreferrer">Download Free ↗</a>
+      </div>
+
+      <div class="stats" style="grid-template-columns:1fr 1fr 1fr 1fr;">
+        <div class="stat-item"><span class="stat-val">Timeline</span> Sep 2026<br>3 weeks</div>
+        <div class="stat-item"><span class="stat-val">Skills</span>
+          <ul style="list-style:none;padding:0;margin:4px 0 0;">
+            <li>· Product design</li>
+            <li>· iOS development</li>
+            <li>· Design systems</li>
+            <li>· Accessibility</li>
+          </ul>
+        </div>
+        <div class="stat-item"><span class="stat-val">Team</span> Solo</div>
+        <div class="stat-item"><span class="stat-val">Tools</span>
+          <ul style="list-style:none;padding:0;margin:4px 0 0;">
+            <li>· Xcode</li>
+            <li>· SwiftUI</li>
+            <li>· Figma</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- OVERVIEW -->
+      <div class="section">
+        <div class="section-num" id="overview">Overview</div>
+        <p>Journaling apps assume you have something to say. Long-form entries, writing prompts, mood trackers, photo attachments, voice memos. The blank page stares at you and you close the app.</p>
+        <p>Most days, you don't have a paragraph. You have <strong><em>one sentence</em></strong>. "Good coffee with Sam." "Tough meeting but I handled it." "Nothing happened and that was fine."</p>
+        <div class="pull">The problem wasn't a lack of journaling tools. It was a lack of journals that respected how little you need to say.</div>
+      </div>
+
+      <!-- GOAL -->
+      <div class="section">
+        <div class="section-num" id="goal">Goal</div>
+        <p>Design, build, and ship a journal that asks for <strong><em>one line per day</em></strong>. No prompts. No streaks. No guilt for missing a day. Prove that the smallest possible entry is the one people actually write.</p>
+      </div>
+
+      <!-- THE CONSTRAINT -->
+      <div class="section">
+        <div class="section-num" id="constraint">The Constraint</div>
+        <p>80 characters. One emoji. One day. <strong><em>That's your journal.</em></strong></p>
+        <p>Three layers, each one barely enough:</p>
+        <ul>
+          <li><strong>One line.</strong> 80-character limit. Forces you to say what matters, not everything that happened.</li>
+          <li><strong>One emoji.</strong> Pick a day marker. Not a mood score. Not a rating. Just a symbol that feels right.</li>
+          <li><strong>Calendar view.</strong> A month at a glance. Emojis dot the days you wrote. Tap any day to read or edit.</li>
+        </ul>
+      </div>
+
+      <!-- WHAT SHIPPED -->
+      <div class="section">
+        <div class="section-num" id="shipped">What Shipped</div>
+
+        <h3>One line, one emoji</h3>
+        <div class="app-gallery" id="appGallery">
+          <div class="app-gallery-track" id="galleryTrack">
+            <img src="img/barelysaid/Said_Screenshot_01_%E2%80%94_one_line.jpg" alt="App Store screenshot: one line. barely more." loading="lazy">
+            <img src="img/barelysaid/Said_Screenshot_02_%E2%80%94_your_week.jpg" alt="App Store screenshot: your week." loading="lazy">
+            <img src="img/barelysaid/Said_Screenshot_03_%E2%80%94_tap_to_write.jpg" alt="App Store screenshot: tap to write." loading="lazy">
+            <img src="img/barelysaid/Said_Screenshot_04_%E2%80%94_11_themes.jpg" alt="App Store screenshot: 11 themes." loading="lazy">
+            <img src="img/barelysaid/Said_Screenshot_06_%E2%80%94_barely_enough.jpg" alt="App Store screenshot: barely enough." loading="lazy">
+            <img src="img/barelysaid/Said_Screenshot_07_%E2%80%94_your_calendar.jpg" alt="App Store screenshot: your calendar." loading="lazy">
+          </div>
+        </div>
+        <div class="gallery-nav">
+          <button class="gallery-arrow gallery-left" id="galleryLeft" aria-label="scroll left"></button>
+          <button class="gallery-arrow gallery-right" id="galleryRight" aria-label="scroll right"></button>
+        </div>
+        <p>Open the app. See this week. Tap today. <strong><em>Pick an emoji, write one sentence.</em></strong> Done button saves and dismisses. Under 10 seconds.</p>
+      </div>
+
+      <div class="section">
+        <h3>Calendar</h3>
+        <div class="screens">
+          <figure>
+            <img src="img/barelysaid/said-month.jpg" alt="Barely Said monthly calendar view with emoji dots marking written days" loading="lazy">
+            <figcaption>your month, dotted with emojis</figcaption>
+          </figure>
+          <figure>
+            <img src="img/barelysaid/Said%20Screenshot%2007%20%E2%80%94%20your%20history..png" alt="Barely Said history view showing past entries" loading="lazy">
+            <figcaption>scroll back through your history</figcaption>
+          </figure>
+        </div>
+        <p>Month view with <strong><em>emoji dots</em></strong> on days you wrote. Spacious 38pt cells, rounded corners. Tap any day to read or write. Swipe between months.</p>
+      </div>
+
+      <div class="pull">Not mood tracking. Not a rating. Just a symbol that feels right.</div>
+
+      <div class="section">
+        <h3>Widgets and Duo</h3>
+        <div class="screens">
+          <figure>
+            <img src="img/barelysaid/said-widgets.jpg" alt="Barely Said home screen and lock screen widgets" loading="lazy">
+            <figcaption>your day, everywhere</figcaption>
+          </figure>
+          <figure>
+            <img src="img/barelysaid/Said%20Screenshot%2002%20%E2%80%94%20your%20day..png" alt="Barely Said day view with emoji and entry" loading="lazy">
+            <figcaption>one emoji, one line</figcaption>
+          </figure>
+        </div>
+        <p>Small widget shows today's emoji and entry count. <strong><em>Calendar widget</em></strong> puts the month view right on the home screen. iPhone Duo layout splits calendar left, entry right.</p>
+      </div>
+
+      <div class="section">
+        <div class="screens screens-bare">
+          <figure>
+            <img src="img/barelysaid/said-main.png" alt="Barely Said week view with entries and monthly calendar on iPhone" loading="lazy">
+            <figcaption>your week + calendar</figcaption>
+          </figure>
+          <figure>
+            <img src="img/barelysaid/said-onboarding.png" alt="Barely Said onboarding screen: barely said, one line barely more" loading="lazy">
+            <figcaption>barely said.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Pro</h3>
+        <p>Free: write, read, 4 themes. <strong><em>$4.99 one-time</em></strong> opens 7 premium themes, Search, On This Day, and Export. On This Day shows what you wrote on this date before. Search finds entries by text. Export makes a plain-text file with emoji labels.</p>
+      </div>
+
+      <!-- OUTCOMES -->
+      <div class="section">
+        <div class="section-num" id="outcomes">Outcomes</div>
+        <div class="compare">
+          <div class="compare-header"><span>scope</span><span>detail</span></div>
+          <div class="compare-row"><span>Timeline</span><span>Three weeks, start to App Store</span></div>
+          <div class="compare-row"><span>Role</span><span>Solo: design, SwiftUI, submission</span></div>
+          <div class="compare-row"><span>Platform</span><span>iOS 26, SwiftUI, SwiftData</span></div>
+          <div class="compare-row"><span>Shipped</span><span>Calendar, emoji markers, search, On This Day, export, widgets, Duo</span></div>
+          <div class="compare-row"><span>Accessibility</span><span>WCAG AAA, 48pt+ targets, VoiceOver on calendar</span></div>
+          <div class="compare-row"><span>Price</span><span>Free + $4.99 Pro. No subscription.</span></div>
+        </div>
+      </div>
+
+      <!-- LESSONS -->
+      <div class="section">
+        <div class="section-num" id="lessons">Lessons</div>
+        <h4>Streaks were the first thing cut</h4>
+        <p>Every journaling app has streaks. They work for about a week. Then you miss a day, the streak breaks, and you feel bad enough to stop entirely. Said has no streak counter. Miss a day and the app says nothing. You come back when you have something to say.</p>
+
+        <div class="pull">Started at 140 characters. Too long. People wrote filler. 80 forced honesty.</div>
+
+        <h4>80 characters was tested, not guessed</h4>
+        <p>Started at 140 (like old Twitter). People padded sentences to fill the space. Dropped to 100, still too generous. 80 forced compression: you say what actually matters. The best entries turned out to be 40-60 characters long.</p>
+        <h4>The most competitive category</h4>
+        <p>DayGram, Little Memory, Day One, Momento. Said walked into the most crowded room of the three apps. The differentiation is the ceiling: those apps grow into full journals. Said never will. One line. That's it.</p>
+      </div>
+
+      <div class="pull">One line per day. That's enough to remember a life.</div>
+
+      <div class="cta-row">
+        <a class="pill"  href="https://apps.apple.com/us/app/barely-said/id6817988905" target="_blank" rel="noopener noreferrer">Download Free ↗</a>
+        <a class="pill"  href="barely.html">← barely suite</a>
+      </div>
+      <a href="barely.html" class="next-project"><div><div class="next-project-label">Next project</div><div class="next-project-title">Barely Suite</div></div><span class="next-project-arrow">→</span></a>
+    </main>
+
+    <footer class="workfoot">
+      <a class="pagetitle" href="index.html">Ash Cornette</a>
+      <span class="foot-right">
+        <a class="foot-social" href="https://usebarely.com" target="_blank" rel="noopener noreferrer">Apps</a>
+        <a class="foot-social" href="https://instagram.com/complexash" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a class="foot-social" href="https://www.linkedin.com/in/ashcornette/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="#main" class="scroll-top" aria-label="scroll to top">↑</a>
+      </span>
+    </footer>
+
+    <script>
+(function(){
+  var track = document.getElementById('galleryTrack');
+  var left = document.getElementById('galleryLeft');
+  var right = document.getElementById('galleryRight');
+  if(!track||!left||!right) return;
+  var scrollAmt = 300;
+  left.addEventListener('click', function(){ track.parentElement.scrollBy({left:-scrollAmt,behavior:'smooth'}); });
+  right.addEventListener('click', function(){ track.parentElement.scrollBy({left:scrollAmt,behavior:'smooth'}); });
+})();
+</script>
+    <script src="contact.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
