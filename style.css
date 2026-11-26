@@ -48,8 +48,6 @@
   --col: 1200px;
   --pad: 56px;
 }
-
-
 /* ── 2. BASE + TYPE ── */
 html {
   background: var(--bg);
@@ -405,8 +403,6 @@ footer {
 }
 footer a { font-size: var(--fs-base); color: var(--muted); transition: color 0.15s ease; }
 footer a:hover { color: var(--text); text-decoration: none; }
-
-
 /* CTA row — horizontal pill group */
 .cta-row { display: flex; flex-wrap: wrap; gap: 10px; }
 .cta-row.top { margin-bottom: 2rem; }
@@ -1015,8 +1011,6 @@ a:focus-visible, button:focus-visible {
 
 /* ── 8b. complexbreaks — photo screens are cropped ── */
 .complexbreaks .screens img { aspect-ratio: 4 / 3; object-fit: cover; }
-
-
 /* Denim Tears-style visual gallery */
 .cb-gallery {
   margin: 40px 0;
@@ -1373,8 +1367,6 @@ a.pagetitle:hover { text-decoration: none; }
 }
 .doc .workfoot a { font-size: var(--fs-sm); letter-spacing: -0.01em; color: var(--text); transition: color 0.15s ease; }
 .doc .workfoot a:hover { color: var(--muted); text-decoration: none; }
-
-
 /* about section */
 .work .about {
   margin: 16px auto 0;
@@ -1569,8 +1561,6 @@ a.pagetitle:hover { text-decoration: none; }
 @media (prefers-reduced-motion: reduce) {
   .testimonial-slide.active { animation: none; }
 }
-
-
 .work .workfoot {
   display: flex; justify-content: space-between; align-items: center; gap: 20px;
   max-width: 1100px; margin: 80px auto 0; padding: 24px 0 64px;
@@ -1653,8 +1643,6 @@ a.pagetitle:hover { text-decoration: none; }
 .contact-alt { margin-top: 22px; font-size: var(--fs-sm); color: var(--muted); }
 .contact-alt a { color: var(--text); }
 .contact-alt a:hover { color: var(--text); text-decoration: none; }
-
-
 /* ── 8f. SHOWCASE — full-width project sections (replacing accordion) ── */
 
 /* intro line — short about below tagline */
@@ -1898,8 +1886,6 @@ a.pagetitle:hover { text-decoration: none; }
     object-fit: cover;
   }
 }
-
-
 /* labels overlay on media */
 .work .show-label {
   position: absolute;
@@ -1994,8 +1980,6 @@ a.pagetitle:hover { text-decoration: none; }
   margin: 0;
 }
 
-
-
 /* ══════════════════════════════════════════════════════════════════════
    9. RESPONSIVE
    ══════════════════════════════════════════════════════════════════════ */
@@ -2007,7 +1991,7 @@ a.pagetitle:hover { text-decoration: none; }
   .website .opts { max-width: none; }
   .website .field .in { max-width: none; }
   .website .contact-grid { grid-template-columns: 1fr; max-width: none; }
-  .work .about { margin: 12px 0 0; padding: 24px 20px; }
+  
   .work .about-body { max-width: 100%; }
   .cb-two { grid-template-columns: 1fr; }
   .work .show-label { flex-direction: column; gap: 4px; }
