@@ -1956,6 +1956,12 @@ a.pagetitle:hover { text-decoration: none; }
     background: linear-gradient(transparent, rgba(0,0,0,0.7)) !important;
   }
 }
+@media (max-width: 600px) {
+  .show-label { padding: 20px; }
+  .show-title { font-size: 18px; }
+  .show-desc { font-size: 13px; }
+  .show-grid-row { grid-template-columns: 1fr; gap: 12px; }
+}
 .work .show-tags .t {
   font-size: 11px;
   padding: 3px 10px;
